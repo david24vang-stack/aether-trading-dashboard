@@ -1,0 +1,283 @@
+{
+  "providers": [
+    {
+      "name": "Realtime Finance Data",
+      "source_id": "finance",
+      "status": "CONNECTED",
+      "type": "Market Data \u2014 Stocks/ETFs/Crypto/Macro",
+      "capabilities": [
+        "Real-time quotes",
+        "OHLCV history",
+        "Earnings data",
+        "Company financials",
+        "Analyst estimates",
+        "Macro indicators",
+        "Institutional holders",
+        "Insider transactions",
+        "ETF holdings",
+        "Company profiles",
+        "Market gainers/losers"
+      ],
+      "symbols_supported": "Stocks, ETFs, Crypto, Indexes, Commodities, Forex",
+      "paper_trading": false,
+      "live_trading": false,
+      "data_feed": true,
+      "url": "https://www.perplexity.ai/finance",
+      "color": "#00d4ff"
+    },
+    {
+      "name": "Alpaca",
+      "source_id": "alpaca__pipedream",
+      "status": "CONNECTED",
+      "type": "Broker \u2014 Paper & Live Trading",
+      "capabilities": [
+        "Account info",
+        "Place orders",
+        "List positions",
+        "List orders",
+        "Close positions"
+      ],
+      "symbols_supported": "US Stocks, ETFs",
+      "paper_trading": true,
+      "live_trading": true,
+      "data_feed": false,
+      "account_id": "PA3Z2MDCLLFZ",
+      "is_paper": true,
+      "url": "https://alpaca.markets",
+      "color": "#00ff88"
+    },
+    {
+      "name": "OpticOdds",
+      "source_id": "opticodds",
+      "status": "CONNECTED",
+      "type": "Market Data \u2014 Sports/Event Odds",
+      "capabilities": [
+        "Real-time odds",
+        "Event data",
+        "Sports market data"
+      ],
+      "symbols_supported": "Sports events, Futures markets",
+      "paper_trading": false,
+      "live_trading": false,
+      "data_feed": true,
+      "url": "https://opticodds.com",
+      "color": "#ff6b35"
+    },
+    {
+      "name": "Interactive Brokers (IBKR)",
+      "source_id": "interactive_brokers_ibkr_v2",
+      "status": "PENDING_AUTH",
+      "type": "Broker \u2014 Full-Service Trading",
+      "capabilities": [
+        "Stock trading",
+        "Options",
+        "Futures",
+        "Forex",
+        "Bonds",
+        "Mutual funds",
+        "International markets"
+      ],
+      "symbols_supported": "Stocks, Options, Futures, Forex, Bonds, Funds \u2014 150+ exchanges",
+      "paper_trading": true,
+      "live_trading": true,
+      "data_feed": true,
+      "url": "https://www.interactivebrokers.com",
+      "color": "#ff0000"
+    },
+    {
+      "name": "Finnhub",
+      "source_id": "finnhub__pipedream",
+      "status": "PENDING_AUTH",
+      "type": "Market Data \u2014 Multi-Asset",
+      "capabilities": [
+        "Stock data",
+        "Forex",
+        "Crypto",
+        "Company fundamentals",
+        "Alternative data",
+        "Economic data",
+        "News sentiment"
+      ],
+      "symbols_supported": "Stocks, Forex, Crypto",
+      "paper_trading": false,
+      "live_trading": false,
+      "data_feed": true,
+      "url": "https://finnhub.io",
+      "color": "#4caf50"
+    },
+    {
+      "name": "CoinMarketCap",
+      "source_id": "coinmarketcap__pipedream",
+      "status": "PENDING_AUTH",
+      "type": "Market Data \u2014 Cryptocurrency",
+      "capabilities": [
+        "Crypto prices",
+        "Market cap rankings",
+        "Exchange data",
+        "Global metrics",
+        "Blockchain stats"
+      ],
+      "symbols_supported": "All cryptocurrencies",
+      "paper_trading": false,
+      "live_trading": false,
+      "data_feed": true,
+      "url": "https://coinmarketcap.com",
+      "color": "#f7931a"
+    },
+    {
+      "name": "Plaid",
+      "source_id": "plaid",
+      "status": "PENDING_AUTH",
+      "type": "Banking \u2014 Account Aggregation",
+      "capabilities": [
+        "Bank account data",
+        "Portfolio balances",
+        "Transactions",
+        "Investment holdings",
+        "Liabilities"
+      ],
+      "symbols_supported": "Linked bank/brokerage accounts",
+      "paper_trading": false,
+      "live_trading": false,
+      "data_feed": true,
+      "url": "https://plaid.com",
+      "color": "#0a85ff"
+    },
+    {
+      "name": "Robinhood",
+      "source_id": "robinhood",
+      "status": "PENDING_AUTH",
+      "type": "Broker \u2014 Retail Trading",
+      "capabilities": [
+        "Stock trading",
+        "Options",
+        "Crypto",
+        "Fractional shares",
+        "Dividends"
+      ],
+      "symbols_supported": "US Stocks, Options, Crypto",
+      "paper_trading": false,
+      "live_trading": true,
+      "data_feed": true,
+      "url": "https://robinhood.com",
+      "color": "#00c805"
+    },
+    {
+      "name": "AlphaCreek",
+      "source_id": "alphacreek",
+      "status": "PENDING_AUTH",
+      "type": "AI Trading \u2014 Algorithmic",
+      "capabilities": [
+        "Algorithmic trading signals",
+        "Market analysis",
+        "Strategy execution"
+      ],
+      "symbols_supported": "Multi-asset",
+      "paper_trading": true,
+      "live_trading": true,
+      "data_feed": true,
+      "url": "https://alphacreek.ai",
+      "color": "#9c27b0"
+    },
+    {
+      "name": "CB Insights",
+      "source_id": "cbinsights_mcp_cashmere",
+      "status": "CONNECTED",
+      "type": "Research \u2014 Market Intelligence",
+      "capabilities": [
+        "Startup data",
+        "Market research",
+        "Investor data",
+        "Industry trends"
+      ],
+      "symbols_supported": "Private companies, Startups",
+      "paper_trading": false,
+      "live_trading": false,
+      "data_feed": true,
+      "url": "https://www.cbinsights.com",
+      "color": "#ff9800"
+    },
+    {
+      "name": "PitchBook",
+      "source_id": "pitchbook_mcp_cashmere",
+      "status": "CONNECTED",
+      "type": "Research \u2014 Private Market Data",
+      "capabilities": [
+        "Private company valuations",
+        "Deal data",
+        "Fund performance",
+        "Limited partner data"
+      ],
+      "symbols_supported": "Private markets, VC/PE deals",
+      "paper_trading": false,
+      "live_trading": false,
+      "data_feed": true,
+      "url": "https://pitchbook.com",
+      "color": "#e91e63"
+    },
+    {
+      "name": "Statista",
+      "source_id": "statista_mcp_cashmere",
+      "status": "CONNECTED",
+      "type": "Research \u2014 Market Statistics",
+      "capabilities": [
+        "Industry statistics",
+        "Market forecasts",
+        "Consumer data",
+        "Survey data"
+      ],
+      "symbols_supported": "All industries/markets",
+      "paper_trading": false,
+      "live_trading": false,
+      "data_feed": true,
+      "url": "https://statista.com",
+      "color": "#00bcd4"
+    },
+    {
+      "name": "GitHub",
+      "source_id": "github_mcp_direct",
+      "status": "CONNECTED",
+      "type": "Infrastructure \u2014 Code & Deployment",
+      "capabilities": [
+        "Repository management",
+        "GitHub Pages hosting",
+        "CI/CD"
+      ],
+      "symbols_supported": "N/A",
+      "paper_trading": false,
+      "live_trading": false,
+      "data_feed": false,
+      "url": "https://github.com",
+      "color": "#ffffff"
+    },
+    {
+      "name": "Vercel",
+      "source_id": "vercel",
+      "status": "CONNECTED",
+      "type": "Infrastructure \u2014 Web Deployment",
+      "capabilities": [
+        "Web hosting",
+        "Edge deployment",
+        "Preview deployments"
+      ],
+      "symbols_supported": "N/A",
+      "paper_trading": false,
+      "live_trading": false,
+      "data_feed": false,
+      "url": "https://vercel.com",
+      "color": "#ffffff"
+    }
+  ],
+  "summary": {
+    "total_providers": 14,
+    "connected": 8,
+    "pending_auth": 6,
+    "brokers": 4,
+    "data_feeds": 9,
+    "research": 3,
+    "infrastructure": 2,
+    "paper_trading_capable": 4,
+    "live_trading_capable": 4
+  },
+  "last_updated": "2026-08-18T21:41:59.054170+00:00"
+}

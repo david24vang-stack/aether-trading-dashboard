@@ -1,0 +1,109 @@
+{
+  "provider": "OpticOdds",
+  "league": "NFL",
+  "fetched_at": "2026-08-18T21:42:12.154127+00:00",
+  "total_markets": 65,
+  "markets": [
+    {
+      "name": "Super Bowl Winner",
+      "type": "TEAM",
+      "start_date": "2027-02-14T23:00:00Z"
+    },
+    {
+      "name": "MVP Winner",
+      "type": "PLAYER",
+      "start_date": "2027-02-08T23:30:00Z"
+    },
+    {
+      "name": "AFC Top Seed",
+      "type": "TEAM",
+      "start_date": "2026-09-10T00:20:00Z"
+    },
+    {
+      "name": "NFC Top Seed",
+      "type": "TEAM",
+      "start_date": "2026-09-06T17:00:00Z"
+    },
+    {
+      "name": "AFC Conference Winner",
+      "type": "TEAM",
+      "start_date": "2027-01-10T11:00:00Z"
+    },
+    {
+      "name": "NFC Conference Winner",
+      "type": "TEAM",
+      "start_date": "2027-02-14T23:00:00Z"
+    },
+    {
+      "name": "Offensive Player Of The Year",
+      "type": "PLAYER",
+      "start_date": "2026-09-10T00:20:00Z"
+    },
+    {
+      "name": "Defensive Player Of The Year",
+      "type": "PLAYER",
+      "start_date": "2027-01-10T12:30:00Z"
+    },
+    {
+      "name": "Offensive Rookie Of The Year",
+      "type": "PLAYER",
+      "start_date": "2026-09-10T00:20:00Z"
+    },
+    {
+      "name": "Defensive Rookie Of The Year",
+      "type": "PLAYER",
+      "start_date": "2027-01-10T12:40:00Z"
+    },
+    {
+      "name": "Comeback Player Of The Year",
+      "type": "PLAYER",
+      "start_date": "2026-09-10T00:20:00Z"
+    },
+    {
+      "name": "Coach Of The Year",
+      "type": "UNKNOWN",
+      "start_date": "2027-01-10T13:00:00Z"
+    },
+    {
+      "name": "Passing Yards Leader",
+      "type": "PLAYER",
+      "start_date": "2026-11-10T21:36:16Z"
+    },
+    {
+      "name": "Rushing Yards Leader",
+      "type": "PLAYER",
+      "start_date": "2026-09-09T17:00:00Z"
+    },
+    {
+      "name": "Receiving Yards Leader",
+      "type": "PLAYER",
+      "start_date": "2027-01-10T13:45:00Z"
+    },
+    {
+      "name": "Passing Touchdowns Leader",
+      "type": "PLAYER",
+      "start_date": "2026-09-09T17:00:00Z"
+    },
+    {
+      "name": "Rushing Touchdowns Leader",
+      "type": "PLAYER",
+      "start_date": "2027-01-11T23:00:00Z"
+    },
+    {
+      "name": "Best Regular Season Record",
+      "type": "TEAM",
+      "start_date": "2026-09-10T00:20:00Z"
+    },
+    {
+      "name": "Worst Regular Season Record",
+      "type": "TEAM",
+      "start_date": "2027-02-15T23:59:00Z"
+    },
+    {
+      "name": "To Make The Playoffs",
+      "type": "TEAM",
+      "start_date": "2027-02-14T23:31:00Z"
+    }
+  ],
+  "note": "Event/futures market data from OpticOdds. Not financial advice."
+}
