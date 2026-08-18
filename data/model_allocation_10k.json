@@ -1,0 +1,113 @@
+{
+  "total_models": 10000,
+  "base_types": 20,
+  "allocation": [
+    {
+      "base_type": "Trend_SMA",
+      "models": 500,
+      "variations": 500
+    },
+    {
+      "base_type": "Mean_Reversion",
+      "models": 500,
+      "variations": 500
+    },
+    {
+      "base_type": "Volatility_EWMA",
+      "models": 500,
+      "variations": 500
+    },
+    {
+      "base_type": "Momentum_RSI",
+      "models": 500,
+      "variations": 500
+    },
+    {
+      "base_type": "Sentiment_Volume",
+      "models": 500,
+      "variations": 500
+    },
+    {
+      "base_type": "Quantum_Fourier",
+      "models": 500,
+      "variations": 500
+    },
+    {
+      "base_type": "Fractal_Calculus",
+      "models": 500,
+      "variations": 500
+    },
+    {
+      "base_type": "Correlation_Eigen",
+      "models": 500,
+      "variations": 500
+    },
+    {
+      "base_type": "Kernel_Consensus",
+      "models": 500,
+      "variations": 500
+    },
+    {
+      "base_type": "Neural_LSTM",
+      "models": 500,
+      "variations": 500
+    },
+    {
+      "base_type": "Transformer_Attn",
+      "models": 500,
+      "variations": 500
+    },
+    {
+      "base_type": "Reinforcement_Q",
+      "models": 500,
+      "variations": 500
+    },
+    {
+      "base_type": "GAN_Predictor",
+      "models": 500,
+      "variations": 500
+    },
+    {
+      "base_type": "Bayesian_Inf",
+      "models": 500,
+      "variations": 500
+    },
+    {
+      "base_type": "Diffusion_Proc",
+      "models": 500,
+      "variations": 500
+    },
+    {
+      "base_type": "Graph_Neural",
+      "models": 500,
+      "variations": 500
+    },
+    {
+      "base_type": "Attention_LSTM",
+      "models": 500,
+      "variations": 500
+    },
+    {
+      "base_type": "Autoencoder_Sig",
+      "models": 500,
+      "variations": 500
+    },
+    {
+      "base_type": "Wavelet Decomp",
+      "models": 500,
+      "variations": 500
+    },
+    {
+      "base_type": "Fuzzy_Logic",
+      "models": 500,
+      "variations": 500
+    }
+  ],
+  "sampling": {
+    "per_cycle": 500,
+    "extrapolation": 20,
+    "method": "stratified"
+  },
+  "simulated": true,
+  "model_prediction": true
+}

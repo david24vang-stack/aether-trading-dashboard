@@ -1,0 +1,43 @@
+{
+  "trades": [
+    {
+      "symbol": "SPY",
+      "side": "buy",
+      "qty": 1,
+      "type": "market",
+      "signal_source": "continuous_engine_0.57",
+      "model_consensus": "47/100 buy",
+      "swarm_consensus": "buy",
+      "timestamp": "2026-08-18T20:39:49.973429+00:00",
+      "paper_trade": true,
+      "simulated": true
+    },
+    {
+      "symbol": "QQQ",
+      "side": "buy",
+      "qty": 1,
+      "type": "market",
+      "signal_source": "continuous_engine_0.57",
+      "model_consensus": "47/100 buy",
+      "swarm_consensus": "buy",
+      "timestamp": "2026-08-18T20:39:49.973434+00:00",
+      "paper_trade": true,
+      "simulated": true
+    },
+    {
+      "symbol": "TLT",
+      "side": "buy",
+      "qty": 1,
+      "type": "market",
+      "signal_source": "continuous_engine_0.57",
+      "model_consensus": "47/100 buy",
+      "swarm_consensus": "buy",
+      "timestamp": "2026-08-18T20:39:49.973438+00:00",
+      "paper_trade": true,
+      "simulated": true
+    }
+  ],
+  "total_trades": 3,
+  "cycle": 5,
+  "simulated": true
+}

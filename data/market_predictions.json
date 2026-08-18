@@ -1,0 +1,453 @@
+{
+  "timestamp": "2026-08-18T04:28:57.533239",
+  "symbols_scanned": 20,
+  "symbols_with_data": 20,
+  "predictions": [
+    {
+      "symbol": "AAPL",
+      "name": "Apple Inc.",
+      "asset_class": "stock",
+      "current_price": 305.93,
+      "direction": "BEARISH",
+      "confidence": 0.54,
+      "target": 296.75,
+      "stop": 312.05,
+      "bull_count": 0,
+      "bear_count": 2,
+      "models": {
+        "MA_Crossover": "BEARISH",
+        "Momentum_RSI_MACD": "NEUTRAL",
+        "MeanReversion_Bollinger": "NEUTRAL",
+        "LinearRegression": "BEARISH",
+        "RandomForest": "NEUTRAL"
+      }
+    },
+    {
+      "symbol": "MSFT",
+      "name": "Microsoft Corporation",
+      "asset_class": "stock",
+      "current_price": 495.4,
+      "direction": "BULLISH",
+      "confidence": 0.715,
+      "target": 510.26,
+      "stop": 485.49,
+      "bull_count": 3,
+      "bear_count": 0,
+      "models": {
+        "MA_Crossover": "BULLISH",
+        "Momentum_RSI_MACD": "NEUTRAL",
+        "MeanReversion_Bollinger": "NEUTRAL",
+        "LinearRegression": "BULLISH",
+        "RandomForest": "BULLISH"
+      }
+    },
+    {
+      "symbol": "NVDA",
+      "name": "NVIDIA Corporation",
+      "asset_class": "stock",
+      "current_price": 225.16,
+      "direction": "BULLISH",
+      "confidence": 0.726,
+      "target": 231.91,
+      "stop": 220.66,
+      "bull_count": 3,
+      "bear_count": 0,
+      "models": {
+        "MA_Crossover": "BULLISH",
+        "Momentum_RSI_MACD": "BULLISH",
+        "MeanReversion_Bollinger": "NEUTRAL",
+        "LinearRegression": "BULLISH",
+        "RandomForest": "NEUTRAL"
+      }
+    },
+    {
+      "symbol": "GOOGL",
+      "name": "Alphabet Inc.",
+      "asset_class": "stock",
+      "current_price": 345.9,
+      "direction": "NEUTRAL",
+      "confidence": 0.427,
+      "target": 345.9,
+      "stop": 345.9,
+      "bull_count": 1,
+      "bear_count": 1,
+      "models": {
+        "MA_Crossover": "BULLISH",
+        "Momentum_RSI_MACD": "NEUTRAL",
+        "MeanReversion_Bollinger": "NEUTRAL",
+        "LinearRegression": "NEUTRAL",
+        "RandomForest": "BEARISH"
+      }
+    },
+    {
+      "symbol": "AMZN",
+      "name": "Amazon.com, Inc.",
+      "asset_class": "stock",
+      "current_price": 262.65,
+      "direction": "BULLISH",
+      "confidence": 0.518,
+      "target": 270.53,
+      "stop": 257.4,
+      "bull_count": 2,
+      "bear_count": 0,
+      "models": {
+        "MA_Crossover": "BULLISH",
+        "Momentum_RSI_MACD": "NEUTRAL",
+        "MeanReversion_Bollinger": "NEUTRAL",
+        "LinearRegression": "BULLISH",
+        "RandomForest": "NEUTRAL"
+      }
+    },
+    {
+      "symbol": "META",
+      "name": "Meta Platforms, Inc.",
+      "asset_class": "stock",
+      "current_price": 589.85,
+      "direction": "BEARISH",
+      "confidence": 0.565,
+      "target": 572.15,
+      "stop": 601.65,
+      "bull_count": 1,
+      "bear_count": 2,
+      "models": {
+        "MA_Crossover": "BEARISH",
+        "Momentum_RSI_MACD": "BULLISH",
+        "MeanReversion_Bollinger": "NEUTRAL",
+        "LinearRegression": "NEUTRAL",
+        "RandomForest": "BEARISH"
+      }
+    },
+    {
+      "symbol": "TSLA",
+      "name": "Tesla, Inc.",
+      "asset_class": "stock",
+      "current_price": 342.27,
+      "direction": "NEUTRAL",
+      "confidence": 0.36,
+      "target": 342.27,
+      "stop": 342.27,
+      "bull_count": 1,
+      "bear_count": 2,
+      "models": {
+        "MA_Crossover": "BEARISH",
+        "Momentum_RSI_MACD": "BULLISH",
+        "MeanReversion_Bollinger": "NEUTRAL",
+        "LinearRegression": "NEUTRAL",
+        "RandomForest": "BEARISH"
+      }
+    },
+    {
+      "symbol": "SPY",
+      "name": "State Street SPDR S&P 500 ETF T",
+      "asset_class": "stock",
+      "current_price": 776.34,
+      "direction": "BULLISH",
+      "confidence": 0.535,
+      "target": 799.63,
+      "stop": 760.81,
+      "bull_count": 2,
+      "bear_count": 1,
+      "models": {
+        "MA_Crossover": "BULLISH",
+        "Momentum_RSI_MACD": "BEARISH",
+        "MeanReversion_Bollinger": "NEUTRAL",
+        "LinearRegression": "BULLISH",
+        "RandomForest": "NEUTRAL"
+      }
+    },
+    {
+      "symbol": "QQQ",
+      "name": "Invesco QQQ Trust, Series 1",
+      "asset_class": "stock",
+      "current_price": 731.07,
+      "direction": "BULLISH",
+      "confidence": 0.492,
+      "target": 753.0,
+      "stop": 716.45,
+      "bull_count": 2,
+      "bear_count": 1,
+      "models": {
+        "MA_Crossover": "BULLISH",
+        "Momentum_RSI_MACD": "BEARISH",
+        "MeanReversion_Bollinger": "NEUTRAL",
+        "LinearRegression": "BULLISH",
+        "RandomForest": "NEUTRAL"
+      }
+    },
+    {
+      "symbol": "IWM",
+      "name": "iShares Russell 2000 Index Fund",
+      "asset_class": "stock",
+      "current_price": 305.09,
+      "direction": "BULLISH",
+      "confidence": 0.505,
+      "target": 314.24,
+      "stop": 298.99,
+      "bull_count": 2,
+      "bear_count": 2,
+      "models": {
+        "MA_Crossover": "BULLISH",
+        "Momentum_RSI_MACD": "NEUTRAL",
+        "MeanReversion_Bollinger": "BEARISH",
+        "LinearRegression": "BULLISH",
+        "RandomForest": "BEARISH"
+      }
+    },
+    {
+      "symbol": "^GSPC",
+      "name": "S&P 500",
+      "asset_class": "index",
+      "current_price": 7785.76,
+      "direction": "BULLISH",
+      "confidence": 0.661,
+      "target": 8019.33,
+      "stop": 7630.04,
+      "bull_count": 3,
+      "bear_count": 1,
+      "models": {
+        "MA_Crossover": "BULLISH",
+        "Momentum_RSI_MACD": "BEARISH",
+        "MeanReversion_Bollinger": "NEUTRAL",
+        "LinearRegression": "BULLISH",
+        "RandomForest": "BULLISH"
+      }
+    },
+    {
+      "symbol": "^DJI",
+      "name": "Dow Jones Industrial Average",
+      "asset_class": "index",
+      "current_price": 53732.41,
+      "direction": "BULLISH",
+      "confidence": 0.588,
+      "target": 55344.38,
+      "stop": 52657.76,
+      "bull_count": 2,
+      "bear_count": 2,
+      "models": {
+        "MA_Crossover": "BULLISH",
+        "Momentum_RSI_MACD": "BEARISH",
+        "MeanReversion_Bollinger": "NEUTRAL",
+        "LinearRegression": "BULLISH",
+        "RandomForest": "BEARISH"
+      }
+    },
+    {
+      "symbol": "^IXIC",
+      "name": "NASDAQ Composite",
+      "asset_class": "index",
+      "current_price": 26729.16,
+      "direction": "BULLISH",
+      "confidence": 0.732,
+      "target": 27531.03,
+      "stop": 26194.58,
+      "bull_count": 3,
+      "bear_count": 0,
+      "models": {
+        "MA_Crossover": "BULLISH",
+        "Momentum_RSI_MACD": "BULLISH",
+        "MeanReversion_Bollinger": "NEUTRAL",
+        "LinearRegression": "BULLISH",
+        "RandomForest": "NEUTRAL"
+      }
+    },
+    {
+      "symbol": "^VIX",
+      "name": "CBOE Volatility Index",
+      "asset_class": "index",
+      "current_price": 15.19,
+      "direction": "BEARISH",
+      "confidence": 0.868,
+      "target": 14.73,
+      "stop": 15.49,
+      "bull_count": 0,
+      "bear_count": 4,
+      "models": {
+        "MA_Crossover": "BEARISH",
+        "Momentum_RSI_MACD": "BEARISH",
+        "MeanReversion_Bollinger": "NEUTRAL",
+        "LinearRegression": "BEARISH",
+        "RandomForest": "BEARISH"
+      }
+    },
+    {
+      "symbol": "BTC-USD",
+      "name": "",
+      "asset_class": "crypto",
+      "current_price": 64082.63,
+      "direction": "NEUTRAL",
+      "confidence": 0.629,
+      "target": 64082.63,
+      "stop": 64082.63,
+      "bull_count": 1,
+      "bear_count": 1,
+      "models": {
+        "MA_Crossover": "BEARISH",
+        "Momentum_RSI_MACD": "BULLISH",
+        "MeanReversion_Bollinger": "NEUTRAL",
+        "LinearRegression": "NEUTRAL",
+        "RandomForest": "NEUTRAL"
+      }
+    },
+    {
+      "symbol": "ETH-USD",
+      "name": "",
+      "asset_class": "crypto",
+      "current_price": 1892.7,
+      "direction": "NEUTRAL",
+      "confidence": 0.498,
+      "target": 1892.7,
+      "stop": 1892.7,
+      "bull_count": 2,
+      "bear_count": 1,
+      "models": {
+        "MA_Crossover": "BEARISH",
+        "Momentum_RSI_MACD": "BULLISH",
+        "MeanReversion_Bollinger": "NEUTRAL",
+        "LinearRegression": "NEUTRAL",
+        "RandomForest": "BULLISH"
+      }
+    },
+    {
+      "symbol": "SOL-USD",
+      "name": "",
+      "asset_class": "crypto",
+      "current_price": 75.63,
+      "direction": "BULLISH",
+      "confidence": 0.673,
+      "target": 77.9,
+      "stop": 74.12,
+      "bull_count": 3,
+      "bear_count": 1,
+      "models": {
+        "MA_Crossover": "BULLISH",
+        "Momentum_RSI_MACD": "BULLISH",
+        "MeanReversion_Bollinger": "NEUTRAL",
+        "LinearRegression": "BULLISH",
+        "RandomForest": "BEARISH"
+      }
+    },
+    {
+      "symbol": "EUR/USD",
+      "name": "EUR/USD",
+      "asset_class": "forex",
+      "current_price": 1.16,
+      "direction": "BULLISH",
+      "confidence": 0.654,
+      "target": 1.19,
+      "stop": 1.14,
+      "bull_count": 3,
+      "bear_count": 0,
+      "models": {
+        "MA_Crossover": "BULLISH",
+        "Momentum_RSI_MACD": "NEUTRAL",
+        "MeanReversion_Bollinger": "NEUTRAL",
+        "LinearRegression": "BULLISH",
+        "RandomForest": "BULLISH"
+      }
+    },
+    {
+      "symbol": "GBP/USD",
+      "name": "GBP/USD",
+      "asset_class": "forex",
+      "current_price": 1.36,
+      "direction": "BULLISH",
+      "confidence": 0.689,
+      "target": 1.4,
+      "stop": 1.33,
+      "bull_count": 3,
+      "bear_count": 0,
+      "models": {
+        "MA_Crossover": "BULLISH",
+        "Momentum_RSI_MACD": "NEUTRAL",
+        "MeanReversion_Bollinger": "NEUTRAL",
+        "LinearRegression": "BULLISH",
+        "RandomForest": "BULLISH"
+      }
+    },
+    {
+      "symbol": "USD/JPY",
+      "name": "USD/JPY",
+      "asset_class": "forex",
+      "current_price": 159.23,
+      "direction": "BEARISH",
+      "confidence": 0.581,
+      "target": 154.45,
+      "stop": 162.41,
+      "bull_count": 1,
+      "bear_count": 2,
+      "models": {
+        "MA_Crossover": "BEARISH",
+        "Momentum_RSI_MACD": "NEUTRAL",
+        "MeanReversion_Bollinger": "NEUTRAL",
+        "LinearRegression": "BEARISH",
+        "RandomForest": "BULLISH"
+      }
+    }
+  ],
+  "data_sources": [
+    {
+      "name": "yfinance",
+      "assets": "stocks/ETFs/indexes/options",
+      "cost": "free"
+    },
+    {
+      "name": "frankfurter (ECB)",
+      "assets": "forex/currencies",
+      "cost": "free"
+    },
+    {
+      "name": "Perplexity Finance",
+      "assets": "real-time quotes/financials",
+      "cost": "connected"
+    },
+    {
+      "name": "CoinMarketCap",
+      "assets": "crypto market cap",
+      "cost": "free tier"
+    },
+    {
+      "name": "Finnhub",
+      "assets": "stocks/news/sentiment",
+      "cost": "free tier"
+    },
+    {
+      "name": "Robinhood",
+      "assets": "brokerage/trading",
+      "cost": "account"
+    }
+  ],
+  "prediction_models": [
+    {
+      "name": "MA_Crossover",
+      "type": "trend following"
+    },
+    {
+      "name": "Momentum_RSI_MACD",
+      "type": "momentum"
+    },
+    {
+      "name": "MeanReversion_Bollinger",
+      "type": "mean reversion"
+    },
+    {
+      "name": "LinearRegression",
+      "type": "forecast"
+    },
+    {
+      "name": "RandomForest",
+      "type": "machine learning"
+    },
+    {
+      "name": "Ensemble_Voting",
+      "type": "ensemble voting"
+    }
+  ],
+  "asset_classes": {
+    "stocks": 35,
+    "etfs": 30,
+    "indexes": 14,
+    "crypto": 20,
+    "forex": 18
+  },
+  "total_symbols_available": 117
+}

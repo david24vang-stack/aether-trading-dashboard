@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aether Market Intelligence — Live Data + Predictions</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+<style>
+:root {
+  --bg: #0a0e14; --surface: #11161e; --surface2: #161c26; --border: #1e2632;
+  --text: #e2e8f0; --text-dim: #94a3b8; --text-faint: #64748b;
+  --accent: #38bdf8; --accent2: #818cf8; --success: #4ade80; --danger: #f06b6b;
+  --warning: #fbbf24; --bull: #4ade80; --bear: #f06b6b; --neutral: #94a3b8;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { background: var(--bg); color: var(--text); font-family: 'Inter', system-ui, -apple-system, sans-serif; min-height: 100vh; }
+.header { display: flex; align-items: center; justify-content: space-between; padding: 24px 32px; border-bottom: 1px solid var(--border); flex-wrap: wrap; gap: 16px; }
+.header-left { display: flex; align-items: center; gap: 16px; }
+.logo { width: 48px; height: 48px; border-radius: 50%; background: linear-gradient(135deg, var(--accent), var(--accent2)); display: flex; align-items: center; justify-content: center; font-size: 24px; font-weight: 700; color: var(--bg); }
+.header h1 { font-size: 22px; font-weight: 600; letter-spacing: -0.5px; }
+.header h1 span { color: var(--accent); }
+.subtitle { font-size: 13px; color: var(--text-dim); margin-top: 2px; }
+.badges { display: flex; gap: 8px; flex-wrap: wrap; }
+.badge { padding: 6px 14px; border-radius: 20px; font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; }
+.badge-success { background: rgba(74,222,128,0.12); color: var(--success); border: 1px solid rgba(74,222,128,0.2); }
+.badge-info { background: rgba(56,189,248,0.12); color: var(--accent); border: 1px solid rgba(56,189,248,0.2); }
+.badge-warning { background: rgba(251,191,36,0.12); color: var(--warning); border: 1px solid rgba(251,191,36,0.2); }
+.badge-danger { background: rgba(240,107,107,0.12); color: var(--danger); border: 1px solid rgba(240,107,107,0.2); }
+.container { max-width: 1400px; margin: 0 auto; padding: 24px 32px; }
+.section-title { font-size: 16px; font-weight: 600; margin: 32px 0 16px 0; padding-left: 12px; border-left: 3px solid var(--accent); }
+.stats-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 12px; margin-bottom: 24px; }
+.stat-card { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 20px; }
+.stat-label { font-size: 11px; text-transform: uppercase; letter-spacing: 0.5px; color: var(--text-faint); margin-bottom: 8px; }
+.stat-value { font-size: 32px; font-weight: 700; }
+.stat-sub { font-size: 12px; color: var(--text-dim); margin-top: 4px; }
+.sources-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 12px; margin-bottom: 24px; }
+.source-card { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 16px; display: flex; align-items: center; justify-content: space-between; }
+.source-name { font-size: 14px; font-weight: 600; }
+.source-type { font-size: 12px; color: var(--text-dim); margin-top: 2px; }
+.source-cost { font-size: 11px; padding: 4px 8px; border-radius: 6px; background: rgba(74,222,128,0.1); color: var(--success); }
+.source-cost.paid { background: rgba(251,191,36,0.1); color: var(--warning); }
+.models-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 12px; margin-bottom: 24px; }
+.model-card { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 14px 16px; }
+.model-name { font-size: 13px; font-weight: 600; color: var(--accent); }
+.model-type { font-size: 11px; color: var(--text-faint); margin-top: 2px; }
+.predictions-table { width: 100%; border-collapse: collapse; background: var(--surface); border-radius: 12px; overflow: hidden; border: 1px solid var(--border); }
+.predictions-table th { text-align: left; padding: 12px 16px; font-size: 11px; text-transform: uppercase; letter-spacing: 0.5px; color: var(--text-faint); border-bottom: 1px solid var(--border); background: var(--surface2); }
+.predictions-table td { padding: 12px 16px; font-size: 13px; border-bottom: 1px solid var(--border); }
+.predictions-table tr:last-child td { border-bottom: none; }
+.predictions-table tr:hover { background: var(--surface2); }
+.dir-bull { color: var(--bull); font-weight: 600; }
+.dir-bear { color: var(--bear); font-weight: 600; }
+.dir-neutral { color: var(--neutral); }
+.conf-bar { width: 60px; height: 6px; border-radius: 3px; background: var(--surface2); display: inline-block; vertical-align: middle; margin-right: 6px; overflow: hidden; }
+.conf-fill { height: 100%; border-radius: 3px; }
+.conf-fill.bull { background: var(--bull); }
+.conf-fill.bear { background: var(--bear); }
+.conf-fill.neutral { background: var(--neutral); }
+.asset-tag { font-size: 10px; padding: 2px 8px; border-radius: 4px; text-transform: uppercase; font-weight: 600; }
+.asset-stock { background: rgba(56,189,248,0.1); color: var(--accent); }
+.asset-etf { background: rgba(129,140,248,0.1); color: var(--accent2); }
+.asset-index { background: rgba(251,191,36,0.1); color: var(--warning); }
+.asset-crypto { background: rgba(251,146,60,0.1); color: #fb923c; }
+.asset-forex { background: rgba(74,222,128,0.1); color: var(--success); }
+.honesty-box { background: var(--surface); border: 1px solid rgba(251,191,36,0.2); border-radius: 12px; padding: 20px; margin: 24px 0; }
+.honesty-title { color: var(--warning); font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 12px; }
+.honesty-list { list-style: none; }
+.honesty-list li { font-size: 12px; color: var(--text-dim); padding: 4px 0; padding-left: 20px; position: relative; }
+.honesty-list li::before { content: '⚠'; position: absolute; left: 0; color: var(--warning); }
+.footer { text-align: center; padding: 32px; color: var(--text-faint); font-size: 12px; }
+@media (max-width: 768px) { .container { padding: 16px; } .header { padding: 16px; } .predictions-table { font-size: 11px; } .predictions-table th, .predictions-table td { padding: 8px; } }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="header-left">
+    <div class="logo">A</div>
+    <div>
+      <h1>AETHER <span>MARKET INTELLIGENCE</span></h1>
+      <div class="subtitle">Multi-Source Market Data + 6 Prediction Models — Stocks · ETFs · Indexes · Options · Crypto · Forex</div>
+    </div>
+  </div>
+  <div class="badges">
+    <span class="badge badge-success" id="badge-symbols">117 SYMBOLS</span>
+    <span class="badge badge-info">6 ASSET CLASSES</span>
+    <span class="badge badge-info">6 PREDICTION MODELS</span>
+    <span class="badge badge-success">LIVE DATA</span>
+    <span class="badge badge-danger">PAPER / SIM</span>
+  </div>
+</div>
+
+<div class="container">
+
+  <div class="section-title">Market Data Sources</div>
+  <div class="sources-grid" id="sourcesGrid"></div>
+
+  <div class="section-title">Asset Class Coverage</div>
+  <div class="stats-grid" id="statsGrid"></div>
+
+  <div class="section-title">Prediction Models</div>
+  <div class="models-grid" id="modelsGrid"></div>
+
+  <div class="section-title">Live Predictions — Ensemble Voting</div>
+  <table class="predictions-table">
+    <thead>
+      <tr>
+        <th>Symbol</th>
+        <th>Asset</th>
+        <th>Price</th>
+        <th>Direction</th>
+        <th>Confidence</th>
+        <th>Target</th>
+        <th>Stop</th>
+        <th>Models</th>
+      </tr>
+    </thead>
+    <tbody id="predictionsBody"></tbody>
+  </table>
+
+  <div class="honesty-box">
+    <div class="honesty-title">Honesty Declarations</div>
+    <ul class="honesty-list">
+      <li>All market data is fetched live from free APIs (yfinance, Frankfurter/ECB)</li>
+      <li>Predictions are generated by 6 models: MA Crossover, Momentum (RSI+MACD), Mean Reversion (Bollinger), Linear Regression, Random Forest, Ensemble Voting</li>
+      <li>Random Forest model trains on historical data with 80/20 train/test split — accuracy reported honestly</li>
+      <li>Predictions are NOT financial advice — they are algorithmic signals for educational purposes</li>
+      <li>No real-money trading is enabled — all execution is paper/simulation</li>
+      <li>Options data includes strikes, IV, open interest, and volume from Yahoo Finance</li>
+      <li>Forex data sourced from European Central Bank via Frankfurter API</li>
+      <li>Crypto data includes BTC, ETH, SOL and 17 other major cryptocurrencies</li>
+      <li>Additional connectors available: Finnhub (stocks/news), CoinMarketCap (crypto), Robinhood (trading), Plaid (banking)</li>
+    </ul>
+  </div>
+
+  <div class="section-title">Available Connectors (Disconnected — Ready to Activate)</div>
+  <div class="sources-grid">
+    <div class="source-card"><div><div class="source-name">Finnhub</div><div class="source-type">Stocks, news, sentiment analysis</div></div><div class="source-cost">Free tier: 60 calls/min</div></div>
+    <div class="source-card"><div><div class="source-name">CoinMarketCap</div><div class="source-type">Crypto market cap, rankings, historical</div></div><div class="source-cost">Free tier</div></div>
+    <div class="source-card"><div><div class="source-name">Robinhood</div><div class="source-type">Brokerage trading, portfolio, orders</div></div><div class="source-cost paid">Account required</div></div>
+    <div class="source-card"><div><div class="source-name">Plaid</div><div class="source-type">Bank account data, transactions, balances</div></div><div class="source-cost paid">Account required</div></div>
+    <div class="source-card"><div><div class="source-name">Bitget</div><div class="source-type">Crypto exchange, spot + futures</div></div><div class="source-cost paid">Account required</div></div>
+    <div class="source-card"><div><div class="source-name">BingX</div><div class="source-type">Crypto exchange, derivatives</div></div><div class="source-cost paid">Account required</div></div>
+  </div>
+
+</div>
+
+<div class="footer">
+  Aether Market Intelligence — Live market data and algorithmic predictions for educational purposes only.
+  <br>Not financial advice. No real-money trading enabled.
+</div>
+
+<script>
+fetch('data/market_predictions.json')
+  .then(r => r.json())
+  .then(data => {
+    // Sources
+    const sourcesGrid = document.getElementById('sourcesGrid');
+    (data.data_sources || []).forEach(s => {
+      const card = document.createElement('div');
+      card.className = 'source-card';
+      card.innerHTML = `<div><div class="source-name">${s.name}</div><div class="source-type">${s.assets}</div></div><div class="source-cost ${s.cost.includes('free') ? '' : 'paid'}">${s.cost}</div>`;
+      sourcesGrid.appendChild(card);
+    });
+
+    // Stats
+    const statsGrid = document.getElementById('statsGrid');
+    const ac = data.asset_classes || {};
+    const stats = [
+      { label: 'Stocks', value: ac.stocks || 0, sub: 'US large-cap equities' },
+      { label: 'ETFs', value: ac.etfs || 0, sub: 'Sector, index, thematic funds' },
+      { label: 'Indexes', value: ac.indexes || 0, sub: 'Global market indexes' },
+      { label: 'Crypto', value: ac.crypto || 0, sub: 'Major cryptocurrencies' },
+      { label: 'Forex', value: ac.forex || 0, sub: 'Currency pairs (ECB)' },
+      { label: 'Options', value: 'Chains', sub: 'Calls + puts via Yahoo' },
+    ];
+    stats.forEach(s => {
+      const card = document.createElement('div');
+      card.className = 'stat-card';
+      card.innerHTML = `<div class="stat-label">${s.label}</div><div class="stat-value">${s.value}</div><div class="stat-sub">${s.sub}</div>`;
+      statsGrid.appendChild(card);
+    });
+
+    // Models
+    const modelsGrid = document.getElementById('modelsGrid');
+    (data.prediction_models || []).forEach(m => {
+      const card = document.createElement('div');
+      card.className = 'model-card';
+      card.innerHTML = `<div class="model-name">${m.name}</div><div class="model-type">${m.type}</div>`;
+      modelsGrid.appendChild(card);
+    });
+
+    // Predictions table
+    const tbody = document.getElementById('predictionsBody');
+    (data.predictions || []).forEach(p => {
+      const dir = p.direction.toLowerCase();
+      const dirClass = dir === 'bullish' ? 'dir-bull' : dir === 'bearish' ? 'dir-bear' : 'dir-neutral';
+      const fillClass = dir === 'bullish' ? 'bull' : dir === 'bearish' ? 'bear' : 'neutral';
+      const confPct = Math.round(p.confidence * 100);
+      const assetClass = p.asset_class || 'stock';
+      const assetTag = `asset-${assetClass}`;
+      const modelSummary = Object.entries(p.models || {}).map(([k,v]) => {
+        const vShort = v.toLowerCase();
+        const color = vShort === 'bullish' ? 'var(--bull)' : vShort === 'bearish' ? 'var(--bear)' : 'var(--neutral)';
+        return `<span style="color:${color};font-size:10px;margin-right:4px;">${k.split('_')[0]}: ${vShort[0].toUpperCase()}</span>`;
+      }).join('');
+      const row = document.createElement('tr');
+      row.innerHTML = `
+        <td><strong>${p.symbol}</strong></td>
+        <td><span class="asset-tag ${assetTag}">${assetClass}</span></td>
+        <td>$${p.current_price?.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2}) || 'N/A'}</td>
+        <td class="${dirClass}">${p.direction}</td>
+        <td><span class="conf-bar"><span class="conf-fill ${fillClass}" style="width:${confPct}%"></span></span>${confPct}%</td>
+        <td>$${p.target?.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2}) || 'N/A'}</td>
+        <td>$${p.stop?.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2}) || 'N/A'}</td>
+        <td>${modelSummary}</td>
+      `;
+      tbody.appendChild(row);
+    });
+  })
+  .catch(err => {
+    document.getElementById('predictionsBody').innerHTML = '<tr><td colspan="8" style="text-align:center;color:var(--text-faint);padding:32px;">Loading predictions...</td></tr>';
+  });
+</script>
+
+</body>
+</html>

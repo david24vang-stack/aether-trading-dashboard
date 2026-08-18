@@ -1,0 +1,44 @@
+[
+  {
+    "timestamp": "2026-08-18T17:36:18Z",
+    "signal": {
+      "symbol": "SPY",
+      "side": "buy",
+      "contracts": 10
+    },
+    "status": "filled",
+    "dry_run": false,
+    "broker": "alpaca_paper",
+    "order_id": "1996e039-1ae5-476f-8ee9-9da3880d98fd",
+    "fill_price": 768.14,
+    "source": "zenith_consensus"
+  },
+  {
+    "timestamp": "2026-08-18T17:36:20Z",
+    "signal": {
+      "symbol": "QQQ",
+      "side": "buy",
+      "contracts": 10
+    },
+    "status": "filled",
+    "dry_run": false,
+    "broker": "alpaca_paper",
+    "order_id": "d99112c8-dde5-4600-8ed3-de85082be1b1",
+    "fill_price": 718.045,
+    "source": "zenith_consensus"
+  },
+  {
+    "timestamp": "2026-08-18T17:36:22Z",
+    "signal": {
+      "symbol": "TLT",
+      "side": "sell",
+      "contracts": 10
+    },
+    "status": "filled",
+    "dry_run": false,
+    "broker": "alpaca_paper",
+    "order_id": "f5cfe3bf-292b-4fc4-9a61-2c89e7b2eb5f",
+    "fill_price": 81.68,
+    "source": "zenith_consensus"
+  }
+]

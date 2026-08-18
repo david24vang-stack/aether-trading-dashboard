@@ -1,0 +1,2894 @@
+{
+  "metrics": {
+    "total_return": -0.19847270555192542,
+    "annual_return": -0.10471943255308247,
+    "sharpe_ratio": -2.2892857522931576,
+    "sortino_ratio": -1.3233578497851781,
+    "max_drawdown": 0.21710084353156314,
+    "calmar_ratio": -0.48235387228174387,
+    "win_rate": 0.4727272727272727,
+    "profit_factor": 0.9814148803367095,
+    "avg_trade": -4.881285572130757,
+    "expectancy": -4.881285572130821,
+    "n_trades": 55,
+    "beta": -0.009305695495624386,
+    "alpha": -0.10744314353836582,
+    "var_95": -0.0045809975867503235,
+    "cvar_95": -0.010007454769644559,
+    "information_ratio": -2.242936831136051
+  },
+  "experiment": {
+    "goal": "Multi-asset backtest with momentum+mean reversion + risk management",
+    "hypothesis": "Combined signals outperform buy-and-hold",
+    "data_versions": {
+      "SPY": "synthetic_v1_fixed",
+      "QQQ": "synthetic_v1_fixed",
+      "AAPL": "synthetic_v1_fixed",
+      "NVDA": "synthetic_v1_fixed",
+      "BTC-USD": "synthetic_v1_fixed",
+      "GLD": "synthetic_v1_fixed"
+    },
+    "features": [
+      "rsi_14",
+      "macd_hist",
+      "bb_pct",
+      "atr_pct"
+    ],
+    "model_versions": {
+      "momentum": "v1",
+      "mean_reversion": "v1"
+    },
+    "assumptions": [
+      "Daily timeframe",
+      "Synthetic deterministic data (seed=42, fixed base prices)"
+    ],
+    "method": "Event-driven backtest with risk management",
+    "results": {
+      "total_return": -0.19847270555192542,
+      "annual_return": -0.10471943255308247,
+      "sharpe_ratio": -2.2892857522931576,
+      "sortino_ratio": -1.3233578497851781,
+      "max_drawdown": 0.21710084353156314,
+      "calmar_ratio": -0.48235387228174387,
+      "win_rate": 0.4727272727272727,
+      "profit_factor": 0.9814148803367095,
+      "avg_trade": -4.881285572130757,
+      "expectancy": -4.881285572130821,
+      "n_trades": 55,
+      "beta": -0.009305695495624386,
+      "alpha": -0.10744314353836582,
+      "var_95": -0.0045809975867503235,
+      "cvar_95": -0.010007454769644559,
+      "information_ratio": -2.242936831136051
+    },
+    "confidence": 0.7630952507643859,
+    "uncertainty": 0.2369047492356141,
+    "failure_modes": [
+      "Negative Sharpe ratio",
+      "Negative total return",
+      "Strategy underperforms benchmark"
+    ],
+    "counterevidence": [
+      "Sharpe ratio is negative, indicating risk-adjusted destruction of capital"
+    ],
+    "benchmark_comparison": null,
+    "reproduction_instructions": "",
+    "decision": "reject",
+    "version": "1.0",
+    "experiment_id": "exp_40db4293b493",
+    "timestamp": "2026-08-17T09:12:16.121813+00:00"
+  },
+  "scanner_evidence": {
+    "SPY": {
+      "trend": {
+        "observation": "Sideways: mixed signals between SMA50 and SMA200",
+        "supporting_evidence": {
+          "sma_50": 597.528863422689,
+          "sma_200": 578.6393263695692,
+          "slope_20d": -0.014719872983970084
+        },
+        "confidence": 0.3,
+        "uncertainty": 0.7,
+        "data_version": "synthetic_v1_fixed",
+        "timestamp": "2026-08-17T09:12:16.102840+00:00",
+        "applicable_timeframe": "1d",
+        "known_limitations": [
+          "SMA is lagging",
+          "May miss rapid reversals"
+        ],
+        "source_component": "trend_scanner",
+        "evidence_id": "ev_48accae04e72"
+      },
+      "momentum": {
+        "observation": "Neutral momentum: RSI=57.3, ROC=2.31%",
+        "supporting_evidence": {
+          "rsi_14": 57.309364947958684,
+          "roc_20d": 0.023070997730300302
+        },
+        "confidence": 0.4,
+        "uncertainty": 0.6,
+        "data_version": "synthetic_v1_fixed",
+        "timestamp": "2026-08-17T09:12:16.103992+00:00",
+        "applicable_timeframe": "1d",
+        "known_limitations": [
+          "RSI can stay overbought/oversold in trends",
+          "ROC is lagging"
+        ],
+        "source_component": "momentum_scanner",
+        "evidence_id": "ev_855897987bfc"
+      },
+      "volatility": {
+        "observation": "Normal volatility: 21d vol=26.0%, 63d vol=25.4%",
+        "supporting_evidence": {
+          "vol_21d": 0.25986493637687735,
+          "vol_63d": 0.25422096667415434,
+          "ratio": 1.0222010394207852
+        },
+        "confidence": 0.5,
+        "uncertainty": 0.5,
+        "data_version": "synthetic_v1_fixed",
+        "timestamp": "2026-08-17T09:12:16.104550+00:00",
+        "applicable_timeframe": "1d",
+        "known_limitations": [
+          "Historical volatility is backward-looking",
+          "Does not predict vol spikes"
+        ],
+        "source_component": "volatility_scanner",
+        "evidence_id": "ev_92920911fcb3"
+      },
+      "volume": {
+        "observation": "Normal volume: 1.6x average",
+        "supporting_evidence": {
+          "current_volume": 3938613.0,
+          "avg_volume_20d": 2428301.9,
+          "ratio": 1.6219618326699823
+        },
+        "confidence": 0.4,
+        "uncertainty": 0.6,
+        "data_version": "synthetic_v1_fixed",
+        "timestamp": "2026-08-17T09:12:16.104732+00:00",
+        "applicable_timeframe": "1d",
+        "known_limitations": [
+          "Volume alone does not indicate direction",
+          "May be distorted by events"
+        ],
+        "source_component": "volume_scanner",
+        "evidence_id": "ev_b4d1f5c29d6a"
+      },
+      "regime": {
+        "observation": "Regime: High-volatility bull",
+        "supporting_evidence": {
+          "volatility": 0.2606435628092908,
+          "trend_strength": 0.03264475156162366
+        },
+        "confidence": 0.6,
+        "uncertainty": 0.4,
+        "data_version": "synthetic_v1_fixed",
+        "timestamp": "2026-08-17T09:12:16.105399+00:00",
+        "applicable_timeframe": "1d",
+        "known_limitations": [
+          "Regime classification is probabilistic",
+          "Transitions are hard to detect in real-time"
+        ],
+        "source_component": "regime_scanner",
+        "evidence_id": "ev_6a59f037c5c5"
+      },
+      "risk": {
+        "observation": "Risk level: high (VaR95=-2.19%, MaxDD=19.53%)",
+        "supporting_evidence": {
+          "var_95": -0.021927350176709114,
+          "cvar_95": -0.02759668221868207,
+          "max_drawdown": 0.19526851119407773
+        },
+        "confidence": 0.6,
+        "uncertainty": 0.4,
+        "data_version": "synthetic_v1_fixed",
+        "timestamp": "2026-08-17T09:12:16.106084+00:00",
+        "applicable_timeframe": "1d",
+        "known_limitations": [
+          "VaR assumes normal distribution",
+          "Historical risk may not predict future"
+        ],
+        "source_component": "risk_scanner",
+        "evidence_id": "ev_0aee84492e70"
+      }
+    },
+    "QQQ": {
+      "trend": {
+        "observation": "Uptrend: SMA50 > SMA200 with positive slope",
+        "supporting_evidence": {
+          "sma_50": 1271.0568711453152,
+          "sma_200": 1073.1235666671366,
+          "slope_20d": 0.0470876133512698
+        },
+        "confidence": 0.9,
+        "uncertainty": 0.09999999999999998,
+        "data_version": "synthetic_v1_fixed",
+        "timestamp": "2026-08-17T09:12:16.106367+00:00",
+        "applicable_timeframe": "1d",
+        "known_limitations": [
+          "SMA is lagging",
+          "May miss rapid reversals"
+        ],
+        "source_component": "trend_scanner",
+        "evidence_id": "ev_6d444a51dac8"
+      },
+      "momentum": {
+        "observation": "Neutral momentum: RSI=42.9, ROC=-4.13%",
+        "supporting_evidence": {
+          "rsi_14": 42.90176507663707,
+          "roc_20d": -0.04131656507238446
+        },
+        "confidence": 0.4,
+        "uncertainty": 0.6,
+        "data_version": "synthetic_v1_fixed",
+        "timestamp": "2026-08-17T09:12:16.107324+00:00",
+        "applicable_timeframe": "1d",
+        "known_limitations": [
+          "RSI can stay overbought/oversold in trends",
+          "ROC is lagging"
+        ],
+        "source_component": "momentum_scanner",
+        "evidence_id": "ev_58dbb5838459"
+      },
+      "volatility": {
+        "observation": "Normal volatility: 21d vol=24.0%, 63d vol=23.5%",
+        "supporting_evidence": {
+          "vol_21d": 0.2404177092260069,
+          "vol_63d": 0.23481562875152426,
+          "ratio": 1.0238573578099037
+        },
+        "confidence": 0.5,
+        "uncertainty": 0.5,
+        "data_version": "synthetic_v1_fixed",
+        "timestamp": "2026-08-17T09:12:16.107844+00:00",
+        "applicable_timeframe": "1d",
+        "known_limitations": [
+          "Historical volatility is backward-looking",
+          "Does not predict vol spikes"
+        ],
+        "source_component": "volatility_scanner",
+        "evidence_id": "ev_45a1a2f8dc1a"
+      },
+      "volume": {
+        "observation": "Normal volume: 0.8x average",
+        "supporting_evidence": {
+          "current_volume": 2236497.0,
+          "avg_volume_20d": 2734433.05,
+          "ratio": 0.8179015390411553
+        },
+        "confidence": 0.4,
+        "uncertainty": 0.6,
+        "data_version": "synthetic_v1_fixed",
+        "timestamp": "2026-08-17T09:12:16.108011+00:00",
+        "applicable_timeframe": "1d",
+        "known_limitations": [
+          "Volume alone does not indicate direction",
+          "May be distorted by events"
+        ],
+        "source_component": "volume_scanner",
+        "evidence_id": "ev_9d58038b8b03"
+      },
+      "regime": {
+        "observation": "Regime: High-volatility bull",
+        "supporting_evidence": {
+          "volatility": 0.24089787824139652,
+          "trend_strength": 0.1844459581601695
+        },
+        "confidence": 0.6,
+        "uncertainty": 0.4,
+        "data_version": "synthetic_v1_fixed",
+        "timestamp": "2026-08-17T09:12:16.108664+00:00",
+        "applicable_timeframe": "1d",
+        "known_limitations": [
+          "Regime classification is probabilistic",
+          "Transitions are hard to detect in real-time"
+        ],
+        "source_component": "regime_scanner",
+        "evidence_id": "ev_ebc8e0bd9dcf"
+      },
+      "risk": {
+        "observation": "Risk level: moderate (VaR95=-2.26%, MaxDD=11.41%)",
+        "supporting_evidence": {
+          "var_95": -0.022551664513501147,
+          "cvar_95": -0.02779542209744323,
+          "max_drawdown": 0.11413208337635412
+        },
+        "confidence": 0.6,
+        "uncertainty": 0.4,
+        "data_version": "synthetic_v1_fixed",
+        "timestamp": "2026-08-17T09:12:16.109293+00:00",
+        "applicable_timeframe": "1d",
+        "known_limitations": [
+          "VaR assumes normal distribution",
+          "Historical risk may not predict future"
+        ],
+        "source_component": "risk_scanner",
+        "evidence_id": "ev_fee0f59d37ce"
+      }
+    },
+    "AAPL": {
+      "trend": {
+        "observation": "Uptrend: SMA50 > SMA200 with positive slope",
+        "supporting_evidence": {
+          "sma_50": 339.8962695675071,
+          "sma_200": 309.26993788592085,
+          "slope_20d": 0.06510812321626974
+        },
+        "confidence": 0.9,
+        "uncertainty": 0.09999999999999998,
+        "data_version": "synthetic_v1_fixed",
+        "timestamp": "2026-08-17T09:12:16.109570+00:00",
+        "applicable_timeframe": "1d",
+        "known_limitations": [
+          "SMA is lagging",
+          "May miss rapid reversals"
+        ],
+        "source_component": "trend_scanner",
+        "evidence_id": "ev_cc898bf35817"
+      },
+      "momentum": {
+        "observation": "Neutral momentum: RSI=69.9, ROC=13.32%",
+        "supporting_evidence": {
+          "rsi_14": 69.89934185632852,
+          "roc_20d": 0.13320804245427875
+        },
+        "confidence": 0.4,
+        "uncertainty": 0.6,
+        "data_version": "synthetic_v1_fixed",
+        "timestamp": "2026-08-17T09:12:16.110508+00:00",
+        "applicable_timeframe": "1d",
+        "known_limitations": [
+          "RSI can stay overbought/oversold in trends",
+          "ROC is lagging"
+        ],
+        "source_component": "momentum_scanner",
+        "evidence_id": "ev_978c4bec6597"
+      },
+      "volatility": {
+        "observation": "Normal volatility: 21d vol=23.4%, 63d vol=26.0%",
+        "supporting_evidence": {
+          "vol_21d": 0.2339569248691673,
+          "vol_63d": 0.26043294944961004,
+          "ratio": 0.8983384220913819
+        },
+        "confidence": 0.5,
+        "uncertainty": 0.5,
+        "data_version": "synthetic_v1_fixed",
+        "timestamp": "2026-08-17T09:12:16.111017+00:00",
+        "applicable_timeframe": "1d",
+        "known_limitations": [
+          "Historical volatility is backward-looking",
+          "Does not predict vol spikes"
+        ],
+        "source_component": "volatility_scanner",
+        "evidence_id": "ev_a67526c3267c"
+      },
+      "volume": {
+        "observation": "Normal volume: 0.8x average",
+        "supporting_evidence": {
+          "current_volume": 2821367.0,
+          "avg_volume_20d": 3319819.75,
+          "ratio": 0.84985547784635
+        },
+        "confidence": 0.4,
+        "uncertainty": 0.6,
+        "data_version": "synthetic_v1_fixed",
+        "timestamp": "2026-08-17T09:12:16.111194+00:00",
+        "applicable_timeframe": "1d",
+        "known_limitations": [
+          "Volume alone does not indicate direction",
+          "May be distorted by events"
+        ],
+        "source_component": "volume_scanner",
+        "evidence_id": "ev_965ca577dee6"
+      },
+      "regime": {
+        "observation": "Regime: High-volatility bull",
+        "supporting_evidence": {
+          "volatility": 0.23487682840249316,
+          "trend_strength": 0.09902783274358612
+        },
+        "confidence": 0.6,
+        "uncertainty": 0.4,
+        "data_version": "synthetic_v1_fixed",
+        "timestamp": "2026-08-17T09:12:16.111837+00:00",
+        "applicable_timeframe": "1d",
+        "known_limitations": [
+          "Regime classification is probabilistic",
+          "Transitions are hard to detect in real-time"
+        ],
+        "source_component": "regime_scanner",
+        "evidence_id": "ev_6c8a6305f2f0"
+      },
+      "risk": {
+        "observation": "Risk level: high (VaR95=-2.14%, MaxDD=17.33%)",
+        "supporting_evidence": {
+          "var_95": -0.021424259030453807,
+          "cvar_95": -0.02949387181474613,
+          "max_drawdown": 0.1732574799885817
+        },
+        "confidence": 0.6,
+        "uncertainty": 0.4,
+        "data_version": "synthetic_v1_fixed",
+        "timestamp": "2026-08-17T09:12:16.112450+00:00",
+        "applicable_timeframe": "1d",
+        "known_limitations": [
+          "VaR assumes normal distribution",
+          "Historical risk may not predict future"
+        ],
+        "source_component": "risk_scanner",
+        "evidence_id": "ev_9ced787437da"
+      }
+    },
+    "NVDA": {
+      "trend": {
+        "observation": "Sideways: mixed signals between SMA50 and SMA200",
+        "supporting_evidence": {
+          "sma_50": 1015.8785731167029,
+          "sma_200": 932.2419574630258,
+          "slope_20d": -0.011606461597412287
+        },
+        "confidence": 0.3,
+        "uncertainty": 0.7,
+        "data_version": "synthetic_v1_fixed",
+        "timestamp": "2026-08-17T09:12:16.112737+00:00",
+        "applicable_timeframe": "1d",
+        "known_limitations": [
+          "SMA is lagging",
+          "May miss rapid reversals"
+        ],
+        "source_component": "trend_scanner",
+        "evidence_id": "ev_48f6441a79d4"
+      },
+      "momentum": {
+        "observation": "Neutral momentum: RSI=56.6, ROC=-3.14%",
+        "supporting_evidence": {
+          "rsi_14": 56.55850536583317,
+          "roc_20d": -0.03139387402764193
+        },
+        "confidence": 0.4,
+        "uncertainty": 0.6,
+        "data_version": "synthetic_v1_fixed",
+        "timestamp": "2026-08-17T09:12:16.113652+00:00",
+        "applicable_timeframe": "1d",
+        "known_limitations": [
+          "RSI can stay overbought/oversold in trends",
+          "ROC is lagging"
+        ],
+        "source_component": "momentum_scanner",
+        "evidence_id": "ev_398548bae97c"
+      },
+      "volatility": {
+        "observation": "Normal volatility: 21d vol=19.2%, 63d vol=20.7%",
+        "supporting_evidence": {
+          "vol_21d": 0.1921728174025873,
+          "vol_63d": 0.20699610419121342,
+          "ratio": 0.9283885711446382
+        },
+        "confidence": 0.5,
+        "uncertainty": 0.5,
+        "data_version": "synthetic_v1_fixed",
+        "timestamp": "2026-08-17T09:12:16.114155+00:00",
+        "applicable_timeframe": "1d",
+        "known_limitations": [
+          "Historical volatility is backward-looking",
+          "Does not predict vol spikes"
+        ],
+        "source_component": "volatility_scanner",
+        "evidence_id": "ev_e7a7946eb2ff"
+      },
+      "volume": {
+        "observation": "Normal volume: 0.7x average",
+        "supporting_evidence": {
+          "current_volume": 2340683.0,
+          "avg_volume_20d": 3468496.7,
+          "ratio": 0.6748407746791283
+        },
+        "confidence": 0.4,
+        "uncertainty": 0.6,
+        "data_version": "synthetic_v1_fixed",
+        "timestamp": "2026-08-17T09:12:16.114306+00:00",
+        "applicable_timeframe": "1d",
+        "known_limitations": [
+          "Volume alone does not indicate direction",
+          "May be distorted by events"
+        ],
+        "source_component": "volume_scanner",
+        "evidence_id": "ev_61c741b57bc5"
+      },
+      "regime": {
+        "observation": "Regime: High-volatility bull",
+        "supporting_evidence": {
+          "volatility": 0.19087677989838592,
+          "trend_strength": 0.08971556684842123
+        },
+        "confidence": 0.6,
+        "uncertainty": 0.4,
+        "data_version": "synthetic_v1_fixed",
+        "timestamp": "2026-08-17T09:12:16.114904+00:00",
+        "applicable_timeframe": "1d",
+        "known_limitations": [
+          "Regime classification is probabilistic",
+          "Transitions are hard to detect in real-time"
+        ],
+        "source_component": "regime_scanner",
+        "evidence_id": "ev_dc229f7ebed3"
+      },
+      "risk": {
+        "observation": "Risk level: high (VaR95=-2.17%, MaxDD=18.59%)",
+        "supporting_evidence": {
+          "var_95": -0.021736377956392793,
+          "cvar_95": -0.027068992120846704,
+          "max_drawdown": 0.18591582353090622
+        },
+        "confidence": 0.6,
+        "uncertainty": 0.4,
+        "data_version": "synthetic_v1_fixed",
+        "timestamp": "2026-08-17T09:12:16.115582+00:00",
+        "applicable_timeframe": "1d",
+        "known_limitations": [
+          "VaR assumes normal distribution",
+          "Historical risk may not predict future"
+        ],
+        "source_component": "risk_scanner",
+        "evidence_id": "ev_02f82bb2d9a3"
+      }
+    },
+    "BTC-USD": {
+      "trend": {
+        "observation": "Sideways: mixed signals between SMA50 and SMA200",
+        "supporting_evidence": {
+          "sma_50": 52902.89804202605,
+          "sma_200": 47923.06901003755,
+          "slope_20d": -0.022540193519272833
+        },
+        "confidence": 0.3,
+        "uncertainty": 0.7,
+        "data_version": "synthetic_v1_fixed",
+        "timestamp": "2026-08-17T09:12:16.115874+00:00",
+        "applicable_timeframe": "1d",
+        "known_limitations": [
+          "SMA is lagging",
+          "May miss rapid reversals"
+        ],
+        "source_component": "trend_scanner",
+        "evidence_id": "ev_1919147908f7"
+      },
+      "momentum": {
+        "observation": "Neutral momentum: RSI=51.8, ROC=3.61%",
+        "supporting_evidence": {
+          "rsi_14": 51.814804493242875,
+          "roc_20d": 0.03612123604132278
+        },
+        "confidence": 0.4,
+        "uncertainty": 0.6,
+        "data_version": "synthetic_v1_fixed",
+        "timestamp": "2026-08-17T09:12:16.116767+00:00",
+        "applicable_timeframe": "1d",
+        "known_limitations": [
+          "RSI can stay overbought/oversold in trends",
+          "ROC is lagging"
+        ],
+        "source_component": "momentum_scanner",
+        "evidence_id": "ev_4f93820a01ce"
+      },
+      "volatility": {
+        "observation": "Normal volatility: 21d vol=19.9%, 63d vol=23.7%",
+        "supporting_evidence": {
+          "vol_21d": 0.19939116231272028,
+          "vol_63d": 0.23736242317291642,
+          "ratio": 0.8400283399848238
+        },
+        "confidence": 0.5,
+        "uncertainty": 0.5,
+        "data_version": "synthetic_v1_fixed",
+        "timestamp": "2026-08-17T09:12:16.117263+00:00",
+        "applicable_timeframe": "1d",
+        "known_limitations": [
+          "Historical volatility is backward-looking",
+          "Does not predict vol spikes"
+        ],
+        "source_component": "volatility_scanner",
+        "evidence_id": "ev_995e0f2998eb"
+      },
+      "volume": {
+        "observation": "Normal volume: 0.7x average",
+        "supporting_evidence": {
+          "current_volume": 2030451.0,
+          "avg_volume_20d": 3102232.2,
+          "ratio": 0.654512902032285
+        },
+        "confidence": 0.4,
+        "uncertainty": 0.6,
+        "data_version": "synthetic_v1_fixed",
+        "timestamp": "2026-08-17T09:12:16.117427+00:00",
+        "applicable_timeframe": "1d",
+        "known_limitations": [
+          "Volume alone does not indicate direction",
+          "May be distorted by events"
+        ],
+        "source_component": "volume_scanner",
+        "evidence_id": "ev_1b553b6a38f1"
+      },
+      "regime": {
+        "observation": "Regime: High-volatility bull",
+        "supporting_evidence": {
+          "volatility": 0.19924425142557936,
+          "trend_strength": 0.10391298251256542
+        },
+        "confidence": 0.6,
+        "uncertainty": 0.4,
+        "data_version": "synthetic_v1_fixed",
+        "timestamp": "2026-08-17T09:12:16.118079+00:00",
+        "applicable_timeframe": "1d",
+        "known_limitations": [
+          "Regime classification is probabilistic",
+          "Transitions are hard to detect in real-time"
+        ],
+        "source_component": "regime_scanner",
+        "evidence_id": "ev_e1601472994f"
+      },
+      "risk": {
+        "observation": "Risk level: high (VaR95=-2.52%, MaxDD=22.07%)",
+        "supporting_evidence": {
+          "var_95": -0.025187324200884386,
+          "cvar_95": -0.029256433788718374,
+          "max_drawdown": 0.22070867681013634
+        },
+        "confidence": 0.6,
+        "uncertainty": 0.4,
+        "data_version": "synthetic_v1_fixed",
+        "timestamp": "2026-08-17T09:12:16.118679+00:00",
+        "applicable_timeframe": "1d",
+        "known_limitations": [
+          "VaR assumes normal distribution",
+          "Historical risk may not predict future"
+        ],
+        "source_component": "risk_scanner",
+        "evidence_id": "ev_db20472135e1"
+      }
+    },
+    "GLD": {
+      "trend": {
+        "observation": "Downtrend: SMA50 < SMA200 with negative slope",
+        "supporting_evidence": {
+          "sma_50": 234.2137923174401,
+          "sma_200": 234.91362053987135,
+          "slope_20d": -0.03677585245069464
+        },
+        "confidence": 0.9,
+        "uncertainty": 0.09999999999999998,
+        "data_version": "synthetic_v1_fixed",
+        "timestamp": "2026-08-17T09:12:16.118957+00:00",
+        "applicable_timeframe": "1d",
+        "known_limitations": [
+          "SMA is lagging",
+          "May miss rapid reversals"
+        ],
+        "source_component": "trend_scanner",
+        "evidence_id": "ev_99462d92282f"
+      },
+      "momentum": {
+        "observation": "Oversold: RSI=21.7",
+        "supporting_evidence": {
+          "rsi_14": 21.66625328175168,
+          "roc_20d": -0.11972144960509801
+        },
+        "confidence": 0.6,
+        "uncertainty": 0.4,
+        "data_version": "synthetic_v1_fixed",
+        "timestamp": "2026-08-17T09:12:16.119868+00:00",
+        "applicable_timeframe": "1d",
+        "known_limitations": [
+          "RSI can stay overbought/oversold in trends",
+          "ROC is lagging"
+        ],
+        "source_component": "momentum_scanner",
+        "evidence_id": "ev_a51b736d3626"
+      },
+      "volatility": {
+        "observation": "Normal volatility: 21d vol=26.1%, 63d vol=22.3%",
+        "supporting_evidence": {
+          "vol_21d": 0.2608320103994303,
+          "vol_63d": 0.2228640854921778,
+          "ratio": 1.1703635865034214
+        },
+        "confidence": 0.5,
+        "uncertainty": 0.5,
+        "data_version": "synthetic_v1_fixed",
+        "timestamp": "2026-08-17T09:12:16.120361+00:00",
+        "applicable_timeframe": "1d",
+        "known_limitations": [
+          "Historical volatility is backward-looking",
+          "Does not predict vol spikes"
+        ],
+        "source_component": "volatility_scanner",
+        "evidence_id": "ev_d42143c96b2a"
+      },
+      "volume": {
+        "observation": "Normal volume: 1.0x average",
+        "supporting_evidence": {
+          "current_volume": 2649959.0,
+          "avg_volume_20d": 2782298.55,
+          "ratio": 0.9524351727099883
+        },
+        "confidence": 0.4,
+        "uncertainty": 0.6,
+        "data_version": "synthetic_v1_fixed",
+        "timestamp": "2026-08-17T09:12:16.120508+00:00",
+        "applicable_timeframe": "1d",
+        "known_limitations": [
+          "Volume alone does not indicate direction",
+          "May be distorted by events"
+        ],
+        "source_component": "volume_scanner",
+        "evidence_id": "ev_f1f186cd827a"
+      },
+      "regime": {
+        "observation": "Regime: High-volatility bear",
+        "supporting_evidence": {
+          "volatility": 0.25983878879825717,
+          "trend_strength": -0.0029790874655242485
+        },
+        "confidence": 0.6,
+        "uncertainty": 0.4,
+        "data_version": "synthetic_v1_fixed",
+        "timestamp": "2026-08-17T09:12:16.121121+00:00",
+        "applicable_timeframe": "1d",
+        "known_limitations": [
+          "Regime classification is probabilistic",
+          "Transitions are hard to detect in real-time"
+        ],
+        "source_component": "regime_scanner",
+        "evidence_id": "ev_58df69ca444e"
+      },
+      "risk": {
+        "observation": "Risk level: high (VaR95=-2.50%, MaxDD=23.41%)",
+        "supporting_evidence": {
+          "var_95": -0.02499209316023041,
+          "cvar_95": -0.031328247659925874,
+          "max_drawdown": 0.2340734507036461
+        },
+        "confidence": 0.6,
+        "uncertainty": 0.4,
+        "data_version": "synthetic_v1_fixed",
+        "timestamp": "2026-08-17T09:12:16.121723+00:00",
+        "applicable_timeframe": "1d",
+        "known_limitations": [
+          "VaR assumes normal distribution",
+          "Historical risk may not predict future"
+        ],
+        "source_component": "risk_scanner",
+        "evidence_id": "ev_3f9ff8da19ba"
+      }
+    }
+  },
+  "feature_registry": {
+    "count": 12,
+    "categories": [
+      "fundamental",
+      "market_structure",
+      "momentum",
+      "statistical",
+      "trend",
+      "volatility",
+      "volume"
+    ],
+    "features": [
+      {
+        "name": "RSI",
+        "version": "1.0",
+        "formula_method": "Relative Strength Index: 100 - 100/(1+RS), RS = avg_gain/avg_loss",
+        "input_dependencies": [
+          "close"
+        ],
+        "validation_status": "validated",
+        "known_limitations": [
+          "Lagging in strong trends",
+          "False signals in ranging markets"
+        ],
+        "applicable_timeframes": [
+          "1m",
+          "5m",
+          "15m",
+          "1h",
+          "1d"
+        ],
+        "provenance": "src/features/engine.py",
+        "category": "momentum",
+        "feature_id": "feat_3424446e098f"
+      },
+      {
+        "name": "MACD",
+        "version": "1.0",
+        "formula_method": "MACD = EMA(fast) - EMA(slow), Signal = EMA(MACD, signal_period)",
+        "input_dependencies": [
+          "close"
+        ],
+        "validation_status": "validated",
+        "known_limitations": [
+          "Lagging indicator",
+          "Whipsaw in sideways markets"
+        ],
+        "applicable_timeframes": [
+          "1h",
+          "1d"
+        ],
+        "provenance": "src/features/engine.py",
+        "category": "trend",
+        "feature_id": "feat_adf81068377b"
+      },
+      {
+        "name": "Bollinger Bands",
+        "version": "1.0",
+        "formula_method": "SMA \u00b1 n_std * std(close)",
+        "input_dependencies": [
+          "close"
+        ],
+        "validation_status": "validated",
+        "known_limitations": [
+          "Assumes normal distribution",
+          "Band width varies with volatility"
+        ],
+        "applicable_timeframes": [
+          "5m",
+          "15m",
+          "1h",
+          "1d"
+        ],
+        "provenance": "src/features/engine.py",
+        "category": "volatility",
+        "feature_id": "feat_9629bb2f2c3a"
+      },
+      {
+        "name": "ATR",
+        "version": "1.0",
+        "formula_method": "Average True Range: rolling mean of True Range",
+        "input_dependencies": [
+          "high",
+          "low",
+          "close"
+        ],
+        "validation_status": "validated",
+        "known_limitations": [
+          "Does not predict direction",
+          "Sensitive to gaps"
+        ],
+        "applicable_timeframes": [
+          "1m",
+          "5m",
+          "15m",
+          "1h",
+          "1d"
+        ],
+        "provenance": "src/features/engine.py",
+        "category": "volatility",
+        "feature_id": "feat_345880d9de1d"
+      },
+      {
+        "name": "VWAP",
+        "version": "1.0",
+        "formula_method": "Volume Weighted Average Price: cumsum(typical*vol)/cumsum(vol)",
+        "input_dependencies": [
+          "high",
+          "low",
+          "close",
+          "volume"
+        ],
+        "validation_status": "validated",
+        "known_limitations": [
+          "Resets daily by convention",
+          "Cumulative bias"
+        ],
+        "applicable_timeframes": [
+          "1m",
+          "5m",
+          "15m",
+          "1h"
+        ],
+        "provenance": "src/features/engine.py",
+        "category": "volume",
+        "feature_id": "feat_bcfbf17d3ce3"
+      },
+      {
+        "name": "OBV",
+        "version": "1.0",
+        "formula_method": "On-Balance Volume: cumulative signed volume",
+        "input_dependencies": [
+          "close",
+          "volume"
+        ],
+        "validation_status": "validated",
+        "known_limitations": [
+          "Does not account for price magnitude",
+          "Cumulative drift"
+        ],
+        "applicable_timeframes": [
+          "1h",
+          "1d"
+        ],
+        "provenance": "src/features/engine.py",
+        "category": "volume",
+        "feature_id": "feat_c2a9aaf12020"
+      },
+      {
+        "name": "Ichimoku Cloud",
+        "version": "1.0",
+        "formula_method": "Tenkan, Kijun, Senkou A/B, Chikou spans",
+        "input_dependencies": [
+          "high",
+          "low",
+          "close"
+        ],
+        "validation_status": "validated",
+        "known_limitations": [
+          "Complex interpretation",
+          "Lagging components"
+        ],
+        "applicable_timeframes": [
+          "1h",
+          "1d"
+        ],
+        "provenance": "src/features/engine.py",
+        "category": "trend",
+        "feature_id": "feat_e5c17e585640"
+      },
+      {
+        "name": "GARCH Volatility",
+        "version": "1.0",
+        "formula_method": "EWMA of squared log returns as GARCH(1,1) approximation",
+        "input_dependencies": [
+          "close"
+        ],
+        "validation_status": "experimental",
+        "known_limitations": [
+          "Simplified approximation, not full GARCH",
+          "Assumes stationarity"
+        ],
+        "applicable_timeframes": [
+          "1h",
+          "1d"
+        ],
+        "provenance": "src/features/engine.py",
+        "category": "volatility",
+        "feature_id": "feat_d37414462d47"
+      },
+      {
+        "name": "HMM Regime",
+        "version": "1.0",
+        "formula_method": "Hidden Markov Model with 4 states on returns + volatility",
+        "input_dependencies": [
+          "close"
+        ],
+        "validation_status": "experimental",
+        "known_limitations": [
+          "State count is fixed",
+          "Requires sufficient history"
+        ],
+        "applicable_timeframes": [
+          "1d"
+        ],
+        "provenance": "src/models/regime.py",
+        "category": "market_structure",
+        "feature_id": "feat_a523cddebe24"
+      },
+      {
+        "name": "Volume Profile",
+        "version": "1.0",
+        "formula_method": "Rolling volume statistics: SMA, ratio, z-score",
+        "input_dependencies": [
+          "volume"
+        ],
+        "validation_status": "validated",
+        "known_limitations": [
+          "Simplified vs full volume profile",
+          "No price-level bins"
+        ],
+        "applicable_timeframes": [
+          "1h",
+          "1d"
+        ],
+        "provenance": "src/features/engine.py",
+        "category": "volume",
+        "feature_id": "feat_d9f986a9790b"
+      },
+      {
+        "name": "Returns",
+        "version": "1.0",
+        "formula_method": "Pct change over multiple windows: 1, 3, 5, 10, 21, 63",
+        "input_dependencies": [
+          "close"
+        ],
+        "validation_status": "validated",
+        "known_limitations": [
+          "Look-ahead bias if not shifted",
+          "No volatility adjustment"
+        ],
+        "applicable_timeframes": [
+          "1m",
+          "5m",
+          "15m",
+          "1h",
+          "1d"
+        ],
+        "provenance": "src/features/engine.py",
+        "category": "statistical",
+        "feature_id": "feat_092230dc9f72"
+      },
+      {
+        "name": "LLM Sentiment",
+        "version": "1.0",
+        "formula_method": "GPT-4o-mini news analysis producing sentiment [-1,1] and confidence [0,1]",
+        "input_dependencies": [
+          "news_text"
+        ],
+        "validation_status": "experimental",
+        "known_limitations": [
+          "Depends on news availability",
+          "LLM may hallucinate",
+          "Rate limited"
+        ],
+        "applicable_timeframes": [
+          "1h",
+          "1d"
+        ],
+        "provenance": "src/models/llm_sentiment.py",
+        "category": "fundamental",
+        "feature_id": "feat_d739b07c56bf"
+      }
+    ]
+  },
+  "dependency_graph": {
+    "modules": {
+      "src": {
+        "path": "src/__init__.py",
+        "imports": [],
+        "imported_by": [],
+        "line_count": 3,
+        "sha256": "b50713949aa9"
+      },
+      "src.config_loader": {
+        "path": "src/config_loader.py",
+        "imports": [],
+        "imported_by": [
+          "src.main"
+        ],
+        "line_count": 85,
+        "sha256": "c5f9e775aa85"
+      },
+      "src.main": {
+        "path": "src/main.py",
+        "imports": [
+          "src.config_loader",
+          "src.data.providers",
+          "src.features.engine",
+          "src.models.ensemble",
+          "src.models.regime",
+          "src.models.rl_agent",
+          "src.models.llm_sentiment",
+          "src.strategies.strategies",
+          "src.strategies.backtester",
+          "src.risk.engine",
+          "src.execution.engine",
+          "src.reporting.report",
+          "src.utils.logger",
+          "src.aether.schemas",
+          "src.aether.feature_registry",
+          "src.aether.market_scanner",
+          "src.aether.experiment_registry",
+          "src.aether.upgrade_registry",
+          "src.aether.dependency_graph",
+          "src.aether.validation_manifest",
+          "src.aether.fixtures"
+        ],
+        "imported_by": [],
+        "line_count": 420,
+        "sha256": "93fa11b0e560"
+      },
+      "src.reporting": {
+        "path": "src/reporting/__init__.py",
+        "imports": [],
+        "imported_by": [],
+        "line_count": 0,
+        "sha256": "e3b0c44298fc"
+      },
+      "src.reporting.report": {
+        "path": "src/reporting/report.py",
+        "imports": [],
+        "imported_by": [
+          "src.main"
+        ],
+        "line_count": 365,
+        "sha256": "d95587ade53d"
+      },
+      "src.strategies.strategies": {
+        "path": "src/strategies/strategies.py",
+        "imports": [],
+        "imported_by": [
+          "src.main"
+        ],
+        "line_count": 185,
+        "sha256": "bbe6eb65c88d"
+      },
+      "src.strategies.backtester": {
+        "path": "src/strategies/backtester.py",
+        "imports": [],
+        "imported_by": [
+          "src.main"
+        ],
+        "line_count": 385,
+        "sha256": "ca3d3d730de1"
+      },
+      "src.strategies": {
+        "path": "src/strategies/__init__.py",
+        "imports": [],
+        "imported_by": [],
+        "line_count": 0,
+        "sha256": "e3b0c44298fc"
+      },
+      "src.models.llm_sentiment": {
+        "path": "src/models/llm_sentiment.py",
+        "imports": [],
+        "imported_by": [
+          "src.main"
+        ],
+        "line_count": 185,
+        "sha256": "6bda7281f131"
+      },
+      "src.models.rl_agent": {
+        "path": "src/models/rl_agent.py",
+        "imports": [],
+        "imported_by": [
+          "src.main"
+        ],
+        "line_count": 221,
+        "sha256": "a15d631f737f"
+      },
+      "src.models": {
+        "path": "src/models/__init__.py",
+        "imports": [],
+        "imported_by": [],
+        "line_count": 0,
+        "sha256": "e3b0c44298fc"
+      },
+      "src.models.ensemble": {
+        "path": "src/models/ensemble.py",
+        "imports": [],
+        "imported_by": [
+          "src.main"
+        ],
+        "line_count": 341,
+        "sha256": "f00f764ed044"
+      },
+      "src.models.regime": {
+        "path": "src/models/regime.py",
+        "imports": [],
+        "imported_by": [
+          "src.main",
+          "src.features.engine"
+        ],
+        "line_count": 107,
+        "sha256": "297a5c676bc6"
+      },
+      "src.aether.market_scanner": {
+        "path": "src/aether/market_scanner.py",
+        "imports": [
+          "src.aether.schemas"
+        ],
+        "imported_by": [
+          "src.main"
+        ],
+        "line_count": 266,
+        "sha256": "1da9ffa3590a"
+      },
+      "src.aether.feature_registry": {
+        "path": "src/aether/feature_registry.py",
+        "imports": [
+          "src.aether.schemas"
+        ],
+        "imported_by": [
+          "src.main"
+        ],
+        "line_count": 181,
+        "sha256": "a728114b6485"
+      },
+      "src.aether.schemas": {
+        "path": "src/aether/schemas.py",
+        "imports": [],
+        "imported_by": [
+          "src.main",
+          "src.aether.market_scanner",
+          "src.aether.feature_registry",
+          "src.aether.validation_manifest",
+          "src.aether.validation_manifest",
+          "src.aether.experiment_registry",
+          "src.aether.upgrade_registry"
+        ],
+        "line_count": 251,
+        "sha256": "2718de385f15"
+      },
+      "src.aether.dependency_graph": {
+        "path": "src/aether/dependency_graph.py",
+        "imports": [],
+        "imported_by": [
+          "src.main"
+        ],
+        "line_count": 163,
+        "sha256": "7948fecaff80"
+      },
+      "src.aether.validation_manifest": {
+        "path": "src/aether/validation_manifest.py",
+        "imports": [
+          "src.aether.schemas",
+          "src.aether.schemas"
+        ],
+        "imported_by": [
+          "src.main"
+        ],
+        "line_count": 169,
+        "sha256": "b730e4667e74"
+      },
+      "src.aether.fixtures": {
+        "path": "src/aether/fixtures.py",
+        "imports": [],
+        "imported_by": [
+          "src.main"
+        ],
+        "line_count": 24,
+        "sha256": "02531d800576"
+      },
+      "src.aether": {
+        "path": "src/aether/__init__.py",
+        "imports": [],
+        "imported_by": [],
+        "line_count": 8,
+        "sha256": "08e67be91c63"
+      },
+      "src.aether.experiment_registry": {
+        "path": "src/aether/experiment_registry.py",
+        "imports": [
+          "src.aether.schemas"
+        ],
+        "imported_by": [
+          "src.main"
+        ],
+        "line_count": 72,
+        "sha256": "8511613b64b2"
+      },
+      "src.aether.upgrade_registry": {
+        "path": "src/aether/upgrade_registry.py",
+        "imports": [
+          "src.aether.schemas"
+        ],
+        "imported_by": [
+          "src.main"
+        ],
+        "line_count": 101,
+        "sha256": "b10703fe552a"
+      },
+      "src.features.engine": {
+        "path": "src/features/engine.py",
+        "imports": [
+          "src.models.regime"
+        ],
+        "imported_by": [
+          "src.main"
+        ],
+        "line_count": 210,
+        "sha256": "b544d2fc4d0c"
+      },
+      "src.features": {
+        "path": "src/features/__init__.py",
+        "imports": [],
+        "imported_by": [],
+        "line_count": 0,
+        "sha256": "e3b0c44298fc"
+      },
+      "src.risk.engine": {
+        "path": "src/risk/engine.py",
+        "imports": [],
+        "imported_by": [
+          "src.main"
+        ],
+        "line_count": 254,
+        "sha256": "fd8e5195c8b3"
+      },
+      "src.risk": {
+        "path": "src/risk/__init__.py",
+        "imports": [],
+        "imported_by": [],
+        "line_count": 0,
+        "sha256": "e3b0c44298fc"
+      },
+      "src.utils.logger": {
+        "path": "src/utils/logger.py",
+        "imports": [],
+        "imported_by": [
+          "src.main"
+        ],
+        "line_count": 34,
+        "sha256": "6d584f7cc6b5"
+      },
+      "src.utils": {
+        "path": "src/utils/__init__.py",
+        "imports": [],
+        "imported_by": [],
+        "line_count": 0,
+        "sha256": "e3b0c44298fc"
+      },
+      "src.execution.engine": {
+        "path": "src/execution/engine.py",
+        "imports": [],
+        "imported_by": [
+          "src.main"
+        ],
+        "line_count": 242,
+        "sha256": "9a71853908a9"
+      },
+      "src.execution": {
+        "path": "src/execution/__init__.py",
+        "imports": [],
+        "imported_by": [],
+        "line_count": 0,
+        "sha256": "e3b0c44298fc"
+      },
+      "src.data": {
+        "path": "src/data/__init__.py",
+        "imports": [],
+        "imported_by": [],
+        "line_count": 0,
+        "sha256": "e3b0c44298fc"
+      },
+      "src.data.providers": {
+        "path": "src/data/providers.py",
+        "imports": [],
+        "imported_by": [
+          "src.main"
+        ],
+        "line_count": 309,
+        "sha256": "39fce5477bcd"
+      }
+    },
+    "summary": {
+      "total_modules": 32,
+      "total_edges": 28,
+      "unknown_dependencies": [],
+      "most_depended_on": [
+        [
+          "src.aether.schemas",
+          7
+        ],
+        [
+          "src.models.regime",
+          2
+        ],
+        [
+          "src.config_loader",
+          1
+        ],
+        [
+          "src.reporting.report",
+          1
+        ],
+        [
+          "src.strategies.strategies",
+          1
+        ],
+        [
+          "src.strategies.backtester",
+          1
+        ],
+        [
+          "src.models.llm_sentiment",
+          1
+        ],
+        [
+          "src.models.rl_agent",
+          1
+        ],
+        [
+          "src.models.ensemble",
+          1
+        ],
+        [
+          "src.aether.market_scanner",
+          1
+        ]
+      ],
+      "most_dependencies": [
+        [
+          "src.main",
+          21
+        ],
+        [
+          "src.aether.validation_manifest",
+          2
+        ],
+        [
+          "src.aether.market_scanner",
+          1
+        ],
+        [
+          "src.aether.feature_registry",
+          1
+        ],
+        [
+          "src.aether.experiment_registry",
+          1
+        ],
+        [
+          "src.aether.upgrade_registry",
+          1
+        ],
+        [
+          "src.features.engine",
+          1
+        ],
+        [
+          "src",
+          0
+        ],
+        [
+          "src.config_loader",
+          0
+        ],
+        [
+          "src.reporting",
+          0
+        ]
+      ]
+    }
+  },
+  "manifest": {
+    "total_files": 36,
+    "manifest_sha256": "21fb9029183425e3c07a019102baa6bee3a4fd09a192eee2e6f768e9ac83863b",
+    "verification_passed": true,
+    "details": {
+      "files_checked": 36,
+      "hash_mismatches": 0,
+      "missing_files": 0,
+      "unmanifested_files": 0,
+      "forbidden_entries": 0
+    }
+  },
+  "upgrade_registry": {
+    "total": 0,
+    "proposed": 0,
+    "under_analysis": 0,
+    "candidate": 0,
+    "testing": 0,
+    "benchmarking": 0,
+    "accepted": 0,
+    "checkpointed": 0,
+    "rejected": 0,
+    "retired": 0
+  },
+  "experiment_summary": {
+    "total": 1,
+    "accepted": 0,
+    "rejected": 1,
+    "uncertain": 0,
+    "avg_confidence": 0.7630952507643859
+  },
+  "ancestry": {
+    "type": "contract-compatible",
+    "v18500_verified": false,
+    "note": "V18500 archive not recovered. Implementation follows Aether checkpoint specification as design contract."
+  },
+  "equity_curve": [
+    100000.0,
+    100000.0,
+    100000.0,
+    100000.0,
+    100000.0,
+    100000.0,
+    100000.0,
+    100000.0,
+    100000.0,
+    100000.0,
+    100000.0,
+    100000.0,
+    100000.0,
+    100000.0,
+    100000.0,
+    100000.0,
+    100000.0,
+    100000.0,
+    100000.0,
+    100000.0,
+    100000.0,
+    100000.0,
+    100000.0,
+    100000.0,
+    100000.0,
+    99493.66053252405,
+    98040.86299414626,
+    97648.90008046295,
+    96873.39206856326,
+    97016.61654927919,
+    95393.02132701277,
+    94791.4318217243,
+    94116.00475660211,
+    94011.1712333507,
+    93565.24771523719,
+    92857.0417192619,
+    91660.82322532265,
+    91278.01762237439,
+    90960.35025837286,
+    89206.73945565613,
+    88343.82727631344,
+    88027.20942618027,
+    87144.40135391972,
+    87622.84469567667,
+    87480.10034384573,
+    87460.49690983653,
+    87887.58940494676,
+    86207.68220120469,
+    85945.51065990161,
+    86771.45243030711,
+    86892.50151911675,
+    86378.01072658341,
+    84693.34217477815,
+    85050.75224980329,
+    84558.46532929216,
+    84169.88598307771,
+    84545.9468952312,
+    84358.85604917713,
+    84346.427907896,
+    84247.79421618344,
+    84803.53138526935,
+    84977.82230589603,
+    84877.57703396484,
+    85374.60516773188,
+    84666.64083227645,
+    84788.48217169133,
+    85115.00532622376,
+    85293.85271807782,
+    84718.27668920041,
+    84341.15815793455,
+    84797.74281284431,
+    85014.92429306648,
+    84856.76270249275,
+    84889.50449488612,
+    84719.94782268243,
+    83930.98302061003,
+    83937.78482075254,
+    83935.42916840577,
+    83921.77165073289,
+    83781.99336164589,
+    83620.4914854261,
+    83635.77530396859,
+    84068.97917973198,
+    83426.06717213658,
+    83651.88584802477,
+    83293.55336998943,
+    83147.60639837748,
+    82819.7433578365,
+    82528.18149809455,
+    82730.85722989142,
+    82918.4067631325,
+    83054.89845120563,
+    82743.92390575173,
+    82577.57501673728,
+    81684.54883490149,
+    82626.30040061873,
+    81956.77388834587,
+    81703.6788972161,
+    81501.09092934447,
+    81176.29857120983,
+    80904.32446414905,
+    81068.66128122,
+    81597.34781247732,
+    81479.9437777112,
+    81171.92571335804,
+    81232.55244845415,
+    80853.29526041953,
+    80512.22000696498,
+    78774.68089144053,
+    78289.91564684368,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745,
+    80152.72944480745
+  ],
+  "drawdown_curve": [
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0050633946747594746,
+    0.019591370058537432,
+    0.023510999195370533,
+    0.03126607931436738,
+    0.029833834507208085,
+    0.04606978672987228,
+    0.05208568178275702,
+    0.05883995243397891,
+    0.05988828766649298,
+    0.06434752284762814,
+    0.07142958280738095,
+    0.08339176774677355,
+    0.08721982377625609,
+    0.09039649741627145,
+    0.10793260544343866,
+    0.11656172723686556,
+    0.11972790573819729,
+    0.12855598646080282,
+    0.12377155304323328,
+    0.12519899656154274,
+    0.12539503090163476,
+    0.1211241059505324,
+    0.1379231779879531,
+    0.14054489340098386,
+    0.13228547569692892,
+    0.13107498480883253,
+    0.1362198927341659,
+    0.15306657825221845,
+    0.1494924775019671,
+    0.15441534670707843,
+    0.15830114016922292,
+    0.15454053104768797,
+    0.15641143950822864,
+    0.15653572092104004,
+    0.15752205783816564,
+    0.1519646861473065,
+    0.15022177694103972,
+    0.15122422966035157,
+    0.14625394832268124,
+    0.15333359167723554,
+    0.1521151782830867,
+    0.14884994673776236,
+    0.14706147281922183,
+    0.15281723310799586,
+    0.1565884184206545,
+    0.15202257187155688,
+    0.14985075706933523,
+    0.1514323729750725,
+    0.15110495505113883,
+    0.1528005217731757,
+    0.1606901697938997,
+    0.1606221517924746,
+    0.16064570831594233,
+    0.16078228349267112,
+    0.16218006638354113,
+    0.16379508514573898,
+    0.16364224696031407,
+    0.15931020820268021,
+    0.1657393282786342,
+    0.16348114151975227,
+    0.1670644663001057,
+    0.1685239360162252,
+    0.171802566421635,
+    0.1747181850190545,
+    0.17269142770108578,
+    0.17081593236867498,
+    0.16945101548794367,
+    0.17256076094248274,
+    0.17422424983262724,
+    0.1831545116509851,
+    0.17373699599381273,
+    0.18043226111654134,
+    0.182963211027839,
+    0.18498909070655528,
+    0.18823701428790168,
+    0.19095675535850953,
+    0.18931338718779997,
+    0.18402652187522675,
+    0.18520056222288797,
+    0.1882807428664196,
+    0.18767447551545846,
+    0.1914670473958047,
+    0.19487779993035015,
+    0.21225319108559473,
+    0.21710084353156314,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548,
+    0.19847270555192548
+  ],
+  "trades": [
+    {
+      "entry": "2024-02-05",
+      "exit": "2024-02-06",
+      "symbol": "SPY",
+      "pnl": -606.9771860169105,
+      "pnl_pct": 0.024090837211309002,
+      "reason": "signal"
+    },
+    {
+      "entry": "2024-02-05",
+      "exit": "2024-02-06",
+      "symbol": "QQQ",
+      "pnl": 106.97207881772934,
+      "pnl_pct": 0.004241190220678481,
+      "reason": "signal"
+    },
+    {
+      "entry": "2024-02-05",
+      "exit": "2024-02-06",
+      "symbol": "BTC-USD",
+      "pnl": 174.14606654518738,
+      "pnl_pct": -0.008647105838069491,
+      "reason": "signal"
+    },
+    {
+      "entry": "2024-02-05",
+      "exit": "2024-02-07",
+      "symbol": "AAPL",
+      "pnl": 125.55268303574273,
+      "pnl_pct": -0.004973161649030944,
+      "reason": "signal"
+    },
+    {
+      "entry": "2024-02-06",
+      "exit": "2024-02-08",
+      "symbol": "NVDA",
+      "pnl": 592.2501477767657,
+      "pnl_pct": 0.02349248972020712,
+      "reason": "signal"
+    },
+    {
+      "entry": "2024-02-07",
+      "exit": "2024-02-08",
+      "symbol": "BTC-USD",
+      "pnl": -466.3451093579789,
+      "pnl_pct": 0.0231369615473499,
+      "reason": "signal"
+    },
+    {
+      "entry": "2024-02-05",
+      "exit": "2024-02-09",
+      "symbol": "GLD",
+      "pnl": 9.399798152568577,
+      "pnl_pct": -0.0018737894439937453,
+      "reason": "signal"
+    },
+    {
+      "entry": "2024-02-08",
+      "exit": "2024-02-12",
+      "symbol": "QQQ",
+      "pnl": 332.2929641548473,
+      "pnl_pct": 0.013174708549263725,
+      "reason": "signal"
+    },
+    {
+      "entry": "2024-02-09",
+      "exit": "2024-02-13",
+      "symbol": "AAPL",
+      "pnl": 251.1231721662903,
+      "pnl_pct": 0.009955645473175734,
+      "reason": "signal"
+    },
+    {
+      "entry": "2024-02-12",
+      "exit": "2024-02-13",
+      "symbol": "GLD",
+      "pnl": -255.00888794104037,
+      "pnl_pct": -0.016851527846130976,
+      "reason": "signal"
+    },
+    {
+      "entry": "2024-02-12",
+      "exit": "2024-02-14",
+      "symbol": "NVDA",
+      "pnl": -107.86106156317005,
+      "pnl_pct": -0.004283355715931303,
+      "reason": "signal"
+    },
+    {
+      "entry": "2024-02-14",
+      "exit": "2024-02-15",
+      "symbol": "GLD",
+      "pnl": -252.73689097108647,
+      "pnl_pct": -0.016744214294729942,
+      "reason": "signal"
+    },
+    {
+      "entry": "2024-02-14",
+      "exit": "2024-02-16",
+      "symbol": "QQQ",
+      "pnl": -683.3003782756225,
+      "pnl_pct": -0.027098616224136562,
+      "reason": "signal"
+    },
+    {
+      "entry": "2024-02-07",
+      "exit": "2024-02-19",
+      "symbol": "SPY",
+      "pnl": -525.9597875260755,
+      "pnl_pct": 0.020830090595092443,
+      "reason": "signal"
+    },
+    {
+      "entry": "2024-02-15",
+      "exit": "2024-02-19",
+      "symbol": "AAPL",
+      "pnl": 400.95579093215304,
+      "pnl_pct": 0.015879437264639806,
+      "reason": "signal"
+    },
+    {
+      "entry": "2024-02-16",
+      "exit": "2024-02-19",
+      "symbol": "GLD",
+      "pnl": -343.39447149661385,
+      "pnl_pct": -0.022666301748951678,
+      "reason": "signal"
+    },
+    {
+      "entry": "2024-02-09",
+      "exit": "2024-02-19",
+      "symbol": "BTC-USD",
+      "pnl": -1031.2535638875986,
+      "pnl_pct": 0.0683328668464176,
+      "reason": "take_profit"
+    },
+    {
+      "entry": "2024-02-16",
+      "exit": "2024-02-20",
+      "symbol": "NVDA",
+      "pnl": 867.8978777328759,
+      "pnl_pct": 0.034424912376546546,
+      "reason": "signal"
+    },
+    {
+      "entry": "2024-02-20",
+      "exit": "2024-02-21",
+      "symbol": "BTC-USD",
+      "pnl": -94.48244599089631,
+      "pnl_pct": 0.004677348811439552,
+      "reason": "signal"
+    },
+    {
+      "entry": "2024-02-20",
+      "exit": "2024-02-21",
+      "symbol": "GLD",
+      "pnl": 124.21193536080898,
+      "pnl_pct": 0.008233380267439694,
+      "reason": "signal"
+    },
+    {
+      "entry": "2024-02-20",
+      "exit": "2024-02-22",
+      "symbol": "QQQ",
+      "pnl": -257.6809048195841,
+      "pnl_pct": -0.010223727986211961,
+      "reason": "signal"
+    },
+    {
+      "entry": "2024-02-20",
+      "exit": "2024-02-23",
+      "symbol": "SPY",
+      "pnl": -1291.1675290153873,
+      "pnl_pct": 0.051234185769122864,
+      "reason": "signal"
+    },
+    {
+      "entry": "2024-02-21",
+      "exit": "2024-02-23",
+      "symbol": "AAPL",
+      "pnl": 1148.5643234059817,
+      "pnl_pct": 0.05690739790480803,
+      "reason": "signal"
+    },
+    {
+      "entry": "2024-02-22",
+      "exit": "2024-02-23",
+      "symbol": "BTC-USD",
+      "pnl": -38.53639550094382,
+      "pnl_pct": 0.0019077423515355685,
+      "reason": "signal"
+    },
+    {
+      "entry": "2024-02-22",
+      "exit": "2024-02-23",
+      "symbol": "GLD",
+      "pnl": 93.23816686242382,
+      "pnl_pct": 0.006167586733110131,
+      "reason": "signal"
+    },
+    {
+      "entry": "2024-02-23",
+      "exit": "2024-02-27",
+      "symbol": "QQQ",
+      "pnl": -205.1552979494421,
+      "pnl_pct": -0.040866684172770174,
+      "reason": "stop_loss"
+    },
+    {
+      "entry": "2024-02-21",
+      "exit": "2024-02-28",
+      "symbol": "NVDA",
+      "pnl": -207.98014752309177,
+      "pnl_pct": -0.0414133944377707,
+      "reason": "stop_loss"
+    },
+    {
+      "entry": "2024-02-26",
+      "exit": "2024-03-01",
+      "symbol": "GLD",
+      "pnl": -555.7835649157053,
+      "pnl_pct": -0.0410826442886012,
+      "reason": "stop_loss"
+    },
+    {
+      "entry": "2024-02-26",
+      "exit": "2024-03-04",
+      "symbol": "BTC-USD",
+      "pnl": 876.1983333543924,
+      "pnl_pct": -0.04876701843056397,
+      "reason": "stop_loss"
+    },
+    {
+      "entry": "2024-02-26",
+      "exit": "2024-03-06",
+      "symbol": "AAPL",
+      "pnl": 507.9171404282779,
+      "pnl_pct": 0.07356008476783993,
+      "reason": "take_profit"
+    },
+    {
+      "entry": "2024-02-28",
+      "exit": "2024-03-12",
+      "symbol": "QQQ",
+      "pnl": 1252.5535603253513,
+      "pnl_pct": 0.07845517855191653,
+      "reason": "take_profit"
+    },
+    {
+      "entry": "2024-02-26",
+      "exit": "2024-03-13",
+      "symbol": "SPY",
+      "pnl": -1333.058723218795,
+      "pnl_pct": 0.05914218779616354,
+      "reason": "take_profit"
+    },
+    {
+      "entry": "2024-03-05",
+      "exit": "2024-03-25",
+      "symbol": "BTC-USD",
+      "pnl": -853.2819717930676,
+      "pnl_pct": 0.05823240610421887,
+      "reason": "take_profit"
+    },
+    {
+      "entry": "2024-03-04",
+      "exit": "2024-03-29",
+      "symbol": "GLD",
+      "pnl": 902.3167469663986,
+      "pnl_pct": 0.07731810053069288,
+      "reason": "take_profit"
+    },
+    {
+      "entry": "2024-03-14",
+      "exit": "2024-04-04",
+      "symbol": "SPY",
+      "pnl": 570.2285387551635,
+      "pnl_pct": -0.04487309020215813,
+      "reason": "stop_loss"
+    },
+    {
+      "entry": "2024-04-01",
+      "exit": "2024-04-04",
+      "symbol": "GLD",
+      "pnl": -364.11809978146624,
+      "pnl_pct": -0.0481924497423436,
+      "reason": "stop_loss"
+    },
+    {
+      "entry": "2024-03-26",
+      "exit": "2024-04-09",
+      "symbol": "BTC-USD",
+      "pnl": -485.9051234525174,
+      "pnl_pct": -0.0469025029458241,
+      "reason": "stop_loss"
+    },
+    {
+      "entry": "2024-03-13",
+      "exit": "2024-04-15",
+      "symbol": "QQQ",
+      "pnl": 876.2382551552246,
+      "pnl_pct": 0.06799222517266168,
+      "reason": "take_profit"
+    },
+    {
+      "entry": "2024-04-10",
+      "exit": "2024-04-16",
+      "symbol": "BTC-USD",
+      "pnl": 708.7564252694908,
+      "pnl_pct": -0.07050665613988483,
+      "reason": "stop_loss"
+    },
+    {
+      "entry": "2024-04-05",
+      "exit": "2024-04-17",
+      "symbol": "GLD",
+      "pnl": -375.7222945237942,
+      "pnl_pct": -0.04989259893185005,
+      "reason": "stop_loss"
+    },
+    {
+      "entry": "2024-02-29",
+      "exit": "2024-04-29",
+      "symbol": "NVDA",
+      "pnl": -660.7716864305835,
+      "pnl_pct": -0.05091939127921985,
+      "reason": "stop_loss"
+    },
+    {
+      "entry": "2024-04-16",
+      "exit": "2024-04-30",
+      "symbol": "QQQ",
+      "pnl": 867.4634992879069,
+      "pnl_pct": 0.0687253959746621,
+      "reason": "take_profit"
+    },
+    {
+      "entry": "2024-05-01",
+      "exit": "2024-05-13",
+      "symbol": "QQQ",
+      "pnl": -506.517037931718,
+      "pnl_pct": -0.040129422556855254,
+      "reason": "stop_loss"
+    },
+    {
+      "entry": "2024-03-07",
+      "exit": "2024-05-13",
+      "symbol": "AAPL",
+      "pnl": 1026.4432885931053,
+      "pnl_pct": 0.07416350646288983,
+      "reason": "take_profit"
+    },
+    {
+      "entry": "2024-04-18",
+      "exit": "2024-05-14",
+      "symbol": "GLD",
+      "pnl": -483.2937154827137,
+      "pnl_pct": 0.0641903781451193,
+      "reason": "take_profit"
+    },
+    {
+      "entry": "2024-05-14",
+      "exit": "2024-05-16",
+      "symbol": "AAPL",
+      "pnl": -559.2486148863446,
+      "pnl_pct": -0.04446415107277735,
+      "reason": "stop_loss"
+    },
+    {
+      "entry": "2024-05-14",
+      "exit": "2024-05-17",
+      "symbol": "QQQ",
+      "pnl": -569.5476026228578,
+      "pnl_pct": -0.045305144283856125,
+      "reason": "stop_loss"
+    },
+    {
+      "entry": "2024-04-05",
+      "exit": "2024-05-23",
+      "symbol": "SPY",
+      "pnl": -549.0426048766964,
+      "pnl_pct": -0.04351019331723227,
+      "reason": "stop_loss"
+    },
+    {
+      "entry": "2024-04-30",
+      "exit": "2024-05-29",
+      "symbol": "NVDA",
+      "pnl": 618.0023427621603,
+      "pnl_pct": -0.049122886671077115,
+      "reason": "stop_loss"
+    },
+    {
+      "entry": "2024-05-24",
+      "exit": "2024-05-31",
+      "symbol": "SPY",
+      "pnl": 392.03844607776045,
+      "pnl_pct": -0.039008445890122534,
+      "reason": "kill_switch"
+    }
+  ],
+  "generated_at": "2026-08-17T09:12:16.181836"
+}

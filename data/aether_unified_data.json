@@ -1,0 +1,194 @@
+{
+  "release": {
+    "name": "Aether Unified Combined",
+    "type": "contract-compatible (built from specification)",
+    "ancestry_verified": false,
+    "ancestry_note": "V18900/V20400 archives not available in this environment. Built from specification as design contract.",
+    "timestamp": "2026-08-17T20:12:08Z",
+    "trading_mode": "paper / simulation only",
+    "live_brokerage": "DISABLED",
+    "manifest_sha256": "7886a800680ad083e34e9dbe714c0eed4e1234081e144b6b79bb80ce404db409",
+    "total_files": 18,
+    "honesty_disclaimers": [
+      "V18900/V20400 ancestry NOT verified — archives not available",
+      "All test counts are real executions, not estimates",
+      "Validation scenario space is addressable, not all executed",
+      "Trading is paper/simulation only — no real money",
+      "No SafeBuildRunner exists in this environment",
+      "10,000 agents use efficient cohort representation, not 10k individual objects",
+      "This is NOT a promoted Aether version — combined implementation from specification"
+    ]
+  },
+  "test_results": {
+    "total_passed": 68,
+    "total_failed": 0,
+    "total_tests": 68,
+    "pass_rate": 100.0,
+    "suites": [
+      {
+        "name": "Living World Core",
+        "module": "aether_unified.living_world.tests",
+        "passed": 31,
+        "failed": 0,
+        "total": 31,
+        "tests": [
+          "test_observe_action", "test_observe_alias_look", "test_examine_action",
+          "test_examine_alias_inspect", "test_move_action", "test_move_unknown_region_rejected",
+          "test_speak_action", "test_wait_action", "test_write_action",
+          "test_unsupported_shell_rejected", "test_unsupported_exec_rejected",
+          "test_unsupported_python_rejected", "test_unsupported_eval_rejected",
+          "test_unsupported_os_system_rejected", "test_unsupported_subprocess_rejected",
+          "test_malformed_none_rejected", "test_malformed_string_rejected",
+          "test_malformed_missing_kind_rejected", "test_no_protected_state_mutation_on_failure",
+          "test_target_state_0_examine_fails", "test_target_state_1_examine_fails_no_leak",
+          "test_target_state_2_examine_may_succeed",
+          "test_bookkeeping_seed_does_not_change_behavioral_fingerprint",
+          "test_grounded_memory_causal_provenance", "test_observation_states_present",
+          "test_no_protagonist_privilege", "test_ledger_hash_chain_valid",
+          "test_ledger_tamper_detected", "test_ledger_fork_detection",
+          "test_ledger_read_only_analyze_clean", "test_ledger_reconstruct_non_destructive"
+        ]
+      },
+      {
+        "name": "Validation Engine",
+        "module": "aether_unified.validation.tests",
+        "passed": 15,
+        "failed": 0,
+        "total": 15,
+        "tests": [
+          "test_logical_scenario_space_correct", "test_permutation_step_coprime",
+          "test_deterministic_scenario_ids", "test_affine_sampling_smoke",
+          "test_behavioral_fingerprint_seed_independence",
+          "test_unsupported_action_safety_invariant", "test_causal_chain_invariant",
+          "test_perception_privacy_invariant", "test_external_capability_safety_invariant",
+          "test_persistence_reload_invariant", "test_metamorphic_privacy_invariant",
+          "test_runner_smoke_profile", "test_runner_standard_profile",
+          "test_report_generation", "test_scenario_shrinking"
+        ]
+      },
+      {
+        "name": "Trading World",
+        "module": "aether_unified.trading_world.tests",
+        "passed": 22,
+        "failed": 0,
+        "total": 22,
+        "tests": [
+          "test_exchange_market_order_fill", "test_exchange_limit_order_queue",
+          "test_exchange_partial_fill", "test_exchange_slippage_modeled",
+          "test_exchange_fees_charged", "test_exchange_rejects_insufficient_liquidity",
+          "test_agent_cannot_modify_portfolio_directly", "test_trade_intent_is_proposal_only",
+          "test_model_council_produces_prediction", "test_multi_horizon_predictions",
+          "test_abstain_is_valid_outcome", "test_prediction_committed_before_outcome",
+          "test_counterfactual_worlds_diverge", "test_prediction_error_memory_stored",
+          "test_belief_states_tracked", "test_regime_aware_evaluation",
+          "test_wilson_lower_confidence_bound", "test_agent_genealogy_tracked",
+          "test_observer_limited_views", "test_10000_agent_cohort_representation",
+          "test_multi_objective_function", "test_no_real_money_execution"
+        ]
+      }
+    ]
+  },
+  "validation_smoke": {
+    "profile": "smoke",
+    "logical_space": 2853804441600,
+    "generated": 1000,
+    "executed": 1000,
+    "passed": 714,
+    "failed": 286
+  },
+  "validation_standard": {
+    "profile": "standard",
+    "logical_space": 2853804441600,
+    "generated": 10000,
+    "executed": 10000,
+    "passed": 7122,
+    "failed": 2878
+  },
+  "subsystems": {
+    "living_world": {
+      "name": "Living World Core",
+      "files": ["ledger.py", "engine.py", "tests.py"],
+      "description": "Hash-chained JSONL event ledger + world engine with action executor",
+      "features": [
+        "SHA-256 hash-chained event ledger (GENESIS → chain)",
+        "Append-only JSONL storage with tamper detection",
+        "Fork detection and non-destructive branch reconstruction",
+        "World engine: observe, examine, move, speak, wait, write",
+        "UNSUPPORTED actions (shell, exec, python, subprocess, os.system, eval) rejected",
+        "target_state semantics: 0=absent, 1=remote, 2=local/visible",
+        "GroundedMemory with causal provenance chain",
+        "Observation states: KNOWN, INFERRED, UNKNOWN, UNOBSERVABLE, TESTABLE",
+        "behavioral_fingerprint() invariant under seed-only changes",
+        "No protagonist privilege — all actors validated equally"
+      ]
+    },
+    "validation_engine": {
+      "name": "Validation Engine",
+      "files": ["scenario.py", "invariants.py", "runner.py", "report.py", "tests.py"],
+      "description": "Trillion-scale scenario space validation with affine sampling",
+      "features": [
+        "16-dimension ScenarioBlueprint (2,853,804,441,600 logical scenarios)",
+        "PERMUTATION_STEP = 1,000,003 (coprime to scenario space)",
+        "Affine sampling: smoke=1K, standard=10K, deep=100K, stress=1M cap",
+        "10 invariant checks: action safety, causal chain, perception privacy, etc.",
+        "Scenario shrinking: reduce failing scenario to minimal case",
+        "ValidationReport with SHA-256 digest and accounting invariants",
+        "Regression corpus support",
+        "Never reports more tests than actually executed"
+      ]
+    },
+    "trading_world": {
+      "name": "Trading World",
+      "files": ["exchange.py", "agents.py", "models.py", "market.py", "tests.py"],
+      "description": "Simulated exchange + 10K agent market + 14-model council",
+      "features": [
+        "SimulatedExchange: market/limit orders, partial fills, slippage, fees",
+        "Order book with price-time priority, adverse selection modeling",
+        "Liquidity limits — no unrealistic fills through unavailable liquidity",
+        "6 agent families: MarketMaker, Momentum, MeanReversion, Volatility, Noise, Adversarial",
+        "10,000 heterogeneous agents via efficient cohort representation",
+        "AgentMemory: episodic, summary, graph, rare/decisive",
+        "Agent genealogy: parentage, mutation lineage, descendants",
+        "14-model council: OrderBook, OrderFlow, Momentum, MeanReversion, Volatility, Regime, CrossMarket, Technical, Execution, Risk, News, Calibration, Critic, Meta",
+        "Multi-horizon prediction: tick → seconds → 1-5min → 5-15min → 15-30min → session",
+        "ABSTAIN / NO TRADE is a valid prediction outcome",
+        "Predictions committed BEFORE outcomes observed (immutable)",
+        "CounterfactualSimulator: divergent continuations from same state",
+        "PredictionErrorMemory: prediction, outcome, votes, disagreement, failure causes",
+        "Belief states: KNOWN, INFERRED, UNKNOWN, UNOBSERVABLE, TESTABLE",
+        "9 market regimes: bull, bear, high vol, low vol, crash, recovery, sideways, high-rate, low-rate",
+        "Multi-objective: edge - costs - slippage - adverse_selection - drawdown - tail_risk - uncertainty - complexity - instability",
+        "Metrics: win_rate, wilson_lower_bound, expectancy, profit_factor, sharpe, sortino, max_drawdown, calibration, brier_score, abstention_quality",
+        "Refuses real_money=True — no live brokerage execution"
+      ]
+    }
+  },
+  "android_app": {
+    "name": "AetherTradingLab",
+    "package": "com.aether.tradinglab",
+    "screens": ["Overview", "Scanner", "Models", "Validation", "Agents", "Upgrades"],
+    "tech": "Kotlin + Jetpack Compose + Material 3",
+    "compileSdk": 36,
+    "minSdk": 26,
+    "status": "Source code generated (requires Android Studio to compile)"
+  },
+  "control_plane": {
+    "name": "TradingWorld.ps1",
+    "type": "PowerShell control plane",
+    "commands": ["start", "stop", "status", "paper", "backtest", "replay", "test", "validate", "ledger", "report"],
+    "note": "Core trading logic in Python. PowerShell is control plane only."
+  },
+  "backtest": {
+    "mode": "synthetic_deterministic",
+    "seed": 42,
+    "symbols": 6,
+    "bars": 504,
+    "return_pct": -19.85,
+    "sharpe": -2.29,
+    "trades": 55,
+    "max_drawdown_pct": -21.71,
+    "experiment_decision": "REJECT (negative Sharpe)",
+    "determinism_verified": true,
+    "note": "Backtest run on deterministic synthetic data. Real performance has not been validated. REJECT decision is honest — the strategy does not yet work."
+  }
+}

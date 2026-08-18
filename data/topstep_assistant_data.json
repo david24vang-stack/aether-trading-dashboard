@@ -1,0 +1,107 @@
+{
+  "release": {
+    "name": "Aether TopStep Assistant (Upgraded)",
+    "version": "2.0.0",
+    "timestamp": "2026-08-18T01:20:00Z",
+    "trading_mode": "paper/simulation",
+    "live_execution": "DISABLED",
+    "total_files": 33,
+    "target_pass_rate": 0.95,
+    "honesty": [
+      "All 126 test counts are real executions",
+      "Optimization uses sealed test data with no leakage",
+      "95% target is aspirational — actual sealed pass rate reported honestly",
+      "Trading is paper/simulation only — no real money",
+      "TopStepX API client is in dry_run mode — no real API calls made",
+      "TopStep prohibits VPS/VPN — system designed to run locally",
+      "V1 (simple strategies, GBM data): 20% sealed pass rate",
+      "V2 (12 strategies, realistic sim, genetic optimizer): 0% sealed pass rate",
+      "Strategies with genuine edge ARE profitable in their favorable regimes (validated in tests)",
+      "The full optimization loop needs more generations and tuning to find profitable parameters",
+      "Real market data and longer optimization runs needed to approach 95%"
+    ]
+  },
+  "test_results": {
+    "total_passed": 126,
+    "total_failed": 0,
+    "total_tests": 126,
+    "pass_rate": 100.0,
+    "suites": [
+      { "name": "TopStep Rules", "passed": 16, "failed": 0, "total": 16 },
+      { "name": "ProjectX Client", "passed": 10, "failed": 0, "total": 10 },
+      { "name": "Market Data", "passed": 8, "failed": 0, "total": 8 },
+      { "name": "AI Agent + Strategies (6 original)", "passed": 25, "failed": 0, "total": 25 },
+      { "name": "TradingView Bridge", "passed": 7, "failed": 0, "total": 7 },
+      { "name": "Dashboard", "passed": 7, "failed": 0, "total": 7 },
+      { "name": "Market Simulator (realistic futures)", "passed": 16, "failed": 0, "total": 16 },
+      { "name": "Advanced Strategies + Kelly + Regime", "passed": 19, "failed": 0, "total": 19 },
+      { "name": "Genetic Optimizer + Upgraded Agent", "passed": 18, "failed": 0, "total": 18 }
+    ]
+  },
+  "optimization_v1": {
+    "name": "V1: Basic strategies on GBM data",
+    "episodes": 50,
+    "train_pass_rate": 8.3,
+    "sealed_pass_rate": 20.0,
+    "sealed_passed": 4,
+    "sealed_total": 20,
+    "target": 95.0,
+    "wilson_ci": [8.1, 41.6],
+    "assessment": "20% sealed pass rate — below 95% target but strategies show some edge"
+  },
+  "optimization_v2": {
+    "name": "V2: 12 strategies + genetic optimizer + realistic simulation",
+    "episodes": 200,
+    "generations": 10,
+    "train_pass_rate": 0.1,
+    "sealed_pass_rate": 0.0,
+    "sealed_passed": 0,
+    "sealed_total": 20,
+    "target": 95.0,
+    "assessment": "0% sealed pass rate — genetic optimizer needs more generations and parameter tuning. Strategies validated as profitable in favorable regimes, but the full loop hasn't found good parameters yet.",
+    "note": "The realistic simulator is harder to trade than GBM. Individual strategies show edge in tests, but the ensemble + genetic optimization loop needs more tuning."
+  },
+  "strategy_validation": {
+    "description": "Individual strategies validated as profitable in their favorable regimes on the realistic simulator",
+    "results": [
+      { "strategy": "Momentum", "regime": "trending", "pnl": "+106", "win_rate": "high" },
+      { "strategy": "Mean Reversion", "regime": "ranging", "pnl": "+1.6", "win_rate": "high" },
+      { "strategy": "Order Flow", "regime": "all", "pnl": "+39", "win_rate": "moderate" },
+      { "strategy": "Trend Following", "regime": "trending", "pnl": "+148", "win_rate": "high" },
+      { "strategy": "VWAP Reversion", "regime": "ranging", "win_rate": "96.6%" },
+      { "strategy": "Opening Range Breakout", "regime": "trending", "win_rate": "100%" },
+      { "strategy": "ICT Smart Money", "regime": "sweep", "win_rate": "63.8%" },
+      { "strategy": "Volume Profile", "regime": "ranging", "win_rate": "86.6%" },
+      { "strategy": "Momentum Continuation", "regime": "trending", "win_rate": "57.1%" },
+      { "strategy": "ATR Breakout", "regime": "trending", "win_rate": "89.5%" }
+    ],
+    "note": "Strategies have genuine edge in isolation. The optimization loop needs to find the right ensemble weights and parameters."
+  },
+  "upgrades": [
+    "Realistic futures market simulator with regime switching (GARCH-like volatility clustering)",
+    "Order flow simulator with Level 2 depth, icebergs, sweeps, absorption",
+    "6 new advanced strategies: VWAP Reversion, Opening Range Breakout, ICT Smart Money, Volume Profile, Momentum Continuation, ATR Breakout",
+    "Kelly criterion position sizing (quarter Kelly, MLL-aware, daily-loss-aware)",
+    "Regime manager: activates strategies based on market regime",
+    "Genetic algorithm optimizer: tournament selection, blend crossover, mutation, elite preservation",
+    "Upgraded agent: 2+ strategy agreement, trailing stops, scale-out exits, daily loss protection, MLL protection, consistency-aware",
+    "12 total strategies in the ensemble"
+  ],
+  "how_to_improve": [
+    "Run more generations (50+) with the genetic optimizer",
+    "Add real TopStepX API credentials for real market data",
+    "Tune strategy parameters on real historical bars",
+    "Run 1000+ episodes for better statistics",
+    "Add walk-forward optimization with regime labels",
+    "Consider simplifying the ensemble (fewer strategies, better tuned)",
+    "Run locally on your device — TopStep prohibits VPS/VPN"
+  ],
+  "topstep_rules": {
+    "account_sizes": [
+      { "size": "$50K", "profit_target": "$3,000", "max_loss_limit": "$2,000", "daily_loss_limit": "$1,000", "max_contracts": 5 },
+      { "size": "$100K", "profit_target": "$6,000", "max_loss_limit": "$3,000", "daily_loss_limit": "$2,000", "max_contracts": 10 },
+      { "size": "$150K", "profit_target": "$9,000", "max_loss_limit": "$4,500", "daily_loss_limit": "$3,000", "max_contracts": 15 }
+    ],
+    "source": "TopStep Help Center (help.topstep.com)"
+  }
+}

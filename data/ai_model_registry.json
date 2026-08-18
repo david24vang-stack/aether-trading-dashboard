@@ -1,0 +1,577 @@
+{
+  "total_providers": 38,
+  "total_models": 1703,
+  "connected": 0,
+  "not_configured": 37,
+  "aggregators": [
+    {
+      "name": "OpenRouter",
+      "litellm_prefix": "openrouter",
+      "env_var": "OPENROUTER_API_KEY",
+      "model_count": 97,
+      "key_models": [
+        "openai/gpt-4o",
+        "anthropic/claude-3.5-sonnet",
+        "google/gemini-pro",
+        "meta-llama/llama-3.1-405b"
+      ],
+      "description": "SINGLE KEY gives access to 97+ models from all providers",
+      "aggregator": true,
+      "status": "not_configured",
+      "api_key_present": false
+    }
+  ],
+  "providers": [
+    {
+      "name": "OpenAI",
+      "litellm_prefix": "openai",
+      "env_var": "OPENAI_API_KEY",
+      "model_count": 4,
+      "key_models": [
+        "gpt-4o",
+        "gpt-4o-mini",
+        "gpt-4-turbo",
+        "o1-preview"
+      ],
+      "description": "GPT-4o, o1 reasoning models",
+      "aggregator": false,
+      "status": "not_configured",
+      "api_key_present": false
+    },
+    {
+      "name": "Anthropic",
+      "litellm_prefix": "anthropic",
+      "env_var": "ANTHROPIC_API_KEY",
+      "model_count": 0,
+      "key_models": [
+        "claude-3.5-sonnet",
+        "claude-3.5-haiku",
+        "claude-3-opus"
+      ],
+      "description": "Claude 3.5 Sonnet, Opus, Haiku",
+      "aggregator": false,
+      "status": "not_configured",
+      "api_key_present": false
+    },
+    {
+      "name": "Google Gemini",
+      "litellm_prefix": "gemini",
+      "env_var": "GEMINI_API_KEY",
+      "model_count": 68,
+      "key_models": [
+        "gemini-1.5-pro",
+        "gemini-1.5-flash",
+        "gemini-2.0-flash"
+      ],
+      "description": "Gemini 1.5/2.0 with large context",
+      "aggregator": false,
+      "status": "not_configured",
+      "api_key_present": false
+    },
+    {
+      "name": "DeepSeek",
+      "litellm_prefix": "deepseek",
+      "env_var": "DEEPSEEK_API_KEY",
+      "model_count": 8,
+      "key_models": [
+        "deepseek-chat",
+        "deepseek-coder",
+        "deepseek-reasoner"
+      ],
+      "description": "DeepSeek V2/V3 reasoning models",
+      "aggregator": false,
+      "status": "not_configured",
+      "api_key_present": false
+    },
+    {
+      "name": "xAI (Grok)",
+      "litellm_prefix": "xai",
+      "env_var": "XAI_API_KEY",
+      "model_count": 44,
+      "key_models": [
+        "grok-2",
+        "grok-2-vision",
+        "grok-beta"
+      ],
+      "description": "Grok models from xAI",
+      "aggregator": false,
+      "status": "not_configured",
+      "api_key_present": false
+    },
+    {
+      "name": "Perplexity",
+      "litellm_prefix": "perplexity",
+      "env_var": "PPLX_API_KEY",
+      "model_count": 41,
+      "key_models": [
+        "llama-3.1-sonar-large",
+        "sonar-pro",
+        "sonar-reasoning"
+      ],
+      "description": "Perplexity Online/Sonar models",
+      "aggregator": false,
+      "status": "not_configured",
+      "api_key_present": false
+    },
+    {
+      "name": "Mistral",
+      "litellm_prefix": "mistral",
+      "env_var": "MISTRAL_API_KEY",
+      "model_count": 64,
+      "key_models": [
+        "mistral-large",
+        "mistral-medium",
+        "codestral",
+        "pixtral"
+      ],
+      "description": "Mistral, Codestral, Pixtral",
+      "aggregator": false,
+      "status": "not_configured",
+      "api_key_present": false
+    },
+    {
+      "name": "Cohere",
+      "litellm_prefix": "cohere",
+      "env_var": "COHERE_API_KEY",
+      "model_count": 1,
+      "key_models": [
+        "command-r-plus",
+        "command-r"
+      ],
+      "description": "Command R+ models",
+      "aggregator": false,
+      "status": "not_configured",
+      "api_key_present": false
+    },
+    {
+      "name": "AI21",
+      "litellm_prefix": "ai21",
+      "env_var": "AI21_API_KEY",
+      "model_count": 0,
+      "key_models": [
+        "jamba-1.5-large",
+        "jamba-1.5-mini"
+      ],
+      "description": "Jamba models",
+      "aggregator": false,
+      "status": "not_configured",
+      "api_key_present": false
+    },
+    {
+      "name": "Groq",
+      "litellm_prefix": "groq",
+      "env_var": "GROQ_API_KEY",
+      "model_count": 19,
+      "key_models": [
+        "llama-3.3-70b",
+        "llama-3.1-8b-instant",
+        "mixtral-8x7b"
+      ],
+      "description": "Ultra-fast inference (Groq LPU)",
+      "aggregator": false,
+      "status": "not_configured",
+      "api_key_present": false
+    },
+    {
+      "name": "Together AI",
+      "litellm_prefix": "together_ai",
+      "env_var": "TOGETHER_AI_API_KEY",
+      "model_count": 35,
+      "key_models": [
+        "meta-llama/Llama-3.3-70B",
+        "Qwen/Qwen2.5-72B"
+      ],
+      "description": "Open-source model hosting",
+      "aggregator": false,
+      "status": "not_configured",
+      "api_key_present": false
+    },
+    {
+      "name": "Fireworks AI",
+      "litellm_prefix": "fireworks_ai",
+      "env_var": "FIREWORKS_API_KEY",
+      "model_count": 292,
+      "key_models": [
+        "llama-v3p3-70b-instruct",
+        "qwen2p5-72b-instruct"
+      ],
+      "description": "Fast inference, 292 models",
+      "aggregator": false,
+      "status": "not_configured",
+      "api_key_present": false
+    },
+    {
+      "name": "Cerebras",
+      "litellm_prefix": "cerebras",
+      "env_var": "CEREBRAS_API_KEY",
+      "model_count": 7,
+      "key_models": [
+        "llama-3.3-70b",
+        "llama-3.1-8b"
+      ],
+      "description": "Fastest inference (Cerebras Wafer-Scale)",
+      "aggregator": false,
+      "status": "not_configured",
+      "api_key_present": false
+    },
+    {
+      "name": "SambaNova",
+      "litellm_prefix": "sambanova",
+      "env_var": "SAMBANOVA_API_KEY",
+      "model_count": 19,
+      "key_models": [
+        "Meta-Llama-3.3-70B",
+        "Meta-Llama-3.1-405B"
+      ],
+      "description": "SambaNova RDU inference",
+      "aggregator": false,
+      "status": "not_configured",
+      "api_key_present": false
+    },
+    {
+      "name": "NVIDIA NIM",
+      "litellm_prefix": "nvidia_nim",
+      "env_var": "NVIDIA_API_KEY",
+      "model_count": 3,
+      "key_models": [
+        "nvidia/llama-3.1-nemotron-70b",
+        "nvidia/nemotron-4-340b"
+      ],
+      "description": "NVIDIA NIM microservices",
+      "aggregator": false,
+      "status": "not_configured",
+      "api_key_present": false
+    },
+    {
+      "name": "Databricks",
+      "litellm_prefix": "databricks",
+      "env_var": "DATABRICKS_API_KEY",
+      "model_count": 28,
+      "key_models": [
+        "databricks-dbrx-instruct",
+        "databricks-meta-llama-3-70b"
+      ],
+      "description": "Databricks hosted models",
+      "aggregator": false,
+      "status": "not_configured",
+      "api_key_present": false
+    },
+    {
+      "name": "Novita",
+      "litellm_prefix": "novita",
+      "env_var": "NOVITA_API_KEY",
+      "model_count": 85,
+      "key_models": [
+        "meta-llama/llama-3.1-70b",
+        "qwen/qwen-2.5-72b"
+      ],
+      "description": "85 models, cost-effective",
+      "aggregator": false,
+      "status": "not_configured",
+      "api_key_present": false
+    },
+    {
+      "name": "DeepInfra",
+      "litellm_prefix": "deepinfra",
+      "env_var": "DEEPINFRA_API_KEY",
+      "model_count": 68,
+      "key_models": [
+        "meta-llama/Meta-Llama-3.1-8B-Instruct"
+      ],
+      "description": "68 models, fast inference",
+      "aggregator": false,
+      "status": "not_configured",
+      "api_key_present": false
+    },
+    {
+      "name": "Hyperbolic",
+      "litellm_prefix": "hyperbolic",
+      "env_var": "HYPERBOLIC_API_KEY",
+      "model_count": 16,
+      "key_models": [
+        "meta-llama/Meta-Llama-3.1-405B"
+      ],
+      "description": "Affordable GPU inference",
+      "aggregator": false,
+      "status": "not_configured",
+      "api_key_present": false
+    },
+    {
+      "name": "Nebius",
+      "litellm_prefix": "nebius",
+      "env_var": "NEBIUS_API_KEY",
+      "model_count": 30,
+      "key_models": [
+        "llama-3.3-70b-instruct",
+        "qwen2.5-72b-instruct"
+      ],
+      "description": "Nebius Cloud AI",
+      "aggregator": false,
+      "status": "not_configured",
+      "api_key_present": false
+    },
+    {
+      "name": "OpenRouter",
+      "litellm_prefix": "openrouter",
+      "env_var": "OPENROUTER_API_KEY",
+      "model_count": 97,
+      "key_models": [
+        "openai/gpt-4o",
+        "anthropic/claude-3.5-sonnet",
+        "google/gemini-pro",
+        "meta-llama/llama-3.1-405b"
+      ],
+      "description": "SINGLE KEY gives access to 97+ models from all providers",
+      "aggregator": true,
+      "status": "not_configured",
+      "api_key_present": false
+    },
+    {
+      "name": "Azure OpenAI",
+      "litellm_prefix": "azure",
+      "env_var": "AZURE_API_KEY",
+      "model_count": 221,
+      "key_models": [
+        "gpt-4o",
+        "gpt-4",
+        "gpt-35-turbo"
+      ],
+      "description": "Azure-hosted OpenAI models (221 deployments)",
+      "aggregator": false,
+      "status": "not_configured",
+      "api_key_present": false
+    },
+    {
+      "name": "Vertex AI",
+      "litellm_prefix": "vertex_ai",
+      "env_var": "VERTEXAI_PROJECT",
+      "model_count": 128,
+      "key_models": [
+        "gemini-1.5-pro",
+        "claude-3.5-sonnet",
+        "gemma-2"
+      ],
+      "description": "Google Cloud Vertex AI (128 models)",
+      "aggregator": false,
+      "status": "not_configured",
+      "api_key_present": false
+    },
+    {
+      "name": "AWS Bedrock",
+      "litellm_prefix": "bedrock",
+      "env_var": "AWS_ACCESS_KEY_ID",
+      "model_count": 154,
+      "key_models": [
+        "anthropic.claude-3-5-sonnet",
+        "meta.llama3-1-70b"
+      ],
+      "description": "AWS Bedrock (154 models)",
+      "aggregator": false,
+      "status": "not_configured",
+      "api_key_present": false
+    },
+    {
+      "name": "Snowflake",
+      "litellm_prefix": "snowflake",
+      "env_var": "SNOWFLAKE_API_KEY",
+      "model_count": 37,
+      "key_models": [
+        "snowflake-arctic",
+        "llama3.1-405b"
+      ],
+      "description": "Snowflake Cortex AI",
+      "aggregator": false,
+      "status": "not_configured",
+      "api_key_present": false
+    },
+    {
+      "name": "Cloudflare",
+      "litellm_prefix": "cloudflare",
+      "env_var": "CLOUDFLARE_API_KEY",
+      "model_count": 30,
+      "key_models": [
+        "@cf/meta/llama-3.1-8b-instruct"
+      ],
+      "description": "Cloudflare Workers AI",
+      "aggregator": false,
+      "status": "not_configured",
+      "api_key_present": false
+    },
+    {
+      "name": "Replicate",
+      "litellm_prefix": "replicate",
+      "env_var": "REPLICATE_API_KEY",
+      "model_count": 40,
+      "key_models": [
+        "meta/llama-3.1-405b-instruct"
+      ],
+      "description": "Replicate model hosting",
+      "aggregator": false,
+      "status": "not_configured",
+      "api_key_present": false
+    },
+    {
+      "name": "Ollama (Local)",
+      "litellm_prefix": "ollama",
+      "env_var": "OLLAMA_API_BASE",
+      "model_count": 29,
+      "key_models": [
+        "llama3.2",
+        "qwen2.5",
+        "mistral"
+      ],
+      "description": "Local model hosting (no API key needed, run locally)",
+      "aggregator": false,
+      "status": "local_only",
+      "api_key_present": false
+    },
+    {
+      "name": "Moonshot",
+      "litellm_prefix": "moonshot",
+      "env_var": "MOONSHOT_API_KEY",
+      "model_count": 22,
+      "key_models": [
+        "moonshot-v1-128k",
+        "moonshot-v1-32k"
+      ],
+      "description": "Moonshot/Kimi models (128K context)",
+      "aggregator": false,
+      "status": "not_configured",
+      "api_key_present": false
+    },
+    {
+      "name": "Minimax",
+      "litellm_prefix": "minimax",
+      "env_var": "MINIMAX_API_KEY",
+      "model_count": 10,
+      "key_models": [
+        "abab6.5s-chat",
+        "abab6.5-chat"
+      ],
+      "description": "Minimax models",
+      "aggregator": false,
+      "status": "not_configured",
+      "api_key_present": false
+    },
+    {
+      "name": "DashScope",
+      "litellm_prefix": "dashscope",
+      "env_var": "DASHSCOPE_API_KEY",
+      "model_count": 43,
+      "key_models": [
+        "qwen-turbo",
+        "qwen-plus",
+        "qwen-max"
+      ],
+      "description": "Alibaba Qwen models (43 variants)",
+      "aggregator": false,
+      "status": "not_configured",
+      "api_key_present": false
+    },
+    {
+      "name": "GigaChat",
+      "litellm_prefix": "gigachat",
+      "env_var": "GIGACHAT_API_KEY",
+      "model_count": 6,
+      "key_models": [
+        "GigaChat",
+        "GigaChat-Pro"
+      ],
+      "description": "Sber GigaChat models",
+      "aggregator": false,
+      "status": "not_configured",
+      "api_key_present": false
+    },
+    {
+      "name": "Volcengine",
+      "litellm_prefix": "volcengine",
+      "env_var": "VOLCENGINE_API_KEY",
+      "model_count": 4,
+      "key_models": [
+        "doubao-pro-4k",
+        "doubao-pro-32k"
+      ],
+      "description": "ByteDance Doubao models",
+      "aggregator": false,
+      "status": "not_configured",
+      "api_key_present": false
+    },
+    {
+      "name": "Tencent",
+      "litellm_prefix": "tencent",
+      "env_var": "TENCENT_API_KEY",
+      "model_count": 2,
+      "key_models": [
+        "hunyuan-pro",
+        "hunyuan-standard"
+      ],
+      "description": "Tencent Hunyuan models",
+      "aggregator": false,
+      "status": "not_configured",
+      "api_key_present": false
+    },
+    {
+      "name": "Scaleway",
+      "litellm_prefix": "scaleway",
+      "env_var": "SCALEWAY_API_KEY",
+      "model_count": 17,
+      "key_models": [
+        "llama-3.3-70b-instruct"
+      ],
+      "description": "Scaleway cloud inference",
+      "aggregator": false,
+      "status": "not_configured",
+      "api_key_present": false
+    },
+    {
+      "name": "Lambda AI",
+      "litellm_prefix": "lambda_ai",
+      "env_var": "LAMBDA_API_KEY",
+      "model_count": 20,
+      "key_models": [
+        "llama-3.1-405b-instruct"
+      ],
+      "description": "Lambda Labs GPU inference",
+      "aggregator": false,
+      "status": "not_configured",
+      "api_key_present": false
+    },
+    {
+      "name": "Predibase",
+      "litellm_prefix": "predibase",
+      "env_var": "PREDIBASE_API_KEY",
+      "model_count": 0,
+      "key_models": [
+        "llama-3.1-8b-instruct"
+      ],
+      "description": "Fine-tuned model hosting",
+      "aggregator": false,
+      "status": "not_configured",
+      "api_key_present": false
+    },
+    {
+      "name": "Baseten",
+      "litellm_prefix": "baseten",
+      "env_var": "BASETEN_API_KEY",
+      "model_count": 11,
+      "key_models": [
+        "llama-3.1-8b-instruct"
+      ],
+      "description": "Baseten model deployment",
+      "aggregator": false,
+      "status": "not_configured",
+      "api_key_present": false
+    }
+  ],
+  "litellm_version": "1.97.0",
+  "simulated": true,
+  "model_prediction": true,
+  "honesty_notes": [
+    "38 providers registered covering 1,703+ models via LiteLLM.",
+    "No API keys are stored. User must provide keys via credentials system.",
+    "OpenRouter (single key) gives access to 97+ models from all major providers.",
+    "Ollama runs locally with no API key \u2014 install from ollama.com",
+    "Without keys, all models show 'not_configured' and fall back to simulated routing."
+  ],
+  "timestamp": "2026-08-18T20:57:57.282541+00:00"
+}

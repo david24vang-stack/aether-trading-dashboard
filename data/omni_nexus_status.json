@@ -1,0 +1,306 @@
+{
+  "plugins": {
+    "plugins": [
+      {
+        "name": "Market_Depth",
+        "function": "L2/L3 order book data",
+        "status": "disconnected",
+        "last_call": null,
+        "call_count": 0,
+        "data_hash": null,
+        "simulated": true,
+        "model_prediction": true
+      },
+      {
+        "name": "News_Sentiment",
+        "function": "Global news and sentiment analysis",
+        "status": "disconnected",
+        "last_call": null,
+        "call_count": 0,
+        "data_hash": null,
+        "simulated": true,
+        "model_prediction": true
+      },
+      {
+        "name": "Live_Market_Data",
+        "function": "Real-time quotes and OHLCV",
+        "status": "connected",
+        "last_call": "2026-08-18T18:10:16.482713+00:00",
+        "call_count": 3,
+        "data_hash": "63bf4a8c12e05cbe",
+        "simulated": true,
+        "model_prediction": true
+      },
+      {
+        "name": "Paper_Trading",
+        "function": "Alpaca paper trade execution",
+        "status": "connected",
+        "last_call": "2026-08-18T18:10:16.482735+00:00",
+        "call_count": 3,
+        "data_hash": "63bf4a8c12e05cbe",
+        "simulated": true,
+        "model_prediction": true
+      },
+      {
+        "name": "Vision_Scan",
+        "function": "Chart pattern recognition",
+        "status": "not_available",
+        "last_call": null,
+        "call_count": 0,
+        "data_hash": null,
+        "simulated": true,
+        "model_prediction": true
+      },
+      {
+        "name": "Order_Flow",
+        "function": "Order flow and volume profile",
+        "status": "not_available",
+        "last_call": null,
+        "call_count": 0,
+        "data_hash": null,
+        "simulated": true,
+        "model_prediction": true
+      },
+      {
+        "name": "Fractal_Calculus",
+        "function": "Mathematical pattern analysis",
+        "status": "simulated",
+        "last_call": "2026-08-18T18:10:16.482738+00:00",
+        "call_count": 3,
+        "data_hash": "63bf4a8c12e05cbe",
+        "simulated": true,
+        "model_prediction": true
+      },
+      {
+        "name": "Data_Integrity",
+        "function": "SHA-256 hash verification",
+        "status": "connected",
+        "last_call": "2026-08-18T18:10:16.482742+00:00",
+        "call_count": 3,
+        "data_hash": "63bf4a8c12e05cbe",
+        "simulated": true,
+        "model_prediction": true
+      }
+    ],
+    "available_count": 4,
+    "disconnected_count": 4,
+    "total_count": 8,
+    "simulated": true,
+    "model_prediction": true
+  },
+  "models": {
+    "models": [
+      {
+        "name": "GPT-4o",
+        "provider": "OpenAI",
+        "specialty": "Logic and reasoning",
+        "available": false,
+        "reason": "No API key / LiteLLM not installed",
+        "call_count": 0,
+        "simulated": true,
+        "model_prediction": true
+      },
+      {
+        "name": "Claude-3.5",
+        "provider": "Anthropic",
+        "specialty": "Code analysis and safety",
+        "available": false,
+        "reason": "No API key / LiteLLM not installed",
+        "call_count": 0,
+        "simulated": true,
+        "model_prediction": true
+      },
+      {
+        "name": "Llama-3",
+        "provider": "Meta",
+        "specialty": "Open-source reasoning",
+        "available": false,
+        "reason": "No API key / LiteLLM not installed",
+        "call_count": 3,
+        "simulated": true,
+        "model_prediction": true
+      },
+      {
+        "name": "Gemini-1.5",
+        "provider": "Google",
+        "specialty": "Large context data processing",
+        "available": false,
+        "reason": "No API key / LiteLLM not installed",
+        "call_count": 0,
+        "simulated": true,
+        "model_prediction": true
+      },
+      {
+        "name": "DeepSeek-V2",
+        "provider": "DeepSeek",
+        "specialty": "Mathematical computation",
+        "available": false,
+        "reason": "No API key / LiteLLM not installed",
+        "call_count": 0,
+        "simulated": true,
+        "model_prediction": true
+      }
+    ],
+    "available_count": 0,
+    "total_count": 5,
+    "litellm_available": false,
+    "routing_table": {
+      "code_analysis": "Claude-3.5",
+      "logic_reasoning": "GPT-4o",
+      "large_context": "Gemini-1.5",
+      "math_computation": "DeepSeek-V2",
+      "general": "Llama-3"
+    },
+    "simulated": true,
+    "model_prediction": true
+  },
+  "generator": {
+    "templates": [
+      {
+        "name": "Options_Flow",
+        "description": "Track unusual options activity",
+        "requires": "options data feed",
+        "auto_generatable": false,
+        "status": "template_only",
+        "simulated": true,
+        "model_prediction": true
+      },
+      {
+        "name": "Crypto_OnChain",
+        "description": "On-chain blockchain analytics",
+        "requires": "blockchain API",
+        "auto_generatable": false,
+        "status": "template_only",
+        "simulated": true,
+        "model_prediction": true
+      },
+      {
+        "name": "Economic_Calendar",
+        "description": "Scheduled economic event tracking",
+        "requires": "economic data API",
+        "auto_generatable": false,
+        "status": "template_only",
+        "simulated": true,
+        "model_prediction": true
+      },
+      {
+        "name": "Futures_Curve",
+        "description": "Futures term structure analysis",
+        "requires": "futures data feed",
+        "auto_generatable": false,
+        "status": "template_only",
+        "simulated": true,
+        "model_prediction": true
+      },
+      {
+        "name": "Volatility_Surface",
+        "description": "IV surface modeling",
+        "requires": "options data feed",
+        "auto_generatable": false,
+        "status": "template_only",
+        "simulated": true,
+        "model_prediction": true
+      },
+      {
+        "name": "Correlation_Heatmap",
+        "description": "Cross-asset correlation matrix",
+        "requires": "multi-asset data",
+        "auto_generatable": false,
+        "status": "template_only",
+        "simulated": true,
+        "model_prediction": true
+      },
+      {
+        "name": "Liquidity_Heatmap",
+        "description": "Order book liquidity mapping",
+        "requires": "L3 order book data",
+        "auto_generatable": false,
+        "status": "template_only",
+        "simulated": true,
+        "model_prediction": true
+      },
+      {
+        "name": "Sentiment_NLP",
+        "description": "NLP-based news sentiment scoring",
+        "requires": "news API + NLP model",
+        "auto_generatable": false,
+        "status": "template_only",
+        "simulated": true,
+        "model_prediction": true
+      }
+    ],
+    "template_count": 8,
+    "auto_generatable_count": 0,
+    "simulated": true,
+    "model_prediction": true
+  },
+  "cycle_count": 3,
+  "created_at": "2026-08-18T18:10:16.282191+00:00",
+  "precision_status": "not_benchmarked",
+  "simulated": true,
+  "model_prediction": true,
+  "disclaimer": "Aether Omni-Nexus \u2014 Simulated plugin orchestrator. No live AI model calls without API keys. No guaranteed precision. All outputs are model-based estimates. NOT financial advice.",
+  "honesty_notes": [
+    "5 registered AI models, 0 available without API keys (NOT 10M agents).",
+    "Precision is not_benchmarked, NOT 99.9999999%.",
+    "8 plugins registered, only connected ones produce real data.",
+    "8 plugin templates registered, 0 auto-generatable (no recursive code generation).",
+    "No SINGULARITY_UNIFIED, no GOD_MODE. Honest orchestration only."
+  ],
+  "recent_cycles": [
+    {
+      "cycle_number": 1,
+      "timestamp": "2026-08-18T18:10:16.282233+00:00",
+      "plugins_called": [
+        "Live_Market_Data",
+        "Paper_Trading",
+        "Fractal_Calculus",
+        "Data_Integrity"
+      ],
+      "models_routed": [
+        "Llama-3 (simulated_fallback)"
+      ],
+      "result_signal": "hold",
+      "confidence": 0.0,
+      "precision": "not_benchmarked",
+      "simulated": true,
+      "model_prediction": true
+    },
+    {
+      "cycle_number": 2,
+      "timestamp": "2026-08-18T18:10:16.382428+00:00",
+      "plugins_called": [
+        "Live_Market_Data",
+        "Paper_Trading",
+        "Fractal_Calculus",
+        "Data_Integrity"
+      ],
+      "models_routed": [
+        "Llama-3 (simulated_fallback)"
+      ],
+      "result_signal": "hold",
+      "confidence": 0.0,
+      "precision": "not_benchmarked",
+      "simulated": true,
+      "model_prediction": true
+    },
+    {
+      "cycle_number": 3,
+      "timestamp": "2026-08-18T18:10:16.482665+00:00",
+      "plugins_called": [
+        "Live_Market_Data",
+        "Paper_Trading",
+        "Fractal_Calculus",
+        "Data_Integrity"
+      ],
+      "models_routed": [
+        "Llama-3 (simulated_fallback)"
+      ],
+      "result_signal": "hold",
+      "confidence": 0.0,
+      "precision": "not_benchmarked",
+      "simulated": true,
+      "model_prediction": true
+    }
+  ]
+}

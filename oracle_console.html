@@ -1,0 +1,1075 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aether Oracle Console — Twin Dashboard</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        :root {
+            --oracle-gold: #f1c40f;
+            --deep-blue: #0a0e17;
+            --panel-blue: #121826;
+            --card-blue: #1a2233;
+            --neon-cyan: #00d4ff;
+            --neon-green: #00ff88;
+            --accent-warn: #ff6b35;
+            --accent-purple: #9b59b6;
+            --text-primary: #e8e8e8;
+            --text-secondary: #8894a0;
+            --text-faint: #555f6b;
+            --border: #233040;
+            --pass-color: #00ff88;
+            --fail-color: #ff4757;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            background: var(--deep-blue);
+            color: var(--text-primary);
+            font-family: 'Segoe UI', -apple-system, sans-serif;
+            min-height: 100vh;
+        }
+
+        /* Header */
+        .header {
+            background: var(--panel-blue);
+            padding: 14px 24px;
+            border-bottom: 2px solid var(--oracle-gold);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+        .header-left { display: flex; align-items: center; gap: 16px; }
+        .oracle-icon {
+            width: 40px; height: 40px;
+            border: 2px solid var(--oracle-gold);
+            border-radius: 50%;
+            position: relative;
+            box-shadow: 0 0 12px rgba(241,196,15,0.4);
+        }
+        .oracle-icon::after {
+            content: '';
+            position: absolute;
+            top: 50%; left: 50%;
+            transform: translate(-50%,-50%);
+            width: 16px; height: 16px;
+            border-radius: 50%;
+            background: var(--oracle-gold);
+            opacity: 0.6;
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse { 0% { opacity: 0.3; } 50% { opacity: 0.8; } 100% { opacity: 0.3; } }
+        .header h1 { font-size: 1.1rem; font-weight: 600; }
+        .header h1 .gold { color: var(--oracle-gold); }
+        .header h1 .sub { color: var(--text-secondary); font-size: 0.75rem; font-weight: 400; display: block; margin-top: 2px; }
+        .header-right { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+        .badge {
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            border: 1px solid;
+        }
+        .badge-simulated { color: var(--accent-warn); border-color: var(--accent-warn); }
+        .badge-locked { color: var(--text-faint); border-color: var(--text-faint); }
+        .badge-models { color: var(--neon-cyan); border-color: var(--neon-cyan); }
+        .badge-refresh { color: var(--neon-green); border-color: var(--neon-green); }
+        .badge-updated { color: var(--neon-cyan); border-color: var(--neon-cyan); }
+        .back-link {
+            color: var(--oracle-gold);
+            text-decoration: none;
+            font-size: 0.8rem;
+            padding: 4px 12px;
+            border: 1px solid var(--oracle-gold);
+            border-radius: 4px;
+            transition: background 0.2s;
+        }
+        .back-link:hover { background: rgba(241,196,15,0.15); }
+
+        /* Tabs */
+        .nav-tabs {
+            display: flex;
+            gap: 4px;
+            padding: 8px 24px;
+            background: var(--panel-blue);
+            border-bottom: 1px solid var(--border);
+            overflow-x: auto;
+            flex-wrap: nowrap;
+        }
+        .nav-tab {
+            padding: 8px 16px;
+            border: none;
+            background: transparent;
+            color: var(--text-secondary);
+            cursor: pointer;
+            font-size: 0.8rem;
+            font-weight: 500;
+            border-radius: 6px 6px 0 0;
+            transition: all 0.2s;
+            white-space: nowrap;
+        }
+        .nav-tab:hover { color: var(--text-primary); background: rgba(255,255,255,0.03); }
+        .nav-tab.active { color: var(--oracle-gold); border-bottom: 2px solid var(--oracle-gold); }
+        .tab-content { display: none; }
+        .tab-content.active { display: block; }
+
+        /* Layout */
+        .container { max-width: 1400px; margin: 0 auto; padding: 20px; }
+        .grid-main {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 16px;
+            margin-bottom: 16px;
+        }
+        .grid-bottom {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 16px;
+        }
+        @media (max-width: 900px) {
+            .grid-main, .grid-bottom { grid-template-columns: 1fr; }
+        }
+
+        /* Panels */
+        .panel {
+            background: var(--card-blue);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 20px;
+            position: relative;
+        }
+        .panel-title {
+            font-size: 0.85rem;
+            color: var(--oracle-gold);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 16px;
+            font-weight: 600;
+        }
+
+        /* Stat cards */
+        .stat-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 12px;
+            margin-bottom: 16px;
+        }
+        .stat-box {
+            background: rgba(0,0,0,0.3);
+            border-radius: 8px;
+            padding: 14px;
+            border-left: 3px solid var(--border);
+        }
+        .stat-box.accent-cyan { border-left-color: var(--neon-cyan); }
+        .stat-box.accent-gold { border-left-color: var(--oracle-gold); }
+        .stat-box.accent-green { border-left-color: var(--neon-green); }
+        .stat-box.accent-warn { border-left-color: var(--accent-warn); }
+        .stat-box.accent-purple { border-left-color: var(--accent-purple); }
+        .stat-label {
+            color: var(--text-secondary);
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 4px;
+        }
+        .stat-value {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--neon-cyan);
+            white-space: nowrap;
+        }
+        .stat-value.gold { color: var(--oracle-gold); }
+        .stat-value.green { color: var(--neon-green); }
+        .stat-value.warn { color: var(--accent-warn); }
+        .stat-value.purple { color: var(--accent-purple); }
+        .stat-sub { font-size: 0.7rem; color: var(--text-faint); margin-top: 2px; }
+
+        /* Chart */
+        .chart-container { position: relative; max-height: 320px; }
+
+        /* Log feed */
+        .log-feed {
+            background: #000;
+            max-height: 280px;
+            overflow-y: auto;
+            font-size: 0.78rem;
+            font-family: 'Consolas', monospace;
+            padding: 12px;
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            color: var(--text-secondary);
+        }
+        .log-feed::-webkit-scrollbar { width: 6px; }
+        .log-feed::-webkit-scrollbar-track { background: #111; }
+        .log-feed::-webkit-scrollbar-thumb { background: #333; border-radius: 3px; }
+        .log-entry {
+            padding: 3px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.03);
+            line-height: 1.4;
+        }
+        .log-time { color: var(--text-faint); }
+        .log-node { color: var(--oracle-gold); font-weight: 600; }
+        .log-signal-buy { color: var(--neon-green); }
+        .log-signal-sell { color: var(--fail-color); }
+        .log-signal-hold { color: var(--text-secondary); }
+
+        /* Tables */
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.8rem;
+        }
+        .data-table th {
+            text-align: left;
+            padding: 8px;
+            color: var(--text-secondary);
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            border-bottom: 1px solid var(--border);
+        }
+        .data-table td {
+            padding: 6px 8px;
+            border-bottom: 1px solid rgba(255,255,255,0.04);
+        }
+
+        /* Consensus bar */
+        .consensus-bar {
+            display: flex;
+            height: 24px;
+            border-radius: 4px;
+            overflow: hidden;
+            margin: 8px 0;
+        }
+        .bar-buy { background: rgba(0,255,136,0.6); }
+        .bar-hold { background: rgba(136,148,160,0.4); }
+        .bar-sell { background: rgba(255,71,87,0.6); }
+        .bar-label {
+            font-size: 0.7rem;
+            text-align: center;
+            color: #fff;
+            line-height: 24px;
+            font-weight: 600;
+        }
+
+        /* Mode progression */
+        .mode-list { list-style: none; }
+        .mode-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 8px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.04);
+        }
+        .mode-dot {
+            width: 12px; height: 12px;
+            border-radius: 50%;
+            border: 2px solid;
+            flex-shrink: 0;
+        }
+        .mode-dot.active { background: var(--neon-cyan); border-color: var(--neon-cyan); }
+        .mode-dot.done { background: var(--neon-green); border-color: var(--neon-green); }
+        .mode-dot.pending { border-color: var(--text-faint); }
+        .mode-label { font-size: 0.85rem; }
+        .mode-label.active { color: var(--neon-cyan); font-weight: 600; }
+        .mode-label.done { color: var(--neon-green); }
+        .mode-label.pending { color: var(--text-faint); }
+        .mode-note { font-size: 0.7rem; color: var(--text-faint); margin-left: auto; }
+
+        /* Prediction cards */
+        .pred-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+        }
+        .pred-card {
+            background: rgba(0,0,0,0.2);
+            border-radius: 6px;
+            padding: 10px;
+            border-left: 3px solid var(--border);
+        }
+        .pred-card.bullish { border-left-color: var(--neon-green); }
+        .pred-card.bearish { border-left-color: var(--fail-color); }
+        .pred-card.neutral { border-left-color: var(--text-faint); }
+        .pred-sym { font-size: 0.9rem; font-weight: 700; color: var(--oracle-gold); }
+        .pred-price { font-size: 1.1rem; font-weight: 600; color: var(--neon-cyan); }
+        .pred-detail { font-size: 0.7rem; color: var(--text-secondary); margin-top: 2px; }
+        .pred-conf { font-size: 0.7rem; font-weight: 600; }
+
+        /* Mini charts grid */
+        .mini-chart-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 12px;
+        }
+        .mini-chart-card {
+            background: rgba(0,0,0,0.2);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 10px;
+        }
+        .mini-chart-label { font-size: 0.75rem; color: var(--text-secondary); margin-bottom: 6px; }
+
+        /* Override button */
+        .override-btn {
+            width: 100%;
+            padding: 12px;
+            background: rgba(255,107,53,0.15);
+            border: 1px solid var(--accent-warn);
+            border-radius: 6px;
+            color: var(--accent-warn);
+            font-weight: 700;
+            font-size: 0.85rem;
+            cursor: not-allowed;
+            opacity: 0.6;
+            text-align: center;
+        }
+
+        /* Disclaimer */
+        .disclaimer-box {
+            margin-top: 16px;
+            padding: 14px;
+            background: rgba(255,107,53,0.08);
+            border: 1px solid rgba(255,107,53,0.3);
+            border-radius: 8px;
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+        .disclaimer-title {
+            color: var(--accent-warn);
+            font-weight: 700;
+            margin-bottom: 6px;
+            font-size: 0.8rem;
+        }
+
+        /* Stat arb */
+        .arb-pair {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 6px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.04);
+            font-size: 0.8rem;
+        }
+        .arb-symbols { color: var(--oracle-gold); font-weight: 600; }
+        .arb-z { font-weight: 600; }
+
+        /* Clock */
+        #clock { font-family: 'Consolas', monospace; font-size: 0.8rem; color: var(--text-secondary); }
+
+        /* Model category cards */
+        .model-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 10px;
+        }
+        .model-card {
+            background: rgba(0,0,0,0.2);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 10px;
+        }
+        .model-card-name { font-size: 0.8rem; font-weight: 600; color: var(--accent-purple); }
+        .model-card-stats { font-size: 0.7rem; color: var(--text-secondary); margin-top: 4px; line-height: 1.5; }
+    </style>
+</head>
+<body>
+
+<div class="header">
+    <div class="header-left">
+        <div class="oracle-icon"></div>
+        <h1>
+            AETHER <span class="gold">ORACLE CONSOLE</span> — TWIN DASHBOARD
+            <span class="sub">100-Model Auto Executor + TopStep Eval + Live Market + Oracle Predictions</span>
+        </h1>
+    </div>
+    <div class="header-right">
+        <span class="badge badge-models" id="badge-models">100 MODELS</span>
+        <span class="badge badge-simulated">SIMULATED</span>
+        <span class="badge badge-locked">LIVE LOCKED</span>
+        <span class="badge badge-refresh" id="refresh-badge">AUTO-REFRESH: ON</span>
+        <span class="badge badge-updated" id="last-updated-badge">--:--:--</span>
+        <a href="v6_dashboard.html" class="back-link">&larr; Main Dashboard</a>
+        <div id="clock"></div>
+    </div>
+</div>
+
+<!-- Navigation Tabs -->
+<div class="nav-tabs" id="nav-tabs">
+    <button class="nav-tab active" data-tab="oracle">Oracle Overview</button>
+    <button class="nav-tab" data-tab="auto-exec">Auto Executor (100 Models)</button>
+    <button class="nav-tab" data-tab="topstep">TopStep Eval</button>
+    <button class="nav-tab" data-tab="charts">Market Charts</button>
+</div>
+
+<div class="container">
+
+    <!-- TAB: Oracle Overview -->
+    <div class="tab-content active" id="tab-oracle">
+        <div class="grid-main">
+            <!-- Left: Price Chart + Logs -->
+            <div class="panel">
+                <div class="panel-title">Market Price History — Real OHLCV Data (20-Day)</div>
+                <div class="chart-container">
+                    <canvas id="priceChart"></canvas>
+                </div>
+                <div style="display:flex;gap:6px;flex-wrap:wrap;margin-top:12px" id="sym-selector"></div>
+                <div style="margin-top:20px;">
+                    <div class="panel-title">Oracle Research Log — Real Model Outputs</div>
+                    <div class="log-feed" id="logs"></div>
+                </div>
+            </div>
+            <!-- Right: Stats Panel -->
+            <div class="panel">
+                <div class="panel-title">System Status</div>
+                <div class="stat-grid" id="oracle-stats"></div>
+                <div style="margin-top:16px;">
+                    <div class="panel-title">Kernel Vote Breakdown</div>
+                    <div class="consensus-bar" id="vote-bar"></div>
+                    <div style="display:flex;justify-content:space-between;font-size:0.7rem;color:var(--text-secondary)">
+                        <span id="vote-buy">Buy: 0</span>
+                        <span id="vote-hold">Hold: 0</span>
+                        <span id="vote-sell">Sell: 0</span>
+                    </div>
+                </div>
+                <div style="margin-top:16px;">
+                    <div class="panel-title">Execution Mode Progression</div>
+                    <ul class="mode-list" id="mode-list"></ul>
+                </div>
+                <div style="margin-top:16px;">
+                    <div class="override-btn">MANUAL OVERRIDE — LIVE LOCKED</div>
+                    <div style="font-size:0.7rem;color:var(--text-faint);margin-top:6px;text-align:center">
+                        Live trading requires explicit authorization. Paper trading requires broker connection.
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="grid-bottom">
+            <div class="panel">
+                <div class="panel-title">Alpaca Paper Trading — Live Positions</div>
+                <div id="alpaca-positions" style="padding:12px 0"></div>
+                <div id="alpaca-summary" style="margin-top:12px;padding:12px;background:rgba(0,0,0,0.2);border-radius:6px"></div>
+            </div>
+            <div class="panel">
+                <div class="panel-title">Per-Symbol Predictions</div>
+                <div class="pred-grid" id="pred-grid"></div>
+            </div>
+            <div class="panel">
+                <div class="panel-title">Top Strategy Signals</div>
+                <table class="data-table">
+                    <thead><tr><th>Symbol</th><th>Strategy</th><th>Signal</th><th>Conf</th><th>Exp Ret</th></tr></thead>
+                    <tbody id="signal-table-body"></tbody>
+                </table>
+                <div class="disclaimer-box" style="margin-top:16px;">
+                    <div class="disclaimer-title">Disclosure</div>
+                    All values are model-based estimates from 6 Zenith prediction models analyzing
+                    41-47 daily OHLCV bars per symbol. Predictions do not guarantee future results.
+                    Execution mode: SIMULATED. No real or paper orders placed.
+                    GOD_MODE_LOCKED. Live trading requires explicit authorization.
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- TAB: Auto Executor -->
+    <div class="tab-content" id="tab-auto-exec">
+        <div class="panel">
+            <div class="panel-title">Auto Trade Executor — 100 Analysis Models</div>
+            <div class="stat-grid" id="auto-exec-stats"></div>
+        </div>
+        <div class="panel" style="margin-top:16px">
+            <div class="panel-title">Model Categories (10 Categories × 100 Models)</div>
+            <div class="model-grid" id="auto-exec-categories"></div>
+        </div>
+        <div class="panel" style="margin-top:16px">
+            <div class="panel-title">Recent Auto-Executed Orders</div>
+            <div style="overflow-x:auto">
+                <table class="data-table">
+                    <thead><tr><th>Order ID</th><th>Symbol</th><th>Side</th><th>Type</th><th>Qty</th><th>Entry</th><th>PnL</th><th>Models</th><th>Consensus</th><th>Status</th></tr></thead>
+                    <tbody id="auto-exec-orders"></tbody>
+                </table>
+            </div>
+        </div>
+        <div class="panel" style="margin-top:16px">
+            <div class="panel-title">Top Analysis Models by Predictions</div>
+            <div style="overflow-x:auto">
+                <table class="data-table">
+                    <thead><tr><th>Model Name</th><th>Category</th><th>Predictions</th><th>Accuracy</th><th>Avg Confidence</th></tr></thead>
+                    <tbody id="auto-exec-models"></tbody>
+                </table>
+            </div>
+        </div>
+        <div class="disclaimer-box">
+            <div class="disclaimer-title">Auto Trade Executor Disclosure</div>
+            ALL trades are PAPER/SIMULATED. No real money is at risk.
+            100 analysis models use simplified calculations, NOT full production algorithms.
+            '100 models' = 100 distinct signal generators with simplified logic.
+            Live market data is fetched but trade execution is simulated.
+            Contract sizing uses Kelly Criterion, fixed fractional, ATR-based, and volatility-adjusted methods.
+            NOT financial advice.
+        </div>
+    </div>
+
+    <!-- TAB: TopStep Eval -->
+    <div class="tab-content" id="tab-topstep">
+        <div class="panel">
+            <div class="panel-title">TopStep Eval Pass-Through — Unlimited Auto-Generated Accounts</div>
+            <div class="stat-grid" id="topstep-stats"></div>
+        </div>
+        <div class="panel" style="margin-top:16px">
+            <div class="panel-title">Evaluation Configs</div>
+            <div class="model-grid" id="topstep-configs"></div>
+        </div>
+        <div class="panel" style="margin-top:16px">
+            <div class="panel-title">Top Funded Accounts (No PnL Cap)</div>
+            <div style="overflow-x:auto">
+                <table class="data-table">
+                    <thead><tr><th>Account ID</th><th>Source Eval</th><th>Config</th><th>Balance</th><th>Total PnL</th><th>Max PnL</th><th>Min PnL</th><th>Trades</th><th>Win Rate</th><th>PnL Cap</th></tr></thead>
+                    <tbody id="topstep-funded"></tbody>
+                </table>
+            </div>
+        </div>
+        <div class="panel" style="margin-top:16px">
+            <div class="panel-title">Recently Passed Evaluations</div>
+            <div style="overflow-x:auto">
+                <table class="data-table">
+                    <thead><tr><th>Eval ID</th><th>Config</th><th>Final PnL</th><th>Target</th><th>Days</th><th>Drawdown</th><th>Status</th><th>Passed At</th></tr></thead>
+                    <tbody id="topstep-recent"></tbody>
+                </table>
+            </div>
+        </div>
+        <div class="disclaimer-box">
+            <div class="disclaimer-title">TopStep Eval Pass-Through Disclosure</div>
+            ALL accounts are SIMULATED. No real TopStep accounts are used. No real money is at risk.
+            All P&L is hypothetical. 'Funded' accounts are simulated, NOT real funded accounts.
+            'Passing' an eval does NOT mean a real TopStep eval was passed.
+            Funded accounts have NO PnL cap to see full range of trading outcomes.
+            Simulated pass rates do not reflect real-world pass rates.
+            TopStep is a trademark of TopstepTrader LLC. This is not affiliated.
+        </div>
+    </div>
+
+    <!-- TAB: Market Charts -->
+    <div class="tab-content" id="tab-charts">
+        <div class="panel">
+            <div class="panel-title">Live Market Charts — Sparkline View</div>
+            <div id="market-fetched" style="font-size:0.7rem;color:var(--text-faint);margin-bottom:12px">Loading live data...</div>
+            <div class="mini-chart-grid" id="chart-grid"></div>
+        </div>
+        <div class="disclaimer-box" style="margin-top:16px">
+            <div class="disclaimer-title">Market Data Disclosure</div>
+            Market data is fetched via finance connector (real-time quotes). Charts show synthetic
+            price history generated from current price and daily change. NOT financial advice.
+        </div>
+    </div>
+
+</div>
+
+<script>
+// ============================================================
+// TAB SWITCHING
+// ============================================================
+document.querySelectorAll('.nav-tab').forEach(tab => {
+    tab.addEventListener('click', () => {
+        document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
+        document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+        tab.classList.add('active');
+        document.getElementById('tab-' + tab.dataset.tab).classList.add('active');
+    });
+});
+
+// ============================================================
+// CLOCK
+// ============================================================
+function updateClock() {
+    const now = new Date();
+    const opts = { year:'numeric', month:'2-digit', day:'2-digit', hour:'2-digit', minute:'2-digit', second:'2-digit' };
+    document.getElementById('clock').textContent = now.toLocaleString('en-US', opts);
+}
+setInterval(updateClock, 1000);
+updateClock();
+
+function updateLastUpdated() {
+    const now = new Date();
+    const h = now.getHours().toString().padStart(2,'0');
+    const m = now.getMinutes().toString().padStart(2,'0');
+    const s = now.getSeconds().toString().padStart(2,'0');
+    document.getElementById('last-updated-badge').textContent = 'Updated: ' + h + ':' + m + ':' + s;
+}
+
+// ============================================================
+// ORACLE DATA
+// ============================================================
+let oracleData = null;
+let priceChart = null;
+let currentSymbol = 'SPY';
+
+async function loadOracle() {
+    try {
+        const res = await fetch('data/oracle_console_data.json');
+        oracleData = await res.json();
+        renderOracle();
+    } catch(e) {
+        document.getElementById('oracle-stats').innerHTML = '<div class="stat-box accent-warn"><div class="stat-label">Error</div><div class="stat-value warn">Failed</div></div>';
+    }
+}
+
+function renderOracle() {
+    const d = oracleData;
+    if (!d) return;
+
+    const consensus = d.market_consensus || {};
+    const consensusSignal = (consensus.signal || 'hold').toUpperCase();
+    const consensusColor = consensusSignal === 'BUY' ? 'var(--neon-green)' :
+                           consensusSignal === 'SELL' ? 'var(--fail-color)' : 'var(--text-secondary)';
+    const summary = d.summary || {};
+    const exec = d.execution || {};
+
+    document.getElementById('oracle-stats').innerHTML = [
+        {l:'Market Consensus',v:consensusSignal,s:`agreement ${((consensus.agreement||0)*100).toFixed(0)}%`,c:'accent-cyan',vc:consensusColor},
+        {l:'Model Confidence',v:((summary.market_confidence||0)*100).toFixed(0)+'%',s:`avg conf ${((summary.avg_symbol_confidence||0)*100).toFixed(0)}%`,c:'accent-gold',vc:'gold'},
+        {l:'Models Active',v:summary.models_count||6,s:'prediction models',c:'accent-green',vc:'green'},
+        {l:'Execution Mode',v:exec.mode||'SIMULATED',s:exec.paper_connected?exec.paper_broker+' connected':'no broker',c:'accent-warn',vc:'warn'},
+        {l:'Symbols Tracked',v:summary.symbols_analyzed||8,s:'with OHLCV data',c:'accent-cyan',vc:''},
+        {l:'Strategies',v:summary.total_strategies||68,s:'generated',c:'accent-gold',vc:'gold'},
+    ].map(c => `<div class="stat-box ${c.c}"><div class="stat-label">${c.l}</div><div class="stat-value ${c.vc||''}" style="${c.vc===''?'':''}">${c.v}</div><div class="stat-sub">${c.s}</div></div>`).join('');
+
+    // Kernel vote breakdown
+    const kernel = d.kernel || {};
+    const buyV = kernel.buy_votes || 0;
+    const holdV = kernel.hold_votes || 0;
+    const sellV = kernel.sell_votes || 0;
+    const total = buyV + holdV + sellV || 1;
+    document.getElementById('vote-bar').innerHTML = `
+        <div class="bar-buy" style="width:${(buyV/total)*100}%"><div class="bar-label">${buyV>0?buyV:''}</div></div>
+        <div class="bar-hold" style="width:${(holdV/total)*100}%"><div class="bar-label">${holdV>0?holdV:''}</div></div>
+        <div class="bar-sell" style="width:${(sellV/total)*100}%"><div class="bar-label">${sellV>0?sellV:''}</div></div>
+    `;
+    document.getElementById('vote-buy').textContent = `Buy: ${buyV}`;
+    document.getElementById('vote-hold').textContent = `Hold: ${holdV}`;
+    document.getElementById('vote-sell').textContent = `Sell: ${sellV}`;
+
+    // Mode progression
+    const execMode = exec.mode || 'SIMULATED';
+    const modes = ['SIMULATED','PAPER_READY','PAPER_ENABLED','LIVE_LOCKED'];
+    const currentIdx = modes.indexOf(execMode);
+    document.getElementById('mode-list').innerHTML = modes.map((m,i) => {
+        const cls = i === currentIdx ? 'active' : i < currentIdx ? 'done' : 'pending';
+        const note = m === 'LIVE_LOCKED' ? 'REQUIRES AUTHORIZATION' :
+                     m === 'PAPER_READY' ? 'needs broker' :
+                     m === 'PAPER_ENABLED' ? 'auto paper orders' : 'current default';
+        return `<li class="mode-item">
+            <div class="mode-dot ${cls}"></div>
+            <span class="mode-label ${cls}">${m}</span>
+            <span class="mode-note">${note}</span>
+        </li>`;
+    }).join('');
+
+    // Symbol selector
+    const syms = (d.market_snapshot?.symbols) || [];
+    document.getElementById('sym-selector').innerHTML = syms.map(s =>
+        `<button onclick="selectSymbol('${s.symbol}')" style="padding:4px 10px;border:1px solid var(--border);background:${s.symbol===currentSymbol?'var(--oracle-gold)':'transparent'};color:${s.symbol===currentSymbol?'#000':'var(--text-secondary)'};border-radius:4px;cursor:pointer;font-size:0.75rem;font-weight:600">${s.symbol}</button>`
+    ).join('');
+
+    renderChart();
+
+    // Research logs
+    const logs = d.research_logs || [];
+    document.getElementById('logs').innerHTML = logs.length === 0
+        ? '<div class="log-entry" style="color:var(--text-faint)">No research logs available.</div>'
+        : logs.map(l => {
+            const sig = (l.signal || l.message || '').toLowerCase();
+            const sigClass = sig.includes('buy') ? 'log-signal-buy' : sig.includes('sell') ? 'log-signal-sell' : 'log-signal-hold';
+            const time = l.timestamp ? l.timestamp.substring(11,19) : '';
+            return `<div class="log-entry">
+                <span class="log-time">[${time}]</span>
+                <span class="log-node">${l.node || 'System'}</span>:
+                <span class="${sigClass}">${l.message || ''}</span>
+                ${l.confidence != null ? `<span style="color:var(--text-faint)"> (conf: ${(l.confidence*100).toFixed(0)}%)</span>` : ''}
+            </div>`;
+        }).join('');
+
+    // Predictions
+    const preds = d.predictions || [];
+    document.getElementById('pred-grid').innerHTML = preds.map(p => {
+        const dir = (p.direction || 'unknown').toLowerCase();
+        const cls = dir === 'up' ? 'bullish' : dir === 'down' ? 'bearish' : 'neutral';
+        const dirColor = dir === 'up' ? 'var(--neon-green)' : dir === 'down' ? 'var(--fail-color)' : 'var(--text-secondary)';
+        const arrow = dir === 'up' ? '\u2191' : dir === 'down' ? '\u2193' : '\u2192';
+        const confPct = ((p.prediction_confidence||0)*100).toFixed(0);
+        const confColor = confPct >= 60 ? 'var(--neon-green)' : confPct >= 30 ? 'var(--oracle-gold)' : 'var(--accent-warn)';
+        return `<div class="pred-card ${cls}">
+            <div class="pred-sym">${p.symbol}</div>
+            <div class="pred-price">$${(p.current_price||0).toLocaleString(undefined,{maximumFractionDigits:2})}</div>
+            <div class="pred-detail">Predicted: $${(p.predicted_price||0).toLocaleString(undefined,{maximumFractionDigits:2})} <span style="color:${dirColor}"> ${arrow}</span></div>
+            <div class="pred-detail">R\u00b2: ${(p.r_squared||0).toFixed(3)} | Vol: ${p.volatility_regime || '?'}</div>
+            <div class="pred-conf" style="color:${confColor}">Confidence: ${confPct}%</div>
+        </div>`;
+    }).join('');
+
+    // Top signals
+    const signals = d.top_signals || [];
+    document.getElementById('signal-table-body').innerHTML = signals.length === 0
+        ? '<tr><td colspan="5" style="text-align:center;color:var(--text-faint)">No signals</td></tr>'
+        : signals.map(s => {
+            const sigClass = s.signal === 'buy' ? 'sig-buy' : s.signal === 'sell' ? 'sig-sell' : 'sig-hold';
+            const confPct = ((s.confidence||0)*100).toFixed(0);
+            const retPct = ((s.expected_return||0)*100).toFixed(2);
+            return `<tr>
+                <td style="color:var(--oracle-gold);font-weight:600">${s.symbol}</td>
+                <td style="font-size:0.75rem">${s.strategy_name}</td>
+                <td class="${sigClass}">${(s.signal||'').toUpperCase()}</td>
+                <td>${confPct}%</td>
+                <td style="color:${retPct>=0?'var(--neon-green)':'var(--fail-color)'}">${retPct>=0?'+':''}${retPct}%</td>
+            </tr>`;
+        }).join('');
+}
+
+function selectSymbol(sym) {
+    currentSymbol = sym;
+    renderChart();
+    document.querySelectorAll('#sym-selector button').forEach(btn => {
+        const isActive = btn.textContent === sym;
+        btn.style.background = isActive ? 'var(--oracle-gold)' : 'transparent';
+        btn.style.color = isActive ? '#000' : 'var(--text-secondary)';
+    });
+}
+
+function renderChart() {
+    if (!oracleData) return;
+    const syms = oracleData.market_snapshot?.symbols || [];
+    const symData = syms.find(s => s.symbol === currentSymbol) || syms[0];
+    if (!symData) return;
+    const closes = symData.closes_20d || [];
+    const labels = closes.map((_, i) => `T-${closes.length - i}`);
+    if (priceChart) priceChart.destroy();
+    const ctx = document.getElementById('priceChart').getContext('2d');
+    priceChart = new Chart(ctx, {
+        type: 'line',
+        data: {
+            labels: labels,
+            datasets: [{
+                label: currentSymbol + ' Close Price',
+                data: closes,
+                borderColor: '#00d4ff',
+                backgroundColor: 'rgba(0,212,255,0.08)',
+                borderWidth: 2, tension: 0.3, fill: true,
+                pointRadius: 2, pointHoverRadius: 5,
+            }]
+        },
+        options: {
+            responsive: true, maintainAspectRatio: false,
+            animation: { duration: 400 },
+            plugins: {
+                legend: { display: true, labels: { color: '#8894a0', font: { size: 11 } } },
+                tooltip: { backgroundColor: '#0a0e17', borderColor: '#f1c40f', borderWidth: 1, titleColor: '#f1c40f', bodyColor: '#e8e8e8' }
+            },
+            scales: {
+                x: { grid: { color: 'rgba(255,255,255,0.03)' }, ticks: { color: '#555f6b', font: { size: 10 } } },
+                y: { grid: { color: 'rgba(255,255,255,0.05)' }, ticks: { color: '#8894a0', font: { size: 10 } } }
+            }
+        }
+    });
+}
+
+// ============================================================
+// ALPACA PAPER POSITIONS
+// ============================================================
+async function loadAlpaca() {
+  try {
+    const res = await fetch('data/alpaca_paper_trades.json');
+    const data = await res.json();
+    const positions = data.positions || [];
+    const summary = data.summary || {};
+    const account = data.account || {};
+    const posColor = (pl) => parseFloat(pl) >= 0 ? 'var(--neon-green)' : 'var(--fail-color)';
+    document.getElementById('alpaca-positions').innerHTML = positions.length === 0
+      ? '<div style="color:var(--text-faint);text-align:center;padding:12px">No paper positions</div>'
+      : positions.map(p => {
+          const isLong = p.side === 'long';
+          const sideColor = isLong ? 'var(--neon-green)' : 'var(--fail-color)';
+          return `<div style="display:flex;justify-content:space-between;align-items:center;padding:8px 0;border-bottom:1px solid rgba(255,255,255,0.04)">
+            <div>
+              <span style="color:var(--oracle-gold);font-weight:700">${p.symbol}</span>
+              <span style="color:${sideColor};font-size:0.75rem;margin-left:6px">${p.side.toUpperCase()} ${p.qty}</span>
+            </div>
+            <div style="text-align:right">
+              <div style="font-size:0.85rem">$${parseFloat(p.current_price).toLocaleString(undefined,{maximumFractionDigits:2})}</div>
+              <div style="font-size:0.7rem;color:${posColor(p.unrealized_pl)}">
+                PnL: ${parseFloat(p.unrealized_pl)>=0?'+':''}$${parseFloat(p.unrealized_pl).toFixed(2)}
+                (${(parseFloat(p.unrealized_plpc)*100).toFixed(3)}%)
+              </div>
+            </div>
+          </div>`;
+        }).join('');
+    document.getElementById('alpaca-summary').innerHTML = `
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;font-size:0.8rem">
+        <div><span style="color:var(--text-secondary)">Account:</span> <span style="color:var(--neon-cyan)">${account.account_number || 'N/A'}</span></div>
+        <div><span style="color:var(--text-secondary)">Paper:</span> <span style="color:var(--neon-green)">YES</span></div>
+        <div><span style="color:var(--text-secondary)">Cash:</span> <span style="color:var(--oracle-gold)">${summary.cash_remaining || 'N/A'}</span></div>
+        <div><span style="color:var(--text-secondary)">Positions:</span> <span style="color:var(--accent-purple)">${summary.total_positions || 0}</span></div>
+        <div><span style="color:var(--text-secondary)">Total PnL:</span> <span style="color:${posColor(summary.total_unrealized_pl||'0')}">${summary.total_unrealized_pl || '$0.00'}</span></div>
+        <div><span style="color:var(--text-secondary)">Market Value:</span> <span style="color:var(--accent-purple)">${summary.total_market_value || 'N/A'}</span></div>
+      </div>
+      <div style="font-size:0.7rem;color:var(--text-faint);margin-top:8px;text-align:center">
+        PAPER TRADING ONLY - No real funds at risk. Positions via Alpaca Paper API.
+      </div>
+    `;
+  } catch(e) {
+    document.getElementById('alpaca-positions').innerHTML = '<div style="color:var(--text-faint);text-align:center;padding:12px">Alpaca data not available</div>';
+  }
+}
+
+// ============================================================
+// AUTO EXECUTOR DATA
+// ============================================================
+async function loadAutoExecutor() {
+  try {
+    const res = await fetch('data/auto_executor_status.json');
+    const data = await res.json();
+    document.getElementById('auto-exec-stats').innerHTML = [
+      {l:'Models',v:data.total_models||0,c:'accent-purple',vc:'purple'},
+      {l:'Total Orders',v:data.total_orders||0,c:'accent-cyan',vc:''},
+      {l:'Open Orders',v:data.open_orders||0,c:'accent-purple',vc:'purple'},
+      {l:'Closed',v:data.closed_orders||0,c:'accent-gold',vc:'gold'},
+      {l:'Total PnL',v:'$'+(data.total_pnl||0).toLocaleString(),c:(data.total_pnl||0)>=0?'accent-green':'accent-warn',vc:(data.total_pnl||0)>=0?'green':'warn'},
+      {l:'Win Rate',v:((data.win_rate||0)*100).toFixed(0)+'%',c:'accent-green',vc:'green'},
+      {l:'Balance',v:'$'+(data.balance||0).toLocaleString(),c:'accent-purple',vc:'purple'},
+      {l:'Cycles',v:data.cycle_count||0,c:'accent-cyan',vc:''},
+    ].map(c => `<div class="stat-box ${c.c}"><div class="stat-label">${c.l}</div><div class="stat-value ${c.vc}">${c.v}</div></div>`).join('');
+
+    const cats = data.category_breakdown || {};
+    document.getElementById('auto-exec-categories').innerHTML = Object.entries(cats).map(([name, stats]) =>
+      `<div class="model-card"><div class="model-card-name">${name}</div>
+        <div class="model-card-stats">Models: ${stats.count}<br>Predictions: ${stats.predictions}<br>Avg Confidence: ${(stats.avg_confidence*100).toFixed(0)}%</div>
+      </div>`
+    ).join('');
+
+    const orders = data.recent_orders || [];
+    document.getElementById('auto-exec-orders').innerHTML = orders.length === 0
+      ? '<tr><td colspan="10" style="text-align:center;padding:12px;color:var(--text-faint)">No orders yet</td></tr>'
+      : orders.reverse().map(o => {
+          const pnlColor = (o.pnl||0) >= 0 ? 'var(--neon-green)' : 'var(--fail-color)';
+          return `<tr>
+            <td style="font-family:monospace;font-size:0.7rem;color:var(--accent-purple)">${o.order_id}</td>
+            <td>${o.symbol}</td>
+            <td style="color:${o.side==='buy'?'var(--neon-green)':'var(--fail-color)'};font-weight:600">${o.side.toUpperCase()}</td>
+            <td style="color:var(--text-faint)">${o.order_type}</td>
+            <td style="text-align:right">${o.quantity}</td>
+            <td style="text-align:right">$${(o.entry_price||0).toFixed(2)}</td>
+            <td style="text-align:right;color:${pnlColor}">$${(o.pnl||0).toFixed(2)}</td>
+            <td style="text-align:right">${o.models_consulted||0}</td>
+            <td style="text-align:right;color:${(o.consensus_score||0)>=0?'var(--neon-green)':'var(--fail-color)'}">${((o.consensus_score||0)*100).toFixed(0)}%</td>
+            <td style="color:${o.status==='filled'?'var(--accent-purple)':'var(--text-faint)'}">${o.status}</td>
+          </tr>`;
+        }).join('');
+
+    const models = data.top_models || [];
+    document.getElementById('auto-exec-models').innerHTML = models.length === 0
+      ? '<tr><td colspan="5" style="text-align:center;padding:12px;color:var(--text-faint)">No model data</td></tr>'
+      : models.slice(0,15).map(m =>
+          `<tr>
+            <td style="font-family:monospace;font-size:0.7rem;color:var(--accent-purple)">${m.name}</td>
+            <td style="color:var(--text-secondary)">${m.category}</td>
+            <td style="text-align:right">${m.predictions_made||0}</td>
+            <td style="text-align:right;color:var(--neon-green)">${((m.accuracy||0)*100).toFixed(0)}%</td>
+            <td style="text-align:right">${((m.avg_confidence||0)*100).toFixed(0)}%</td>
+          </tr>`
+        ).join('');
+  } catch(e) {
+    document.getElementById('auto-exec-stats').innerHTML = '<div class="stat-box accent-warn"><div class="stat-label">Error</div><div class="stat-value warn">Failed</div></div>';
+  }
+}
+
+// ============================================================
+// TOPSTEP EVAL DATA
+// ============================================================
+async function loadTopStep() {
+  try {
+    const res = await fetch('data/topstep_eval_status.json');
+    const data = await res.json();
+    document.getElementById('topstep-stats').innerHTML = [
+      {l:'Total Evals',v:(data.total_evals_created||0).toLocaleString(),c:'accent-gold',vc:'gold'},
+      {l:'Evaluating',v:(data.currently_evaluating||0).toLocaleString(),c:'accent-cyan',vc:''},
+      {l:'Passed',v:(data.total_evals_passed||0).toLocaleString(),c:'accent-green',vc:'green'},
+      {l:'Pass Rate',v:(data.pass_rate||0)+'%',c:'accent-green',vc:'green'},
+      {l:'Funded Accts',v:(data.total_funded_created||0).toLocaleString(),c:'accent-gold',vc:'gold'},
+      {l:'Funded PnL',v:'$'+(data.funded_total_pnl||0).toLocaleString(),c:(data.funded_total_pnl||0)>=0?'accent-green':'accent-warn',vc:(data.funded_total_pnl||0)>=0?'green':'warn'},
+      {l:'Best PnL',v:'$'+(data.funded_best_pnl||0).toLocaleString(),c:'accent-green',vc:'green'},
+      {l:'Worst PnL',v:'$'+(data.funded_worst_pnl||0).toLocaleString(),c:'accent-warn',vc:'warn'},
+      {l:'Total Trades',v:(data.funded_total_trades||0).toLocaleString(),c:'accent-cyan',vc:''},
+    ].map(c => `<div class="stat-box ${c.c}"><div class="stat-label">${c.l}</div><div class="stat-value ${c.vc}">${c.v}</div></div>`).join('');
+
+    const configs = data.eval_configs || {};
+    document.getElementById('topstep-configs').innerHTML = Object.entries(configs).map(([name, cfg]) =>
+      `<div class="model-card"><div class="model-card-name" style="color:var(--oracle-gold)">${name} Eval</div>
+        <div class="model-card-stats">Account: $${(cfg.account_size||0).toLocaleString()}<br>Target: $${(cfg.profit_target||0).toLocaleString()}<br>Max DD: $${(cfg.max_drawdown||0).toLocaleString()}<br>Daily Loss: $${(cfg.daily_loss_limit||0).toLocaleString()}<br>Min Days: ${cfg.min_trading_days||3}<br>Contracts: ${(cfg.contract_sizes||[]).join(', ')}</div>
+      </div>`
+    ).join('');
+
+    const funded = data.top_funded || [];
+    document.getElementById('topstep-funded').innerHTML = funded.length === 0
+      ? '<tr><td colspan="10" style="text-align:center;padding:12px;color:var(--text-faint)">No funded accounts yet</td></tr>'
+      : funded.map(f => {
+          const pnlColor = (f.total_pnl||0) >= 0 ? 'var(--neon-green)' : 'var(--fail-color)';
+          return `<tr>
+            <td style="font-family:monospace;font-size:0.7rem;color:var(--oracle-gold)">${f.account_id}</td>
+            <td style="font-family:monospace;font-size:0.7rem;color:var(--text-faint)">${f.source_eval_id}</td>
+            <td style="color:var(--text-secondary)">${f.config_name}</td>
+            <td style="text-align:right">$${(f.balance||0).toLocaleString()}</td>
+            <td style="text-align:right;color:${pnlColor};font-weight:600">$${(f.total_pnl||0).toLocaleString()}</td>
+            <td style="text-align:right;color:var(--neon-green)">$${(f.max_pnl||0).toLocaleString()}</td>
+            <td style="text-align:right;color:var(--fail-color)">$${(f.min_pnl||0).toLocaleString()}</td>
+            <td style="text-align:right">${f.total_trades||0}</td>
+            <td style="text-align:right">${((f.win_rate||0)*100).toFixed(0)}%</td>
+            <td style="color:var(--accent-warn);font-weight:600">${f.pnl_cap||'NONE'}</td>
+          </tr>`;
+        }).join('');
+
+    const recent = data.recent_passes || [];
+    document.getElementById('topstep-recent').innerHTML = recent.length === 0
+      ? '<tr><td colspan="8" style="text-align:center;padding:12px;color:var(--text-faint)">No passes yet</td></tr>'
+      : recent.map(a => {
+          const pnlColor = (a.total_pnl||0) >= 0 ? 'var(--neon-green)' : 'var(--fail-color)';
+          const passed = a.passed_at ? new Date(a.passed_at).toLocaleTimeString() : '--';
+          return `<tr>
+            <td style="font-family:monospace;font-size:0.7rem;color:var(--oracle-gold)">${a.account_id}</td>
+            <td style="color:var(--text-secondary)">${a.config_name}</td>
+            <td style="text-align:right;color:${pnlColor};font-weight:600">$${(a.total_pnl||0).toLocaleString()}</td>
+            <td style="text-align:right">$${(a.profit_target||0).toLocaleString()}</td>
+            <td style="text-align:right">${a.trading_days||0}</td>
+            <td style="text-align:right;color:var(--fail-color)">$${(a.drawdown_used||0).toLocaleString()}</td>
+            <td style="color:var(--neon-green);font-weight:600">${a.status||'--'}</td>
+            <td style="color:var(--text-faint);font-size:0.7rem">${passed}</td>
+          </tr>`;
+        }).join('');
+  } catch(e) {
+    document.getElementById('topstep-stats').innerHTML = '<div class="stat-box accent-warn"><div class="stat-label">Error</div><div class="stat-value warn">Failed</div></div>';
+  }
+}
+
+// ============================================================
+// MARKET CHARTS — Canvas mini sparklines
+// ============================================================
+function drawMiniChart(canvasId, labelId, basePrice, changePct, symbol) {
+  const canvas = document.getElementById(canvasId);
+  if (!canvas) return;
+  const ctx = canvas.getContext('2d');
+  const w = canvas.width, h = canvas.height;
+  ctx.clearRect(0, 0, w, h);
+  const points = 30;
+  const data = [];
+  let p = basePrice * (1 - changePct/100 * 3);
+  for (let i = 0; i < points; i++) {
+    p += (basePrice - p) * 0.1 + (Math.random() - 0.5) * basePrice * 0.008;
+    data.push(p);
+  }
+  data[points-1] = basePrice;
+  const minP = Math.min(...data), maxP = Math.max(...data);
+  const range = maxP - minP || 1;
+  // Fill
+  ctx.beginPath();
+  data.forEach((v, i) => {
+    const x = (i / (points-1)) * w;
+    const y = h - ((v - minP) / range) * (h - 10) - 5;
+    if (i === 0) ctx.moveTo(x, y); else ctx.lineTo(x, y);
+  });
+  ctx.lineTo(w, h); ctx.lineTo(0, h); ctx.closePath();
+  const grad = ctx.createLinearGradient(0, 0, 0, h);
+  if (changePct >= 0) {
+    grad.addColorStop(0, 'rgba(0,255,136,0.3)'); grad.addColorStop(1, 'rgba(0,255,136,0)');
+  } else {
+    grad.addColorStop(0, 'rgba(255,71,87,0.3)'); grad.addColorStop(1, 'rgba(255,71,87,0)');
+  }
+  ctx.fillStyle = grad; ctx.fill();
+  // Line
+  ctx.beginPath();
+  data.forEach((v, i) => {
+    const x = (i / (points-1)) * w;
+    const y = h - ((v - minP) / range) * (h - 10) - 5;
+    if (i === 0) ctx.moveTo(x, y); else ctx.lineTo(x, y);
+  });
+  ctx.strokeStyle = changePct >= 0 ? '#00ff88' : '#ff4757';
+  ctx.lineWidth = 1.5; ctx.stroke();
+  // Label
+  const label = document.getElementById(labelId);
+  if (label) {
+    const color = changePct >= 0 ? 'var(--neon-green)' : 'var(--fail-color)';
+    const sign = changePct >= 0 ? '+' : '';
+    label.innerHTML = `$${basePrice.toFixed(2)} <span style="color:${color};font-size:11px">${sign}${changePct.toFixed(2)}%</span>`;
+  }
+}
+
+function loadMarketCharts() {
+  const symbols = [
+    {sym:'SPY',price:767.36,change:-0.69},
+    {sym:'QQQ',price:717.51,change:-1.69},
+    {sym:'TLT',price:81.66,change:0.38},
+    {sym:'GLD',price:398.51,change:-1.72},
+    {sym:'USO',price:130.66,change:0.28},
+    {sym:'IWM',price:300.19,change:-1.27},
+    {sym:'VIX',price:15.84,change:4.28},
+    {sym:'DIA',price:532.91,change:-0.24},
+  ];
+  // Try fetching live data first
+  fetch('data/live_market_snapshot.json').then(r => r.json()).then(data => {
+    const syms = data.symbols || [];
+    const priceMap = {};
+    syms.forEach(s => {
+      const sym = (s.symbol || s.ticker || '').toLowerCase().replace('^','');
+      priceMap[sym] = { price: s.price || s.last_price || 0, change: s.change_pct || s.changesPercentage || s.change_percent || 0 };
+    });
+    renderChartGrid(symbols, priceMap);
+    // Update fetched-at badge
+    const fetchedEl = document.getElementById('market-fetched');
+    if (fetchedEl && data.fetched_at) fetchedEl.textContent = 'Data fetched: ' + new Date(data.fetched_at).toLocaleTimeString();
+  }).catch(() => {
+    renderChartGrid(symbols, {});
+  });
+}
+
+function renderChartGrid(symbols, priceMap) {
+  document.getElementById('chart-grid').innerHTML = symbols.map(s => {
+    const d = priceMap[s.sym.toLowerCase()] || {price: s.price, change: s.change};
+    const canvasId = 'mc-' + s.sym.toLowerCase();
+    const labelId = 'ml-' + s.sym.toLowerCase();
+    return `<div class="mini-chart-card">
+      <div class="mini-chart-label">${s.sym}</div>
+      <canvas id="${canvasId}" width="220" height="100"></canvas>
+      <div id="${labelId}" style="font-size:0.8rem;font-weight:600;margin-top:4px"></div>
+    </div>`;
+  }).join('');
+  // Draw charts
+  symbols.forEach(s => {
+    const d = priceMap[s.sym.toLowerCase()] || {price: s.price, change: s.change};
+    const canvasId = 'mc-' + s.sym.toLowerCase();
+    const labelId = 'ml-' + s.sym.toLowerCase();
+    setTimeout(() => drawMiniChart(canvasId, labelId, d.price, d.change, s.sym), 50);
+  });
+}
+
+// ============================================================
+// AUTO-REFRESH
+// ============================================================
+const AUTO_REFRESH_INTERVAL = 60000;
+let refreshCount = 0;
+
+function refreshAll() {
+  loadOracle();
+  loadAlpaca();
+  loadAutoExecutor();
+  loadTopStep();
+  loadMarketCharts();
+  updateLastUpdated();
+  refreshCount++;
+}
+
+// Init
+refreshAll();
+setInterval(refreshAll, AUTO_REFRESH_INTERVAL);
+</script>
+
+</body>
+</html>

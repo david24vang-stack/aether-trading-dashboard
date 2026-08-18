@@ -1,0 +1,3371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aether V6 — Quantum Market Intelligence</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+<style>
+:root{
+  --bg:#0a0e17;--surface:#141921;--surface2:#1a2030;--border:#1e2632;--border2:#252d3d;
+  --text:#e2e8f0;--text-dim:#94a3b8;--text-faint:#64748b;
+  --accent:#38bdf8;--accent2:#818cf8;--quantum:#c084fc;
+  --success:#4ade80;--danger:#f06b6b;--warning:#fbbf24;
+  --bull:#4ade80;--bear:#f06b6b;
+}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:0.3}}
+@keyframes refreshFlash{0%{background:rgba(46,204,113,0.3)}100%{background:rgba(46,204,113,0.15)}}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:'Inter','Segoe UI',system-ui,-apple-system,sans-serif;min-height:100vh;line-height:1.5}
+.header{display:flex;align-items:center;justify-content:space-between;padding:24px 32px;border-bottom:1px solid var(--border);flex-wrap:wrap;gap:16px;background:linear-gradient(180deg,rgba(56,189,248,0.04),transparent)}
+.header-left{display:flex;align-items:center;gap:16px}
+.logo-wrap{width:56px;height:56px;flex-shrink:0}
+.header h1{font-size:24px;font-weight:700;letter-spacing:-0.5px}.header h1 .v6{color:var(--accent)}
+.header h1 .quantum-text{color:var(--quantum)}
+.subtitle{font-size:13px;color:var(--text-dim);margin-top:2px}
+.badges{display:flex;gap:8px;flex-wrap:wrap}
+.badge{padding:6px 14px;border-radius:20px;font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:0.5px;display:inline-flex;align-items:center;gap:6px}
+.badge-success{background:rgba(74,222,128,0.12);color:var(--success);border:1px solid rgba(74,222,128,0.2)}
+.badge-info{background:rgba(56,189,248,0.12);color:var(--accent);border:1px solid rgba(56,189,248,0.2)}
+.badge-quantum{background:rgba(192,132,252,0.12);color:var(--quantum);border:1px solid rgba(192,132,252,0.2)}
+.badge-warning{background:rgba(251,191,36,0.12);color:var(--warning);border:1px solid rgba(251,191,36,0.2)}
+.dot{width:8px;height:8px;border-radius:50%;display:inline-block}
+.dot-live{background:var(--success);box-shadow:0 0 8px var(--success);animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:0.4}}
+.container{max-width:1440px;margin:0 auto;padding:24px 32px}
+.nav-tabs{display:flex;gap:4px;margin-bottom:24px;border-bottom:1px solid var(--border);flex-wrap:wrap}
+.nav-tab{padding:10px 18px;font-size:13px;font-weight:600;color:var(--text-dim);cursor:pointer;border-bottom:2px solid transparent;transition:all 0.2s;white-space:nowrap;background:none;border-left:none;border-right:none;border-top:none;font-family:inherit}
+.nav-tab:hover{color:var(--text)}
+.nav-tab.active{color:var(--accent);border-bottom-color:var(--accent)}
+.nav-tab.quantum.active{color:var(--quantum);border-bottom-color:var(--quantum)}
+.nav-tab.market.active{color:var(--success);border-bottom-color:var(--success)}
+.tab-content{display:none}.tab-content.active{display:block;animation:fadeIn 0.3s ease}
+@keyframes fadeIn{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:translateY(0)}}
+.section-title{font-size:16px;font-weight:600;margin:28px 0 16px 0;padding-left:12px;border-left:3px solid var(--accent)}
+.section-title.quantum{border-left-color:var(--quantum);color:var(--quantum)}
+.section-title.strategy{border-left-color:var(--accent2)}
+.section-title.market{border-left-color:var(--success)}
+.section-title:first-child{margin-top:0}
+.section-sub{font-size:12px;color:var(--text-faint);margin-top:-12px;margin-bottom:16px;padding-left:12px}
+.stats-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:12px;margin-bottom:24px}
+.stat-card{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:18px;transition:border-color 0.2s}
+.stat-card:hover{border-color:var(--border2)}
+.stat-card.quantum{border-color:rgba(192,132,252,0.2)}
+.stat-card.market{border-color:rgba(74,222,128,0.2)}
+.stat-label{font-size:11px;text-transform:uppercase;letter-spacing:0.5px;color:var(--text-faint);margin-bottom:8px}
+.stat-value{font-size:26px;font-weight:700;word-break:break-word}
+.stat-sub{font-size:12px;color:var(--text-dim);margin-top:4px}
+.pass-color{color:var(--success)}.fail-color{color:var(--danger)}.accent-color{color:var(--accent)}.quantum-color{color:var(--quantum)}.warning-color{color:var(--warning)}
+.chart-container{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:20px;margin-bottom:24px;position:relative;height:340px}
+.chart-container.tall{height:420px}
+.chart-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:24px}
+.chart-row .chart-container{margin-bottom:0}
+@media(max-width:900px){.chart-row{grid-template-columns:1fr}}
+.table{width:100%;border-collapse:collapse;background:var(--surface);border-radius:12px;overflow:hidden;border:1px solid var(--border);margin-bottom:24px;font-size:13px}
+.table th{text-align:left;padding:12px 16px;font-size:11px;text-transform:uppercase;letter-spacing:0.5px;color:var(--text-faint);border-bottom:1px solid var(--border);background:var(--surface2)}
+.table td{padding:10px 16px;border-bottom:1px solid var(--border)}
+.table tr:last-child td{border-bottom:none}
+.table tr:hover{background:var(--surface2)}
+.num{text-align:right;font-variant-numeric:tabular-nums}
+.pos{color:var(--success)}.neg{color:var(--danger)}
+.rank-badge{display:inline-block;width:24px;height:24px;border-radius:50%;text-align:center;line-height:24px;font-size:11px;font-weight:700;margin-right:8px}
+.rank-badge.gold{background:rgba(251,191,36,0.15);color:var(--warning)}
+.rank-badge.silver{background:rgba(148,163,184,0.15);color:var(--text-dim)}
+.rank-badge.bronze{background:rgba(180,83,9,0.15);color:#d97706}
+/* Correlation matrix grid */
+.corr-grid-wrap{overflow-x:auto;margin-bottom:24px}
+.corr-grid{border-collapse:collapse;background:var(--surface);border-radius:12px;overflow:hidden;border:1px solid var(--border);font-size:11px}
+.corr-grid th,.corr-grid td{padding:8px 10px;text-align:center;border:1px solid var(--border)}
+.corr-grid th{color:var(--text-faint);font-size:10px;text-transform:uppercase;background:var(--surface2)}
+.corr-grid td.lbl{color:var(--text-dim);font-weight:600;background:var(--surface2);text-align:left;font-size:10px}
+.corr-cell{font-weight:700;border-radius:4px}
+/* Quantum model cards */
+.qmodel-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px;margin-bottom:24px}
+.qmodel-card{background:var(--surface);border:1px solid rgba(192,132,252,0.2);border-radius:12px;padding:20px}
+.qmodel-card h3{font-size:15px;font-weight:700;color:var(--quantum);margin-bottom:4px}
+.qmodel-card .qdesc{font-size:12px;color:var(--text-faint);margin-bottom:12px}
+.qmodel-card .qstat{display:flex;justify-content:space-between;padding:6px 0;border-bottom:1px solid var(--border);font-size:13px}
+.qmodel-card .qstat:last-child{border-bottom:none}
+.qmodel-card .qstat .k{color:var(--text-dim)}
+.qmodel-card .qstat .v{font-weight:600}
+.signal-buy{color:var(--success);font-weight:700;text-transform:uppercase;letter-spacing:1px}
+.signal-sell{color:var(--danger);font-weight:700;text-transform:uppercase;letter-spacing:1px}
+.signal-neutral{color:var(--warning);font-weight:700;text-transform:uppercase;letter-spacing:1px}
+.regime-badge{display:inline-block;padding:4px 10px;border-radius:6px;font-size:11px;font-weight:700;text-transform:uppercase}
+.regime-range_bound,.regime-ranging{background:rgba(251,191,36,0.12);color:var(--warning)}
+.regime-trend{background:rgba(56,189,248,0.12);color:var(--accent)}
+.regime-breakout{background:rgba(74,222,128,0.12);color:var(--success)}
+.honesty-box{background:var(--surface);border:1px solid rgba(251,191,36,0.2);border-radius:12px;padding:20px;margin:24px 0}
+.honesty-title{color:var(--warning);font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:1px;margin-bottom:12px}
+.honesty-list{list-style:none}.honesty-list li{font-size:12px;color:var(--text-dim);padding:4px 0;padding-left:20px;position:relative}
+.honesty-list li::before{content:'⚠';position:absolute;left:0;color:var(--warning)}
+.module-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px;margin-bottom:24px}
+.module-card{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:16px}
+.module-card h3{font-size:14px;font-weight:600;margin-bottom:8px;color:var(--accent)}
+.module-card.quantum-card h3{color:var(--quantum)}
+.module-card .tests{font-size:24px;font-weight:700;color:var(--success)}
+.module-card .desc{font-size:12px;color:var(--text-dim);margin-top:4px}
+/* Progress bars */
+.bar-wrap{background:var(--surface2);border-radius:6px;height:8px;overflow:hidden;margin-top:6px}
+.bar-fill{height:100%;border-radius:6px;transition:width 0.6s}
+.bar-pass{background:var(--success)}.bar-fail{background:var(--danger)}
+.cluster-tag{display:inline-block;padding:3px 8px;border-radius:4px;font-size:11px;margin:2px;background:var(--surface2);color:var(--text-dim);border:1px solid var(--border)}
+.footer{text-align:center;padding:32px;color:var(--text-faint);font-size:12px;border-top:1px solid var(--border);margin-top:32px}
+.loading-msg{padding:40px;text-align:center;color:var(--text-faint);font-size:14px}
+.error-card{background:rgba(240,107,107,0.08);border:1px solid rgba(240,107,107,0.2);border-radius:12px;padding:24px;color:var(--danger);margin-bottom:24px}
+.acct-tabs{display:flex;gap:4px;margin-bottom:16px}
+.acct-tab{padding:8px 16px;font-size:13px;font-weight:600;color:var(--text-dim);cursor:pointer;border-radius:8px;border:1px solid var(--border);background:var(--surface);transition:all 0.2s}
+.acct-tab:hover{color:var(--text)}
+.acct-tab.active{color:var(--success);border-color:var(--success);background:rgba(74,222,128,0.08)}
+.config-box{background:var(--surface2);border:1px solid var(--border);border-radius:8px;padding:14px;margin-bottom:16px;font-size:12px;color:var(--text-dim)}
+.config-box code{color:var(--accent);font-family:'SF Mono',Consolas,monospace}
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="header-left">
+    <div class="logo-wrap">
+      <svg width="56" height="56" viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Aether logo">
+        <defs>
+          <linearGradient id="aGrad" x1="0" y1="0" x2="56" y2="56" gradientUnits="userSpaceOnUse">
+            <stop stop-color="#38bdf8"/><stop offset="0.5" stop-color="#818cf8"/><stop offset="1" stop-color="#c084fc"/>
+          </linearGradient>
+        </defs>
+        <circle cx="28" cy="28" r="26" stroke="url(#aGrad)" stroke-width="2.5" fill="rgba(56,189,248,0.06)"/>
+        <circle cx="28" cy="28" r="20" stroke="url(#aGrad)" stroke-width="1" opacity="0.3" fill="none"/>
+        <path d="M28 14 L38 40 L28 33 L18 40 Z" fill="url(#aGrad)"/>
+      </svg>
+    </div>
+    <div>
+      <h1>Aether <span class="v6">V6</span> — <span class="quantum-text">Quantum Market Intelligence</span></h1>
+      <div class="subtitle">10K TopStep Evaluations | Live Market Data | Quantum Correlation | Funded Profit Lab | Strategy Lab</div>
+    </div>
+  </div>
+  <div class="badges">
+    <span class="badge badge-success">99.7% Pass Rate</span>
+    <span class="badge badge-info">105 Models</span>
+    <span class="badge badge-success"><span class="dot dot-live"></span>Live Data</span>
+    <span class="badge badge-warning">Simulated</span>
+    <span class="badge" id="live-refresh-badge" style="background:rgba(46,204,113,0.15);color:#2ecc71;border:1px solid #2ecc71;display:inline-flex;align-items:center;gap:4px"><span class="dot dot-live" id="refresh-dot" style="animation:pulse 2s infinite"></span><span id="refresh-text">Auto-Refresh: ON</span></span>
+    <span class="badge" id="last-updated-badge" style="background:rgba(56,189,248,0.1);color:var(--accent);border:1px solid var(--accent);font-size:0.7rem">Updated: --</span>
+  </div>
+</div>
+
+<div class="container">
+  <div class="nav-tabs" id="nav-tabs">
+    <button class="nav-tab active" data-tab="overview">Overview</button>
+    <button class="nav-tab market" data-tab="market">Live Market</button>
+    <button class="nav-tab" data-tab="correlation">Correlation</button>
+    <button class="nav-tab quantum" data-tab="qmodels">Quantum Models</button>
+    <button class="nav-tab" data-tab="strategy">Strategy Lab</button>
+    <button class="nav-tab" data-tab="funded">Funded Profit</button>
+    <button class="nav-tab" data-tab="unconstrained" style="color:var(--accent-warn)">Unconstrained PnL</button>
+    <button class="nav-tab" data-tab="tradehistory">Trade History</button>
+    <button class="nav-tab quantum" data-tab="zenith">Zenith Lab</button>
+    <button class="nav-tab" data-tab="execution" style="color:var(--accent)">Execution Control</button>
+    <button class="nav-tab" data-tab="advisers" style="color:var(--oracle-gold,#f1c40f)">AI Advisers</button>
+    <button class="nav-tab" data-tab="alpaca" style="color:var(--pass-color)">Alpaca Positions</button>
+    <button class="nav-tab" data-tab="sovereign" style="color:#f1c40f">Sovereign</button>
+    <button class="nav-tab" data-tab="omni" style="color:#9b59b6">Omni-Nexus</button>
+    <button class="nav-tab" data-tab="continuous" style="color:#2ecc71">Continuous Engine</button>
+    <button class="nav-tab" data-tab="oracle-auto" style="color:#e74c3c">Oracle Auto-Gen</button>
+    <button class="nav-tab" data-tab="ai-models" style="color:#1abc9c">AI Models</button>
+    <button class="nav-tab" data-tab="v22900" style="color:#e67e22">V22900</button>
+    <button class="nav-tab" data-tab="unlimited" style="color:#1abc9c">Unlimited Engine</button>
+    <button class="nav-tab" data-tab="topstep" style="color:#f39c12">TopStep Eval</button>
+    <button class="nav-tab" data-tab="auto-exec" style="color:#9b59b6">Auto Executor</button>
+    <button class="nav-tab" data-tab="tests">Test Suite</button>
+    <a href="oracle_console.html" style="padding:8px 16px;color:#f1c40f;text-decoration:none;border:1px solid #f1c40f;border-radius:6px;font-size:0.8rem;font-weight:600;margin-left:8px">Oracle Console &rarr;</a>
+  </div>
+
+  <!-- OVERVIEW TAB -->
+  <div class="tab-content active" id="tab-overview">
+    <div class="section-title">10,000 Account Evaluation Results</div>
+    <div class="stats-grid" id="overview-stats"></div>
+    <div class="chart-container"><canvas id="chart-pass-rate"></canvas></div>
+    <div class="chart-row">
+      <div class="chart-container"><canvas id="chart-fail-reasons"></canvas></div>
+      <div class="chart-container"><canvas id="chart-funded"></canvas></div>
+    </div>
+
+    <div class="section-title market">Live Market Snapshot</div>
+    <div class="stats-grid" id="market-snapshot-stats"></div>
+
+    <div class="section-title">System Modules</div>
+    <div class="module-grid" id="module-grid"></div>
+
+    <div class="honesty-box">
+      <div class="honesty-title">Important Disclaimers</div>
+      <ul class="honesty-list">
+        <li>All results are from simulated evaluations using a vectorized futures market simulator, not live trading.</li>
+        <li>The 99.7% pass rate is achieved in simulation; real-world performance will differ due to slippage, latency, and market microstructure.</li>
+        <li>Live market quotes are fetched from a finance data connector for display only — no trades are executed.</li>
+        <li>Quantum computing models use classical quantum circuit simulators, not real quantum hardware.</li>
+        <li>This system does not execute real trades and is for research and educational purposes only.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- LIVE MARKET TAB -->
+  <div class="tab-content" id="tab-market">
+    <div class="section-title market">Live Market Quotes <span style="font-size:12px;color:var(--text-faint);font-weight:400">— Live Data</span></div>
+    <div class="stats-grid" id="market-stats"></div>
+    <table class="table" id="quotes-table">
+      <thead><tr><th>Symbol</th><th>Name</th><th class="num">Price</th><th class="num">Change</th><th class="num">Change %</th><th class="num">Day Low</th><th class="num">Day High</th><th class="num">Volume</th></tr></thead>
+      <tbody></tbody>
+    </table>
+
+    <div class="section-title market">Market Breadth &amp; Regime</div>
+    <div class="chart-row">
+      <div class="chart-container"><canvas id="chart-breadth"></canvas></div>
+      <div class="chart-container"><canvas id="chart-vix"></canvas></div>
+    </div>
+
+    <div class="honesty-box">
+      <div class="honesty-title">Live Data Notice</div>
+      <ul class="honesty-list">
+        <li>Market quotes are live data fetched from a finance connector for informational display only.</li>
+        <li>No trading signals from this data are executed — the Aether system runs entirely in simulation.</li>
+        <li>Live data supplements simulated evaluation results for context and regime detection.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- CORRELATION TAB -->
+  <div class="tab-content" id="tab-correlation">
+    <div class="section-title">Correlation Analysis <span style="font-size:12px;color:var(--text-faint);font-weight:400">— Live Data</span></div>
+    <div class="stats-grid" id="corr-stats"></div>
+    <div class="chart-container tall"><canvas id="chart-corr-bar"></canvas></div>
+
+    <div class="section-title">Correlation Matrix Heatmap</div>
+    <div class="corr-grid-wrap" id="corr-matrix-wrap"></div>
+
+    <div class="section-title">Regime Clusters</div>
+    <div class="module-grid" id="cluster-grid"></div>
+
+    <div class="honesty-box">
+      <div class="honesty-title">Correlation Methodology</div>
+      <ul class="honesty-list">
+        <li>Correlation matrix computed from live OHLCV history across tracked instruments.</li>
+        <li>Eigenvalue concentration measures market-wide co-movement; higher values indicate crowding risk.</li>
+        <li>Diversification score = 1 - eigenvalue concentration; lower concentration means more diversified opportunities.</li>
+        <li>Recommended strategy is derived from the current regime and correlation structure — simulated only.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- QUANTUM MODELS TAB -->
+  <div class="tab-content" id="tab-qmodels">
+    <div class="section-title quantum">V6 Quantum Models <span style="font-size:12px;color:var(--text-faint);font-weight:400">— Classical Quantum Simulator</span></div>
+    <div class="stats-grid" id="qmodel-stats"></div>
+    <div class="qmodel-grid" id="qmodel-grid"></div>
+
+    <div class="chart-row">
+      <div class="chart-container"><canvas id="chart-fourier"></canvas></div>
+      <div class="chart-container"><canvas id="chart-phase"></canvas></div>
+    </div>
+    <div class="chart-container tall"><canvas id="chart-entanglement"></canvas></div>
+
+    <div class="honesty-box">
+      <div class="honesty-title">Quantum Model Details</div>
+      <ul class="honesty-list">
+        <li>Fourier Cycle: Spectral decomposition of price series to identify dominant cyclical components.</li>
+        <li>Phase Regime: Quantum-inspired state probability model for market regime classification.</li>
+        <li>Entanglement: Detects hidden cross-asset correlations beyond linear Pearson coefficients.</li>
+        <li>Kernel Similarity: Quantum kernel method to find historically similar market states.</li>
+        <li>Position Sizer: Quantum optimization of contract allocation across strategies subject to constraints.</li>
+        <li>All models run on classical quantum circuit simulators — no real quantum hardware is used.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- STRATEGY LAB TAB -->
+  <div class="tab-content" id="tab-strategy">
+    <div class="section-title strategy">Strategy Lab — 10 Strategies Ranked</div>
+    <div class="stats-grid" id="strategy-stats"></div>
+    <div class="chart-container"><canvas id="chart-strategy-ranking"></canvas></div>
+    <table class="table" id="strategy-table">
+      <thead><tr><th>Rank</th><th>Strategy</th><th>Pass Rate</th><th>Win Rate</th><th>Sharpe</th><th>Profit Factor</th><th>Score</th></tr></thead>
+      <tbody></tbody>
+    </table>
+  </div>
+
+  <!-- FUNDED PROFIT TAB -->
+  <div class="tab-content" id="tab-funded">
+    <div class="section-title strategy">Funded Profit Lab <span style="font-size:12px;color:var(--text-faint);font-weight:400">— Simulated TopStep Funded Accounts</span></div>
+    <div class="acct-tabs" id="acct-tabs">
+      <button class="acct-tab active" data-acct="50K">$50K Account</button>
+      <button class="acct-tab" data-acct="100K">$100K Account</button>
+      <button class="acct-tab" data-acct="150K">$150K Account</button>
+    </div>
+    <div class="stats-grid" id="funded-stats"></div>
+    <div class="config-box" id="funded-config"></div>
+    <div class="chart-container tall"><canvas id="chart-funded-equity"></canvas></div>
+    <div class="chart-container"><canvas id="chart-funded-scaling"></canvas></div>
+    <div class="chart-container"><canvas id="chart-funded-comparison"></canvas></div>
+
+    <div class="honesty-box">
+      <div class="honesty-title">Funded Profit Disclaimer</div>
+      <ul class="honesty-list">
+        <li>All funded profit results are simulated using a vectorized futures market simulator.</li>
+        <li>No real TopStep funded accounts were traded. TopStep rules were never weakened or bypassed.</li>
+        <li>Profit figures include the contract scaling allowed at each payout tier per TopStep rules.</li>
+        <li>Simulated past performance does not guarantee future results.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- UNCONSTRAINED PNL TAB -->
+  <div class="tab-content" id="tab-unconstrained">
+    <div class="section-title" style="color:var(--accent-warn)">Unconstrained PnL Ceiling Lab <span style="font-size:12px;color:var(--text-faint);font-weight:400">— Highest Sampled Result (Limits Removed)</span></div>
+
+    <div class="honesty-box" style="border-color:var(--accent-warn);background:rgba(255,165,0,0.05)">
+      <div class="honesty-title" style="color:var(--accent-warn)">⚠ UNCONSTRAINED SIMULATION — NOT REAL TRADING</div>
+      <ul class="honesty-list">
+        <li>TopStep limits (MLL, daily loss, max contracts) have been REMOVED for theoretical analysis only.</li>
+        <li>These results are NOT achievable in real TopStep accounts. TopStep enforces these limits on their servers.</li>
+        <li>No real or paper trades were placed. This is a mathematical simulation only.</li>
+        <li>Risk level is EXTREME — drawdowns can exceed the entire account balance.</li>
+        <li>This module exists to explore the theoretical PnL ceiling, not to recommend removing risk controls.</li>
+      </ul>
+    </div>
+
+    <div class="stats-grid" id="unconstrained-ceiling-stats"></div>
+    <div class="chart-container tall"><canvas id="chart-unconstrained-equity"></canvas></div>
+
+    <div class="section-title" style="margin-top:24px">Constrained vs Unconstrained Comparison</div>
+    <div class="stats-grid" id="unconstrained-comparison-stats"></div>
+    <div class="chart-container"><canvas id="chart-unconstrained-comparison"></canvas></div>
+
+    <div class="config-box" id="unconstrained-config"></div>
+
+    <div class="section-title" style="margin-top:24px">Paper Execution Audit</div>
+    <div id="paper-audit-section" style="padding:16px;background:var(--card);border-radius:8px;border:1px solid var(--border)"></div>
+
+    <div class="honesty-box">
+      <div class="honesty-title">Risk Disclosure</div>
+      <ul class="honesty-list">
+        <li>Constrained simulation respects all TopStep rules: MLL, daily loss limit, max contracts.</li>
+        <li>Unconstrained simulation removes ALL limits — contracts scale up to 30, no daily loss cap, no MLL.</li>
+        <li>The risk multiplier shows how much more risk the unconstrained mode takes vs constrained.</li>
+        <li>Simulated past performance does not guarantee future results. These are not real trading results.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- TRADE HISTORY TAB -->
+  <div class="tab-content" id="tab-tradehistory">
+    <div class="section-title">Trade Execution History <span style="font-size:12px;color:var(--text-faint);font-weight:400">— Contract Sizes, Durations & Price Points</span></div>
+
+    <div class="honesty-box" style="border-color:var(--accent-warn);background:rgba(255,165,0,0.05)">
+      <div class="honesty-title" style="color:var(--accent-warn)">⚠ SIMULATED TRADE EXECUTOR HISTORY</div>
+      <ul class="honesty-list">
+        <li>All trades shown are SIMULATED. No real or paper trades were placed.</li>
+        <li>Prices are derived from the live market snapshot OHLCV data.</li>
+        <li>Contract sizes respect TopStep max contract limits (1-5 contracts).</li>
+        <li>When a paper trading provider (Alpaca, Tradovate) is connected, real paper trade history will appear here.</li>
+      </ul>
+    </div>
+
+    <div class="stats-grid" id="trade-history-stats"></div>
+    <div class="chart-container tall"><canvas id="chart-trade-equity"></canvas></div>
+    <div class="chart-container"><canvas id="chart-trade-pnl-bar"></canvas></div>
+    <div class="chart-container"><canvas id="chart-trade-by-symbol"></canvas></div>
+
+    <div class="section-title" style="margin-top:24px">Trade Log</div>
+    <div style="overflow-x:auto;max-height:600px;overflow-y:auto;border:1px solid var(--border);border-radius:8px">
+      <table id="trade-table" style="width:100%;border-collapse:collapse;font-size:13px">
+        <thead style="position:sticky;top:0;background:var(--card);z-index:10">
+          <tr>
+            <th style="padding:8px 12px;text-align:left;border-bottom:1px solid var(--border)">#</th>
+            <th style="padding:8px 12px;text-align:left;border-bottom:1px solid var(--border)">Symbol</th>
+            <th style="padding:8px 12px;text-align:left;border-bottom:1px solid var(--border)">Side</th>
+            <th style="padding:8px 12px;text-align:right;border-bottom:1px solid var(--border)">Contracts</th>
+            <th style="padding:8px 12px;text-align:right;border-bottom:1px solid var(--border)">Entry $</th>
+            <th style="padding:8px 12px;text-align:right;border-bottom:1px solid var(--border)">Exit $</th>
+            <th style="padding:8px 12px;text-align:right;border-bottom:1px solid var(--border)">Stop $</th>
+            <th style="padding:8px 12px;text-align:right;border-bottom:1px solid var(--border)">Target $</th>
+            <th style="padding:8px 12px;text-align:left;border-bottom:1px solid var(--border)">Entry Time</th>
+            <th style="padding:8px 12px;text-align:left;border-bottom:1px solid var(--border)">Exit Time</th>
+            <th style="padding:8px 12px;text-align:right;border-bottom:1px solid var(--border)">Duration</th>
+            <th style="padding:8px 12px;text-align:right;border-bottom:1px solid var(--border)">PnL</th>
+            <th style="padding:8px 12px;text-align:left;border-bottom:1px solid var(--border)">Strategy</th>
+            <th style="padding:8px 12px;text-align:left;border-bottom:1px solid var(--border)">Result</th>
+          </tr>
+        </thead>
+        <tbody id="trade-table-body"></tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- ZENITH LAB TAB -->
+  <div class="tab-content" id="tab-zenith">
+    <div class="section-title quantum">Aether Zenith — Prediction Lab & Mathematical Models <span style="font-size:12px;color:var(--text-faint);font-weight:400">— Price, Volatility & Momentum Forecasting</span></div>
+
+    <div class="honesty-box" style="border-color:var(--accent)">
+      <div class="honesty-title">Zenith Kernel Status</div>
+      <div id="zenith-kernel-status"></div>
+    </div>
+
+    <div class="section-title" style="margin-top:20px">Prediction-Lab Market Consensus <span style="font-size:11px;color:var(--text-faint);font-weight:400">(separate from kernel vote above)</span></div>
+    <div class="stats-grid" id="zenith-consensus-stats"></div>
+
+    <div class="section-title" style="margin-top:24px">Per-Symbol Predictions</div>
+    <div class="stats-grid" id="zenith-prediction-stats"></div>
+    <div class="chart-container tall"><canvas id="chart-zenith-price-predictions"></canvas></div>
+    <div class="chart-container"><canvas id="chart-zenith-volatility"></canvas></div>
+    <div class="chart-container"><canvas id="chart-zenith-momentum"></canvas></div>
+
+    <div class="section-title" style="margin-top:24px">Strategy Recommendations</div>
+    <div style="overflow-x:auto;max-height:400px;overflow-y:auto;border:1px solid var(--border);border-radius:8px">
+      <table style="width:100%;border-collapse:collapse;font-size:13px">
+        <thead style="position:sticky;top:0;background:var(--card);z-index:10">
+          <tr>
+            <th style="padding:8px 12px;text-align:left;border-bottom:1px solid var(--border)">Strategy</th>
+            <th style="padding:8px 12px;text-align:left;border-bottom:1px solid var(--border)">Symbol</th>
+            <th style="padding:8px 12px;text-align:left;border-bottom:1px solid var(--border)">Signal</th>
+            <th style="padding:8px 12px;text-align:right;border-bottom:1px solid var(--border)">Confidence</th>
+            <th style="padding:8px 12px;text-align:right;border-bottom:1px solid var(--border)">Exp Return</th>
+            <th style="padding:8px 12px;text-align:left;border-bottom:1px solid var(--border)">Risk</th>
+          </tr>
+        </thead>
+        <tbody id="zenith-strategy-table"></tbody>
+      </table>
+    </div>
+
+    <div class="section-title" style="margin-top:24px">Hive Research Logs</div>
+    <div id="zenith-research-logs" style="max-height:300px;overflow-y:auto"></div>
+
+    <div class="honesty-box">
+      <div class="honesty-title">Prediction Disclaimer</div>
+      <ul class="honesty-list">
+        <li>All predictions are model-based estimates using linear regression, EWMA volatility, Bollinger Bands, and statistical arbitrage methods.</li>
+        <li>Predictions use 41-47 daily OHLCV bars per symbol. Not financial advice.</li>
+        <li>The Zenith Consensus Kernel aggregates 6 prediction models into an ensemble vote. It is NOT a 1M-agent system.</li>
+        <li>GOD_MODE remains LOCKED. No real trading authority is granted.</li>
+        <li>Model predictions do not guarantee future results.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- EXECUTION CONTROL TAB -->
+  <div class="tab-content" id="tab-execution">
+    <div class="section-title">Execution Control Center</div>
+    <div id="exec-status-grid" class="stats-grid"></div>
+
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:16px">
+      <div>
+        <div class="section-title" style="font-size:14px">Mode Progression</div>
+        <div id="exec-mode-progression" style="padding:16px;background:var(--card);border-radius:8px;border:1px solid var(--border)"></div>
+      </div>
+      <div>
+        <div class="section-title" style="font-size:14px">Broker Connections</div>
+        <div id="exec-broker-status" style="padding:16px;background:var(--card);border-radius:8px;border:1px solid var(--border)"></div>
+      </div>
+    </div>
+
+    <div class="section-title" style="margin-top:24px">Live Authorization Gate</div>
+    <div id="exec-live-gate" style="padding:16px;background:var(--card);border-radius:8px;border:1px solid var(--border)"></div>
+
+    <div class="section-title" style="margin-top:24px">Risk Controls</div>
+    <div id="exec-risk-controls" style="padding:16px;background:var(--card);border-radius:8px;border:1px solid var(--border)"></div>
+
+    <div class="section-title" style="margin-top:24px">Recent Orders</div>
+    <div style="overflow-x:auto">
+      <table style="width:100%;border-collapse:collapse;font-size:13px">
+        <thead>
+          <tr style="border-bottom:1px solid var(--border)">
+            <th style="text-align:left;padding:8px 12px">Order ID</th>
+            <th style="text-align:left;padding:8px 12px">Symbol</th>
+            <th style="text-align:left;padding:8px 12px">Side</th>
+            <th style="text-align:right;padding:8px 12px">Qty</th>
+            <th style="text-align:left;padding:8px 12px">Status</th>
+            <th style="text-align:left;padding:8px 12px">Mode</th>
+            <th style="text-align:left;padding:8px 12px">Broker</th>
+            <th style="text-align:left;padding:8px 12px">Strategy</th>
+            <th style="text-align:left;padding:8px 12px">Note</th>
+          </tr>
+        </thead>
+        <tbody id="exec-order-table"></tbody>
+      </table>
+    </div>
+
+    <div class="honesty-box" style="margin-top:24px">
+      <div class="honesty-title">Execution Disclosure</div>
+      <ul class="honesty-list">
+        <li>Default mode is SIMULATED — no orders are sent to any broker.</li>
+        <li>Paper mode routes to a paper trading account (fake money). Requires authenticated broker connection.</li>
+        <li>Live trading is LOCKED. Requires separate live broker connection AND explicit user authorization.</li>
+        <li>Paper and live use DIFFERENT broker connections — no shared credentials.</li>
+        <li>Kill switch instantly reverts all execution to SIMULATED mode.</li>
+        <li>Futures (ES, NQ, CL, GC) require Tradovate or similar futures broker — not supported via Alpaca.</li>
+        <li>Alpaca paper supports equities/ETFs only (SPY, QQQ, TLT).</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- AI ADVISERS TAB -->
+  <div class="tab-content" id="tab-advisers">
+    <div class="section-title">AI Adviser Council — 4 Self-Learning Advisers</div>
+    <div class="stats-grid" id="adviser-summary"></div>
+
+    <div class="section-title" style="margin-top:24px">Adviser Details</div>
+    <div class="module-grid" id="adviser-cards"></div>
+
+    <div class="section-title" style="margin-top:24px">Per-Symbol Council Consensus</div>
+    <div style="overflow-x:auto">
+      <table style="width:100%;border-collapse:collapse;font-size:13px">
+        <thead>
+          <tr style="border-bottom:1px solid var(--border)">
+            <th style="text-align:left;padding:8px 12px">Symbol</th>
+            <th style="text-align:left;padding:8px 12px">Consensus</th>
+            <th style="text-align:right;padding:8px 12px">Buy</th>
+            <th style="text-align:right;padding:8px 12px">Sell</th>
+            <th style="text-align:right;padding:8px 12px">Hold</th>
+            <th style="text-align:right;padding:8px 12px">Agreement</th>
+            <th style="text-align:right;padding:8px 12px">Dissent</th>
+            <th style="text-align:right;padding:8px 12px">Confidence</th>
+          </tr>
+        </thead>
+        <tbody id="adviser-consensus-table"></tbody>
+      </table>
+    </div>
+
+    <div class="section-title" style="margin-top:24px">Individual Adviser Recommendations</div>
+    <div style="overflow-x:auto">
+      <table style="width:100%;border-collapse:collapse;font-size:13px">
+        <thead>
+          <tr style="border-bottom:1px solid var(--border)">
+            <th style="text-align:left;padding:8px 12px">Symbol</th>
+            <th style="text-align:left;padding:8px 12px">Adviser</th>
+            <th style="text-align:left;padding:8px 12px">Signal</th>
+            <th style="text-align:right;padding:8px 12px">Confidence</th>
+            <th style="text-align:right;padding:8px 12px">Size</th>
+            <th style="text-align:left;padding:8px 12px">Reasoning</th>
+          </tr>
+        </thead>
+        <tbody id="adviser-recommendations-table"></tbody>
+      </table>
+    </div>
+
+    <div class="honesty-box" style="margin-top:24px">
+      <div class="honesty-title">Adviser Disclosure</div>
+      <ul class="honesty-list">
+        <li>4 self-learning AI advisers: TrendAdviser, MeanReversionAdviser, VolatilityAdviser, SentimentAdviser.</li>
+        <li>Each adviser starts with neutral parameters and adjusts through learning from outcomes.</li>
+        <li>Confidence is Laplace-smoothed empirical accuracy (starts at 50%, adjusts with outcomes).</li>
+        <li>All outputs are model-based estimates. NOT financial advice.</li>
+        <li>Advisers analyze 41-47 daily OHLCV bars per symbol from the latest market snapshot.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ALPACA POSITIONS TAB -->
+  <div class="tab-content" id="tab-alpaca">
+    <div class="section-title">Alpaca Paper Trading — Live Positions</div>
+    <div class="stats-grid" id="alpaca-stats"></div>
+
+    <div class="section-title" style="margin-top:24px">Open Positions</div>
+    <div style="overflow-x:auto">
+      <table style="width:100%;border-collapse:collapse;font-size:13px">
+        <thead>
+          <tr style="border-bottom:1px solid var(--border)">
+            <th style="text-align:left;padding:8px 12px">Symbol</th>
+            <th style="text-align:left;padding:8px 12px">Side</th>
+            <th style="text-align:right;padding:8px 12px">Qty</th>
+            <th style="text-align:right;padding:8px 12px">Entry Price</th>
+            <th style="text-align:right;padding:8px 12px">Current Price</th>
+            <th style="text-align:right;padding:8px 12px">Market Value</th>
+            <th style="text-align:right;padding:8px 12px">Unrealized PnL</th>
+            <th style="text-align:right;padding:8px 12px">PnL %</th>
+            <th style="text-align:right;padding:8px 12px">Day Change</th>
+          </tr>
+        </thead>
+        <tbody id="alpaca-positions-table"></tbody>
+      </table>
+    </div>
+
+    <div class="section-title" style="margin-top:24px">Order History</div>
+    <div style="overflow-x:auto">
+      <table style="width:100%;border-collapse:collapse;font-size:13px">
+        <thead>
+          <tr style="border-bottom:1px solid var(--border)">
+            <th style="text-align:left;padding:8px 12px">Order ID</th>
+            <th style="text-align:left;padding:8px 12px">Symbol</th>
+            <th style="text-align:left;padding:8px 12px">Side</th>
+            <th style="text-align:right;padding:8px 12px">Qty</th>
+            <th style="text-align:left;padding:8px 12px">Type</th>
+            <th style="text-align:left;padding:8px 12px">Status</th>
+            <th style="text-align:left;padding:8px 12px">Submitted</th>
+            <th style="text-align:left;padding:8px 12px">Signal Source</th>
+          </tr>
+        </thead>
+        <tbody id="alpaca-orders-table"></tbody>
+      </table>
+    </div>
+
+    <div class="honesty-box" style="margin-top:24px">
+      <div class="honesty-title">Paper Trading Disclosure</div>
+      <ul class="honesty-list">
+        <li>All trades are PAPER trades on Alpaca's paper trading API. No real money is at risk.</li>
+        <li>Account: PA3Z2MDCLLFZ | Paper cash: $100,000 | Buying power: $400,000</li>
+        <li>Positions based on Zenith prediction model consensus signals.</li>
+        <li>Live trading remains LOCKED. Requires separate authorization.</li>
+        <li>Only equities/ETFs (SPY, QQQ, TLT) are tradeable via Alpaca. Futures require Tradovate.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- SOVEREIGN TAB -->
+  <div class="tab-content" id="tab-sovereign">
+    <div class="section-title">Aether Sovereign — Recursive Architect Framework</div>
+    <div class="stats-grid" id="sovereign-stats"></div>
+
+    <div class="section-title" style="margin-top:24px">10 Specialized Roles</div>
+    <div class="module-grid" id="sovereign-roles"></div>
+
+    <div class="section-title" style="margin-top:24px">Recent Upgrade Cycles</div>
+    <div style="overflow-x:auto">
+      <table style="width:100%;border-collapse:collapse;font-size:13px">
+        <thead>
+          <tr style="border-bottom:1px solid var(--border)">
+            <th style="text-align:left;padding:8px 12px">Cycle</th>
+            <th style="text-align:left;padding:8px 12px">Version</th>
+            <th style="text-align:left;padding:8px 12px">Consensus</th>
+            <th style="text-align:right;padding:8px 12px">Agreement</th>
+            <th style="text-align:right;padding:8px 12px">Patches</th>
+            <th style="text-align:left;padding:8px 12px">Timestamp</th>
+          </tr>
+        </thead>
+        <tbody id="sovereign-cycles-table"></tbody>
+      </table>
+    </div>
+
+    <div class="honesty-box" style="margin-top:24px">
+      <div class="honesty-title">Sovereign Disclosure</div>
+      <ul class="honesty-list">
+        <li>10 specialized self-improving roles (Architect, Synthesizer, Cryptographer, Quant, Assembler, Auditor, Historian, Ingestor, Refiner, Sovereign).</li>
+        <li>Each role generates real SHA-256 patch signatures per upgrade cycle.</li>
+        <li>Recursive improvement is SIMULATED — patches are improvement suggestions, NOT actual code changes.</li>
+        <li>Precision is NOT benchmarked. No guaranteed accuracy. No 99.9999999%.</li>
+        <li>10 roles, NOT 10 million agents. No GOD_MODE. No Zenith State.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- OMNI-NEXUS TAB -->
+  <div class="tab-content" id="tab-omni">
+    <div class="section-title">Aether Omni-Nexus — Universal Plugin Orchestrator</div>
+    <div class="stats-grid" id="omni-stats"></div>
+
+    <div class="section-title" style="margin-top:24px">Plugin Registry</div>
+    <div style="overflow-x:auto">
+      <table style="width:100%;border-collapse:collapse;font-size:13px">
+        <thead>
+          <tr style="border-bottom:1px solid var(--border)">
+            <th style="text-align:left;padding:8px 12px">Plugin</th>
+            <th style="text-align:left;padding:8px 12px">Function</th>
+            <th style="text-align:left;padding:8px 12px">Status</th>
+            <th style="text-align:right;padding:8px 12px">Calls</th>
+            <th style="text-align:left;padding:8px 12px">Last Data Hash</th>
+          </tr>
+        </thead>
+        <tbody id="omni-plugins-table"></tbody>
+      </table>
+    </div>
+
+    <div class="section-title" style="margin-top:24px">Model Orchestrator</div>
+    <div class="module-grid" id="omni-models"></div>
+
+    <div class="section-title" style="margin-top:24px">Plugin Templates (Not Auto-Generated)</div>
+    <div style="overflow-x:auto">
+      <table style="width:100%;border-collapse:collapse;font-size:13px">
+        <thead>
+          <tr style="border-bottom:1px solid var(--border)">
+            <th style="text-align:left;padding:8px 12px">Template</th>
+            <th style="text-align:left;padding:8px 12px">Description</th>
+            <th style="text-align:left;padding:8px 12px">Requires</th>
+            <th style="text-align:center;padding:8px 12px">Auto-Gen</th>
+          </tr>
+        </thead>
+        <tbody id="omni-templates-table"></tbody>
+      </table>
+    </div>
+
+    <div class="section-title" style="margin-top:24px">Recent Nexus Cycles</div>
+    <div style="overflow-x:auto">
+      <table style="width:100%;border-collapse:collapse;font-size:13px">
+        <thead>
+          <tr style="border-bottom:1px solid var(--border)">
+            <th style="text-align:left;padding:8px 12px">Cycle</th>
+            <th style="text-align:left;padding:8px 12px">Plugins Called</th>
+            <th style="text-align:left;padding:8px 12px">Models Routed</th>
+            <th style="text-align:left;padding:8px 12px">Signal</th>
+            <th style="text-align:right;padding:8px 12px">Confidence</th>
+          </tr>
+        </thead>
+        <tbody id="omni-cycles-table"></tbody>
+      </table>
+    </div>
+
+    <div class="honesty-box" style="margin-top:24px">
+      <div class="honesty-title">Omni-Nexus Disclosure</div>
+      <ul class="honesty-list">
+        <li>5 registered AI models (GPT-4o, Claude, Llama, Gemini, DeepSeek). 0 available without API keys (NOT 10 million agents).</li>
+        <li>8 plugins registered. Only connected plugins (Live Market Data, Paper Trading, Data Integrity) produce real data hashes.</li>
+        <li>8 plugin templates registered. 0 are auto-generatable — no recursive code generation. Templates are suggestions for human review.</li>
+        <li>Precision is NOT benchmarked. No 99.9999999%. No DETERMINISTIC_ALPHA. No SINGULARITY_UNIFIED.</li>
+        <li>Confidence is 0% when no AI models are available. Confidence increases only when models and plugins are connected.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- CONTINUOUS ENGINE TAB -->
+  <div class="tab-content" id="tab-continuous">
+    <div class="section-title">Aether Continuous Trading Engine — 100 Models + 50M Swarm Agents</div>
+    <div class="stats-grid" id="continuous-stats"></div>
+
+    <div class="section-title" style="margin-top:24px">Live Trade Signals (100 Model Consensus)</div>
+    <div style="overflow-x:auto">
+      <table style="width:100%;border-collapse:collapse;font-size:13px">
+        <thead>
+          <tr style="border-bottom:1px solid var(--border)">
+            <th style="text-align:left;padding:8px 12px">Symbol</th>
+            <th style="text-align:left;padding:8px 12px">Signal</th>
+            <th style="text-align:right;padding:8px 12px">Confidence</th>
+            <th style="text-align:right;padding:8px 12px">Buy Votes</th>
+            <th style="text-align:right;padding:8px 12px">Sell Votes</th>
+            <th style="text-align:right;padding:8px 12px">Hold Votes</th>
+            <th style="text-align:left;padding:8px 12px">Swarm</th>
+          </tr>
+        </thead>
+        <tbody id="continuous-signals-table"></tbody>
+      </table>
+    </div>
+
+    <div class="section-title" style="margin-top:24px">Swarm Intelligence — 50M Agents</div>
+    <div class="stats-grid" id="swarm-stats"></div>
+
+    <div class="section-title" style="margin-top:24px">Recent Paper Trades</div>
+    <div style="overflow-x:auto">
+      <table style="width:100%;border-collapse:collapse;font-size:13px">
+        <thead>
+          <tr style="border-bottom:1px solid var(--border)">
+            <th style="text-align:left;padding:8px 12px">Symbol</th>
+            <th style="text-align:left;padding:8px 12px">Side</th>
+            <th style="text-align:right;padding:8px 12px">Qty</th>
+            <th style="text-align:left;padding:8px 12px">Source</th>
+            <th style="text-align:left;padding:8px 12px">Swarm</th>
+            <th style="text-align:left;padding:8px 12px">Timestamp</th>
+          </tr>
+        </thead>
+        <tbody id="continuous-trades-table"></tbody>
+      </table>
+    </div>
+
+    <div class="section-title" style="margin-top:24px">Last Cycle Summary</div>
+    <div class="stats-grid" id="continuous-cycle-stats"></div>
+
+    <div class="honesty-box" style="margin-top:24px">
+      <div class="honesty-title">Continuous Engine Disclosure</div>
+      <ul class="honesty-list">
+        <li>100 model configurations = 10 base models x 10 parameter variations each. NOT 100 unique AI models.</li>
+        <li>50,000,000 swarm agents are SIMULATED via sampling. 10,000 actually computed, rest extrapolated at 5000x.</li>
+        <li>Alpaca trades are PAPER ONLY (isPaperAPI: true). No real money at risk.</li>
+        <li>LiteLLM is installed but no API keys configured. Models fall back to simulated routing.</li>
+        <li>Nuitka is installed for Python compilation. Precision is NOT benchmarked. No guaranteed accuracy.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ORACLE AUTO-GEN TAB -->
+  <div class="tab-content" id="tab-oracle-auto">
+    <div class="section-title">Oracle Auto-Generator — 10,000 Models / 20 AI Types</div>
+    <div class="stats-grid" id="oracle-auto-stats"></div>
+
+    <div class="section-title" style="margin-top:24px">20 Unique AI Model Types</div>
+    <div class="module-grid" id="oracle-model-types"></div>
+
+    <div class="section-title" style="margin-top:24px">Symbol Consensus (10K Model Vote)</div>
+    <div style="overflow-x:auto">
+      <table style="width:100%;border-collapse:collapse;font-size:13px">
+        <thead>
+          <tr style="border-bottom:1px solid var(--border)">
+            <th style="text-align:left;padding:8px 12px">Symbol</th>
+            <th style="text-align:left;padding:8px 12px">Consensus</th>
+            <th style="text-align:right;padding:8px 12px">Buy</th>
+            <th style="text-align:right;padding:8px 12px">Sell</th>
+            <th style="text-align:right;padding:8px 12px">Hold</th>
+            <th style="text-align:right;padding:8px 12px">Total</th>
+            <th style="text-align:right;padding:8px 12px">Agreement</th>
+          </tr>
+        </thead>
+        <tbody id="oracle-consensus-table"></tbody>
+      </table>
+    </div>
+
+    <div class="section-title" style="margin-top:24px">Top 20 Models (by Simulated Accuracy)</div>
+    <div style="overflow-x:auto">
+      <table style="width:100%;border-collapse:collapse;font-size:13px">
+        <thead>
+          <tr style="border-bottom:1px solid var(--border)">
+            <th style="text-align:left;padding:8px 12px">Model ID</th>
+            <th style="text-align:left;padding:8px 12px">Base Type</th>
+            <th style="text-align:right;padding:8px 12px">Accuracy</th>
+            <th style="text-align:right;padding:8px 12px">Predictions</th>
+            <th style="text-align:right;padding:8px 12px">Correct</th>
+            <th style="text-align:left;padding:8px 12px">Signal</th>
+          </tr>
+        </thead>
+        <tbody id="oracle-top-models-table"></tbody>
+      </table>
+    </div>
+
+    <div class="section-title" style="margin-top:24px">Last Cycle Summary</div>
+    <div class="stats-grid" id="oracle-cycle-stats"></div>
+
+    <div class="honesty-box" style="margin-top:24px">
+      <div class="honesty-title">Oracle Auto-Generator Disclosure</div>
+      <ul class="honesty-list">
+        <li>10,000 model configurations = 20 base types × 500 parameter variations each. NOT 10,000 unique AI models.</li>
+        <li>20 AI types: 10 original (Trend, MeanRev, Volatility, Momentum, Sentiment, Quantum, Fractal, Correlation, Kernel, Neural) + 10 new (Transformer, RL, GAN, Bayesian, Diffusion, GraphNN, AttentionLSTM, Autoencoder, Wavelet, Fuzzy).</li>
+        <li>Each cycle tests 500 sampled models (stratified), extrapolated to 10,000. Sampling for performance.</li>
+        <li>All predictions are SIMULATED. Precision is NOT benchmarked. No guaranteed accuracy.</li>
+        <li>Oracle auto-generates test results, NOT live trading alpha. Model 'accuracy' is simulated backtest correctness, NOT real prediction accuracy.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- AI MODELS TAB -->
+  <div class="tab-content" id="tab-ai-models">
+    <div class="section-title">AI Model Registry — LiteLLM Universal Connector</div>
+    <div class="stats-grid" id="ai-models-stats"></div>
+
+    <div class="section-title" style="margin-top:24px">All Providers (38 providers, 1,703+ models)</div>
+    <div style="overflow-x:auto">
+      <table style="width:100%;border-collapse:collapse;font-size:12px">
+        <thead>
+          <tr style="border-bottom:1px solid var(--border)">
+            <th style="text-align:left;padding:6px 10px">Provider</th>
+            <th style="text-align:left;padding:6px 10px">LiteLLM Prefix</th>
+            <th style="text-align:left;padding:6px 10px">Env Var</th>
+            <th style="text-align:right;padding:6px 10px">Models</th>
+            <th style="text-align:left;padding:6px 10px">Key Models</th>
+            <th style="text-align:left;padding:6px 10px">Status</th>
+          </tr>
+        </thead>
+        <tbody id="ai-providers-table"></tbody>
+      </table>
+    </div>
+
+    <div class="section-title" style="margin-top:24px">OpenRouter — Single Key Aggregator</div>
+    <div class="honesty-box">
+      <div class="honesty-title">Connect Once, Access 97+ Models</div>
+      <p style="color:var(--text-secondary);font-size:13px;margin:8px 0">
+        OpenRouter is an aggregator that gives access to GPT-4o, Claude 3.5, Gemini, Llama 405B, and 93+ other models
+        with a single API key. Get a key at <a href="https://openrouter.ai/keys" target="_blank" style="color:var(--accent)">openrouter.ai/keys</a>
+      </p>
+    </div>
+
+    <div class="honesty-box" style="margin-top:16px">
+      <div class="honesty-title">AI Model Registry Disclosure</div>
+      <ul class="honesty-list">
+        <li>38 providers registered covering 1,703+ models via LiteLLM. Connection requires API keys.</li>
+        <li>No API keys are stored or hardcoded. User must provide keys via credentials system.</li>
+        <li>OpenRouter (single key) gives access to 97+ models from all major providers.</li>
+        <li>Ollama runs locally with no API key — install from ollama.com</li>
+        <li>Without keys, all models show 'not_configured' and fall back to simulated routing.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- V22900 TAB -->
+  <div class="tab-content" id="tab-v22900">
+    <div class="section-title">Aether V22900 — Epistemic Observation, Provenance & Prediction</div>
+    <div class="stats-grid" id="v22900-stats"></div>
+
+    <div class="section-title" style="margin-top:24px">V22900 Components (11 subsystems)</div>
+    <div class="module-grid" id="v22900-components"></div>
+
+    <div class="section-title" style="margin-top:24px">Epistemic States</div>
+    <div class="module-grid" id="v22900-epistemic"></div>
+
+    <div class="section-title" style="margin-top:24px">Prediction Calibration</div>
+    <div class="stats-grid" id="v22900-calibration"></div>
+
+    <div class="honesty-box" style="margin-top:24px">
+      <div class="honesty-title">V22900 Disclosure</div>
+      <ul class="honesty-list">
+        <li>V22900 implements epistemic observation, provenance memory, prediction ledger, task graphs, and rollback.</li>
+        <li>The ChatGPT shared link contained NO actual code — only text descriptions of V22900 concepts.</li>
+        <li>This implementation is built from those descriptions as working, tested Python (81 tests, 100%).</li>
+        <li>ChatGPT's benchmark claims (100,000/100,000, SHA-256 hashes) are NOT reproduced — they were unverified claims.</li>
+        <li>Protected effects remain exact-candidate-bound and externally human-approved.</li>
+        <li>No prediction score, peer consensus, or trusted packet can self-authorize a protected change.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- UNLIMITED ENGINE TAB -->
+  <div class="tab-content" id="tab-unlimited">
+    <div class="section-title">Unlimited Trading Engine — 4 Upgrades</div>
+    <div class="stats-grid" id="unlimited-stats"></div>
+
+    <div class="section-title" style="margin-top:24px">4 Upgrades</div>
+    <div class="module-grid" id="unlimited-upgrades"></div>
+
+    <div class="section-title" style="margin-top:24px">Top 20 Accounts (by PnL)</div>
+    <div style="overflow-x:auto">
+      <table style="width:100%;border-collapse:collapse;font-size:12px">
+        <thead>
+          <tr style="border-bottom:1px solid var(--border)">
+            <th style="text-align:left;padding:6px 10px">Account ID</th>
+            <th style="text-align:left;padding:6px 10px">Strategy</th>
+            <th style="text-align:right;padding:6px 10px">Balance</th>
+            <th style="text-align:right;padding:6px 10px">PnL</th>
+            <th style="text-align:right;padding:6px 10px">PnL %</th>
+            <th style="text-align:right;padding:6px 10px">Trades</th>
+            <th style="text-align:right;padding:6px 10px">Win Rate</th>
+            <th style="text-align:right;padding:6px 10px">Max DD</th>
+          </tr>
+        </thead>
+        <tbody id="unlimited-accounts-table"></tbody>
+      </table>
+    </div>
+
+    <div class="section-title" style="margin-top:24px">Strategy Evolution (Genetic Algorithm)</div>
+    <div class="stats-grid" id="unlimited-ga-stats"></div>
+
+    <div class="section-title" style="margin-top:24px">Top Evolved Strategies</div>
+    <div style="overflow-x:auto">
+      <table style="width:100%;border-collapse:collapse;font-size:12px">
+        <thead>
+          <tr style="border-bottom:1px solid var(--border)">
+            <th style="text-align:left;padding:6px 10px">Genome ID</th>
+            <th style="text-align:right;padding:6px 10px">Fitness</th>
+            <th style="text-align:right;padding:6px 10px">Gen</th>
+            <th style="text-align:right;padding:6px 10px">Lookback</th>
+            <th style="text-align:right;padding:6px 10px">Threshold</th>
+            <th style="text-align:right;padding:6px 10px">Pos Size</th>
+            <th style="text-align:right;padding:6px 10px">Stop Loss</th>
+            <th style="text-align:right;padding:6px 10px">Take Profit</th>
+          </tr>
+        </thead>
+        <tbody id="unlimited-strategies-table"></tbody>
+      </table>
+    </div>
+
+    <div class="section-title" style="margin-top:24px">Market Learning Engine</div>
+    <div class="stats-grid" id="unlimited-learning-stats"></div>
+
+    <div class="section-title" style="margin-top:24px">Correlation Arbitrage Detector</div>
+    <div class="stats-grid" id="unlimited-corr-stats"></div>
+
+    <div class="honesty-box" style="margin-top:24px">
+      <div class="honesty-title">Unlimited Trading Engine Disclosure</div>
+      <ul class="honesty-list">
+        <li>All trading is PAPER/SIMULATED. No real money at risk.</li>
+        <li>'Unlimited' accounts = dynamically generated simulated accounts. Default pool: 1,000.</li>
+        <li>Market data is REAL (via finance connector). Trades are SIMULATED.</li>
+        <li>Genetic algorithm evolves SIMULATED strategy parameters, not real capital.</li>
+        <li>No strategy can guarantee profits. Past performance ≠ future results.</li>
+        <li>4 Upgrades: (1) Unlimited accounts, (2) Market learning, (3) Strategy evolution GA, (4) Correlation arbitrage.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- TOPSTEP EVAL TAB -->
+  <div class="tab-content" id="tab-topstep">
+    <div class="section-title">TopStep Eval Pass-Through — Unlimited Auto-Generated Accounts</div>
+    <div class="stats-grid" id="topstep-stats"></div>
+
+    <div class="section-title" style="margin-top:24px">Evaluation Configs</div>
+    <div class="module-grid" id="topstep-configs"></div>
+
+    <div class="section-title" style="margin-top:24px">Top Funded Accounts (No PnL Cap)</div>
+    <div style="overflow-x:auto">
+      <table style="width:100%;border-collapse:collapse;font-size:12px">
+        <thead>
+          <tr style="border-bottom:1px solid var(--border)">
+            <th style="text-align:left;padding:6px 10px">Account ID</th>
+            <th style="text-align:left;padding:6px 10px">Source Eval</th>
+            <th style="text-align:left;padding:6px 10px">Config</th>
+            <th style="text-align:right;padding:6px 10px">Balance</th>
+            <th style="text-align:right;padding:6px 10px">Total PnL</th>
+            <th style="text-align:right;padding:6px 10px">Max PnL</th>
+            <th style="text-align:right;padding:6px 10px">Min PnL</th>
+            <th style="text-align:right;padding:6px 10px">Trades</th>
+            <th style="text-align:right;padding:6px 10px">Win Rate</th>
+            <th style="text-align:left;padding:6px 10px">PnL Cap</th>
+          </tr>
+        </thead>
+        <tbody id="topstep-funded-table"></tbody>
+      </table>
+    </div>
+
+    <div class="section-title" style="margin-top:24px">Recently Passed Evaluations</div>
+    <div style="overflow-x:auto">
+      <table style="width:100%;border-collapse:collapse;font-size:12px">
+        <thead>
+          <tr style="border-bottom:1px solid var(--border)">
+            <th style="text-align:left;padding:6px 10px">Eval ID</th>
+            <th style="text-align:left;padding:6px 10px">Config</th>
+            <th style="text-align:right;padding:6px 10px">Final PnL</th>
+            <th style="text-align:right;padding:6px 10px">Target</th>
+            <th style="text-align:right;padding:6px 10px">Days</th>
+            <th style="text-align:right;padding:6px 10px">Drawdown Used</th>
+            <th style="text-align:left;padding:6px 10px">Status</th>
+            <th style="text-align:left;padding:6px 10px">Passed At</th>
+          </tr>
+        </thead>
+        <tbody id="topstep-recent-table"></tbody>
+      </table>
+    </div>
+
+    <div class="honesty-box" style="margin-top:24px">
+      <div class="honesty-title">TopStep Eval Pass-Through Disclosure</div>
+      <ul class="honesty-list">
+        <li>ALL accounts are SIMULATED. No real TopStep accounts are used.</li>
+        <li>No real money is at risk. All P&L is hypothetical.</li>
+        <li>'Funded' accounts are simulated, NOT real funded accounts.</li>
+        <li>'Passing' an eval does NOT mean a real TopStep eval was passed.</li>
+        <li>Funded accounts have NO PnL cap to see full range of trading outcomes.</li>
+        <li>Simulated pass rates do not reflect real-world pass rates.</li>
+        <li>TopStep is a trademark of TopstepTrader LLC. This is not affiliated.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- AUTO TRADE EXECUTOR TAB -->
+  <div class="tab-content" id="tab-auto-exec">
+    <div class="section-title">Auto Trade Executor — 100 Analysis Models</div>
+    <div class="stats-grid" id="auto-exec-stats"></div>
+
+    <div class="section-title" style="margin-top:24px">Market Charts (Live Data)</div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:16px;margin-top:12px">
+      <div style="background:var(--card-bg);border:1px solid var(--border);border-radius:8px;padding:12px">
+        <div style="font-size:12px;color:var(--text-secondary);margin-bottom:8px">SPY — S&P 500 ETF</div>
+        <canvas id="chart-spy" width="280" height="120"></canvas>
+        <div id="price-spy" style="font-size:14px;font-weight:600;margin-top:4px"></div>
+      </div>
+      <div style="background:var(--card-bg);border:1px solid var(--border);border-radius:8px;padding:12px">
+        <div style="font-size:12px;color:var(--text-secondary);margin-bottom:8px">QQQ — Nasdaq 100 ETF</div>
+        <canvas id="chart-qqq" width="280" height="120"></canvas>
+        <div id="price-qqq" style="font-size:14px;font-weight:600;margin-top:4px"></div>
+      </div>
+      <div style="background:var(--card-bg);border:1px solid var(--border);border-radius:8px;padding:12px">
+        <div style="font-size:12px;color:var(--text-secondary);margin-bottom:8px">TLT — 20+ Year Treasury</div>
+        <canvas id="chart-tlt" width="280" height="120"></canvas>
+        <div id="price-tlt" style="font-size:14px;font-weight:600;margin-top:4px"></div>
+      </div>
+      <div style="background:var(--card-bg);border:1px solid var(--border);border-radius:8px;padding:12px">
+        <div style="font-size:12px;color:var(--text-secondary);margin-bottom:8px">GLD — Gold ETF</div>
+        <canvas id="chart-gld" width="280" height="120"></canvas>
+        <div id="price-gld" style="font-size:14px;font-weight:600;margin-top:4px"></div>
+      </div>
+      <div style="background:var(--card-bg);border:1px solid var(--border);border-radius:8px;padding:12px">
+        <div style="font-size:12px;color:var(--text-secondary);margin-bottom:8px">USO — Oil ETF</div>
+        <canvas id="chart-uso" width="280" height="120"></canvas>
+        <div id="price-uso" style="font-size:14px;font-weight:600;margin-top:4px"></div>
+      </div>
+      <div style="background:var(--card-bg);border:1px solid var(--border);border-radius:8px;padding:12px">
+        <div style="font-size:12px;color:var(--text-secondary);margin-bottom:8px">IWM — Russell 2000 ETF</div>
+        <canvas id="chart-iwm" width="280" height="120"></canvas>
+        <div id="price-iwm" style="font-size:14px;font-weight:600;margin-top:4px"></div>
+      </div>
+      <div style="background:var(--card-bg);border:1px solid var(--border);border-radius:8px;padding:12px">
+        <div style="font-size:12px;color:var(--text-secondary);margin-bottom:8px">VIX — Volatility Index</div>
+        <canvas id="chart-vix" width="280" height="120"></canvas>
+        <div id="price-vix" style="font-size:14px;font-weight:600;margin-top:4px"></div>
+      </div>
+      <div style="background:var(--card-bg);border:1px solid var(--border);border-radius:8px;padding:12px">
+        <div style="font-size:12px;color:var(--text-secondary);margin-bottom:8px">DIA — Dow Jones ETF</div>
+        <canvas id="chart-dia" width="280" height="120"></canvas>
+        <div id="price-dia" style="font-size:14px;font-weight:600;margin-top:4px"></div>
+      </div>
+    </div>
+
+    <div class="section-title" style="margin-top:24px">Model Categories (100 Models Across 10 Categories)</div>
+    <div class="module-grid" id="auto-exec-categories"></div>
+
+    <div class="section-title" style="margin-top:24px">Recent Orders (Auto-Executed)</div>
+    <div style="overflow-x:auto">
+      <table style="width:100%;border-collapse:collapse;font-size:12px">
+        <thead>
+          <tr style="border-bottom:1px solid var(--border)">
+            <th style="text-align:left;padding:6px 10px">Order ID</th>
+            <th style="text-align:left;padding:6px 10px">Symbol</th>
+            <th style="text-align:left;padding:6px 10px">Side</th>
+            <th style="text-align:left;padding:6px 10px">Type</th>
+            <th style="text-align:right;padding:6px 10px">Qty</th>
+            <th style="text-align:right;padding:6px 10px">Entry</th>
+            <th style="text-align:right;padding:6px 10px">PnL</th>
+            <th style="text-align:right;padding:6px 10px">Models</th>
+            <th style="text-align:right;padding:6px 10px">Consensus</th>
+            <th style="text-align:left;padding:6px 10px">Status</th>
+          </tr>
+        </thead>
+        <tbody id="auto-exec-orders-table"></tbody>
+      </table>
+    </div>
+
+    <div class="section-title" style="margin-top:24px">Top Analysis Models</div>
+    <div style="overflow-x:auto">
+      <table style="width:100%;border-collapse:collapse;font-size:12px">
+        <thead>
+          <tr style="border-bottom:1px solid var(--border)">
+            <th style="text-align:left;padding:6px 10px">Model Name</th>
+            <th style="text-align:left;padding:6px 10px">Category</th>
+            <th style="text-align:right;padding:6px 10px">Predictions</th>
+            <th style="text-align:right;padding:6px 10px">Accuracy</th>
+            <th style="text-align:right;padding:6px 10px">Avg Confidence</th>
+          </tr>
+        </thead>
+        <tbody id="auto-exec-models-table"></tbody>
+      </table>
+    </div>
+
+    <div class="honesty-box" style="margin-top:24px">
+      <div class="honesty-title">Auto Trade Executor Disclosure</div>
+      <ul class="honesty-list">
+        <li>ALL trades are PAPER/SIMULATED. No real money is at risk.</li>
+        <li>100 analysis models use simplified calculations, NOT full production algorithms.</li>
+        <li>'100 models' = 100 distinct signal generators with simplified logic.</li>
+        <li>Live market data is fetched but trade execution is simulated.</li>
+        <li>Contract sizing uses Kelly Criterion, fixed fractional, ATR-based, and volatility-adjusted methods.</li>
+        <li>NOT financial advice.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- TEST SUITE TAB -->
+  <div class="tab-content" id="tab-tests">
+    <div class="section-title">Full Test Suite</div>
+    <div class="stats-grid" id="test-summary"></div>
+    <div class="module-grid" id="test-grid"></div>
+  </div>
+</div>
+
+<div class="footer">
+  Aether V6 Quantum Market Intelligence — All results simulated | Live data for display only | Not financial advice<br>
+  105 Calculation Models | 10 Strategy Lab | Quantum Computing | Live Market Intelligence | Correlation Engine | Funded Profit Lab | Unconstrained PnL Lab | Trade Execution History | Zenith Prediction Lab | Paper Trading Adapter
+</div>
+
+<script>
+// ============================================================
+// V6 DASHBOARD — Quantum Market Intelligence
+// All data loaded dynamically via fetch() with fallback values
+// ============================================================
+
+// Fallback data structures (used if fetch fails)
+const FALLBACK = {
+  v6: {
+    timestamp: '', simulated: true,
+    disclaimer: 'All results are simulated. No real trading occurred.',
+    live_market: { symbols: [], quotes: [], vix: 0, breadth: {advancing:0,declining:0,unchanged:0,total:0}, regime: 'unknown' },
+    correlation: { matrix_symbols: [], latest_matrix: [], eigenvalue_concentration: 0, diversification_score: 0, crowding_risk: 0, regime_clusters: {}, recommended_strategy: 'N/A' },
+    quantum_models: {
+      fourier_cycle: { cycles: [], dominant_cycle: {period:0,amplitude:0,phase:0}, signal: 'neutral', strength: 0 },
+      phase_regime: { state_probabilities: {}, current_regime: 'unknown', predicted_regime_3_steps: 'unknown' },
+      entanglement: { hidden_correlations: [], portfolio_risk: 0, num_pairs_analyzed: 0 },
+      kernel_similarity: { similar_states_found: 0, top_similarity: 0 },
+      position_sizer: { allocations: {}, constraints_met: false, total_contracts: 0 }
+    },
+    funded_profit: {}
+  },
+  training: { summary: { total_accounts:0,total_passed:0,total_failed:0,overall_pass_rate:0,best_pass_rate:0,funded_account_count:0,funded_profitable:0,avg_funded_pnl:0,avg_days_to_pass:0,avg_pnl:0,target_pass_rate:95,target_met:false,pass_rate_trend:[],num_batches:0}, fail_reasons: {}, batches: [] },
+  strategy: { strategies: [] },
+  backtest: { total_trades:0,win_rate:0,total_pnl:0,avg_win:0,avg_loss:0,profit_factor:0,expectancy:0,max_drawdown:0,max_drawdown_pct:0,sharpe:0,sortino:0,best_trade:0,worst_trade:0,walk_forward:[],monte_carlo:{},equity_curve:[] },
+  quantum: { portfolio_optimization:{}, risk_analysis:{}, num_assets:0, num_qubits:0 },
+  liveSnapshot: { timestamp:'', source:'', quotes: [], ohlcv_history: {}, symbols: [] }
+};
+
+let V6 = FALLBACK.v6;
+let trainingData = FALLBACK.training;
+let strategyData = FALLBACK.strategy;
+let backtestData = FALLBACK.backtest;
+let quantumData = FALLBACK.quantum;
+let liveSnapshot = FALLBACK.liveSnapshot;
+
+// V5 quantum results (used for reference in modules)
+const charts = {};
+
+// Test modules — updated V6 counts
+const testModules = [
+  {name:"Quantum Computing",tests:48,pass:48,color:"quantum"},
+  {name:"Backtesting Suite",tests:46,pass:46,color:""},
+  {name:"Strategy Lab",tests:40,pass:40,color:""},
+  {name:"Vectorized Simulator",tests:34,pass:34,color:""},
+  {name:"Fast Simulator",tests:37,pass:34,color:""},
+  {name:"Calculation Models",tests:318,pass:318,color:""},
+  {name:"Auto Learner",tests:52,pass:52,color:""},
+  {name:"Eval Runner",tests:38,pass:38,color:""},
+  {name:"Auto Trainer",tests:53,pass:51,color:""},
+  {name:"Market Connectors",tests:44,pass:44,color:""},
+  {name:"Live Market Engine",tests:22,pass:22,color:""},
+  {name:"Correlation Engine",tests:19,pass:19,color:""},
+  {name:"Quantum Models V6",tests:25,pass:25,color:"quantum"},
+  {name:"Funded Profit Lab",tests:28,pass:28,color:""},
+  {name:"Simulator Tests",tests:16,pass:16,color:""},
+  {name:"Upgrade Tests",tests:19,pass:19,color:""},
+  {name:"Genetic Tests",tests:18,pass:18,color:""},
+  {name:"Execution Engine",tests:40,pass:40,color:""},
+  {name:"AI Adviser Council",tests:76,pass:76,color:""},
+  {name:"Swarm Intelligence",tests:79,pass:79,color:""},
+  {name:"Safe Connector Mgr",tests:64,pass:64,color:""},
+  {name:"Aether Sovereign",tests:41,pass:41,color:"quantum"},
+  {name:"Omni-Nexus",tests:64,pass:64,color:"quantum"},
+  {name:"Continuous Engine",tests:40,pass:40,color:""},
+  {name:"Oracle Auto-Gen",tests:50,pass:50,color:"quantum"},
+  {name:"AI Model Registry",tests:254,pass:254,color:""},
+  {name:"Aether V22900",tests:81,pass:81,color:"quantum"},
+  {name:"Unlimited Engine",tests:77,pass:77,color:""},
+  {name:"TopStep Eval Passer",tests:72,pass:72,color:""},
+  {name:"Auto Trade Executor",tests:105,pass:105,color:""},
+];
+
+// System modules for overview
+const systemModules = [
+  {title:"Vectorized Simulator",desc:"Numpy-vectorized futures market simulator. 4x faster than original.",color:""},
+  {title:"105 Calculation Models",desc:"Technical, statistical, ML, pattern, volume, sentiment models.",color:""},
+  {title:"Strategy Lab",desc:"10 strategies tested and ranked by composite score.",color:"strategy"},
+  {title:"Backtesting Suite",desc:"Walk-forward optimization, Monte Carlo, equity curves.",color:"strategy"},
+  {title:"Quantum Computing",desc:"Quantum circuit simulator, annealing, portfolio optimization.",color:"quantum"},
+  {title:"V6 Quantum Models",desc:"Fourier Cycle, Phase Regime, Entanglement, Kernel Similarity, Position Sizer.",color:"quantum"},
+  {title:"Live Market Engine",desc:"Real-time quote fetching, regime detection, market breadth analysis.",color:""},
+  {title:"Correlation Engine",desc:"Eigenvalue decomposition, diversification scoring, regime clustering.",color:""},
+  {title:"Funded Profit Lab",desc:"TopStep funded account simulation for 50K/100K/150K tiers.",color:"strategy"},
+  {title:"Auto-Trainer",desc:"Continuous training loop: Train, Learn, Upgrade, Evaluate, Deploy.",color:""},
+];
+
+// ---- Helpers ----
+function safe(v, fallback) { return (v === undefined || v === null || (typeof v === 'number' && isNaN(v))) ? fallback : v; }
+function fmt(n, dec=2) { n = safe(n,0); return Number(n).toLocaleString(undefined, {minimumFractionDigits:dec, maximumFractionDigits:dec}); }
+function fmtInt(n) { n = safe(n,0); return Number(n).toLocaleString(); }
+function fmtMoney(n) { n = safe(n,0); return '$' + Number(n).toLocaleString(undefined, {minimumFractionDigits:0, maximumFractionDigits:0}); }
+function fmtPct(n, dec=2) { n = safe(n,0); return Number(n).toFixed(dec) + '%'; }
+function fmtVol(n) {
+  n = safe(n,0);
+  if (n >= 1e9) return (n/1e9).toFixed(2)+'B';
+  if (n >= 1e6) return (n/1e6).toFixed(2)+'M';
+  if (n >= 1e3) return (n/1e3).toFixed(1)+'K';
+  return fmtInt(n);
+}
+function signalClass(sig) {
+  if (!sig) return 'signal-neutral';
+  const s = String(sig).toLowerCase();
+  if (s === 'buy') return 'signal-buy';
+  if (s === 'sell') return 'signal-sell';
+  return 'signal-neutral';
+}
+function regimeClass(regime) {
+  if (!regime) return 'regime-range_bound';
+  const r = String(regime).toLowerCase();
+  if (r.includes('range')) return 'regime-range_bound';
+  if (r.includes('trend')) return 'regime-trend';
+  if (r.includes('break')) return 'regime-breakout';
+  if (r.includes('mean') || r.includes('revert')) return 'regime-range_bound';
+  return 'regime-range_bound';
+}
+function changeClass(v) { return v >= 0 ? 'pos' : 'neg'; }
+function changeSign(v) { return (v >= 0 ? '+' : '') + fmt(v); }
+function corrColor(v) {
+  // Map correlation [-1,1] to color
+  if (v >= 0.8) return '#f06b6b';       // strong positive - red (crowding)
+  if (v >= 0.5) return '#fbbf24';       // moderate positive - amber
+  if (v >= 0.2) return '#94a3b8';       // weak - gray
+  if (v >= -0.2) return '#64748b';      // none - faint
+  if (v >= -0.5) return '#818cf8';      // weak negative
+  return '#38bdf8';                      // strong negative - blue
+}
+
+// ---- Tab switching ----
+document.getElementById('nav-tabs').addEventListener('click', function(e) {
+  const btn = e.target.closest('.nav-tab');
+  if (!btn) return;
+  document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
+  document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
+  btn.classList.add('active');
+  const tab = document.getElementById('tab-' + btn.dataset.tab);
+  if (tab) tab.classList.add('active');
+});
+
+// ---- Chart defaults ----
+function setupChartDefaults() {
+  if (typeof Chart === 'undefined') return;
+  Chart.defaults.color = '#94a3b8';
+  Chart.defaults.borderColor = '#1e2632';
+  Chart.defaults.font.family = "'Inter','Segoe UI',system-ui,sans-serif";
+  Chart.defaults.font.size = 12;
+}
+
+// ---- Data loading ----
+function fetchJSON(url) {
+  return fetch(url).then(r => {
+    if (!r.ok) throw new Error('HTTP ' + r.status + ' for ' + url);
+    return r.json();
+  });
+}
+
+function loadAllData() {
+  const promises = [
+    fetchJSON('data/v6_integration_results.json').catch(e => { console.warn('v6 load failed:', e); return null; }),
+    fetchJSON('data/training_results.json').catch(e => { console.warn('training load failed:', e); return null; }),
+    fetchJSON('data/strategy_lab.json').catch(e => { console.warn('strategy load failed:', e); return null; }),
+    fetchJSON('data/backtest_results.json').catch(e => { console.warn('backtest load failed:', e); return null; }),
+    fetchJSON('data/quantum_results.json').catch(e => { console.warn('quantum load failed:', e); return null; }),
+    fetchJSON('data/live_market_snapshot.json').catch(e => { console.warn('live snapshot load failed:', e); return null; }),
+  ];
+  Promise.all(promises).then(([v6, training, strat, bt, quantum, live]) => {
+    if (v6) V6 = v6;
+    if (training) trainingData = training;
+    if (strat) strategyData = strat;
+    if (bt) backtestData = bt;
+    if (quantum) quantumData = quantum;
+    if (live) liveSnapshot = live;
+    setupChartDefaults();
+    renderAll();
+  }).catch(err => {
+    console.error('Fatal data load error:', err);
+    setupChartDefaults();
+    renderAll();
+  });
+}
+
+function renderAll() {
+  renderOverview();
+  renderMarket();
+  renderCorrelation();
+  renderQuantumModels();
+  renderStrategy();
+  renderFunded();
+  loadUnconstrained();
+  loadTradeHistory();
+  loadZenith();
+  loadExecution();
+  loadAdvisers();
+  loadAlpacaPositions();
+  loadSovereign();
+  loadOmniNexus();
+  loadContinuousEngine();
+  loadOracleAuto();
+  loadAIModels();
+  loadV22900();
+  loadUnlimited();
+  loadTopStep();
+  loadAutoExecutor();
+  loadMarketCharts();
+  renderTests();
+}
+
+// ============================================================
+// AUTO-REFRESH SYSTEM
+// ============================================================
+const AUTO_REFRESH_INTERVAL = 60000; // 60 seconds
+let autoRefreshEnabled = true;
+let refreshIntervalId = null;
+let refreshCount = 0;
+
+function updateLastUpdated() {
+  const now = new Date();
+  const h = now.getHours().toString().padStart(2,'0');
+  const m = now.getMinutes().toString().padStart(2,'0');
+  const s = now.getSeconds().toString().padStart(2,'0');
+  const badge = document.getElementById('last-updated-badge');
+  if (badge) badge.textContent = 'Updated: ' + h + ':' + m + ':' + s;
+}
+
+function flashRefreshBadge() {
+  const badge = document.getElementById('live-refresh-badge');
+  if (badge) {
+    badge.style.animation = 'refreshFlash 0.5s ease';
+    setTimeout(() => { badge.style.animation = ''; }, 500);
+  }
+}
+
+function autoRefresh() {
+  if (!autoRefreshEnabled) return;
+  refreshCount++;
+  console.log('[Auto-Refresh] Cycle #' + refreshCount + ' — re-fetching all data...');
+
+  // Re-fetch live market data with cache-busting
+  fetch('data/live_market_snapshot.json?_t=' + Date.now())
+    .then(r => r.ok ? r.json() : Promise.reject('skip'))
+    .then(d => { liveMarketData = d; renderMarket(); })
+    .catch(() => {});
+
+  fetch('data/training_results.json?_t=' + Date.now())
+    .then(r => r.ok ? r.json() : Promise.reject('skip'))
+    .then(d => { trainingData = d; renderOverview(); })
+    .catch(() => {});
+
+  // Re-render most frequently updated tabs
+  loadContinuousEngine();
+  loadAlpacaPositions();
+  loadAdvisers();
+  loadSovereign();
+  loadOmniNexus();
+  loadOracleAuto();
+  loadAIModels();
+  loadV22900();
+  loadUnlimited();
+  loadTopStep();
+  loadAutoExecutor();
+  loadMarketCharts();
+
+  updateLastUpdated();
+  flashRefreshBadge();
+}
+
+function startAutoRefresh() {
+  if (refreshIntervalId) clearInterval(refreshIntervalId);
+  refreshIntervalId = setInterval(autoRefresh, AUTO_REFRESH_INTERVAL);
+  autoRefreshEnabled = true;
+  const text = document.getElementById('refresh-text');
+  const dot = document.getElementById('refresh-dot');
+  if (text) text.textContent = 'Auto-Refresh: ON';
+  if (dot) dot.style.animation = 'pulse 2s infinite';
+  updateLastUpdated();
+}
+
+function toggleAutoRefresh() {
+  if (autoRefreshEnabled) {
+    autoRefreshEnabled = false;
+    if (refreshIntervalId) clearInterval(refreshIntervalId);
+    refreshIntervalId = null;
+    const text = document.getElementById('refresh-text');
+    const dot = document.getElementById('refresh-dot');
+    if (text) text.textContent = 'Auto-Refresh: OFF';
+    if (dot) dot.style.animation = 'none';
+  } else {
+    startAutoRefresh();
+  }
+}
+
+// Click refresh badge to toggle
+setTimeout(() => {
+  const badge = document.getElementById('live-refresh-badge');
+  if (badge) {
+    badge.style.cursor = 'pointer';
+    badge.title = 'Click to toggle auto-refresh';
+    badge.addEventListener('click', toggleAutoRefresh);
+  }
+  startAutoRefresh(); // Start auto-refresh on page load
+}, 1000);
+
+// ============================================================
+// OVERVIEW TAB
+// ============================================================
+function renderOverview() {
+  const s = trainingData.summary || {};
+  const failReasons = trainingData.fail_reasons || {};
+  const failLabels = Object.keys(failReasons);
+  const failValues = Object.values(failReasons);
+  const totalFail = failValues.reduce((a,b) => a+b, 0);
+
+  const overviewStats = [
+    {label:"Total Accounts",value:fmtInt(s.total_accounts),color:"accent-color"},
+    {label:"Passed",value:fmtInt(s.total_passed),color:"pass-color"},
+    {label:"Failed",value:fmtInt(s.total_failed),color:"fail-color"},
+    {label:"Pass Rate",value:fmtPct(s.overall_pass_rate,1),color:"pass-color"},
+    {label:"Best Batch",value:fmtPct(s.best_pass_rate,1),color:"pass-color"},
+    {label:"Avg PnL",value:fmtMoney(s.avg_pnl),color:"accent-color"},
+    {label:"Avg Days to Pass",value:fmt(s.avg_days_to_pass,1),color:"accent-color"},
+    {label:"Target 95% Met",value:s.target_met?"YES":"NO",color:s.target_met?"pass-color":"fail-color"},
+    {label:"Funded Accounts",value:fmtInt(s.funded_account_count),color:"accent-color"},
+    {label:"Funded Profitable",value:fmtInt(s.funded_profitable)+"/"+fmtInt(s.funded_account_count),color:"pass-color"},
+    {label:"Avg Funded PnL",value:fmtMoney(s.avg_funded_pnl),color:"pass-color"},
+    {label:"Batches",value:fmtInt(s.num_batches),color:"accent-color"},
+  ];
+  document.getElementById('overview-stats').innerHTML = overviewStats.map(st =>
+    `<div class="stat-card"><div class="stat-label">${st.label}</div><div class="stat-value ${st.color}">${st.value}</div></div>`
+  ).join('');
+
+  // Pass rate trend chart
+  const trend = s.pass_rate_trend || [];
+  makeChart('chart-pass-rate', {
+    type: 'line',
+    data: { labels: trend.map((_,i) => 'Chunk '+(i+1)), datasets: [{
+      label: 'Pass Rate (%)', data: trend.length ? trend : [0],
+      borderColor: '#4ade80', backgroundColor: 'rgba(74,222,128,0.1)', fill: true, tension: 0.3, pointRadius: 4, pointBackgroundColor: '#4ade80'
+    }]},
+    options: chartOpts('Pass Rate by Chunk (2000 accounts each) — Simulated')
+  });
+
+  // Fail reasons doughnut
+  makeChart('chart-fail-reasons', {
+    type: 'doughnut',
+    data: { labels: failLabels.length ? failLabels : ['No failures'], datasets: [{
+      data: failValues.length ? failValues : [1],
+      backgroundColor: ['#f06b6b','#fbbf24','#818cf8','#c084fc','#94a3b8']
+    }]},
+    options: chartOpts('Fail Reasons ('+totalFail+' total) — Simulated')
+  });
+
+  // Funded accounts bar
+  makeChart('chart-funded', {
+    type: 'bar',
+    data: { labels: ['Profitable','Break-even/Loss'], datasets: [{
+      label: 'Funded Accounts', data: [safe(s.funded_profitable,0), Math.max(0, safe(s.funded_account_count,0)-safe(s.funded_profitable,0))],
+      backgroundColor: ['#4ade80','#94a3b8']
+    }]},
+    options: chartOpts('Funded Account Results ('+fmtInt(s.funded_account_count)+' simulated)')
+  });
+
+  // Live market snapshot stats
+  renderMarketSnapshotStats();
+
+  // System modules
+  document.getElementById('module-grid').innerHTML = systemModules.map(m =>
+    `<div class="module-card ${m.color==='quantum'?'quantum-card':''}"><h3>${m.title}</h3><div class="desc">${m.desc}</div></div>`
+  ).join('');
+}
+
+function renderMarketSnapshotStats() {
+  const lm = V6.live_market || {};
+  const quotes = lm.quotes || [];
+  const breadth = lm.breadth || {};
+  const advancers = quotes.filter(q => safe(q.changesPercentage,0) > 0).length;
+  const decliners = quotes.filter(q => safe(q.changesPercentage,0) < 0).length;
+  const vix = safe(lm.vix, 0);
+  const regime = lm.regime || 'unknown';
+
+  const stats = [
+    {label:"VIX",value:fmt(vix,2),color: vix < 15 ? "pass-color" : vix < 20 ? "accent-color" : "fail-color"},
+    {label:"Regime",value:`<span class="regime-badge ${regimeClass(regime)}">${regime.replace(/_/g,' ')}</span>`,color:""},
+    {label:"Advancing",value:fmtInt(breadth.advancing || advancers),color:"pass-color"},
+    {label:"Declining",value:fmtInt(breadth.declining || decliners),color:"fail-color"},
+    {label:"Symbols Tracked",value:fmtInt((lm.symbols||[]).length || quotes.length),color:"accent-color"},
+    {label:"Data Source",value:"Live",color:"pass-color"},
+  ];
+  document.getElementById('market-snapshot-stats').innerHTML = stats.map(st =>
+    `<div class="stat-card market"><div class="stat-label">${st.label}</div><div class="stat-value ${st.color}">${st.value}</div></div>`
+  ).join('');
+}
+
+// ============================================================
+// LIVE MARKET TAB
+// ============================================================
+function renderMarket() {
+  const lm = V6.live_market || {};
+  const liveQuotes = liveSnapshot.quotes && liveSnapshot.quotes.length ? liveSnapshot.quotes : (lm.quotes || []);
+  const breadth = lm.breadth || {};
+  const vix = safe(lm.vix, 0);
+  const regime = lm.regime || 'unknown';
+
+  // Top stats
+  const advancers = liveQuotes.filter(q => safe(q.changesPercentage,0) > 0).length;
+  const decliners = liveQuotes.filter(q => safe(q.changesPercentage,0) < 0).length;
+  const totalChange = liveQuotes.reduce((sum,q) => sum + safe(q.changesPercentage,0), 0);
+  const avgChange = liveQuotes.length ? totalChange / liveQuotes.length : 0;
+  const topGainer = liveQuotes.length ? liveQuotes.reduce((a,b) => safe(a.changesPercentage,0) > safe(b.changesPercentage,0) ? a : b) : null;
+  const topLoser = liveQuotes.length ? liveQuotes.reduce((a,b) => safe(a.changesPercentage,0) < safe(b.changesPercentage,0) ? a : b) : null;
+
+  const stats = [
+    {label:"VIX",value:fmt(vix,2),color: vix < 15 ? "pass-color" : vix < 20 ? "accent-color" : "fail-color"},
+    {label:"Market Regime",value:`<span class="regime-badge ${regimeClass(regime)}">${regime.replace(/_/g,' ')}</span>`,color:""},
+    {label:"Advancing",value:fmtInt(advancers),color:"pass-color"},
+    {label:"Declining",value:fmtInt(decliners),color:"fail-color"},
+    {label:"Avg Change %",value:fmtPct(avgChange),color: avgChange >= 0 ? "pass-color" : "fail-color"},
+    {label:"Top Gainer",value: topGainer ? topGainer.symbol : 'N/A',color:"pass-color"},
+    {label:"Top Loser",value: topLoser ? topLoser.symbol : 'N/A',color:"fail-color"},
+    {label:"Data Source",value:"Connector",color:"accent-color"},
+  ];
+  document.getElementById('market-stats').innerHTML = stats.map(st =>
+    `<div class="stat-card market"><div class="stat-label">${st.label}</div><div class="stat-value ${st.color}" style="font-size:20px">${st.value}</div><div class="stat-sub">${liveSnapshot.source || 'live'}</div></div>`
+  ).join('');
+
+  // Quotes table
+  const tbody = document.querySelector('#quotes-table tbody');
+  if (liveQuotes.length === 0) {
+    tbody.innerHTML = '<tr><td colspan="8" class="loading-msg">No live quote data available</td></tr>';
+  } else {
+    tbody.innerHTML = liveQuotes.map(q => {
+      const chg = safe(q.change, 0);
+      const pct = safe(q.changesPercentage, 0);
+      return `<tr>
+        <td><b>${q.symbol || ''}</b></td>
+        <td>${q.name || '—'}</td>
+        <td class="num">${fmt(q.price,2)}</td>
+        <td class="num ${changeClass(chg)}">${changeSign(chg)}</td>
+        <td class="num ${changeClass(pct)}">${changeSign(pct)}%</td>
+        <td class="num">${fmt(q.dayLow,2)}</td>
+        <td class="num">${fmt(q.dayHigh,2)}</td>
+        <td class="num">${fmtVol(q.volume)}</td>
+      </tr>`;
+    }).join('');
+  }
+
+  // Breadth chart
+  makeChart('chart-breadth', {
+    type: 'doughnut',
+    data: { labels: ['Advancing','Declining','Unchanged'], datasets: [{
+      data: [safe(breadth.advancing,advancers), safe(breadth.declining,decliners), safe(breadth.unchanged,0)],
+      backgroundColor: ['#4ade80','#f06b6b','#94a3b8']
+    }]},
+    options: chartOpts('Market Breadth — Live Data')
+  });
+
+  // VIX / per-symbol change bar chart
+  const sortedQuotes = [...liveQuotes].sort((a,b) => safe(b.changesPercentage,0) - safe(a.changesPercentage,0));
+  makeChart('chart-vix', {
+    type: 'bar',
+    data: { labels: sortedQuotes.map(q => q.symbol), datasets: [{
+      label: 'Change %', data: sortedQuotes.map(q => safe(q.changesPercentage,0)),
+      backgroundColor: sortedQuotes.map(q => safe(q.changesPercentage,0) >= 0 ? '#4ade80' : '#f06b6b')
+    }]},
+    options: chartOpts('Daily Change % by Symbol — Live Data')
+  });
+}
+
+// ============================================================
+// CORRELATION TAB
+// ============================================================
+function renderCorrelation() {
+  const corr = V6.correlation || {};
+  const symbols = corr.matrix_symbols || [];
+  const matrix = corr.latest_matrix || [];
+  const eigen = safe(corr.eigenvalue_concentration, 0);
+  const divScore = safe(corr.diversification_score, 0);
+  const crowd = safe(corr.crowding_risk, 0);
+  const recStrat = corr.recommended_strategy || 'N/A';
+
+  // Determine matrix dimension (symbols may be more than matrix rows)
+  const n = matrix.length;
+  const labels = symbols.slice(0, n);
+
+  const stats = [
+    {label:"Eigenvalue Concentration",value:fmt(eigen,3),color: eigen > 0.5 ? "fail-color" : "pass-color"},
+    {label:"Diversification Score",value:fmt(divScore,3),color: divScore > 0.5 ? "pass-color" : "warning-color"},
+    {label:"Crowding Risk",value:fmtPct(crowd*100,1),color: crowd > 0.5 ? "fail-color" : "pass-color"},
+    {label:"Recommended Strategy",value:recStrat,color:"accent-color"},
+    {label:"Matrix Size",value:n+"×"+n,color:"accent-color"},
+    {label:"Instruments",value:fmtInt(symbols.length),color:"accent-color"},
+  ];
+  document.getElementById('corr-stats').innerHTML = stats.map(st =>
+    `<div class="stat-card"><div class="stat-label">${st.label}</div><div class="stat-value ${st.color}">${st.value}</div></div>`
+  ).join('');
+
+  // Correlation bar chart — top off-diagonal pairs
+  const pairs = [];
+  for (let i = 0; i < n; i++) {
+    for (let j = i+1; j < (matrix[i]||[]).length; j++) {
+      const v = matrix[i][j];
+      if (v !== undefined && v !== null) {
+        pairs.push({ a: labels[i] || ('S'+i), b: labels[j] || ('S'+j), v: v });
+      }
+    }
+  }
+  pairs.sort((a,b) => Math.abs(b.v) - Math.abs(a.v));
+  const topPairs = pairs.slice(0, 15);
+  makeChart('chart-corr-bar', {
+    type: 'bar',
+    data: { labels: topPairs.map(p => p.a+' / '+p.b), datasets: [{
+      label: 'Correlation', data: topPairs.map(p => p.v),
+      backgroundColor: topPairs.map(p => corrColor(p.v))
+    }]},
+    options: Object.assign({}, chartOpts('Top Correlation Pairs (Bar Chart Heatmap) — Live Data'), {
+      indexAxis: 'y',
+      scales: { x: { min: -1, max: 1 } }
+    })
+  });
+
+  // Correlation matrix as HTML grid
+  renderCorrMatrix(labels, matrix);
+
+  // Regime clusters
+  const clusters = corr.regime_clusters || {};
+  const clusterNames = Object.keys(clusters);
+  if (clusterNames.length === 0) {
+    document.getElementById('cluster-grid').innerHTML = '<div class="module-card"><h3>No clusters</h3><div class="desc">Cluster data unavailable</div></div>';
+  } else {
+    document.getElementById('cluster-grid').innerHTML = clusterNames.map(name => {
+      const members = clusters[name] || [];
+      const tags = members.length ? members.map(m => `<span class="cluster-tag">${m}</span>`).join('') : '<span class="cluster-tag" style="opacity:0.5">none</span>';
+      return `<div class="module-card"><h3>${name.replace(/_/g,' ').replace(/\b\w/g, c => c.toUpperCase())}</h3><div style="margin-top:8px">${tags}</div><div class="desc">${members.length} instrument${members.length!==1?'s':''}</div></div>`;
+    }).join('');
+  }
+}
+
+function renderCorrMatrix(labels, matrix) {
+  const n = matrix.length;
+  if (n === 0) {
+    document.getElementById('corr-matrix-wrap').innerHTML = '<div class="loading-msg">No correlation matrix data available</div>';
+    return;
+  }
+  let html = '<table class="corr-grid"><thead><tr><th></th>';
+  for (let j = 0; j < n; j++) {
+    html += `<th>${labels[j] || ('S'+j)}</th>`;
+  }
+  html += '</tr></thead><tbody>';
+  for (let i = 0; i < n; i++) {
+    html += `<tr><td class="lbl">${labels[i] || ('S'+i)}</td>`;
+    for (let j = 0; j < n; j++) {
+      const v = safe(matrix[i] ? matrix[i][j] : 0, 0);
+      const color = corrColor(v);
+      const bg = v === 1.0 ? 'rgba(56,189,248,0.15)' : '';
+      html += `<td><span class="corr-cell" style="color:${color};${bg?'background:'+bg:''}">${v.toFixed(2)}</span></td>`;
+    }
+    html += '</tr>';
+  }
+  html += '</tbody></table>';
+  document.getElementById('corr-matrix-wrap').innerHTML = html;
+}
+
+// ============================================================
+// QUANTUM MODELS TAB
+// ============================================================
+function renderQuantumModels() {
+  const qm = V6.quantum_models || {};
+  const fc = qm.fourier_cycle || {};
+  const pr = qm.phase_regime || {};
+  const en = qm.entanglement || {};
+  const ks = qm.kernel_similarity || {};
+  const ps = qm.position_sizer || {};
+
+  // Top stats
+  const stats = [
+    {label:"Fourier Signal",value:`<span class="${signalClass(fc.signal)}">${fc.signal || 'neutral'}</span>`,color:""},
+    {label:"Signal Strength",value:fmt(fc.strength,2),color:"quantum-color"},
+    {label:"Dominant Cycle",value:(fc.dominant_cycle||{}).period || 0,color:"accent-color"},
+    {label:"Current Regime",value:`<span class="regime-badge ${regimeClass(pr.current_regime)}">${(pr.current_regime||'unknown').replace(/_/g,' ')}</span>`,color:""},
+    {label:"Portfolio Risk",value:fmtPct(safe(en.portfolio_risk,0)*100,1),color:"fail-color"},
+    {label:"Hidden Correlations",value:fmtInt((en.hidden_correlations||[]).length),color:"quantum-color"},
+    {label:"Similar States",value:fmtInt(ks.similar_states_found),color:"quantum-color"},
+    {label:"Total Contracts",value:fmtInt(ps.total_contracts),color: ps.constraints_met ? "pass-color" : "fail-color"},
+  ];
+  document.getElementById('qmodel-stats').innerHTML = stats.map(st =>
+    `<div class="stat-card quantum"><div class="stat-label">${st.label}</div><div class="stat-value ${st.color}">${st.value}</div></div>`
+  ).join('');
+
+  // Model cards
+  const models = [
+    {
+      h3: 'Fourier Cycle Model', desc: 'Spectral decomposition of price series into dominant cyclical components.',
+      stats: [
+        ['Dominant Period', (fc.dominant_cycle||{}).period || 'N/A'],
+        ['Amplitude', fmt((fc.dominant_cycle||{}).amplitude,6)],
+        ['Phase', fmt((fc.dominant_cycle||{}).phase,4)],
+        ['Signal', `<span class="${signalClass(fc.signal)}">${fc.signal || 'neutral'}</span>`],
+        ['Strength', fmt(fc.strength,4)],
+        ['Cycles Found', fmtInt((fc.cycles||[]).length)],
+      ]
+    },
+    {
+      h3: 'Phase Regime Model', desc: 'Quantum-inspired state probability model for regime classification.',
+      stats: [
+        ['Current Regime', `<span class="regime-badge ${regimeClass(pr.current_regime)}">${(pr.current_regime||'unknown').replace(/_/g,' ')}</span>`],
+        ['Predicted (3-step)', `<span class="regime-badge ${regimeClass(pr.predicted_regime_3_steps)}">${(pr.predicted_regime_3_steps||'unknown').replace(/_/g,' ')}</span>`],
+        ...Object.entries(pr.state_probabilities || {}).map(([k,v]) => [k.replace(/_/g,' '), fmtPct(v*100,1)]),
+      ]
+    },
+    {
+      h3: 'Entanglement Model', desc: 'Hidden cross-asset correlations beyond linear Pearson coefficients.',
+      stats: [
+        ['Portfolio Risk', fmtPct(safe(en.portfolio_risk,0)*100,1)],
+        ['Pairs Analyzed', fmtInt(en.num_pairs_analyzed)],
+        ['Hidden Correlations', fmtInt((en.hidden_correlations||[]).length)],
+        ['Matrix Shape', (en.matrix_shape||[]).join('×') || 'N/A'],
+      ]
+    },
+    {
+      h3: 'Kernel Similarity', desc: 'Quantum kernel method to find historically similar market states.',
+      stats: [
+        ['Similar States Found', fmtInt(ks.similar_states_found)],
+        ['Top Similarity', fmt(ks.top_similarity,6)],
+      ]
+    },
+    {
+      h3: 'Position Sizer', desc: 'Quantum optimization of contract allocation subject to constraints.',
+      stats: [
+        ['Total Contracts', fmtInt(ps.total_contracts)],
+        ['Constraints Met', ps.constraints_met ? 'YES' : 'NO'],
+        ...Object.entries(ps.allocations || {}).map(([k,v]) => [k, fmtInt(v) + ' contracts']),
+      ]
+    },
+  ];
+  document.getElementById('qmodel-grid').innerHTML = models.map(m =>
+    `<div class="qmodel-card"><h3>${m.h3}</h3><div class="qdesc">${m.desc}</div>${m.stats.map(([k,v]) =>
+      `<div class="qstat"><span class="k">${k}</span><span class="v">${v}</span></div>`
+    ).join('')}</div>`
+  ).join('');
+
+  // Fourier cycles chart
+  const cycles = fc.cycles || [];
+  makeChart('chart-fourier', {
+    type: 'bar',
+    data: { labels: cycles.map((c,i) => 'P='+c[0]), datasets: [{
+      label: 'Amplitude', data: cycles.map(c => c[1]),
+      backgroundColor: cycles.map((c,i) => i === 0 ? '#c084fc' : '#818cf8')
+    }]},
+    options: chartOpts('Fourier Cycle Decomposition — Simulated (Quantum Simulator)')
+  });
+
+  // Phase regime probabilities
+  const probs = pr.state_probabilities || {};
+  const probLabels = Object.keys(probs);
+  const probValues = Object.values(probs).map(v => v * 100);
+  makeChart('chart-phase', {
+    type: 'doughnut',
+    data: { labels: probLabels.length ? probLabels.map(l => l.replace(/_/g,' ')) : ['N/A'], datasets: [{
+      data: probValues.length ? probValues : [1],
+      backgroundColor: ['#38bdf8','#c084fc','#fbbf24','#4ade80','#f06b6b']
+    }]},
+    options: chartOpts('Phase Regime State Probabilities — Simulated (Quantum Simulator)')
+  });
+
+  // Entanglement hidden correlations
+  const hidden = en.hidden_correlations || [];
+  makeChart('chart-entanglement', {
+    type: 'bar',
+    data: { labels: hidden.map(h => h[0]+' / '+h[1]), datasets: [{
+      label: 'Entanglement Score', data: hidden.map(h => h[2]),
+      backgroundColor: hidden.map((h,i) => i < 3 ? '#c084fc' : '#818cf8')
+    }]},
+    options: Object.assign({}, chartOpts('Hidden Cross-Asset Correlations (Entanglement) — Simulated'), { indexAxis: 'y' })
+  });
+}
+
+// ============================================================
+// STRATEGY LAB TAB
+// ============================================================
+function renderStrategy() {
+  const strategies = strategyData.strategies || [];
+  if (strategies.length === 0) {
+    document.getElementById('strategy-stats').innerHTML = '<div class="stat-card"><div class="stat-label">Status</div><div class="stat-value fail-color">No data</div><div class="stat-sub">Run Strategy Lab to generate data</div></div>';
+    return;
+  }
+  const at100 = strategies.filter(s => s.pass_rate >= 100).length;
+  const bestSharpe = Math.max(...strategies.map(s => s.sharpe));
+  const bestPF = Math.max(...strategies.map(s => s.profit_factor));
+  const stratStats = [
+    {label:"Strategies Tested",value:strategies.length,color:"accent-color"},
+    {label:"Best Strategy",value:strategies[0].name,color:"pass-color"},
+    {label:"Best Score",value:fmt(strategies[0].rank_score,2),color:"accent-color"},
+    {label:"Strategies at 100%",value:at100+"/"+strategies.length,color:"pass-color"},
+    {label:"Best Sharpe",value:fmt(bestSharpe,2),color:"accent-color"},
+    {label:"Best Profit Factor",value:fmt(bestPF,2),color:"pass-color"},
+  ];
+  document.getElementById('strategy-stats').innerHTML = stratStats.map(st =>
+    `<div class="stat-card"><div class="stat-label">${st.label}</div><div class="stat-value ${st.color}">${st.value}</div></div>`
+  ).join('');
+
+  makeChart('chart-strategy-ranking', {
+    type: 'bar',
+    data: { labels: strategies.map(s => s.name), datasets: [{
+      label: 'Rank Score', data: strategies.map(s => s.rank_score),
+      backgroundColor: strategies.map((s,i) => i === 0 ? '#4ade80' : i === strategies.length-1 ? '#f06b6b' : '#38bdf8')
+    }]},
+    options: Object.assign({}, chartOpts('Strategy Rankings (by Composite Score) — Simulated'), { indexAxis: 'y' })
+  });
+
+  const stratTable = document.querySelector('#strategy-table tbody');
+  stratTable.innerHTML = strategies.map((s,i) =>
+    `<tr><td><span class="rank-badge ${i===0?'gold':i===1?'silver':i===2?'bronze':''}">${i+1}</span></td>
+    <td><b>${s.name}</b></td>
+    <td class="${s.pass_rate>=95?'pass-color':'fail-color'}">${fmtPct(s.pass_rate,1)}</td>
+    <td>${fmtPct(s.win_rate,1)}</td>
+    <td>${fmt(s.sharpe,2)}</td>
+    <td>${fmt(s.profit_factor,2)}</td>
+    <td><b>${fmt(s.rank_score,2)}</b></td></tr>`
+  ).join('');
+}
+
+// ============================================================
+// FUNDED PROFIT TAB
+// ============================================================
+let currentAcct = '50K';
+document.getElementById('acct-tabs').addEventListener('click', function(e) {
+  const btn = e.target.closest('.acct-tab');
+  if (!btn) return;
+  document.querySelectorAll('.acct-tab').forEach(t => t.classList.remove('active'));
+  btn.classList.add('active');
+  currentAcct = btn.dataset.acct;
+  renderFunded();
+});
+
+function renderFunded() {
+  const fp = (V6.funded_profit || {})[currentAcct] || {};
+  const br = fp.best_result || {};
+  const bc = fp.best_config || {};
+  const ss = fp.scaling_strategies || {};
+  const eq = br.equity_curve || [];
+
+  // Stats
+  const stats = [
+    {label:"Account Size",value:"$"+currentAcct.replace('K','K'),color:"accent-color"},
+    {label:"Total PnL",value:fmtMoney(br.total_pnl),color:"pass-color"},
+    {label:"Sharpe Ratio",value:fmt(br.sharpe,2),color:"accent-color"},
+    {label:"Sortino Ratio",value:fmt(br.sortino,2),color:"accent-color"},
+    {label:"Calmar Ratio",value:fmt(br.calmar,2),color:"accent-color"},
+    {label:"Max Drawdown",value:fmtMoney(br.max_drawdown),color:"fail-color"},
+    {label:"Win Rate",value:fmtPct(safe(br.win_rate,0)*100,1),color:"pass-color"},
+    {label:"Num Trades",value:fmtInt(br.num_trades),color:"accent-color"},
+    {label:"Avg Daily PnL",value:fmtMoney(br.avg_daily_pnl),color:"pass-color"},
+    {label:"Best Day",value:fmtMoney(br.best_day),color:"pass-color"},
+    {label:"Worst Day",value:fmtMoney(br.worst_day),color:"fail-color"},
+    {label:"MLL Breached",value:br.mll_breached ? "YES" : "NO",color: br.mll_breached ? "fail-color" : "pass-color"},
+  ];
+  document.getElementById('funded-stats').innerHTML = stats.map(st =>
+    `<div class="stat-card"><div class="stat-label">${st.label}</div><div class="stat-value ${st.color}">${st.value}</div></div>`
+  ).join('');
+
+  // Config box
+  const configKeys = ['take_profit_ticks','stop_loss_ticks','trailing_stop_enabled','trailing_stop_ticks','risk_multiplier','max_contracts','max_trades_per_day','scaling_strategy','symbol','seed'];
+  const configHtml = configKeys.map(k => bc[k] !== undefined ? `<code>${k}</code>: ${bc[k]}` : null).filter(Boolean).join(' &nbsp;|&nbsp; ');
+  document.getElementById('funded-config').innerHTML = `<b style="color:var(--accent)">Best Config:</b> &nbsp; ${configHtml || 'N/A'}`;
+
+  // Equity curve
+  const baseEquity = currentAcct === '50K' ? 50000 : currentAcct === '100K' ? 100000 : 150000;
+  const equityData = eq.length ? eq.map(v => v + baseEquity) : [baseEquity];
+  makeChart('chart-funded-equity', {
+    type: 'line',
+    data: { labels: equityData.map((_,i) => 'Day '+(i+1)), datasets: [{
+      label: 'Equity ($)', data: equityData,
+      borderColor: '#4ade80', backgroundColor: 'rgba(74,222,128,0.1)', fill: true, tension: 0.3, pointRadius: 0
+    }]},
+    options: chartOpts('Funded Account Equity Curve — $'+currentAcct+' (Simulated)')
+  });
+
+  // Scaling strategies comparison
+  const ssKeys = Object.keys(ss).filter(k => k !== 'disclaimer');
+  makeChart('chart-funded-scaling', {
+    type: 'bar',
+    data: { labels: ssKeys.map(k => k.replace(/_/g,' ')), datasets: [{
+      label: 'Total PnL ($)', data: ssKeys.map(k => safe(ss[k].total_pnl,0)),
+      backgroundColor: ['#38bdf8','#818cf8','#c084fc','#fbbf24']
+    }]},
+    options: chartOpts('Scaling Strategy Comparison — $'+currentAcct+' (Simulated)')
+  });
+
+  // Cross-account comparison
+  const allFp = V6.funded_profit || {};
+  const acctSizes = ['50K','100K','150K'];
+  makeChart('chart-funded-comparison', {
+    type: 'bar',
+    data: { labels: acctSizes.map(a => '$'+a), datasets: [
+      { label: 'Total PnL', data: acctSizes.map(a => safe((allFp[a]||{}).best_result ? allFp[a].best_result.total_pnl : 0, 0)), backgroundColor: '#4ade80', yAxisID: 'y' },
+      { label: 'Max Drawdown', data: acctSizes.map(a => safe((allFp[a]||{}).best_result ? allFp[a].best_result.max_drawdown : 0, 0)), backgroundColor: '#f06b6b', yAxisID: 'y' },
+    ]},
+    options: Object.assign({}, chartOpts('Funded Profit Comparison — All Account Sizes (Simulated)'), {
+      scales: { y: { beginAtZero: true, position: 'left' } }
+    })
+  });
+}
+
+// ============================================================
+// UNCONSTRAINED PNL TAB
+// ============================================================
+let uncData = null;
+
+async function loadUnconstrained() {
+  try {
+    const res = await fetch('data/unconstrained_pnl_results.json');
+    uncData = await res.json();
+    renderUnconstrained();
+  } catch(e) {
+    console.log('Unconstrained data not loaded:', e);
+    document.getElementById('unconstrained-ceiling-stats').innerHTML = '<div class="stat-card"><div class="stat-value fail-color">Data not available</div></div>';
+  }
+}
+
+function renderUnconstrained() {
+  if (!uncData) return;
+  const ceiling = uncData.pnl_ceiling || {};
+  const comp = uncData.constrained_vs_unconstrained || {};
+
+  // Ceiling stats for 50K
+  const c50 = ceiling['50K'] || {};
+  const ceilingStats = [
+    {label:"Highest Sampled PnL (50K)",value:fmtMoney(safe(c50.max_pnl,0)),color:"fail-color"},
+    {label:"Max Drawdown",value:fmtMoney(safe(c50.max_drawdown,0)),color:"fail-color"},
+    {label:"Sharpe Ratio",value:fmt(safe(c50.sharpe,0),2),color:"accent-color"},
+    {label:"Win Rate",value:fmtPct(safe(c50.win_rate,0)*100,1),color:"pass-color"},
+    {label:"Contracts Used",value:fmtInt(safe(c50.contracts_used,0)),color:"fail-color"},
+    {label:"Scaling Strategy",value:(c50.scaling_strategy||'N/A').replace(/_/g,' '),color:"accent-color"},
+    {label:"Risk Level",value:(c50.risk_level||'EXTREME'),color:"fail-color"},
+    {label:"100K Max PnL",value:fmtMoney(safe((ceiling['100K']||{}).max_pnl,0)),color:"fail-color"},
+    {label:"150K Max PnL",value:fmtMoney(safe((ceiling['150K']||{}).max_pnl,0)),color:"fail-color"},
+    {label:"Simulation",value:"SIMULATED",color:"fail-color"},
+  ];
+  document.getElementById('unconstrained-ceiling-stats').innerHTML = ceilingStats.map(st =>
+    `<div class="stat-card"><div class="stat-label">${st.label}</div><div class="stat-value ${st.color}">${st.value}</div></div>`
+  ).join('');
+
+  // Comparison stats
+  const cons = comp.constrained || {};
+  const unc = comp.unconstrained || {};
+  const compStats = [
+    {label:"Constrained PnL",value:fmtMoney(safe(cons.total_pnl,0)),color:"pass-color"},
+    {label:"Unconstrained PnL",value:fmtMoney(safe(unc.total_pnl,0)),color:"fail-color"},
+    {label:"PnL Difference",value:fmtMoney(safe(comp.pnl_difference,0)),color:"fail-color"},
+    {label:"Risk Multiplier",value:fmt(safe(comp.risk_multiplier,0),1)+"x",color:"fail-color"},
+    {label:"Constrained DD",value:fmtMoney(safe(cons.max_drawdown,0)),color:"pass-color"},
+    {label:"Unconstrained DD",value:fmtMoney(safe(unc.max_drawdown,0)),color:"fail-color"},
+    {label:"Constrained Sharpe",value:fmt(safe(cons.sharpe,0),2),color:"pass-color"},
+    {label:"Unconstrained Sharpe",value:fmt(safe(unc.sharpe,0),2),color:"fail-color"},
+  ];
+  document.getElementById('unconstrained-comparison-stats').innerHTML = compStats.map(st =>
+    `<div class="stat-card"><div class="stat-label">${st.label}</div><div class="stat-value ${st.color}">${st.value}</div></div>`
+  ).join('');
+
+  // Equity curve (unconstrained)
+  const eqCurve = unc.equity_curve || [];
+  const baseEquity = 50000;
+  const equityData = eqCurve.length ? eqCurve.map(v => v + baseEquity) : [baseEquity];
+  makeChart('chart-unconstrained-equity', {
+    type: 'line',
+    data: { labels: equityData.map((_,i) => 'Day '+(i+1)), datasets: [{
+      label: 'Unconstrained Equity ($)', data: equityData,
+      borderColor: '#fbbf24', backgroundColor: 'rgba(251,191,36,0.1)', fill: true, tension: 0.3, pointRadius: 0
+    }]},
+    options: chartOpts('Unconstrained Equity Curve — Limits Removed (SIMULATED, NOT REAL)')
+  });
+
+  // Comparison bar chart
+  makeChart('chart-unconstrained-comparison', {
+    type: 'bar',
+    data: { labels: ['Constrained (TopStep Rules)', 'Unconstrained (No Limits)'], datasets: [
+      { label: 'Total PnL', data: [safe(cons.total_pnl,0), safe(unc.total_pnl,0)], backgroundColor: ['#4ade80','#fbbf24'] },
+      { label: 'Max Drawdown', data: [safe(cons.max_drawdown,0), safe(unc.max_drawdown,0)], backgroundColor: ['#22c55e','#f06b6b'] },
+    ]},
+    options: Object.assign({}, chartOpts('Constrained vs Unconstrained — $50K Account (Simulated)'), {
+      scales: { y: { beginAtZero: true } }
+    })
+  });
+
+  // Config box
+  const bc = c50.best_config || {};
+  const configItems = Object.entries(bc).map(([k,v]) => `<code>${k}</code>: ${v}`).join(' &nbsp;|&nbsp; ');
+  document.getElementById('unconstrained-config').innerHTML = `<b style="color:var(--accent-warn)">Best Unconstrained Config:</b> &nbsp; ${configItems || 'N/A'}`;
+}
+
+// ============================================================
+// TRADE HISTORY TAB
+// ============================================================
+let tradeHistData = null;
+
+async function loadTradeHistory() {
+  try {
+    const res = await fetch('data/trade_execution_history.json');
+    tradeHistData = await res.json();
+    renderTradeHistory();
+  } catch(e) {
+    console.log('Trade history not loaded:', e);
+    document.getElementById('trade-history-stats').innerHTML = '<div class="stat-card"><div class="stat-value fail-color">Data not available</div></div>';
+  }
+}
+
+function renderTradeHistory() {
+  if (!tradeHistData) return;
+  const s = tradeHistData.summary || {};
+  const trades = tradeHistData.trades || [];
+
+  // Summary stats
+  const stats = [
+    {label:"Total Trades",value:fmtInt(safe(s.total_trades,0)),color:"accent-color"},
+    {label:"Win Rate",value:fmtPct(safe(s.win_rate,0)*100,1),color:"pass-color"},
+    {label:"Wins / Losses",value:fmtInt(safe(s.wins,0))+" / "+fmtInt(safe(s.losses,0)),color:"accent-color"},
+    {label:"Total PnL",value:fmtMoney(safe(s.total_pnl,0)),color: s.total_pnl >= 0 ? "pass-color" : "fail-color"},
+    {label:"Avg PnL / Trade",value:fmtMoney(safe(s.avg_pnl,0)),color:"accent-color"},
+    {label:"Avg Duration",value:fmt(safe(s.avg_duration_minutes,0),0)+" min",color:"accent-color"},
+    {label:"Avg Contracts",value:fmt(safe(s.avg_contracts,0),1),color:"accent-color"},
+    {label:"Best Trade",value:fmtMoney(safe(s.best_trade,0)),color:"pass-color"},
+    {label:"Worst Trade",value:fmtMoney(safe(s.worst_trade,0)),color:"fail-color"},
+    {label:"Status",value:"SIMULATED",color:"fail-color"},
+  ];
+  document.getElementById('trade-history-stats').innerHTML = stats.map(st =>
+    `<div class="stat-card"><div class="stat-label">${st.label}</div><div class="stat-value ${st.color}">${st.value}</div></div>`
+  ).join('');
+
+  // Equity curve (cumulative PnL)
+  const eqCurve = s.equity_curve || [];
+  makeChart('chart-trade-equity', {
+    type: 'line',
+    data: { labels: eqCurve.map((_,i) => '#'+(i+1)), datasets: [{
+      label: 'Cumulative PnL ($)', data: eqCurve,
+      borderColor: '#38bdf8', backgroundColor: 'rgba(56,189,248,0.1)', fill: true, tension: 0.3, pointRadius: 0
+    }]},
+    options: chartOpts('Trade Equity Curve — Cumulative PnL (Simulated)')
+  });
+
+  // PnL per trade bar chart (first 30 trades)
+  const barTrades = trades.slice(0, 30);
+  makeChart('chart-trade-pnl-bar', {
+    type: 'bar',
+    data: { labels: barTrades.map(t => '#'+t.trade_id), datasets: [{
+      label: 'PnL per Trade ($)', data: barTrades.map(t => safe(t.pnl,0)),
+      backgroundColor: barTrades.map(t => t.pnl >= 0 ? 'rgba(74,222,128,0.7)' : 'rgba(240,107,107,0.7)'),
+      borderColor: barTrades.map(t => t.pnl >= 0 ? '#4ade80' : '#f06b6b'),
+      borderWidth: 1
+    }]},
+    options: Object.assign({}, chartOpts('PnL per Trade — First 30 Trades (Simulated)'), {
+      scales: { y: { beginAtZero: false } }
+    })
+  });
+
+  // PnL by symbol
+  const bySym = s.by_symbol || {};
+  const symKeys = Object.keys(bySym);
+  makeChart('chart-trade-by-symbol', {
+    type: 'bar',
+    data: { labels: symKeys, datasets: [{
+      label: 'Total PnL by Symbol ($)', data: symKeys.map(k => safe(bySym[k].pnl,0)),
+      backgroundColor: symKeys.map((_,i) => ['#38bdf8','#818cf8','#c084fc','#fbbf24','#4ade80','#f06b6b','#22d3ee'][i % 7])
+    }]},
+    options: chartOpts('PnL by Symbol (Simulated)')
+  });
+
+  // Paper trading audit
+  loadPaperAudit();
+
+  // Trade table
+  const tbody = document.getElementById('trade-table-body');
+  tbody.innerHTML = trades.map(t => {
+    const entryDt = new Date(t.entry_time);
+    const exitDt = new Date(t.exit_time);
+    const fmtTime = (dt) => dt.toLocaleDateString('en-US',{month:'short',day:'numeric'}) + ' ' + dt.toLocaleTimeString('en-US',{hour:'2-digit',minute:'2-digit'});
+    const durH = Math.floor(t.duration_minutes / 60);
+    const durM = t.duration_minutes % 60;
+    const durStr = durH > 0 ? durH+'h '+durM+'m' : durM+'m';
+    const pnlColor = t.pnl >= 0 ? 'pass-color' : 'fail-color';
+    const sideColor = t.side === 'long' ? 'pass-color' : 'fail-color';
+    const outcomeColor = t.outcome === 'win' ? 'pass-color' : t.outcome === 'loss' ? 'fail-color' : 'accent-color';
+    return `<tr style="border-bottom:1px solid rgba(255,255,255,0.05)">` +
+      `<td style="padding:6px 12px">${t.trade_id}</td>` +
+      `<td style="padding:6px 12px;font-weight:600">${t.symbol}</td>` +
+      `<td style="padding:6px 12px" class="${sideColor}">${t.side.toUpperCase()}</td>` +
+      `<td style="padding:6px 12px;text-align:right">${t.contracts}</td>` +
+      `<td style="padding:6px 12px;text-align:right">$${Number(t.entry_price).toFixed(2)}</td>` +
+      `<td style="padding:6px 12px;text-align:right">$${Number(t.exit_price).toFixed(2)}</td>` +
+      `<td style="padding:6px 12px;text-align:right;color:var(--text-faint)">$${Number(t.stop_loss).toFixed(2)}</td>` +
+      `<td style="padding:6px 12px;text-align:right;color:var(--text-faint)">$${Number(t.take_profit).toFixed(2)}</td>` +
+      `<td style="padding:6px 12px;font-size:12px">${fmtTime(entryDt)}</td>` +
+      `<td style="padding:6px 12px;font-size:12px">${fmtTime(exitDt)}</td>` +
+      `<td style="padding:6px 12px;text-align:right">${durStr}</td>` +
+      `<td style="padding:6px 12px;text-align:right;font-weight:600" class="${pnlColor}">${t.pnl >= 0 ? '+' : ''}$${Number(t.pnl).toFixed(2)}</td>` +
+      `<td style="padding:6px 12px;font-size:12px">${t.strategy}</td>` +
+      `<td style="padding:6px 12px" class="${outcomeColor}">${t.outcome.toUpperCase()}</td>` +
+      `</tr>`;
+  }).join('');
+}
+
+async function loadPaperAudit() {
+  try {
+    const res = await fetch('data/paper_trading_audit.json');
+    const audit = await res.json();
+    const el = document.getElementById('paper-audit-section');
+    if (!audit || audit.length === 0) {
+      el.innerHTML = '<div style="color:var(--text-faint);text-align:center;padding:12px">No authenticated paper trades yet. Connect a paper trading provider (Alpaca, Tradovate) to enable live paper trade history.</div>';
+    } else {
+      el.innerHTML = '<div style="color:var(--pass-color);margin-bottom:8px">' + audit.length + ' paper trade(s) recorded</div>' +
+        audit.slice(0, 10).map(r => '<div style="font-size:12px;padding:4px 0;border-bottom:1px solid rgba(255,255,255,0.05)">' +
+          '<span style="color:var(--accent)">' + r.timestamp + '</span> ' +
+          (r.signal ? r.signal.symbol + ' ' + r.signal.side + ' x' + r.signal.contracts : 'N/A') +
+          ' \u2192 <span style="color:' + (r.status === 'filled' ? 'var(--pass-color)' : 'var(--text-faint)') + '">' + r.status + '</span>' +
+          (r.dry_run ? ' [DRY RUN]' : '') +
+        '</div>').join('');
+    }
+  } catch(e) {
+    document.getElementById('paper-audit-section').innerHTML = '<div style="color:var(--text-faint);text-align:center;padding:12px">No authenticated paper trades yet. Connect a paper trading provider to enable live paper trade history.</div>';
+  }
+}
+
+// ============================================================
+// ZENITH LAB TAB
+// ============================================================
+let zenithData = null;
+let zenithKernel = null;
+
+async function loadZenith() {
+  try {
+    const [predRes, kernelRes] = await Promise.all([
+      fetch('data/zenith_prediction_results.json').then(r => r.json()),
+      fetch('data/aether_zenith_integrated.json').then(r => r.json()).catch(() => null)
+    ]);
+    zenithData = predRes;
+    zenithKernel = kernelRes;
+    renderZenith();
+  } catch(e) {
+    console.log('Zenith data not loaded:', e);
+    document.getElementById('zenith-consensus-stats').innerHTML = '<div class="stat-card"><div class="stat-value fail-color">Data not available</div></div>';
+  }
+}
+
+function renderZenith() {
+  if (!zenithData) return;
+  const results = zenithData.results || {};
+  const perSym = results.per_symbol || {};
+  const summary = zenithData.summary || {};
+  const recs = zenithData.strategy_recommendations || [];
+
+  // Kernel status
+  const kernelStatus = zenithKernel ? zenithKernel.kernel : null;
+  const consensus = kernelStatus ? kernelStatus.consensus : (results.market_consensus || {});
+  if (kernelStatus) {
+    const logs = kernelStatus.research_logs || [];
+    document.getElementById('zenith-kernel-status').innerHTML = 
+      `<div style="display:flex;gap:16px;flex-wrap:wrap;margin-top:8px">
+        <div><b>Status:</b> <span style="color:var(--accent-warn)">${kernelStatus.system_status}</span></div>
+        <div><b>Models:</b> ${consensus.num_models || 6}</div>
+        <div><b>Signal:</b> <span style="color:${consensus.consensus_signal==='buy'?'var(--pass-color)':consensus.consensus_signal==='sell'?'var(--fail-color)':'var(--accent-color)'}">${(consensus.consensus_signal||'hold').toUpperCase()}</span></div>
+        <div><b>Agreement:</b> ${fmtPct(safe(consensus.agreement_score,0)*100,1)}</div>
+        <div><b>Dissent:</b> ${fmtPct(safe(consensus.dissent,0)*100,1)}</div>
+        <div><b>Confidence:</b> ${fmtPct(safe(consensus.weighted_confidence,0)*100,1)}</div>
+        <div><b>Simulated:</b> ${kernelStatus.simulated ? 'YES' : 'NO'}</div>
+      </div>`;
+    // Research logs
+    document.getElementById('zenith-research-logs').innerHTML = logs.map(log => 
+      `<div style="padding:8px 12px;border-bottom:1px solid rgba(255,255,255,0.05);font-size:13px">
+        <span style="color:var(--accent)">[${log.node}]</span>
+        <span style="margin-left:8px">${log.message}</span>
+        <span style="float:right;color:var(--text-faint)">${fmtPct(safe(log.confidence,0)*100,0)} conf</span>
+      </div>`
+    ).join('');
+  } else {
+    document.getElementById('zenith-kernel-status').innerHTML = '<p>Kernel data not available</p>';
+    document.getElementById('zenith-research-logs').innerHTML = '<p>No research logs</p>';
+  }
+
+  // Consensus stats
+  const consStats = [
+    {label:"Market Consensus",value:(summary.market_consensus||consensus.consensus_signal||'hold').toUpperCase(),color:"accent-color"},
+    {label:"Market Confidence",value:fmtPct(safe(summary.market_confidence,0)*100,1),color:"accent-color"},
+    {label:"Avg Symbol Confidence",value:fmtPct(safe(summary.avg_symbol_confidence,0)*100,1),color:"accent-color"},
+    {label:"Symbols Analyzed",value:fmtInt(safe(summary.symbols_analyzed,0)),color:"accent-color"},
+    {label:"Total Strategies",value:fmtInt(safe(summary.total_strategies,0)),color:"accent-color"},
+    {label:"Stat Arb Pairs",value:fmtInt(safe((results.stat_arb_pairs||[]).length,0)),color:"accent-color"},
+  ];
+  document.getElementById('zenith-consensus-stats').innerHTML = consStats.map(st =>
+    `<div class="stat-card"><div class="stat-label">${st.label}</div><div class="stat-value ${st.color}">${st.value}</div></div>`
+  ).join('');
+
+  // Per-symbol prediction stats
+  const symKeys = Object.keys(perSym);
+  const predStats = [];
+  symKeys.forEach(sym => {
+    const p = perSym[sym];
+    const pp = p.price_prediction || {};
+    const vf = p.volatility_forecast || {};
+    const cons = p.consensus || {};
+    predStats.push({label:sym+" Prediction",value:"$"+fmt(safe(pp.predicted_price,0),2),color:"accent-color"});
+    predStats.push({label:sym+" Confidence",value:fmtPct(safe(pp.confidence,0)*100,1),color:"pass-color"});
+    predStats.push({label:sym+" Vol Regime",value:(vf.vol_regime||'N/A').toUpperCase(),color:vf.vol_regime==='high'?'fail-color':vf.vol_regime==='low'?'pass-color':'accent-color'});
+    predStats.push({label:sym+" Signal",value:(cons.consensus_signal||'hold').toUpperCase(),color:cons.consensus_signal==='buy'?'pass-color':cons.consensus_signal==='sell'?'fail-color':'accent-color'});
+  });
+  document.getElementById('zenith-prediction-stats').innerHTML = predStats.map(st =>
+    `<div class="stat-card"><div class="stat-label">${st.label}</div><div class="stat-value ${st.color}" style="font-size:18px">${st.value}</div></div>`
+  ).join('');
+
+  // Price predictions chart
+  makeChart('chart-zenith-price-predictions', {
+    type: 'bar',
+    data: { labels: symKeys, datasets: [
+      { label: 'Predicted Price', data: symKeys.map(s => safe(perSym[s].price_prediction?.predicted_price,0)), backgroundColor: '#38bdf8' },
+      { label: 'Upper Bound', data: symKeys.map(s => safe(perSym[s].price_prediction?.upper_bound,0)), backgroundColor: 'rgba(74,222,128,0.5)' },
+      { label: 'Lower Bound', data: symKeys.map(s => safe(perSym[s].price_prediction?.lower_bound,0)), backgroundColor: 'rgba(240,107,107,0.5)' },
+    ]},
+    options: chartOpts('Price Predictions with Confidence Bounds (Model Prediction — Not Guaranteed)')
+  });
+
+  // Volatility chart
+  makeChart('chart-zenith-volatility', {
+    type: 'bar',
+    data: { labels: symKeys, datasets: [{
+      label: 'Forecast Volatility (%)', data: symKeys.map(s => safe(perSym[s].volatility_forecast?.forecast_vol,0)*100),
+      backgroundColor: symKeys.map(s => (perSym[s].volatility_forecast?.vol_regime === 'high') ? '#f06b6b' : (perSym[s].volatility_forecast?.vol_regime === 'low') ? '#4ade80' : '#fbbf24')
+    }]},
+    options: chartOpts('Volatility Forecast by Symbol (EWMA Model)')
+  });
+
+  // Momentum strength chart
+  makeChart('chart-zenith-momentum', {
+    type: 'bar',
+    data: { labels: symKeys, datasets: [{
+      label: 'Momentum Strength', data: symKeys.map(s => safe(perSym[s].momentum_strength,0)*100),
+      backgroundColor: symKeys.map(s => safe(perSym[s].momentum_strength,0) > 0.5 ? '#4ade80' : '#818cf8')
+    }]},
+    options: chartOpts('Momentum Strength by Symbol (0-100%)')
+  });
+
+  // Strategy recommendations table
+  document.getElementById('zenith-strategy-table').innerHTML = recs.map(r => {
+    const sigColor = r.signal === 'buy' ? 'pass-color' : r.signal === 'sell' ? 'fail-color' : 'accent-color';
+    const retStr = r.expected_return >= 0 ? '+' : '';
+    const retColor = r.expected_return >= 0 ? 'pass-color' : 'fail-color';
+    return `<tr style="border-bottom:1px solid rgba(255,255,255,0.05)">` +
+      `<td style="padding:6px 12px">${r.strategy_name}</td>` +
+      `<td style="padding:6px 12px;font-weight:600">${r.symbol}</td>` +
+      `<td style="padding:6px 12px" class="${sigColor}">${r.signal.toUpperCase()}</td>` +
+      `<td style="padding:6px 12px;text-align:right">${fmtPct(safe(r.confidence,0)*100,1)}</td>` +
+      `<td style="padding:6px 12px;text-align:right" class="${retColor}">${retStr}${fmtPct(safe(r.expected_return,0)*100,2)}</td>` +
+      `<td style="padding:6px 12px">${r.risk_level}</td>` +
+      `</tr>`;
+  }).join('');
+}
+
+// ============================================================
+// EXECUTION CONTROL TAB
+// ============================================================
+async function loadExecution() {
+  try {
+    const res = await fetch('data/execution_engine_status.json');
+    const data = await res.json();
+
+    // Status cards
+    const modeColor = data.mode === 'SIMULATED' ? 'var(--text-faint)' :
+                      data.mode === 'PAPER_READY' ? 'var(--accent)' :
+                      data.mode === 'PAPER_ENABLED' ? 'var(--pass-color)' :
+                      'var(--accent-warn)';
+    const killColor = data.kill_switch ? 'var(--accent-warn)' : 'var(--pass-color)';
+    const liveColor = data.live_authorized ? 'var(--accent-warn)' : 'var(--text-faint)';
+
+    document.getElementById('exec-status-grid').innerHTML = [
+      {label:'Current Mode',value:data.mode,color:modeColor},
+      {label:'Kill Switch',value:data.kill_switch?'ACTIVE':'OFF',color:killColor},
+      {label:'Paper Broker',value:data.paper_connected?data.paper_broker:'None',color:data.paper_connected?'var(--pass-color)':'var(--text-faint)'},
+      {label:'Live Trading',value:data.live_authorized?'AUTHORIZED':'LOCKED',color:liveColor},
+      {label:'Total Orders',value:data.total_orders,color:'var(--accent)'},
+      {label:'Daily Orders',value:data.daily_orders + '/' + data.max_orders_per_day,color:'var(--accent)'},
+    ].map(c => `<div class="stat-card"><div class="stat-label">${c.label}</div><div class="stat-value" style="color:${c.color};white-space:nowrap;font-size:18px">${c.value}</div></div>`).join('');
+
+    // Mode progression
+    const modes = ['SIMULATED','PAPER_READY','PAPER_ENABLED','LIVE_LOCKED'];
+    const currentIdx = modes.indexOf(data.mode);
+    document.getElementById('exec-mode-progression').innerHTML = modes.map((m,i) => {
+      const isActive = i === currentIdx;
+      const isPast = i < currentIdx;
+      const color = isActive ? 'var(--accent)' : isPast ? 'var(--pass-color)' : 'var(--text-faint)';
+      const marker = isActive ? '\u25B6' : isPast ? '\u2713' : '\u25CB';
+      return `<div style="display:flex;align-items:center;gap:8px;padding:6px 0;border-bottom:1px solid rgba(255,255,255,0.05)">
+        <span style="color:${color};font-size:14px">${marker}</span>
+        <span style="color:${color};font-weight:${isActive?'600':'400'}">${m}</span>
+        ${m==='LIVE_LOCKED'?'<span style="color:var(--accent-warn);font-size:11px;margin-left:auto">REQUIRES AUTHORIZATION</span>':''}
+      </div>`;
+    }).join('');
+
+    // Broker status
+    document.getElementById('exec-broker-status').innerHTML = `
+      <div style="padding:6px 0;border-bottom:1px solid rgba(255,255,255,0.05)">
+        <span style="color:var(--text-faint)">Paper:</span>
+        <span style="color:${data.paper_connected?'var(--pass-color)':'var(--accent-warn)'};float:right">
+          ${data.paper_connected?'\u2705 '+data.paper_broker:'\u26A0 Not connected'}
+        </span>
+      </div>
+      <div style="padding:6px 0;border-bottom:1px solid rgba(255,255,255,0.05)">
+        <span style="color:var(--text-faint)">Live:</span>
+        <span style="color:${data.live_connected?'var(--pass-color)':'var(--accent-warn)'};float:right">
+          ${data.live_connected?data.live_broker:'\u26A0 Not connected'}
+        </span>
+      </div>
+      <div style="padding:6px 0">
+        <span style="color:var(--text-faint)">Alpaca symbols:</span>
+        <span style="color:var(--accent);float:right">${(data.allowed_equity_symbols||[]).join(', ')}</span>
+      </div>
+      <div style="padding:6px 0">
+        <span style="color:var(--text-faint)">Futures symbols:</span>
+        <span style="color:var(--accent-warn);float:right">${(data.futures_symbols||[]).join(', ')}</span>
+      </div>
+      <div style="padding:6px 0;font-size:11px;color:var(--text-faint)">
+        ${data.futures_note || ''}
+      </div>
+    `;
+
+    // Live authorization gate
+    document.getElementById('exec-live-gate').innerHTML = `
+      <div style="display:flex;align-items:center;gap:12px;margin-bottom:12px">
+        <div style="width:48px;height:48px;border-radius:50%;background:rgba(255,166,26,0.15);display:flex;align-items:center;justify-content:center;font-size:24px">\uD83D\uDD12</div>
+        <div>
+          <div style="font-size:16px;font-weight:600;color:var(--accent-warn)">LIVE TRADING LOCKED</div>
+          <div style="font-size:12px;color:var(--text-faint)">Requires explicit authorization to unlock</div>
+        </div>
+      </div>
+      <div style="font-size:13px;color:var(--text-secondary);white-space:pre-line;line-height:1.6">${data.live_authorization_instructions || 'Live trading requires separate authorization.'}</div>
+    `;
+
+    // Risk controls
+    document.getElementById('exec-risk-controls').innerHTML = `
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
+        <div><span style="color:var(--text-faint)">Max shares/order:</span> <span style="color:var(--accent)">${data.max_shares_per_order}</span></div>
+        <div><span style="color:var(--text-faint)">Max orders/day:</span> <span style="color:var(--accent)">${data.max_orders_per_day}</span></div>
+        <div><span style="color:var(--text-faint)">Max notional/order:</span> <span style="color:var(--accent)">$${(data.max_notional_per_order||0).toLocaleString()}</span></div>
+        <div><span style="color:var(--text-faint)">Daily notional:</span> <span style="color:var(--accent)">$${(data.daily_notional||0).toLocaleString()}</span></div>
+      </div>
+    `;
+
+    // Order table
+    const orders = data.recent_orders || [];
+    const statusColor = (s) => {
+      if (s==='simulated') return 'var(--text-faint)';
+      if (s==='paper_submitted'||s==='paper_filled') return 'var(--pass-color)';
+      if (s==='paper_validated') return 'var(--accent)';
+      if (s==='rejected') return 'var(--accent-warn)';
+      if (s==='live_locked') return 'var(--accent-warn)';
+      return 'var(--text-secondary)';
+    };
+    document.getElementById('exec-order-table').innerHTML = orders.length === 0
+      ? '<tr><td colspan="9" style="text-align:center;padding:16px;color:var(--text-faint)">No orders yet</td></tr>'
+      : orders.reverse().map(o => `<tr style="border-bottom:1px solid rgba(255,255,255,0.05)">
+          <td style="padding:6px 12px;font-size:11px;color:var(--text-faint)">${o.order_id}</td>
+          <td style="padding:6px 12px;color:var(--accent)">${o.symbol}</td>
+          <td style="padding:6px 12px">${o.side.toUpperCase()}</td>
+          <td style="padding:6px 12px;text-align:right">${o.quantity}</td>
+          <td style="padding:6px 12px;color:${statusColor(o.status)}">${o.status.replace(/_/g,' ').toUpperCase()}</td>
+          <td style="padding:6px 12px">${o.mode}</td>
+          <td style="padding:6px 12px">${o.broker}</td>
+          <td style="padding:6px 12px;font-size:11px">${o.strategy}</td>
+          <td style="padding:6px 12px;font-size:11px;color:var(--text-faint)">${o.error||''}</td>
+        </tr>`).join('');
+  } catch(e) {
+    document.getElementById('exec-status-grid').innerHTML = '<div class="stat-card"><div class="stat-label">Error</div><div class="stat-value" style="color:var(--accent-warn)">Failed to load</div></div>';
+  }
+}
+
+// ============================================================
+// AI ADVISERS TAB
+// ============================================================
+async function loadAdvisers() {
+  try {
+    const res = await fetch('data/ai_adviser_results.json');
+    const data = await res.json();
+
+    // Summary cards
+    const advisers = data.advisers || [];
+    const totalPreds = advisers.reduce((s,a) => s + (a.predictions_made||0), 0);
+    const avgConf = advisers.reduce((s,a) => s + (a.confidence||0), 0) / (advisers.length||1);
+    document.getElementById('adviser-summary').innerHTML = [
+      {l:'Advisers',v:advisers.length,c:'var(--accent)'},
+      {l:'Total Predictions',v:totalPreds,c:'var(--accent)'},
+      {l:'Avg Confidence',v:(avgConf*100).toFixed(0)+'%',c:'var(--pass-color)'},
+      {l:'Symbols Analyzed',v:data.summary?.symbols_analyzed||0,c:'var(--accent)'},
+      {l:'Self-Learning',v:'ACTIVE',c:'var(--pass-color)'},
+      {l:'Live Trading',v:'LOCKED',c:'var(--text-faint)'},
+    ].map(c => `<div class="stat-card"><div class="stat-label">${c.l}</div><div class="stat-value" style="color:${c.c};white-space:nowrap">${c.v}</div></div>`).join('');
+
+    // Adviser cards
+    document.getElementById('adviser-cards').innerHTML = advisers.map(a => {
+      const confPct = ((a.confidence||0)*100).toFixed(0);
+      const confColor = confPct >= 60 ? 'var(--pass-color)' : confPct >= 30 ? 'var(--accent)' : 'var(--accent-warn)';
+      const params = a.parameters || {};
+      const paramStr = Object.entries(params).filter(([k,v]) => typeof v === 'number').slice(0,4)
+        .map(([k,v]) => `<div style="font-size:11px;color:var(--text-faint)">${k}: ${typeof v === 'number' ? v.toFixed(4) : v}</div>`).join('');
+      return `<div class="module-card">
+        <div class="module-name">${a.name}</div>
+        <div style="font-size:24px;font-weight:700;color:${confColor}">${confPct}%</div>
+        <div style="font-size:11px;color:var(--text-faint)">confidence</div>
+        <div style="margin-top:8px;font-size:12px;color:var(--text-secondary)">Predictions: ${a.predictions_made||0}</div>
+        <div style="margin-top:8px">${paramStr}</div>
+      </div>`;
+    }).join('');
+
+    // Consensus table
+    const perSym = data.per_symbol || {};
+    document.getElementById('adviser-consensus-table').innerHTML = Object.entries(perSym).map(([sym, c]) => {
+      const sigColor = c.consensus_signal === 'buy' ? 'var(--pass-color)' : c.consensus_signal === 'sell' ? 'var(--fail-color)' : 'var(--text-secondary)';
+      return `<tr style="border-bottom:1px solid rgba(255,255,255,0.04)">
+        <td style="padding:6px 12px;color:var(--accent);font-weight:600">${sym}</td>
+        <td style="padding:6px 12px;color:${sigColor};font-weight:600;text-transform:uppercase">${c.consensus_signal}</td>
+        <td style="padding:6px 12px;text-align:right;color:var(--pass-color)">${c.buy_votes}</td>
+        <td style="padding:6px 12px;text-align:right;color:var(--fail-color)">${c.sell_votes}</td>
+        <td style="padding:6px 12px;text-align:right;color:var(--text-secondary)">${c.hold_votes}</td>
+        <td style="padding:6px 12px;text-align:right">${((c.agreement_score||0)*100).toFixed(0)}%</td>
+        <td style="padding:6px 12px;text-align:right;color:var(--accent-warn)">${((c.dissent||0)*100).toFixed(0)}%</td>
+        <td style="padding:6px 12px;text-align:right">${((c.weighted_confidence||0)*100).toFixed(0)}%</td>
+      </tr>`;
+    }).join('');
+
+    // Individual recommendations table
+    const recs = [];
+    Object.entries(perSym).forEach(([sym, c]) => {
+      (c.individual_recommendations || []).forEach(r => {
+        recs.push({symbol: sym, ...r});
+      });
+    });
+    document.getElementById('adviser-recommendations-table').innerHTML = recs.length === 0
+      ? '<tr><td colspan="6" style="text-align:center;padding:12px;color:var(--text-faint)">No individual recommendations</td></tr>'
+      : recs.map(r => {
+          const sigColor = r.signal === 'buy' ? 'var(--pass-color)' : r.signal === 'sell' ? 'var(--fail-color)' : 'var(--text-secondary)';
+          return `<tr style="border-bottom:1px solid rgba(255,255,255,0.04)">
+            <td style="padding:6px 12px;color:var(--accent)">${r.symbol}</td>
+            <td style="padding:6px 12px">${r.adviser_name || 'Unknown'}</td>
+            <td style="padding:6px 12px;color:${sigColor};font-weight:600;text-transform:uppercase">${r.signal}</td>
+            <td style="padding:6px 12px;text-align:right">${((r.confidence||0)*100).toFixed(0)}%</td>
+            <td style="padding:6px 12px;text-align:right">${((r.suggested_size||0)*100).toFixed(0)}%</td>
+            <td style="padding:6px 12px;font-size:11px;color:var(--text-faint)">${r.reasoning || ''}</td>
+          </tr>`;
+        }).join('');
+  } catch(e) {
+    document.getElementById('adviser-summary').innerHTML = '<div class="stat-card"><div class="stat-label">Error</div><div class="stat-value" style="color:var(--accent-warn)">Failed to load</div></div>';
+  }
+}
+
+// ============================================================
+// ALPACA POSITIONS TAB
+// ============================================================
+async function loadAlpacaPositions() {
+  try {
+    const res = await fetch('data/alpaca_paper_trades.json');
+    const data = await res.json();
+    const account = data.account || {};
+    const summary = data.summary || {};
+    const positions = data.positions || [];
+    const orders = data.orders || [];
+
+    // Stats cards
+    const totalPnL = parseFloat(summary.total_unrealized_pl?.replace(/[^\d.-]/g,'') || '0');
+    const pnlColor = totalPnL >= 0 ? 'var(--pass-color)' : 'var(--fail-color)';
+    document.getElementById('alpaca-stats').innerHTML = [
+      {l:'Account',v:account.account_number||'N/A',c:'var(--accent)'},
+      {l:'Paper Cash',v:account.cash||'$0',c:'var(--accent)'},
+      {l:'Buying Power',v:account.buying_power||'$0',c:'var(--accent)'},
+      {l:'Positions',v:summary.total_positions||0,c:'var(--accent)'},
+      {l:'Market Value',v:summary.total_market_value||'$0',c:'var(--accent)'},
+      {l:'Total PnL',v:(totalPnL>=0?'+':'')+summary.total_unrealized_pl||'$0.00',c:pnlColor},
+    ].map(c => `<div class="stat-card"><div class="stat-label">${c.l}</div><div class="stat-value" style="color:${c.c};white-space:nowrap;font-size:18px">${c.v}</div></div>`).join('');
+
+    // Positions table
+    document.getElementById('alpaca-positions-table').innerHTML = positions.length === 0
+      ? '<tr><td colspan="9" style="text-align:center;padding:12px;color:var(--text-faint)">No open positions</td></tr>'
+      : positions.map(p => {
+          const pnl = parseFloat(p.unrealized_pl||'0');
+          const pnlPct = (parseFloat(p.unrealized_plpc||'0')*100).toFixed(3);
+          const dayChange = (parseFloat(p.change_today||'0')*100).toFixed(2);
+          const pnlColor = pnl >= 0 ? 'var(--pass-color)' : 'var(--fail-color)';
+          const sideColor = p.side === 'long' ? 'var(--pass-color)' : 'var(--fail-color)';
+          return `<tr style="border-bottom:1px solid rgba(255,255,255,0.04)">
+            <td style="padding:6px 12px;color:var(--accent);font-weight:600">${p.symbol}</td>
+            <td style="padding:6px 12px;color:${sideColor};font-weight:600;text-transform:uppercase">${p.side}</td>
+            <td style="padding:6px 12px;text-align:right">${Math.abs(parseFloat(p.qty||'0'))}</td>
+            <td style="padding:6px 12px;text-align:right">$${parseFloat(p.avg_entry_price||'0').toFixed(2)}</td>
+            <td style="padding:6px 12px;text-align:right">$${parseFloat(p.current_price||'0').toFixed(2)}</td>
+            <td style="padding:6px 12px;text-align:right">$${parseFloat(p.market_value||'0').toFixed(2)}</td>
+            <td style="padding:6px 12px;text-align:right;color:${pnlColor};font-weight:600">${pnl>=0?'+':''}$${pnl.toFixed(2)}</td>
+            <td style="padding:6px 12px;text-align:right;color:${pnlColor}">${pnlPct}%</td>
+            <td style="padding:6px 12px;text-align:right;color:${parseFloat(dayChange)>=0?'var(--pass-color)':'var(--fail-color)'}">${dayChange}%</td>
+          </tr>`;
+        }).join('');
+
+    // Orders table
+    document.getElementById('alpaca-orders-table').innerHTML = orders.length === 0
+      ? '<tr><td colspan="8" style="text-align:center;padding:12px;color:var(--text-faint)">No orders</td></tr>'
+      : orders.map(o => {
+          const sideColor = o.side === 'buy' ? 'var(--pass-color)' : 'var(--fail-color)';
+          const statusColor = o.status === 'filled' ? 'var(--pass-color)' : 'var(--accent-warn)';
+          const shortId = (o.order_id||'').substring(0,8);
+          const time = (o.submitted_at||'').substring(11,19);
+          return `<tr style="border-bottom:1px solid rgba(255,255,255,0.04)">
+            <td style="padding:6px 12px;font-size:11px;color:var(--text-faint)">${shortId}...</td>
+            <td style="padding:6px 12px;color:var(--accent);font-weight:600">${o.symbol}</td>
+            <td style="padding:6px 12px;color:${sideColor};font-weight:600;text-transform:uppercase">${o.side}</td>
+            <td style="padding:6px 12px;text-align:right">${o.qty}</td>
+            <td style="padding:6px 12px;text-transform:uppercase">${o.type}</td>
+            <td style="padding:6px 12px;color:${statusColor};font-weight:600;text-transform:uppercase">${o.status}</td>
+            <td style="padding:6px 12px;font-size:11px;color:var(--text-faint)">${time}</td>
+            <td style="padding:6px 12px;font-size:11px;color:var(--text-faint)">${o.signal_source||''}</td>
+          </tr>`;
+        }).join('');
+  } catch(e) {
+    document.getElementById('alpaca-stats').innerHTML = '<div class="stat-card"><div class="stat-label">Error</div><div class="stat-value" style="color:var(--accent-warn)">Failed to load</div></div>';
+  }
+}
+
+// ============================================================
+// SOVEREIGN TAB
+// ============================================================
+async function loadSovereign() {
+  try {
+    const res = await fetch('data/sovereign_status.json');
+    const data = await res.json();
+
+    // Stats cards
+    const roles = data.roles || [];
+    const totalPatches = roles.reduce((s,r) => s + (r.learning_iterations||0), 0);
+    document.getElementById('sovereign-stats').innerHTML = [
+      {l:'Version',v:'v'+data.version,c:'#f1c40f'},
+      {l:'Cycles',v:data.cycles_completed||0,c:'var(--accent)'},
+      {l:'Roles',v:data.num_roles||10,c:'#f1c40f'},
+      {l:'Total Patches',v:totalPatches,c:'var(--accent)'},
+      {l:'Avg Confidence',v:((data.avg_confidence||0)*100).toFixed(0)+'%',c:'var(--pass-color)'},
+      {l:'Precision',v:data.precision_status||'not_benchmarked',c:'var(--text-faint)'},
+    ].map(c => `<div class="stat-card"><div class="stat-label">${c.l}</div><div class="stat-value" style="color:${c.c};white-space:nowrap;font-size:16px">${c.v}</div></div>`).join('');
+
+    // Role cards
+    document.getElementById('sovereign-roles').innerHTML = roles.map(r => {
+      const confPct = ((r.confidence||0)*100).toFixed(0);
+      const confColor = confPct >= 50 ? 'var(--pass-color)' : confPct >= 20 ? 'var(--accent)' : 'var(--text-faint)';
+      return `<div class="module-card">
+        <div class="module-name">${r.name}</div>
+        <div style="font-size:11px;color:var(--text-faint);margin-bottom:4px">${r.specialty}</div>
+        <div style="font-size:24px;font-weight:700;color:${confColor}">${confPct}%</div>
+        <div style="font-size:11px;color:var(--text-faint)">confidence</div>
+        <div style="margin-top:8px;font-size:12px;color:var(--text-secondary)">Iterations: ${r.learning_iterations||0}</div>
+        <div style="font-size:11px;color:var(--text-faint)">Knowledge: ${r.knowledge_entries||0}</div>
+        ${r.last_signature ? `<div style="font-size:10px;color:var(--accent);margin-top:4px;font-family:monospace">${r.last_signature.substring(0,12)}...</div>` : ''}
+      </div>`;
+    }).join('');
+
+    // Cycles table
+    const cycles = data.recent_cycles || [];
+    document.getElementById('sovereign-cycles-table').innerHTML = cycles.length === 0
+      ? '<tr><td colspan="6" style="text-align:center;padding:12px;color:var(--text-faint)">No upgrade cycles yet</td></tr>'
+      : cycles.slice().reverse().map(c => {
+          const consColor = c.consensus_signal === 'improving' ? 'var(--pass-color)' : 'var(--text-faint)';
+          return `<tr style="border-bottom:1px solid rgba(255,255,255,0.04)">
+            <td style="padding:6px 12px;color:var(--accent);font-weight:600">${c.cycle_number}</td>
+            <td style="padding:6px 12px;color:#f1c40f">v${c.version}</td>
+            <td style="padding:6px 12px;color:${consColor};font-weight:600;text-transform:uppercase">${c.consensus_signal}</td>
+            <td style="padding:6px 12px;text-align:right">${((c.agreement_score||0)*100).toFixed(0)}%</td>
+            <td style="padding:6px 12px;text-align:right">${(c.patches||[]).length}</td>
+            <td style="padding:6px 12px;font-size:11px;color:var(--text-faint)">${(c.timestamp||'').substring(11,19)}</td>
+          </tr>`;
+        }).join('');
+  } catch(e) {
+    document.getElementById('sovereign-stats').innerHTML = '<div class="stat-card"><div class="stat-label">Error</div><div class="stat-value" style="color:var(--accent-warn)">Failed to load</div></div>';
+  }
+}
+
+// ============================================================
+// OMNI-NEXUS TAB
+// ============================================================
+async function loadOmniNexus() {
+  try {
+    const res = await fetch('data/omni_nexus_status.json');
+    const data = await res.json();
+    const plugins = data.plugins || {};
+    const models = data.models || {};
+    const gen = data.generator || {};
+
+    // Stats cards
+    document.getElementById('omni-stats').innerHTML = [
+      {l:'Plugins',v:(plugins.available_count||0)+'/'+(plugins.total_count||0),c:'#9b59b6'},
+      {l:'Models',v:(models.available_count||0)+'/'+(models.total_count||0),c:'#9b59b6'},
+      {l:'Templates',v:gen.template_count||0,c:'var(--accent)'},
+      {l:'Auto-Gen',v:'0',c:'var(--text-faint)'},
+      {l:'Precision',v:data.precision_status||'not_benchmarked',c:'var(--text-faint)'},
+      {l:'Cycles',v:data.cycle_count||0,c:'var(--accent)'},
+    ].map(c => `<div class="stat-card"><div class="stat-label">${c.l}</div><div class="stat-value" style="color:${c.c};white-space:nowrap;font-size:16px">${c.v}</div></div>`).join('');
+
+    // Plugins table
+    const pluginList = plugins.plugins || [];
+    document.getElementById('omni-plugins-table').innerHTML = pluginList.map(p => {
+      const sColor = p.status === 'connected' ? 'var(--pass-color)' :
+                     p.status === 'simulated' ? 'var(--accent)' :
+                     p.status === 'disconnected' ? 'var(--accent-warn)' : 'var(--text-faint)';
+      return `<tr style="border-bottom:1px solid rgba(255,255,255,0.04)">
+        <td style="padding:6px 12px;font-weight:600;color:#9b59b6">${p.name}</td>
+        <td style="padding:6px 12px;color:var(--text-secondary);font-size:12px">${p.function}</td>
+        <td style="padding:6px 12px;color:${sColor};font-weight:600;text-transform:uppercase;font-size:11px">${p.status}</td>
+        <td style="padding:6px 12px;text-align:right">${p.call_count||0}</td>
+        <td style="padding:6px 12px;font-family:monospace;font-size:10px;color:var(--accent)">${p.data_hash || '—'}</td>
+      </tr>`;
+    }).join('');
+
+    // Model cards
+    const modelList = models.models || [];
+    document.getElementById('omni-models').innerHTML = modelList.map(m => {
+      const aColor = m.available ? 'var(--pass-color)' : 'var(--text-faint)';
+      const aText = m.available ? 'AVAILABLE' : 'NOT AVAILABLE';
+      return `<div class="module-card">
+        <div class="module-name">${m.name}</div>
+        <div style="font-size:11px;color:var(--text-faint);margin-bottom:4px">${m.provider} · ${m.specialty}</div>
+        <div style="font-size:18px;font-weight:700;color:${aColor}">${aText}</div>
+        <div style="font-size:11px;color:var(--text-faint);margin-top:4px">${m.reason}</div>
+        <div style="font-size:12px;color:var(--text-secondary);margin-top:4px">Calls: ${m.call_count||0}</div>
+      </div>`;
+    }).join('');
+
+    // Templates table
+    const tmplList = gen.templates || [];
+    document.getElementById('omni-templates-table').innerHTML = tmplList.map(t => {
+      return `<tr style="border-bottom:1px solid rgba(255,255,255,0.04)">
+        <td style="padding:6px 12px;font-weight:600;color:#9b59b6">${t.name}</td>
+        <td style="padding:6px 12px;color:var(--text-secondary);font-size:12px">${t.description}</td>
+        <td style="padding:6px 12px;color:var(--text-faint);font-size:12px">${t.requires}</td>
+        <td style="padding:6px 12px;text-align:center;color:var(--accent-warn);font-weight:600">NO</td>
+      </tr>`;
+    }).join('');
+
+    // Cycles table
+    const cycles = data.recent_cycles || [];
+    document.getElementById('omni-cycles-table').innerHTML = cycles.length === 0
+      ? '<tr><td colspan="5" style="text-align:center;padding:12px;color:var(--text-faint)">No cycles yet</td></tr>'
+      : cycles.slice().reverse().map(c => {
+          return `<tr style="border-bottom:1px solid rgba(255,255,255,0.04)">
+            <td style="padding:6px 12px;color:var(--accent);font-weight:600">${c.cycle_number}</td>
+            <td style="padding:6px 12px;font-size:11px;color:var(--text-secondary)">${(c.plugins_called||[]).join(', ')}</td>
+            <td style="padding:6px 12px;font-size:11px;color:var(--text-secondary)">${(c.models_routed||[]).join(', ')}</td>
+            <td style="padding:6px 12px;font-weight:600;text-transform:uppercase;color:var(--text-faint)">${c.result_signal}</td>
+            <td style="padding:6px 12px;text-align:right">${((c.confidence||0)*100).toFixed(0)}%</td>
+          </tr>`;
+        }).join('');
+  } catch(e) {
+    document.getElementById('omni-stats').innerHTML = '<div class="stat-card"><div class="stat-label">Error</div><div class="stat-value" style="color:var(--accent-warn)">Failed to load</div></div>';
+  }
+}
+
+// ============================================================
+// CONTINUOUS ENGINE TAB
+// ============================================================
+async function loadContinuousEngine() {
+  try {
+    const res = await fetch('data/continuous_engine_status.json');
+    const data = await res.json();
+    const last = data.last_cycle || {};
+    const swarm = last.swarm_result || {};
+
+    // Main stats
+    document.getElementById('continuous-stats').innerHTML = [
+      {l:'Models',v:data.models||100,c:'#2ecc71'},
+      {l:'Swarm Agents',v:(data.swarm_agents||0).toLocaleString(),c:'#2ecc71'},
+      {l:'Cycles',v:data.cycle_count||0,c:'var(--accent)'},
+      {l:'Total Trades',v:data.total_trades||0,c:'var(--pass-color)'},
+      {l:'Swarm Sample',v:(data.swarm_sample||0).toLocaleString(),c:'var(--text-faint)'},
+      {l:'Precision',v:data.precision_status||'not_benchmarked',c:'var(--text-faint)'},
+    ].map(c => `<div class="stat-card"><div class="stat-label">${c.l}</div><div class="stat-value" style="color:${c.c};white-space:nowrap;font-size:16px">${c.v}</div></div>`).join('');
+
+    // Signals table
+    const signals = last.signals || [];
+    document.getElementById('continuous-signals-table').innerHTML = signals.length === 0
+      ? '<tr><td colspan="7" style="text-align:center;padding:12px;color:var(--text-faint)">No signals in last cycle</td></tr>'
+      : signals.map(s => {
+          const sigColor = s.signal === 'buy' ? 'var(--pass-color)' : s.signal === 'sell' ? 'var(--accent-warn)' : 'var(--text-faint)';
+          const swarmColor = s.swarm_consensus === s.signal ? 'var(--pass-color)' : 'var(--text-faint)';
+          return `<tr style="border-bottom:1px solid rgba(255,255,255,0.04)">
+            <td style="padding:6px 12px;font-weight:600;color:#2ecc71">${s.symbol}</td>
+            <td style="padding:6px 12px;color:${sigColor};font-weight:700;text-transform:uppercase">${s.signal}</td>
+            <td style="padding:6px 12px;text-align:right">${((s.confidence||0)*100).toFixed(0)}%</td>
+            <td style="padding:6px 12px;text-align:right;color:var(--pass-color)">${s.model_votes?.buy||0}</td>
+            <td style="padding:6px 12px;text-align:right;color:var(--accent-warn)">${s.model_votes?.sell||0}</td>
+            <td style="padding:6px 12px;text-align:right;color:var(--text-faint)">${s.model_votes?.hold||0}</td>
+            <td style="padding:6px 12px;color:${swarmColor};font-weight:600;text-transform:uppercase">${s.swarm_consensus||'—'}</td>
+          </tr>`;
+        }).join('');
+
+    // Swarm stats
+    const votes = swarm.votes || {};
+    document.getElementById('swarm-stats').innerHTML = [
+      {l:'Total Agents',v:(swarm.total_agents||0).toLocaleString(),c:'#2ecc71'},
+      {l:'Computed',v:(swarm.sample_computed||0).toLocaleString(),c:'var(--accent)'},
+      {l:'Extrapolation',v:(swarm.extrapolation_factor||0)+'x',c:'var(--text-faint)'},
+      {l:'Consensus',v:(swarm.consensus||'—').toUpperCase(),c:swarm.consensus==='buy'?'var(--pass-color)':swarm.consensus==='sell'?'var(--accent-warn)':'var(--text-faint)'},
+      {l:'Agreement',v:((swarm.agreement||0)*100).toFixed(1)+'%',c:'var(--accent)'},
+      {l:'Diversity',v:((swarm.diversity||0)*100).toFixed(1)+'%',c:'var(--text-faint)'},
+    ].map(c => `<div class="stat-card"><div class="stat-label">${c.l}</div><div class="stat-value" style="color:${c.c};white-space:nowrap;font-size:16px">${c.v}</div></div>`).join('');
+
+    // Recent trades
+    fetch('data/continuous_trade_history.json').then(r => r.json()).then(td => {
+      const trades = td.trades || [];
+      document.getElementById('continuous-trades-table').innerHTML = trades.length === 0
+        ? '<tr><td colspan="6" style="text-align:center;padding:12px;color:var(--text-faint)">No paper trades yet</td></tr>'
+        : trades.slice().reverse().slice(0,20).map(t => {
+            const sideColor = t.side === 'buy' ? 'var(--pass-color)' : 'var(--accent-warn)';
+            return `<tr style="border-bottom:1px solid rgba(255,255,255,0.04)">
+              <td style="padding:6px 12px;font-weight:600;color:#2ecc71">${t.symbol}</td>
+              <td style="padding:6px 12px;color:${sideColor};font-weight:700;text-transform:uppercase">${t.side}</td>
+              <td style="padding:6px 12px;text-align:right">${t.qty}</td>
+              <td style="padding:6px 12px;font-size:11px;color:var(--text-faint)">${t.signal_source||'—'}</td>
+              <td style="padding:6px 12px;font-size:11px;color:var(--text-faint)">${t.swarm_consensus||'—'}</td>
+              <td style="padding:6px 12px;font-size:10px;color:var(--text-faint)">${(t.timestamp||'').substring(11,19)}</td>
+            </tr>`;
+          }).join('');
+    }).catch(() => {
+      document.getElementById('continuous-trades-table').innerHTML = '<tr><td colspan="6" style="text-align:center;padding:12px;color:var(--text-faint)">No trade data</td></tr>';
+    });
+
+    // Last cycle stats
+    const ms = last.model_summary || {};
+    document.getElementById('continuous-cycle-stats').innerHTML = [
+      {l:'Cycle #',v:last.cycle_number||0,c:'#2ecc71'},
+      {l:'Duration',v:(last.duration_ms||0)+'ms',c:'var(--accent)'},
+      {l:'Buy Signals',v:ms.signals_buy||0,c:'var(--pass-color)'},
+      {l:'Sell Signals',v:ms.signals_sell||0,c:'var(--accent-warn)'},
+      {l:'Hold Signals',v:ms.signals_hold||0,c:'var(--text-faint)'},
+      {l:'Avg Confidence',v:((ms.avg_confidence||0)*100).toFixed(0)+'%',c:'var(--accent)'},
+    ].map(c => `<div class="stat-card"><div class="stat-label">${c.l}</div><div class="stat-value" style="color:${c.c};white-space:nowrap;font-size:16px">${c.v}</div></div>`).join('');
+  } catch(e) {
+    document.getElementById('continuous-stats').innerHTML = '<div class="stat-card"><div class="stat-label">Error</div><div class="stat-value" style="color:var(--accent-warn)">Failed to load</div></div>';
+  }
+}
+
+// ============================================================
+// ORACLE AUTO-GEN TAB
+// ============================================================
+async function loadOracleAuto() {
+  try {
+    const res = await fetch('data/oracle_auto_status.json');
+    const data = await res.json();
+    const last = data.last_cycle || {};
+
+    // Main stats
+    document.getElementById('oracle-auto-stats').innerHTML = [
+      {l:'Total Models',v:(data.total_models||0).toLocaleString(),c:'#e74c3c'},
+      {l:'AI Types',v:data.base_types||20,c:'#e74c3c'},
+      {l:'Variations/Type',v:data.variations_per_type||500,c:'var(--accent)'},
+      {l:'Cycles',v:data.cycle_count||0,c:'var(--accent)'},
+      {l:'Sampled/Cycle',v:'500',c:'var(--text-faint)'},
+      {l:'Precision',v:data.precision_status||'not_benchmarked',c:'var(--text-faint)'},
+    ].map(c => `<div class="stat-card"><div class="stat-label">${c.l}</div><div class="stat-value" style="color:${c.c};white-space:nowrap;font-size:16px">${c.v}</div></div>`).join('');
+
+    // 20 model type cards
+    const allocation = await fetch('data/model_allocation_10k.json').then(r=>r.json()).catch(()=>({allocation:[]}));
+    const types = allocation.allocation || [];
+    document.getElementById('oracle-model-types').innerHTML = types.map(t => {
+      const isNew = ['Transformer_Attn','Reinforcement_Q','GAN_Predictor','Bayesian_Inf','Diffusion_Proc','Graph_Neural','Attention_LSTM','Autoencoder_Sig','Wavelet Decomp','Fuzzy_Logic'].includes(t.base_type);
+      const color = isNew ? '#e74c3c' : '#38bdf8';
+      const label = isNew ? 'NEW' : '';
+      return `<div class="module-card" ${isNew?'style="border-color:rgba(231,76,60,0.3)"':''}>
+        <div class="module-name" style="color:${color}">${t.base_type}</div>
+        <div style="font-size:20px;font-weight:700;color:${color}">${(t.models||0).toLocaleString()}</div>
+        <div style="font-size:11px;color:var(--text-faint)">models</div>
+        ${label ? `<div style="font-size:9px;color:#e74c3c;font-weight:700;margin-top:2px">${label}</div>` : ''}
+      </div>`;
+    }).join('');
+
+    // Consensus table
+    const consensus = last.consensus_per_symbol || [];
+    document.getElementById('oracle-consensus-table').innerHTML = consensus.length === 0
+      ? '<tr><td colspan="7" style="text-align:center;padding:12px;color:var(--text-faint)">No consensus data</td></tr>'
+      : consensus.map(c => {
+          const consColor = c.consensus === 'buy' ? 'var(--pass-color)' : c.consensus === 'sell' ? 'var(--accent-warn)' : 'var(--text-faint)';
+          return `<tr style="border-bottom:1px solid rgba(255,255,255,0.04)">
+            <td style="padding:6px 12px;font-weight:600;color:#e74c3c">${c.symbol}</td>
+            <td style="padding:6px 12px;color:${consColor};font-weight:700;text-transform:uppercase">${c.consensus}</td>
+            <td style="padding:6px 12px;text-align:right;color:var(--pass-color)">${(c.buy_votes||0).toLocaleString()}</td>
+            <td style="padding:6px 12px;text-align:right;color:var(--accent-warn)">${(c.sell_votes||0).toLocaleString()}</td>
+            <td style="padding:6px 12px;text-align:right;color:var(--text-faint)">${(c.hold_votes||0).toLocaleString()}</td>
+            <td style="padding:6px 12px;text-align:right">${(c.total_votes||0).toLocaleString()}</td>
+            <td style="padding:6px 12px;text-align:right">${((c.agreement||0)*100).toFixed(1)}%</td>
+          </tr>`;
+        }).join('');
+
+    // Top models table
+    const topModels = last.top_models || [];
+    document.getElementById('oracle-top-models-table').innerHTML = topModels.length === 0
+      ? '<tr><td colspan="6" style="text-align:center;padding:12px;color:var(--text-faint)">No model data</td></tr>'
+      : topModels.map(m => {
+          const accColor = m.accuracy >= 0.8 ? 'var(--pass-color)' : m.accuracy >= 0.5 ? 'var(--accent)' : 'var(--text-faint)';
+          const sigColor = m.last_signal === 'buy' ? 'var(--pass-color)' : m.last_signal === 'sell' ? 'var(--accent-warn)' : 'var(--text-faint)';
+          return `<tr style="border-bottom:1px solid rgba(255,255,255,0.04)">
+            <td style="padding:6px 12px;font-family:monospace;font-size:11px;color:#e74c3c">${m.model_id}</td>
+            <td style="padding:6px 12px;color:var(--text-secondary)">${m.base_type}</td>
+            <td style="padding:6px 12px;text-align:right;color:${accColor};font-weight:600">${((m.accuracy||0)*100).toFixed(0)}%</td>
+            <td style="padding:6px 12px;text-align:right">${m.predictions||0}</td>
+            <td style="padding:6px 12px;text-align:right;color:var(--pass-color)">${m.correct||0}</td>
+            <td style="padding:6px 12px;color:${sigColor};font-weight:600;text-transform:uppercase">${m.last_signal||'—'}</td>
+          </tr>`;
+        }).join('');
+
+    // Last cycle stats
+    const sig = last.signals || {};
+    document.getElementById('oracle-cycle-stats').innerHTML = [
+      {l:'Cycle #',v:last.cycle_number||0,c:'#e74c3c'},
+      {l:'Duration',v:(last.duration_ms||0).toFixed(0)+'ms',c:'var(--accent)'},
+      {l:'Predictions',v:(last.total_predictions||0).toLocaleString(),c:'var(--accent)'},
+      {l:'Correct',v:(last.total_correct||0).toLocaleString(),c:'var(--pass-color)'},
+      {l:'Buy Signals',v:(sig.buy||0).toLocaleString(),c:'var(--pass-color)'},
+      {l:'Sell Signals',v:(sig.sell||0).toLocaleString(),c:'var(--accent-warn)'},
+    ].map(c => `<div class="stat-card"><div class="stat-label">${c.l}</div><div class="stat-value" style="color:${c.c};white-space:nowrap;font-size:16px">${c.v}</div></div>`).join('');
+  } catch(e) {
+    document.getElementById('oracle-auto-stats').innerHTML = '<div class="stat-card"><div class="stat-label">Error</div><div class="stat-value" style="color:var(--accent-warn)">Failed to load</div></div>';
+  }
+}
+
+// ============================================================
+// AI MODELS TAB
+// ============================================================
+async function loadAIModels() {
+  try {
+    const res = await fetch('data/ai_model_registry.json');
+    const data = await res.json();
+
+    document.getElementById('ai-models-stats').innerHTML = [
+      {l:'Providers',v:data.total_providers||38,c:'#1abc9c'},
+      {l:'Total Models',v:(data.total_models||0).toLocaleString(),c:'#1abc9c'},
+      {l:'Connected',v:data.connected||0,c:'var(--pass-color)'},
+      {l:'Not Configured',v:data.not_configured||37,c:'var(--accent-warn)'},
+      {l:'LiteLLM Version',v:data.litellm_version||'1.97.0',c:'var(--accent)'},
+      {l:'Aggregators',v:(data.aggregators||[]).length,c:'#e74c3c'},
+    ].map(c => `<div class="stat-card"><div class="stat-label">${c.l}</div><div class="stat-value" style="color:${c.c};font-size:16px">${c.v}</div></div>`).join('');
+
+    const providers = data.providers || [];
+    document.getElementById('ai-providers-table').innerHTML = providers.map(p => {
+      let statusColor = 'var(--accent-warn)';
+      let statusText = p.status || 'not_configured';
+      if (p.status === 'ready') { statusColor = 'var(--pass-color)'; statusText = 'KEY DETECTED'; }
+      if (p.status === 'local_only') { statusColor = 'var(--accent)'; statusText = 'LOCAL'; }
+      const aggTag = p.aggregator ? ' **' : '';
+      return `<tr style="border-bottom:1px solid rgba(255,255,255,0.04)">
+        <td style="padding:5px 10px;font-weight:600;color:#1abc9c">${p.name}${aggTag}</td>
+        <td style="padding:5px 10px;font-family:monospace;font-size:11px;color:var(--text-secondary)">${p.litellm_prefix}</td>
+        <td style="padding:5px 10px;font-family:monospace;font-size:11px;color:var(--text-faint)">${p.env_var}</td>
+        <td style="padding:5px 10px;text-align:right;font-weight:600">${(p.model_count||0).toLocaleString()}</td>
+        <td style="padding:5px 10px;font-size:11px;color:var(--text-secondary)">${(p.key_models||[]).slice(0,3).join(', ')}</td>
+        <td style="padding:5px 10px;color:${statusColor};font-weight:600;font-size:11px">${statusText}</td>
+      </tr>`;
+    }).join('');
+  } catch(e) {
+    document.getElementById('ai-models-stats').innerHTML = '<div class="stat-card"><div class="stat-label">Error</div><div class="stat-value" style="color:var(--accent-warn)">Failed to load</div></div>';
+  }
+}
+
+// ============================================================
+// V22900 TAB
+// ============================================================
+async function loadV22900() {
+  const components = [
+    {n:'ObservationState',d:'Epistemic states: known/inferred/unknown/unobservable/testable',c:'#e67e22'},
+    {n:'PredictionLedger',d:'Pre-outcome predictions, resolved and calibrated (MAE/Brier)',c:'#e67e22'},
+    {n:'ProvenanceMemory',d:'Relevance, quality, freshness, contradiction-aware retrieval',c:'#e67e22'},
+    {n:'MemoryLease',d:'Purpose, provenance roots, expiry, protected-use approval',c:'#e67e22'},
+    {n:'CapabilityGraph',d:'DAG with missing-dep and cycle detection',c:'#e67e22'},
+    {n:'TaskGraph',d:'Dependency ordering, least-privilege, separate budgets',c:'#e67e22'},
+    {n:'ProviderRouter',d:'Capability vs cost/latency/privilege routing',c:'#e67e22'},
+    {n:'MultiRegimeGate',d:'Synthetic/stochastic/adversarial/real regime testing',c:'#e67e22'},
+    {n:'WeaknessDiscovery',d:'Severity × reproducibility × (1-uncertainty) ranking',c:'#e67e22'},
+    {n:'PostWriteValidator',d:'Invariant, regression, replay, rollback, approval gates',c:'#e67e22'},
+    {n:'TrustedHostPacket',d:'Candidate/action digest binding, authority, expiry',c:'#e67e22'},
+  ];
+  const epistemic = [
+    {n:'KNOWN',d:'Directly verified by evidence',c:'var(--pass-color)'},
+    {n:'INFERRED',d:'Derived from other known/inferred states',c:'var(--accent)'},
+    {n:'UNKNOWN',d:'Not yet determined',c:'var(--text-faint)'},
+    {n:'UNOBSERVABLE',d:'Cannot be observed',c:'var(--accent-warn)'},
+    {n:'TESTABLE',d:'Can be verified but hasn\'t been yet',c:'#e67e22'},
+  ];
+
+  document.getElementById('v22900-components').innerHTML = components.map(c =>
+    `<div class="module-card">
+      <div class="module-name" style="color:${c.c}">${c.n}</div>
+      <div style="font-size:11px;color:var(--text-secondary);margin-top:4px;line-height:1.4">${c.d}</div>
+    </div>`
+  ).join('');
+
+  document.getElementById('v22900-epistemic').innerHTML = epistemic.map(c =>
+    `<div class="module-card" style="text-align:center">
+      <div class="module-name" style="color:${c.c};font-size:14px">${c.n}</div>
+      <div style="font-size:11px;color:var(--text-secondary);margin-top:4px">${c.d}</div>
+    </div>`
+  ).join('');
+
+  // Stats
+  document.getElementById('v22900-stats').innerHTML = [
+    {l:'Version',v:'V22900',c:'#e67e22'},
+    {l:'Components',v:'11',c:'#e67e22'},
+    {l:'Epistemic States',v:'5',c:'var(--accent)'},
+    {l:'Tests',v:'81',c:'var(--pass-color)'},
+    {l:'Pass Rate',v:'100%',c:'var(--pass-color)'},
+    {l:'Regimes',v:'4',c:'var(--accent)'},
+  ].map(c => `<div class="stat-card"><div class="stat-label">${c.l}</div><div class="stat-value" style="color:${c.c};font-size:16px">${c.v}</div></div>`).join('');
+
+  // Calibration placeholder
+  document.getElementById('v22900-calibration').innerHTML = [
+    {l:'Predictions',v:'0',c:'var(--accent)'},
+    {l:'Resolved',v:'0',c:'var(--pass-color)'},
+    {l:'Accuracy',v:'—',c:'var(--text-faint)'},
+    {l:'MAE',v:'—',c:'var(--text-faint)'},
+    {l:'Brier Score',v:'—',c:'var(--text-faint)'},
+    {l:'Weaknesses',v:'0',c:'var(--accent-warn)'},
+  ].map(c => `<div class="stat-card"><div class="stat-label">${c.l}</div><div class="stat-value" style="color:${c.c};font-size:16px">${c.v}</div></div>`).join('');
+}
+
+// ============================================================
+// UNLIMITED ENGINE TAB
+// ============================================================
+async function loadUnlimited() {
+  try {
+    const res = await fetch('data/unlimited_engine_status.json');
+    const data = await res.json();
+    const acct = data.accounts || {};
+
+    // Main stats
+    document.getElementById('unlimited-stats').innerHTML = [
+      {l:'Accounts',v:(acct.total_accounts||0).toLocaleString(),c:'#1abc9c'},
+      {l:'Total PnL',v:'$'+(acct.total_pnl||0).toLocaleString(),c:(acct.total_pnl||0)>=0?'var(--pass-color)':'var(--accent-warn)'},
+      {l:'Profitable',v:(acct.profitable_accounts||0),c:'var(--pass-color)'},
+      {l:'Profit %',v:(acct.profitable_pct||0)+'%',c:'var(--pass-color)'},
+      {l:'Total Trades',v:(acct.total_trades||0).toLocaleString(),c:'var(--accent)'},
+      {l:'Cycles',v:data.cycle_count||0,c:'#1abc9c'},
+    ].map(c => `<div class="stat-card"><div class="stat-label">${c.l}</div><div class="stat-value" style="color:${c.c};font-size:16px">${c.v}</div></div>`).join('');
+
+    // Upgrade cards
+    const upgrades = [
+      {n:'Unlimited Accounts',d:'1,000 simulated paper accounts, each with $100K and unique strategy params',c:'#1abc9c'},
+      {n:'Market Learning',d:'Real market data → predictions → resolution → confidence adjustment',c:'#1abc9c'},
+      {n:'Strategy Evolution GA',d:'Genetic algorithm: selection, crossover, mutation across generations',c:'#1abc9c'},
+      {n:'Correlation Arbitrage',d:'Real-time correlation matrix with divergence detection',c:'#1abc9c'},
+    ];
+    document.getElementById('unlimited-upgrades').innerHTML = upgrades.map(c =>
+      `<div class="module-card"><div class="module-name" style="color:${c.c}">${c.n}</div><div style="font-size:11px;color:var(--text-secondary);margin-top:4px;line-height:1.4">${c.d}</div></div>`
+    ).join('');
+
+    // Top accounts table
+    const topAccts = data.top_accounts || [];
+    document.getElementById('unlimited-accounts-table').innerHTML = topAccts.length === 0
+      ? '<tr><td colspan="8" style="text-align:center;padding:12px;color:var(--text-faint)">No account data</td></tr>'
+      : topAccts.map(a => {
+          const pnlColor = a.pnl >= 0 ? 'var(--pass-color)' : 'var(--accent-warn)';
+          return `<tr style="border-bottom:1px solid rgba(255,255,255,0.04)">
+            <td style="padding:5px 10px;font-family:monospace;font-size:11px;color:#1abc9c">${a.account_id}</td>
+            <td style="padding:5px 10px;color:var(--text-secondary)">${a.strategy_name}</td>
+            <td style="padding:5px 10px;text-align:right">$${(a.balance||0).toLocaleString()}</td>
+            <td style="padding:5px 10px;text-align:right;color:${pnlColor};font-weight:600">$${(a.pnl||0).toLocaleString()}</td>
+            <td style="padding:5px 10px;text-align:right;color:${pnlColor}">${(a.pnl_pct||0).toFixed(2)}%</td>
+            <td style="padding:5px 10px;text-align:right">${a.total_trades||0}</td>
+            <td style="padding:5px 10px;text-align:right">${((a.win_rate||0)*100).toFixed(0)}%</td>
+            <td style="padding:5px 10px;text-align:right;color:var(--accent-warn)">${((a.max_drawdown||0)*100).toFixed(1)}%</td>
+          </tr>`;
+        }).join('');
+
+    // GA stats
+    const evo = data.evolution || {};
+    document.getElementById('unlimited-ga-stats').innerHTML = [
+      {l:'Generation',v:evo.generation||1,c:'#1abc9c'},
+      {l:'Population',v:evo.population_size||50,c:'#1abc9c'},
+      {l:'Best Fitness',v:(evo.best_fitness||0).toFixed(4),c:'var(--pass-color)'},
+      {l:'Avg Fitness',v:(evo.avg_fitness||0).toFixed(4),c:'var(--accent)'},
+      {l:'Elite %',v:((evo.elite_count||10)/(evo.population_size||50)*100).toFixed(0)+'%',c:'var(--accent)'},
+      {l:'Mutation Rate',v:((evo.mutation_rate||0.15)*100).toFixed(0)+'%',c:'var(--text-faint)'},
+    ].map(c => `<div class="stat-card"><div class="stat-label">${c.l}</div><div class="stat-value" style="color:${c.c};font-size:16px">${c.v}</div></div>`).join('');
+
+    // Top strategies table
+    const strats = data.top_strategies || [];
+    document.getElementById('unlimited-strategies-table').innerHTML = strats.length === 0
+      ? '<tr><td colspan="8" style="text-align:center;padding:12px;color:var(--text-faint)">No strategy data</td></tr>'
+      : strats.map(s => {
+          const p = s.params || {};
+          return `<tr style="border-bottom:1px solid rgba(255,255,255,0.04)">
+            <td style="padding:5px 10px;font-family:monospace;font-size:11px;color:#1abc9c">${s.genome_id}</td>
+            <td style="padding:5px 10px;text-align:right;color:var(--pass-color);font-weight:600">${(s.fitness||0).toFixed(4)}</td>
+            <td style="padding:5px 10px;text-align:right">${s.generation||1}</td>
+            <td style="padding:5px 10px;text-align:right">${(p.lookback||0).toFixed(1)}</td>
+            <td style="padding:5px 10px;text-align:right">${(p.threshold||0).toFixed(3)}</td>
+            <td style="padding:5px 10px;text-align:right">${((p.position_size||0)*100).toFixed(0)}%</td>
+            <td style="padding:5px 10px;text-align:right;color:var(--accent-warn)">${((p.stop_loss||0)*100).toFixed(1)}%</td>
+            <td style="padding:5px 10px;text-align:right;color:var(--pass-color)">${((p.take_profit||0)*100).toFixed(1)}%</td>
+          </tr>`;
+        }).join('');
+
+    // Learning stats
+    const learn = data.learning || {};
+    document.getElementById('unlimited-learning-stats').innerHTML = [
+      {l:'Observations',v:(learn.observations||0).toLocaleString(),c:'#1abc9c'},
+      {l:'Predictions',v:(learn.predictions_made||0).toLocaleString(),c:'#1abc9c'},
+      {l:'Correct',v:(learn.predictions_correct||0).toLocaleString(),c:'var(--pass-color)'},
+      {l:'Accuracy',v:((learn.accuracy||0)*100).toFixed(1)+'%',c:'var(--pass-color)'},
+      {l:'Resolved',v:(learn.resolved||0),c:'var(--accent)'},
+      {l:'Pending',v:(learn.pending||0),c:'var(--text-faint)'},
+    ].map(c => `<div class="stat-card"><div class="stat-label">${c.l}</div><div class="stat-value" style="color:${c.c};font-size:16px">${c.v}</div></div>`).join('');
+
+    // Correlation stats
+    const corr = data.correlation || {};
+    document.getElementById('unlimited-corr-stats').innerHTML = [
+      {l:'Symbols',v:corr.symbols_tracked||0,c:'#1abc9c'},
+      {l:'Correlations',v:corr.correlations_computed||0,c:'#1abc9c'},
+      {l:'Divergences',v:corr.diverggences_found||0,c:'var(--accent-warn)'},
+      {l:'Opportunities',v:corr.opportunities||0,c:'var(--pass-color)'},
+      {l:'Lookback',v:corr.lookback||20,c:'var(--accent)'},
+      {l:'Threshold',v:corr.threshold||0.7,c:'var(--accent)'},
+    ].map(c => `<div class="stat-card"><div class="stat-label">${c.l}</div><div class="stat-value" style="color:${c.c};font-size:16px">${c.v}</div></div>`).join('');
+  } catch(e) {
+    document.getElementById('unlimited-stats').innerHTML = '<div class="stat-card"><div class="stat-label">Error</div><div class="stat-value" style="color:var(--accent-warn)">Failed to load</div></div>';
+  }
+}
+
+// ============================================================
+// TOPSTEP EVAL TAB
+// ============================================================
+async function loadTopStep() {
+  try {
+    const res = await fetch('data/topstep_eval_status.json');
+    const data = await res.json();
+    document.getElementById('topstep-stats').innerHTML = [
+      {l:'Total Evals',v:(data.total_evals_created||0).toLocaleString(),c:'#f39c12'},
+      {l:'Evaluating',v:(data.currently_evaluating||0).toLocaleString(),c:'var(--accent)'},
+      {l:'Passed',v:(data.total_evals_passed||0).toLocaleString(),c:'var(--pass-color)'},
+      {l:'Pass Rate',v:(data.pass_rate||0)+'%',c:'var(--pass-color)'},
+      {l:'Funded Accts',v:(data.total_funded_created||0).toLocaleString(),c:'#f39c12'},
+      {l:'Funded PnL',v:'$'+(data.funded_total_pnl||0).toLocaleString(),c:(data.funded_total_pnl||0)>=0?'var(--pass-color)':'var(--accent-warn)'},
+      {l:'Best PnL',v:'$'+(data.funded_best_pnl||0).toLocaleString(),c:'var(--pass-color)'},
+      {l:'Worst PnL',v:'$'+(data.funded_worst_pnl||0).toLocaleString(),c:'var(--accent-warn)'},
+      {l:'Total Trades',v:(data.funded_total_trades||0).toLocaleString(),c:'var(--accent)'},
+      {l:'Cycles',v:data.cycle_count||0,c:'#f39c12'},
+    ].map(c => `<div class="stat-card"><div class="stat-label">${c.l}</div><div class="stat-value" style="color:${c.c};font-size:16px">${c.v}</div></div>`).join('');
+    const configs = data.eval_configs || {};
+    document.getElementById('topstep-configs').innerHTML = Object.entries(configs).map(([name, cfg]) =>
+      `<div class="module-card"><div class="module-name" style="color:#f39c12">${name} Eval</div>
+        <div style="font-size:11px;color:var(--text-secondary);margin-top:4px;line-height:1.6">
+          Account Size: $${(cfg.account_size||0).toLocaleString()}<br>
+          Profit Target: $${(cfg.profit_target||0).toLocaleString()}<br>
+          Max Drawdown: $${(cfg.max_drawdown||0).toLocaleString()}<br>
+          Daily Loss Limit: $${(cfg.daily_loss_limit||0).toLocaleString()}<br>
+          Min Trading Days: ${cfg.min_trading_days||3}<br>
+          Contract Sizes: ${(cfg.contract_sizes||[]).join(', ')}
+        </div>
+      </div>`
+    ).join('');
+    const funded = data.top_funded || [];
+    document.getElementById('topstep-funded-table').innerHTML = funded.length === 0
+      ? '<tr><td colspan="10" style="text-align:center;padding:12px;color:var(--text-faint)">No funded accounts yet</td></tr>'
+      : funded.map(f => {
+          const pnlColor = (f.total_pnl||0) >= 0 ? 'var(--pass-color)' : 'var(--accent-warn)';
+          return `<tr style="border-bottom:1px solid rgba(255,255,255,0.04)">
+            <td style="padding:5px 10px;font-family:monospace;font-size:11px;color:#f39c12">${f.account_id}</td>
+            <td style="padding:5px 10px;font-family:monospace;font-size:11px;color:var(--text-faint)">${f.source_eval_id}</td>
+            <td style="padding:5px 10px;color:var(--text-secondary)">${f.config_name}</td>
+            <td style="padding:5px 10px;text-align:right">$${(f.balance||0).toLocaleString()}</td>
+            <td style="padding:5px 10px;text-align:right;color:${pnlColor};font-weight:600">$${(f.total_pnl||0).toLocaleString()}</td>
+            <td style="padding:5px 10px;text-align:right;color:var(--pass-color)">$${(f.max_pnl||0).toLocaleString()}</td>
+            <td style="padding:5px 10px;text-align:right;color:var(--accent-warn)">$${(f.min_pnl||0).toLocaleString()}</td>
+            <td style="padding:5px 10px;text-align:right">${f.total_trades||0}</td>
+            <td style="padding:5px 10px;text-align:right">${((f.win_rate||0)*100).toFixed(0)}%</td>
+            <td style="padding:5px 10px;color:#e74c3c;font-weight:600">${f.pnl_cap||'NONE'}</td>
+          </tr>`;
+        }).join('');
+    const recent = data.recent_passes || [];
+    document.getElementById('topstep-recent-table').innerHTML = recent.length === 0
+      ? '<tr><td colspan="8" style="text-align:center;padding:12px;color:var(--text-faint)">No passes yet</td></tr>'
+      : recent.map(a => {
+          const pnlColor = (a.total_pnl||0) >= 0 ? 'var(--pass-color)' : 'var(--accent-warn)';
+          const passed = a.passed_at ? new Date(a.passed_at).toLocaleTimeString() : '--';
+          return `<tr style="border-bottom:1px solid rgba(255,255,255,0.04)">
+            <td style="padding:5px 10px;font-family:monospace;font-size:11px;color:#f39c12">${a.account_id}</td>
+            <td style="padding:5px 10px;color:var(--text-secondary)">${a.config_name}</td>
+            <td style="padding:5px 10px;text-align:right;color:${pnlColor};font-weight:600">$${(a.total_pnl||0).toLocaleString()}</td>
+            <td style="padding:5px 10px;text-align:right">$${(a.profit_target||0).toLocaleString()}</td>
+            <td style="padding:5px 10px;text-align:right">${a.trading_days||0}</td>
+            <td style="padding:5px 10px;text-align:right;color:var(--accent-warn)">$${(a.drawdown_used||0).toLocaleString()}</td>
+            <td style="padding:5px 10px;color:var(--pass-color);font-weight:600">${a.status||'--'}</td>
+            <td style="padding:5px 10px;color:var(--text-faint);font-size:11px">${passed}</td>
+          </tr>`;
+        }).join('');
+  } catch(e) {
+    document.getElementById('topstep-stats').innerHTML = '<div class="stat-card"><div class="stat-label">Error</div><div class="stat-value" style="color:var(--accent-warn)">Failed to load</div></div>';
+  }
+}
+
+// ============================================================
+// AUTO TRADE EXECUTOR TAB
+// ============================================================
+async function loadAutoExecutor() {
+  try {
+    const res = await fetch('data/auto_executor_status.json');
+    const data = await res.json();
+    document.getElementById('auto-exec-stats').innerHTML = [
+      {l:'Models',v:(data.total_models||0),c:'#9b59b6'},
+      {l:'Total Orders',v:(data.total_orders||0),c:'var(--accent)'},
+      {l:'Open Orders',v:(data.open_orders||0),c:'#9b59b6'},
+      {l:'Closed',v:(data.closed_orders||0),c:'var(--text-secondary)'},
+      {l:'Total PnL',v:'$'+(data.total_pnl||0).toLocaleString(),c:(data.total_pnl||0)>=0?'var(--pass-color)':'var(--accent-warn)'},
+      {l:'Win Rate',v:((data.win_rate||0)*100).toFixed(0)+'%',c:'var(--pass-color)'},
+      {l:'Balance',v:'$'+(data.balance||0).toLocaleString(),c:'#9b59b6'},
+      {l:'Cycles',v:data.cycle_count||0,c:'#9b59b6'},
+    ].map(c => `<div class="stat-card"><div class="stat-label">${c.l}</div><div class="stat-value" style="color:${c.c};font-size:16px">${c.v}</div></div>`).join('');
+    // Category cards
+    const cats = data.category_breakdown || {};
+    document.getElementById('auto-exec-categories').innerHTML = Object.entries(cats).map(([name, stats]) =>
+      `<div class="module-card"><div class="module-name" style="color:#9b59b6">${name}</div>
+        <div style="font-size:11px;color:var(--text-secondary);margin-top:4px;line-height:1.5">
+          Models: ${stats.count}<br>
+          Predictions: ${stats.predictions}<br>
+          Avg Confidence: ${(stats.avg_confidence*100).toFixed(0)}%
+        </div>
+      </div>`
+    ).join('');
+    // Recent orders table
+    const orders = data.recent_orders || [];
+    document.getElementById('auto-exec-orders-table').innerHTML = orders.length === 0
+      ? '<tr><td colspan="10" style="text-align:center;padding:12px;color:var(--text-faint)">No orders yet</td></tr>'
+      : orders.reverse().map(o => {
+          const pnlColor = (o.pnl||0) >= 0 ? 'var(--pass-color)' : 'var(--accent-warn)';
+          return `<tr style="border-bottom:1px solid rgba(255,255,255,0.04)">
+            <td style="padding:5px 10px;font-family:monospace;font-size:11px;color:#9b59b6">${o.order_id}</td>
+            <td style="padding:5px 10px;color:var(--text-secondary)">${o.symbol}</td>
+            <td style="padding:5px 10px;color:${o.side==='buy'?'var(--pass-color)':'var(--accent-warn)'};font-weight:600">${o.side.toUpperCase()}</td>
+            <td style="padding:5px 10px;color:var(--text-faint)">${o.order_type}</td>
+            <td style="padding:5px 10px;text-align:right">${o.quantity}</td>
+            <td style="padding:5px 10px;text-align:right">$${(o.entry_price||0).toFixed(2)}</td>
+            <td style="padding:5px 10px;text-align:right;color:${pnlColor}">$${(o.pnl||0).toFixed(2)}</td>
+            <td style="padding:5px 10px;text-align:right">${o.models_consulted||0}</td>
+            <td style="padding:5px 10px;text-align:right;color:${(o.consensus_score||0)>=0?'var(--pass-color)':'var(--accent-warn)'}">${((o.consensus_score||0)*100).toFixed(0)}%</td>
+            <td style="padding:5px 10px;color:${o.status==='filled'?'#9b59b6':'var(--text-faint)'}">${o.status}</td>
+          </tr>`;
+        }).join('');
+    // Top models table
+    const models = data.top_models || [];
+    document.getElementById('auto-exec-models-table').innerHTML = models.length === 0
+      ? '<tr><td colspan="5" style="text-align:center;padding:12px;color:var(--text-faint)">No model data</td></tr>'
+      : models.slice(0,15).map(m =>
+          `<tr style="border-bottom:1px solid rgba(255,255,255,0.04)">
+            <td style="padding:5px 10px;font-family:monospace;font-size:11px;color:#9b59b6">${m.name}</td>
+            <td style="padding:5px 10px;color:var(--text-secondary)">${m.category}</td>
+            <td style="padding:5px 10px;text-align:right">${m.predictions_made||0}</td>
+            <td style="padding:5px 10px;text-align:right;color:var(--pass-color)">${((m.accuracy||0)*100).toFixed(0)}%</td>
+            <td style="padding:5px 10px;text-align:right">${((m.avg_confidence||0)*100).toFixed(0)}%</td>
+          </tr>`
+        ).join('');
+  } catch(e) {
+    document.getElementById('auto-exec-stats').innerHTML = '<div class="stat-card"><div class="stat-label">Error</div><div class="stat-value" style="color:var(--accent-warn)">Failed to load</div></div>';
+  }
+}
+
+// ============================================================
+// MARKET CHARTS — Canvas-based mini sparkline charts
+// ============================================================
+function drawMiniChart(canvasId, priceLabelId, basePrice, changePct) {
+  const canvas = document.getElementById(canvasId);
+  if (!canvas) return;
+  const ctx = canvas.getContext('2d');
+  const w = canvas.width, h = canvas.height;
+  ctx.clearRect(0, 0, w, h);
+  // Generate 30 synthetic candles leading to current price
+  const points = 30;
+  const data = [];
+  let p = basePrice * (1 - changePct/100 * 3);
+  for (let i = 0; i < points; i++) {
+    p += (basePrice - p) * 0.1 + (Math.random() - 0.5) * basePrice * 0.008;
+    data.push(p);
+  }
+  data[points-1] = basePrice;
+  const minP = Math.min(...data), maxP = Math.max(...data);
+  const range = maxP - minP || 1;
+  // Draw filled area
+  ctx.beginPath();
+  data.forEach((v, i) => {
+    const x = (i / (points-1)) * w;
+    const y = h - ((v - minP) / range) * (h - 10) - 5;
+    if (i === 0) ctx.moveTo(x, y); else ctx.lineTo(x, y);
+  });
+  ctx.lineTo(w, h); ctx.lineTo(0, h); ctx.closePath();
+  const grad = ctx.createLinearGradient(0, 0, 0, h);
+  if (changePct >= 0) {
+    grad.addColorStop(0, 'rgba(46,204,113,0.3)'); grad.addColorStop(1, 'rgba(46,204,113,0)');
+  } else {
+    grad.addColorStop(0, 'rgba(231,76,60,0.3)'); grad.addColorStop(1, 'rgba(231,76,60,0)');
+  }
+  ctx.fillStyle = grad; ctx.fill();
+  // Draw line
+  ctx.beginPath();
+  data.forEach((v, i) => {
+    const x = (i / (points-1)) * w;
+    const y = h - ((v - minP) / range) * (h - 10) - 5;
+    if (i === 0) ctx.moveTo(x, y); else ctx.lineTo(x, y);
+  });
+  ctx.strokeStyle = changePct >= 0 ? '#2ecc71' : '#e74c3c';
+  ctx.lineWidth = 1.5; ctx.stroke();
+  // Price label
+  const label = document.getElementById(priceLabelId);
+  if (label) {
+    const color = changePct >= 0 ? 'var(--pass-color)' : 'var(--accent-warn)';
+    const sign = changePct >= 0 ? '+' : '';
+    label.innerHTML = `$${basePrice.toFixed(2)} <span style="color:${color};font-size:12px">${sign}${changePct.toFixed(2)}%</span>`;
+  }
+}
+
+function loadMarketCharts() {
+  fetch('data/live_market_snapshot.json').then(r => r.json()).then(data => {
+    const symbols = data.symbols || [];
+    const defaults = {
+      spy: {price: 767.36, change: -0.69},
+      qqq: {price: 717.51, change: -1.69},
+      tlt: {price: 81.66, change: 0.38},
+      gld: {price: 398.51, change: -1.72},
+      uso: {price: 130.66, change: 0.28},
+      iwm: {price: 300.19, change: -1.27},
+      vix: {price: 15.84, change: 4.28},
+      dia: {price: 532.91, change: -0.24},
+    };
+    const priceMap = {};
+    symbols.forEach(s => {
+      const key = (s.symbol || '').toLowerCase().replace('^','');
+      priceMap[key] = { price: s.price || 0, change: s.change_pct || s.changesPercentage || 0 };
+    });
+    ['spy','qqq','tlt','gld','uso','iwm','vix','dia'].forEach(sym => {
+      const d = priceMap[sym] || defaults[sym];
+      drawMiniChart('chart-'+sym, 'price-'+sym, d.price, d.change);
+    });
+  }).catch(() => {
+    const defaults = {
+      spy: {price: 767.36, change: -0.69},
+      qqq: {price: 717.51, change: -1.69},
+      tlt: {price: 81.66, change: 0.38},
+      gld: {price: 398.51, change: -1.72},
+      uso: {price: 130.66, change: 0.28},
+      iwm: {price: 300.19, change: -1.27},
+      vix: {price: 15.84, change: 4.28},
+      dia: {price: 532.91, change: -0.24},
+    };
+    Object.entries(defaults).forEach(([sym, d]) => {
+      drawMiniChart('chart-'+sym, 'price-'+sym, d.price, d.change);
+    });
+  });
+}
+
+// ============================================================
+// TEST SUITE TAB
+// ============================================================
+function renderTests() {
+  const totalTests = testModules.reduce((s,m) => s+m.tests, 0);
+  const totalPass = testModules.reduce((s,m) => s+m.pass, 0);
+  const passRate = totalTests > 0 ? (totalPass/totalTests*100) : 0;
+
+  const summaryStats = [
+    {label:"Total Tests",value:fmtInt(totalTests),color:"accent-color"},
+    {label:"Total Passed",value:fmtInt(totalPass),color:"pass-color"},
+    {label:"Total Failed",value:fmtInt(totalTests-totalPass),color:"fail-color"},
+    {label:"Overall Pass Rate",value:fmtPct(passRate,1),color:"pass-color"},
+  ];
+  document.getElementById('test-summary').innerHTML = summaryStats.map(st =>
+    `<div class="stat-card"><div class="stat-label">${st.label}</div><div class="stat-value ${st.color}">${st.value}</div></div>`
+  ).join('');
+
+  const modules = [...testModules, {name:"TOTAL",tests:totalTests,pass:totalPass,color:"quantum"}];
+  document.getElementById('test-grid').innerHTML = modules.map(m => {
+    const rate = m.tests > 0 ? (m.pass/m.tests*100).toFixed(1) : 0;
+    const isTotal = m.name === 'TOTAL';
+    const barColor = m.pass === m.tests ? 'bar-pass' : 'bar-fail';
+    const barWidth = m.tests > 0 ? (m.pass/m.tests*100) : 0;
+    return `<div class="module-card ${isTotal||m.color==='quantum'?'quantum-card':''}">
+      <h3>${m.name}</h3>
+      <div class="tests">${m.pass}/${m.tests}</div>
+      <div class="desc">${rate}% pass rate</div>
+      <div class="bar-wrap"><div class="bar-fill ${barColor}" style="width:${barWidth}%"></div></div>
+    </div>`;
+  }).join('');
+}
+
+// ============================================================
+// CHART UTILITIES
+// ============================================================
+function chartOpts(title) {
+  return {
+    responsive: true,
+    maintainAspectRatio: false,
+    plugins: {
+      title: { display: true, text: title, color: '#e2e8f0', font: { size: 13, weight: '600' } },
+      legend: { labels: { color: '#94a3b8', font: { size: 12 } } },
+      tooltip: { backgroundColor: '#141921', titleColor: '#e2e8f0', bodyColor: '#94a3b8', borderColor: '#1e2632', borderWidth: 1 }
+    },
+    scales: {
+      x: { grid: { color: '#1e2632' }, ticks: { color: '#94a3b8' } },
+      y: { grid: { color: '#1e2632' }, ticks: { color: '#94a3b8' } }
+    }
+  };
+}
+
+function makeChart(canvasId, config) {
+  const canvas = document.getElementById(canvasId);
+  if (!canvas || typeof Chart === 'undefined') return;
+  // Destroy existing chart on this canvas
+  if (charts[canvasId]) { charts[canvasId].destroy(); }
+  try {
+    charts[canvasId] = new Chart(canvas, config);
+  } catch(e) {
+    console.error('Chart error for', canvasId, e);
+  }
+}
+
+// ---- Boot ----
+loadAllData();
+</script>
+</body>
+</html>

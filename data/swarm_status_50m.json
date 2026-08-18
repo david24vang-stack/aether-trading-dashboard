@@ -1,0 +1,27 @@
+{
+  "total_agents": 50000000,
+  "computation_mode": "sampling_extrapolation",
+  "base_models": 6,
+  "parameter_perturbations": 100,
+  "sample_size": 10000,
+  "extrapolation_factor": 5000,
+  "simulated": true,
+  "honesty_note": "50M agents are SIMULATED via sampling. 10K agents actually computed, results extrapolated. Swarm measures diversity, not accuracy.",
+  "last_result": {
+    "total_agents": 50000000,
+    "sample_computed": 10000,
+    "extrapolation_factor": 5000,
+    "votes": {
+      "buy": 17835000,
+      "sell": 17570000,
+      "hold": 14595000
+    },
+    "consensus": "buy",
+    "agreement": 0.3567,
+    "diversity": 0.6433,
+    "simulated": true,
+    "model_prediction": true,
+    "honesty_note": "50M agents are SIMULATED via sampling. 10K agents actually computed, results extrapolated. Swarm measures diversity, not accuracy."
+  },
+  "cycle": 5
+}

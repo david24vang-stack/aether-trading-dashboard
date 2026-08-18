@@ -1,0 +1,98 @@
+{
+  "account": {
+    "id": "4b0fea70-4bba-4633-b4aa-79cb4c77f12b",
+    "account_number": "PA3Z2MDCLLFZ",
+    "status": "ACTIVE",
+    "cash": "$100,000",
+    "buying_power": "$400,000",
+    "portfolio_value": "$100,000",
+    "currency": "USD",
+    "paper": true,
+    "created_at": "2026-08-18T16:02:45Z"
+  },
+  "positions": [
+    {
+      "symbol": "SPY",
+      "qty": "10",
+      "side": "long",
+      "avg_entry_price": "768.14",
+      "current_price": "768.09",
+      "market_value": "7680.90",
+      "unrealized_pl": "-0.50",
+      "unrealized_plpc": "-0.00007",
+      "change_today": "-0.00593",
+      "source": "alpaca_paper_api"
+    },
+    {
+      "symbol": "QQQ",
+      "qty": "10",
+      "side": "long",
+      "avg_entry_price": "718.045",
+      "current_price": "717.96",
+      "market_value": "7179.60",
+      "unrealized_pl": "-0.85",
+      "unrealized_plpc": "-0.00012",
+      "change_today": "-0.01632",
+      "source": "alpaca_paper_api"
+    },
+    {
+      "symbol": "TLT",
+      "qty": "-10",
+      "side": "short",
+      "avg_entry_price": "81.68",
+      "current_price": "81.685",
+      "market_value": "-816.85",
+      "unrealized_pl": "-0.05",
+      "unrealized_plpc": "-0.00006",
+      "change_today": "0.00412",
+      "source": "alpaca_paper_api"
+    }
+  ],
+  "orders": [
+    {
+      "order_id": "1996e039-1ae5-476f-8ee9-9da3880d98fd",
+      "symbol": "SPY",
+      "side": "buy",
+      "qty": "10",
+      "type": "market",
+      "status": "filled",
+      "submitted_at": "2026-08-18T17:36:18Z",
+      "source": "alpaca_paper_api",
+      "signal_source": "zenith_consensus"
+    },
+    {
+      "order_id": "d99112c8-dde5-4600-8ed3-de85082be1b1",
+      "symbol": "QQQ",
+      "side": "buy",
+      "qty": "10",
+      "type": "market",
+      "status": "filled",
+      "submitted_at": "2026-08-18T17:36:20Z",
+      "source": "alpaca_paper_api",
+      "signal_source": "zenith_consensus"
+    },
+    {
+      "order_id": "f5cfe3bf-292b-4fc4-9a61-2c89e7b2eb5f",
+      "symbol": "TLT",
+      "side": "sell",
+      "qty": "10",
+      "type": "market",
+      "status": "filled",
+      "submitted_at": "2026-08-18T17:36:22Z",
+      "source": "alpaca_paper_api",
+      "signal_source": "zenith_consensus"
+    }
+  ],
+  "summary": {
+    "total_positions": 3,
+    "total_market_value": "$14,043.65",
+    "total_unrealized_pl": "-$1.40",
+    "total_unrealized_plpc": "-0.0001",
+    "cash_remaining": "$85,956.35",
+    "paper": true,
+    "broker": "Alpaca Paper API",
+    "last_updated": "2026-08-18T17:36:58.621086+00:00",
+    "disclaimer": "PAPER TRADING ONLY \u2014 no real funds at risk. Positions placed via Alpaca Paper API based on Zenith prediction model signals."
+  },
+  "disclaimer": "All trades are PAPER trades on Alpaca's paper trading API. No real money is at risk. Positions based on Zenith prediction model consensus signals."
+}

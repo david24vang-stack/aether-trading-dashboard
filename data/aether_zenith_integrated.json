@@ -1,0 +1,120 @@
+{
+  "system_status": "GOD_MODE_LOCKED",
+  "simulated": true,
+  "timestamp": "2026-08-18T16:28:14.979958+00:00",
+  "kernel": {
+    "system_status": "GOD_MODE_LOCKED",
+    "simulated": true,
+    "num_models": 6,
+    "consensus": {
+      "consensus_signal": "hold",
+      "agreement_score": 0.5,
+      "num_models": 6,
+      "buy_votes": 0,
+      "sell_votes": 3,
+      "hold_votes": 3,
+      "dissent": 0.5,
+      "weighted_confidence": 0.0855,
+      "net_vote": -3
+    },
+    "research_logs": [
+      {
+        "node": "Velocity Scalper",
+        "message": "Velocity Scalper: sell on CLUSD (conf=16%)",
+        "timestamp": "2026-08-18T16:28:14.979855+00:00",
+        "confidence": 0.1609,
+        "category": "signal"
+      },
+      {
+        "node": "Vol Regime Rider",
+        "message": "Vol Regime Rider: sell on CLUSD (conf=20%)",
+        "timestamp": "2026-08-18T16:28:14.979890+00:00",
+        "confidence": 0.2,
+        "category": "signal"
+      },
+      {
+        "node": "Mean Reversion Z",
+        "message": "Mean Reversion Z: hold on CLUSD (conf=9%)",
+        "timestamp": "2026-08-18T16:28:14.979896+00:00",
+        "confidence": 0.0927,
+        "category": "observation"
+      },
+      {
+        "node": "Momentum Acceleration",
+        "message": "Momentum Acceleration: sell on CLUSD (conf=7%)",
+        "timestamp": "2026-08-18T16:28:14.979899+00:00",
+        "confidence": 0.0721,
+        "category": "signal"
+      },
+      {
+        "node": "Stat Arb Spread",
+        "message": "Stat Arb Spread: hold on CLUSD/ESUSD (conf=30%)",
+        "timestamp": "2026-08-18T16:28:14.979902+00:00",
+        "confidence": 0.3,
+        "category": "observation"
+      },
+      {
+        "node": "Zenith Consensus",
+        "message": "Zenith Consensus: hold on CLUSD (conf=20%)",
+        "timestamp": "2026-08-18T16:28:14.979908+00:00",
+        "confidence": 0.2,
+        "category": "observation"
+      },
+      {
+        "node": "Architect Node",
+        "message": "Ensemble consensus computed across 6 prediction models.",
+        "timestamp": "2026-08-18T16:28:14.979911+00:00",
+        "confidence": 1.0,
+        "category": "analysis"
+      },
+      {
+        "node": "Consensus Aggregator",
+        "message": "Agreement score: 50.0%. Signal: HOLD. Dissent: 50.0%.",
+        "timestamp": "2026-08-18T16:28:14.979934+00:00",
+        "confidence": 0.0855,
+        "category": "analysis"
+      }
+    ],
+    "timestamp": "2026-08-18T16:28:14.979955+00:00",
+    "disclaimer": "Zenith Kernel uses ensemble consensus from real prediction models. GOD_MODE is LOCKED. No real trading authority. All results simulated."
+  },
+  "prediction_results": {
+    "velocity_scalper": {
+      "signal": "sell",
+      "confidence": 0.1609,
+      "symbol": "CLUSD",
+      "message": "Velocity Scalper: sell on CLUSD (conf=16%)"
+    },
+    "vol_regime_rider": {
+      "signal": "sell",
+      "confidence": 0.2,
+      "symbol": "CLUSD",
+      "message": "Vol Regime Rider: sell on CLUSD (conf=20%)"
+    },
+    "mean_reversion_z": {
+      "signal": "hold",
+      "confidence": 0.0927,
+      "symbol": "CLUSD",
+      "message": "Mean Reversion Z: hold on CLUSD (conf=9%)"
+    },
+    "momentum_acceleration": {
+      "signal": "sell",
+      "confidence": 0.0721,
+      "symbol": "CLUSD",
+      "message": "Momentum Acceleration: sell on CLUSD (conf=7%)"
+    },
+    "zenith_consensus": {
+      "signal": "hold",
+      "confidence": 0.2,
+      "symbol": "CLUSD",
+      "message": "Zenith Consensus: hold on CLUSD (conf=20%)"
+    },
+    "stat_arb_spread": {
+      "signal": "hold",
+      "confidence": 0.3,
+      "symbol": "CLUSD/ESUSD",
+      "message": "Stat Arb Spread: hold on CLUSD/ESUSD (conf=30%)"
+    }
+  },
+  "disclaimer": "Aether Zenith Integration \u2014 All predictions are model-based estimates. No real trading authority. GOD_MODE LOCKED. Simulated only."
+}

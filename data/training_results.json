@@ -1,0 +1,290 @@
+{
+  "summary": {
+    "account_size": 50000,
+    "total_accounts": 10000,
+    "total_passed": 9971,
+    "total_failed": 29,
+    "overall_pass_rate": 99.7,
+    "best_config_name": "Aggressive Scalper (Vectorized)",
+    "best_pass_rate": 99.8,
+    "config_scores": {
+      "Aggressive Scalper": 99.7
+    },
+    "pass_rate_trend": [
+      99.8,
+      99.8,
+      99.75,
+      99.4,
+      99.8
+    ],
+    "first_half_avg_pass_rate": 99.8,
+    "second_half_avg_pass_rate": 99.6,
+    "learning_improvement_pp": -0.2,
+    "funded_account_count": 100,
+    "funded_profitable": 100,
+    "avg_funded_pnl": 3428.99,
+    "num_batches": 5,
+    "target_pass_rate": 95.0,
+    "target_met": true,
+    "avg_days_to_pass": 6.8,
+    "avg_pnl": 3364.54,
+    "timestamp": ""
+  },
+  "batches": [
+    {
+      "batch_num": 0,
+      "accounts_run": 2000,
+      "passed": 1996,
+      "failed": 4,
+      "pass_rate": 99.8,
+      "avg_pnl": 0,
+      "best_day_pnl": 0,
+      "fail_reasons": {
+        "MLL_BREACHED": 27,
+        "PROFIT_NOT_REACHED": 2
+      },
+      "model_config_name": "Chunk 1",
+      "timestamp": ""
+    },
+    {
+      "batch_num": 1,
+      "accounts_run": 2000,
+      "passed": 1996,
+      "failed": 4,
+      "pass_rate": 99.8,
+      "avg_pnl": 0,
+      "best_day_pnl": 0,
+      "fail_reasons": {
+        "MLL_BREACHED": 27,
+        "PROFIT_NOT_REACHED": 2
+      },
+      "model_config_name": "Chunk 2",
+      "timestamp": ""
+    },
+    {
+      "batch_num": 2,
+      "accounts_run": 2000,
+      "passed": 1995,
+      "failed": 5,
+      "pass_rate": 99.75,
+      "avg_pnl": 0,
+      "best_day_pnl": 0,
+      "fail_reasons": {
+        "MLL_BREACHED": 27,
+        "PROFIT_NOT_REACHED": 2
+      },
+      "model_config_name": "Chunk 3",
+      "timestamp": ""
+    },
+    {
+      "batch_num": 3,
+      "accounts_run": 2000,
+      "passed": 1988,
+      "failed": 11,
+      "pass_rate": 99.4,
+      "avg_pnl": 0,
+      "best_day_pnl": 0,
+      "fail_reasons": {
+        "MLL_BREACHED": 27,
+        "PROFIT_NOT_REACHED": 2
+      },
+      "model_config_name": "Chunk 4",
+      "timestamp": ""
+    },
+    {
+      "batch_num": 4,
+      "accounts_run": 2000,
+      "passed": 1996,
+      "failed": 4,
+      "pass_rate": 99.8,
+      "avg_pnl": 0,
+      "best_day_pnl": 0,
+      "fail_reasons": {
+        "MLL_BREACHED": 27,
+        "PROFIT_NOT_REACHED": 2
+      },
+      "model_config_name": "Chunk 5",
+      "timestamp": ""
+    }
+  ],
+  "funded_results": [
+    {
+      "account_id": 0,
+      "pnl": 3080.0,
+      "profitable": true,
+      "passed": true,
+      "days": 11
+    },
+    {
+      "account_id": 1,
+      "pnl": 3228.0,
+      "profitable": true,
+      "passed": true,
+      "days": 6
+    },
+    {
+      "account_id": 2,
+      "pnl": 3710.0,
+      "profitable": true,
+      "passed": true,
+      "days": 5
+    },
+    {
+      "account_id": 3,
+      "pnl": 3710.0,
+      "profitable": true,
+      "passed": true,
+      "days": 5
+    },
+    {
+      "account_id": 4,
+      "pnl": 3636.0,
+      "profitable": true,
+      "passed": true,
+      "days": 7
+    },
+    {
+      "account_id": 5,
+      "pnl": 3395.0,
+      "profitable": true,
+      "passed": true,
+      "days": 8
+    },
+    {
+      "account_id": 6,
+      "pnl": 3098.0,
+      "profitable": true,
+      "passed": true,
+      "days": 6
+    },
+    {
+      "account_id": 7,
+      "pnl": 3655.0,
+      "profitable": true,
+      "passed": true,
+      "days": 11
+    },
+    {
+      "account_id": 8,
+      "pnl": 3506.0,
+      "profitable": true,
+      "passed": true,
+      "days": 5
+    },
+    {
+      "account_id": 9,
+      "pnl": 3303.0,
+      "profitable": true,
+      "passed": true,
+      "days": 17
+    },
+    {
+      "account_id": 10,
+      "pnl": 3710.0,
+      "profitable": true,
+      "passed": true,
+      "days": 5
+    },
+    {
+      "account_id": 11,
+      "pnl": 3432.0,
+      "profitable": true,
+      "passed": true,
+      "days": 6
+    },
+    {
+      "account_id": 12,
+      "pnl": 3228.0,
+      "profitable": true,
+      "passed": true,
+      "days": 6
+    },
+    {
+      "account_id": 13,
+      "pnl": 3636.0,
+      "profitable": true,
+      "passed": true,
+      "days": 7
+    },
+    {
+      "account_id": 14,
+      "pnl": 3673.0,
+      "profitable": true,
+      "passed": true,
+      "days": 5
+    },
+    {
+      "account_id": 15,
+      "pnl": 3710.0,
+      "profitable": true,
+      "passed": true,
+      "days": 5
+    },
+    {
+      "account_id": 16,
+      "pnl": 3710.0,
+      "profitable": true,
+      "passed": true,
+      "days": 5
+    },
+    {
+      "account_id": 17,
+      "pnl": 3710.0,
+      "profitable": true,
+      "passed": true,
+      "days": 5
+    },
+    {
+      "account_id": 18,
+      "pnl": 3154.0,
+      "profitable": true,
+      "passed": true,
+      "days": 10
+    },
+    {
+      "account_id": 19,
+      "pnl": 3191.0,
+      "profitable": true,
+      "passed": true,
+      "days": 8
+    }
+  ],
+  "learning_progress": [
+    {
+      "batch": 0,
+      "pass_rate": 99.8,
+      "config": "Chunk 1",
+      "accounts_run": 2000
+    },
+    {
+      "batch": 1,
+      "pass_rate": 99.8,
+      "config": "Chunk 2",
+      "accounts_run": 2000
+    },
+    {
+      "batch": 2,
+      "pass_rate": 99.75,
+      "config": "Chunk 3",
+      "accounts_run": 2000
+    },
+    {
+      "batch": 3,
+      "pass_rate": 99.4,
+      "config": "Chunk 4",
+      "accounts_run": 2000
+    },
+    {
+      "batch": 4,
+      "pass_rate": 99.8,
+      "config": "Chunk 5",
+      "accounts_run": 2000
+    }
+  ],
+  "top_models": [],
+  "fail_reasons": {
+    "MLL_BREACHED": 27,
+    "PROFIT_NOT_REACHED": 2
+  },
+  "timestamp": ""
+}

@@ -1,0 +1,183 @@
+{
+  "generated_at": "2026-08-18T17:51:00Z",
+  "advisers": [
+    {
+      "name": "TrendAdviser",
+      "confidence": 0.5,
+      "predictions_made": 8,
+      "parameters": {
+        "lookback": 10,
+        "threshold": 0.005
+      }
+    },
+    {
+      "name": "MeanReversionAdviser",
+      "confidence": 0.5,
+      "predictions_made": 8,
+      "parameters": {
+        "sigma_mult": 2.0
+      }
+    },
+    {
+      "name": "VolatilityAdviser",
+      "confidence": 0.5,
+      "predictions_made": 8,
+      "parameters": {
+        "low_thr": 1.0,
+        "high_thr": 2.0
+      }
+    },
+    {
+      "name": "SentimentAdviser",
+      "confidence": 0.5,
+      "predictions_made": 8,
+      "parameters": {
+        "w_volume": 0.5,
+        "w_pattern": 0.5,
+        "signal_threshold": 0.3
+      }
+    }
+  ],
+  "per_symbol": {
+    "ESUSD": {
+      "consensus_signal": "sell",
+      "agreement_score": 0.25,
+      "buy_votes": 0,
+      "sell_votes": 1,
+      "hold_votes": 3,
+      "dissent": 0.75,
+      "weighted_confidence": 0.5,
+      "individual_recommendations": [
+        "AdviserRecommendation(symbol='ESUSD', signal='hold', confidence=0.5, reasoning='no clear trend: fast 7768.0500 vs slow 7619.3500, momentum -0.0052 (norm 0.0002 < thr 0.0050)', adviser_name='TrendAdviser', timestamp=datetime.datetime(2026, 8, 18, 17, 52, 0, 906160, tzinfo=datetime.timezone.utc), suggested_size=0.0)",
+        "AdviserRecommendation(symbol='ESUSD', signal='hold', confidence=0.5, reasoning='within bands: z=0.572 inside +/-2.00 sigma (mean 7638.1750, std 152.7048)', adviser_name='MeanReversionAdviser', timestamp=datetime.datetime(2026, 8, 18, 17, 52, 0, 906199, tzinfo=datetime.timezone.utc), suggested_size=0.0)",
+        "AdviserRecommendation(symbol='ESUSD', signal='sell', confidence=0.5, reasoning='regime=normal (ewma_vol 0.00538, avg_vol 0.00518, ratio 1.04); drift -0.01019', adviser_name='VolatilityAdviser', timestamp=datetime.datetime(2026, 8, 18, 17, 52, 0, 906242, tzinfo=datetime.timezone.utc), suggested_size=0.25)",
+        "AdviserRecommendation(symbol='ESUSD', signal='hold', confidence=0.5, reasoning='neutral sentiment score +0.048 within +/-0.30 (vol_proxy +0.097, pat_proxy +0.000)', adviser_name='SentimentAdviser', timestamp=datetime.datetime(2026, 8, 18, 17, 52, 0, 906282, tzinfo=datetime.timezone.utc), suggested_size=0.0)"
+      ],
+      "model_prediction": true
+    },
+    "NQUSD": {
+      "consensus_signal": "sell",
+      "agreement_score": 0.25,
+      "buy_votes": 0,
+      "sell_votes": 1,
+      "hold_votes": 3,
+      "dissent": 0.75,
+      "weighted_confidence": 0.5,
+      "individual_recommendations": [
+        "AdviserRecommendation(symbol='NQUSD', signal='hold', confidence=0.5, reasoning='no clear trend: fast 29819.5250 vs slow 29156.7100, momentum -0.0083 (norm 0.0000 < thr 0.0050)', adviser_name='TrendAdviser', timestamp=datetime.datetime(2026, 8, 18, 17, 52, 0, 906328, tzinfo=datetime.timezone.utc), suggested_size=0.0)",
+        "AdviserRecommendation(symbol='NQUSD', signal='hold', confidence=0.5, reasoning='within bands: z=0.553 inside +/-2.00 sigma (mean 29156.5375, std 828.6727)', adviser_name='MeanReversionAdviser', timestamp=datetime.datetime(2026, 8, 18, 17, 52, 0, 906349, tzinfo=datetime.timezone.utc), suggested_size=0.0)",
+        "AdviserRecommendation(symbol='NQUSD', signal='sell', confidence=0.5, reasoning='regime=low (ewma_vol 0.00990, avg_vol 0.01088, ratio 0.91); drift -0.01748', adviser_name='VolatilityAdviser', timestamp=datetime.datetime(2026, 8, 18, 17, 52, 0, 906380, tzinfo=datetime.timezone.utc), suggested_size=0.4)",
+        "AdviserRecommendation(symbol='NQUSD', signal='hold', confidence=0.5, reasoning='neutral sentiment score -0.123 within +/-0.30 (vol_proxy -0.245, pat_proxy +0.000)', adviser_name='SentimentAdviser', timestamp=datetime.datetime(2026, 8, 18, 17, 52, 0, 906412, tzinfo=datetime.timezone.utc), suggested_size=0.0)"
+      ],
+      "model_prediction": true
+    },
+    "CLUSD": {
+      "consensus_signal": "buy",
+      "agreement_score": 0.25,
+      "buy_votes": 1,
+      "sell_votes": 0,
+      "hold_votes": 3,
+      "dissent": 0.75,
+      "weighted_confidence": 0.5,
+      "individual_recommendations": [
+        "AdviserRecommendation(symbol='CLUSD', signal='hold', confidence=0.5, reasoning='no clear trend: fast 81.1530 vs slow 82.3896, momentum +0.1098 (norm 0.0366 < thr 0.0050)', adviser_name='TrendAdviser', timestamp=datetime.datetime(2026, 8, 18, 17, 52, 0, 906443, tzinfo=datetime.timezone.utc), suggested_size=0.0)",
+        "AdviserRecommendation(symbol='CLUSD', signal='hold', confidence=0.5, reasoning='within bands: z=0.380 inside +/-2.00 sigma (mean 82.5280, std 4.1069)', adviser_name='MeanReversionAdviser', timestamp=datetime.datetime(2026, 8, 18, 17, 52, 0, 906468, tzinfo=datetime.timezone.utc), suggested_size=0.0)",
+        "AdviserRecommendation(symbol='CLUSD', signal='buy', confidence=0.5, reasoning='regime=low (ewma_vol 0.02353, avg_vol 0.02447, ratio 0.96); drift +0.02051', adviser_name='VolatilityAdviser', timestamp=datetime.datetime(2026, 8, 18, 17, 52, 0, 906494, tzinfo=datetime.timezone.utc), suggested_size=0.4)",
+        "AdviserRecommendation(symbol='CLUSD', signal='hold', confidence=0.5, reasoning='neutral sentiment score +0.029 within +/-0.30 (vol_proxy +0.057, pat_proxy +0.000)', adviser_name='SentimentAdviser', timestamp=datetime.datetime(2026, 8, 18, 17, 52, 0, 906523, tzinfo=datetime.timezone.utc), suggested_size=0.0)"
+      ],
+      "model_prediction": true
+    },
+    "GCUSD": {
+      "consensus_signal": "hold",
+      "agreement_score": 1.0,
+      "buy_votes": 0,
+      "sell_votes": 0,
+      "hold_votes": 4,
+      "dissent": 0.0,
+      "weighted_confidence": 0.5,
+      "individual_recommendations": [
+        "AdviserRecommendation(symbol='GCUSD', signal='hold', confidence=0.5, reasoning='no clear trend: fast 4411.4500 vs slow 4208.2040, momentum +0.0717 (norm 0.0012 < thr 0.0050)', adviser_name='TrendAdviser', timestamp=datetime.datetime(2026, 8, 18, 17, 52, 0, 906553, tzinfo=datetime.timezone.utc), suggested_size=0.0)",
+        "AdviserRecommendation(symbol='GCUSD', signal='hold', confidence=0.5, reasoning='within bands: z=1.182 inside +/-2.00 sigma (mean 4252.5050, std 167.3266)', adviser_name='MeanReversionAdviser', timestamp=datetime.datetime(2026, 8, 18, 17, 52, 0, 906570, tzinfo=datetime.timezone.utc), suggested_size=0.0)",
+        "AdviserRecommendation(symbol='GCUSD', signal='hold', confidence=0.5, reasoning='regime=low (ewma_vol 0.00981, avg_vol 0.01059, ratio 0.93); drift +0.00293', adviser_name='VolatilityAdviser', timestamp=datetime.datetime(2026, 8, 18, 17, 52, 0, 906597, tzinfo=datetime.timezone.utc), suggested_size=0.0)",
+        "AdviserRecommendation(symbol='GCUSD', signal='hold', confidence=0.5, reasoning='neutral sentiment score +0.132 within +/-0.30 (vol_proxy +0.264, pat_proxy +0.000)', adviser_name='SentimentAdviser', timestamp=datetime.datetime(2026, 8, 18, 17, 52, 0, 906624, tzinfo=datetime.timezone.utc), suggested_size=0.0)"
+      ],
+      "model_prediction": true
+    },
+    "SPY": {
+      "consensus_signal": "sell",
+      "agreement_score": 0.25,
+      "buy_votes": 0,
+      "sell_votes": 1,
+      "hold_votes": 3,
+      "dissent": 0.75,
+      "weighted_confidence": 0.5,
+      "individual_recommendations": [
+        "AdviserRecommendation(symbol='SPY', signal='hold', confidence=0.5, reasoning='no clear trend: fast 772.3680 vs slow 756.5808, momentum -0.0029 (norm 0.0010 < thr 0.0050)', adviser_name='TrendAdviser', timestamp=datetime.datetime(2026, 8, 18, 17, 52, 0, 906650, tzinfo=datetime.timezone.utc), suggested_size=0.0)",
+        "AdviserRecommendation(symbol='SPY', signal='hold', confidence=0.5, reasoning='within bands: z=0.651 inside +/-2.00 sigma (mean 758.7665, std 15.8650)', adviser_name='MeanReversionAdviser', timestamp=datetime.datetime(2026, 8, 18, 17, 52, 0, 906666, tzinfo=datetime.timezone.utc), suggested_size=0.0)",
+        "AdviserRecommendation(symbol='SPY', signal='sell', confidence=0.5, reasoning='regime=low (ewma_vol 0.00560, avg_vol 0.00608, ratio 0.92); drift -0.00933', adviser_name='VolatilityAdviser', timestamp=datetime.datetime(2026, 8, 18, 17, 52, 0, 906690, tzinfo=datetime.timezone.utc), suggested_size=0.4)",
+        "AdviserRecommendation(symbol='SPY', signal='hold', confidence=0.5, reasoning='neutral sentiment score +0.066 within +/-0.30 (vol_proxy +0.131, pat_proxy +0.000)', adviser_name='SentimentAdviser', timestamp=datetime.datetime(2026, 8, 18, 17, 52, 0, 906717, tzinfo=datetime.timezone.utc), suggested_size=0.0)"
+      ],
+      "model_prediction": true
+    },
+    "QQQ": {
+      "consensus_signal": "sell",
+      "agreement_score": 0.25,
+      "buy_votes": 0,
+      "sell_votes": 1,
+      "hold_votes": 3,
+      "dissent": 0.75,
+      "weighted_confidence": 0.5,
+      "individual_recommendations": [
+        "AdviserRecommendation(symbol='QQQ', signal='hold', confidence=0.5, reasoning='no clear trend: fast 723.1709 vs slow 706.0835, momentum -0.0044 (norm 0.0008 < thr 0.0050)', adviser_name='TrendAdviser', timestamp=datetime.datetime(2026, 8, 18, 17, 52, 0, 906742, tzinfo=datetime.timezone.utc), suggested_size=0.0)",
+        "AdviserRecommendation(symbol='QQQ', signal='hold', confidence=0.5, reasoning='within bands: z=0.690 inside +/-2.00 sigma (mean 706.4024, std 20.7211)', adviser_name='MeanReversionAdviser', timestamp=datetime.datetime(2026, 8, 18, 17, 52, 0, 906764, tzinfo=datetime.timezone.utc), suggested_size=0.0)",
+        "AdviserRecommendation(symbol='QQQ', signal='sell', confidence=0.5, reasoning='regime=low (ewma_vol 0.01030, avg_vol 0.01244, ratio 0.83); drift -0.01419', adviser_name='VolatilityAdviser', timestamp=datetime.datetime(2026, 8, 18, 17, 52, 0, 906787, tzinfo=datetime.timezone.utc), suggested_size=0.4)",
+        "AdviserRecommendation(symbol='QQQ', signal='hold', confidence=0.5, reasoning='neutral sentiment score -0.083 within +/-0.30 (vol_proxy -0.166, pat_proxy +0.000)', adviser_name='SentimentAdviser', timestamp=datetime.datetime(2026, 8, 18, 17, 52, 0, 906812, tzinfo=datetime.timezone.utc), suggested_size=0.0)"
+      ],
+      "model_prediction": true
+    },
+    "TLT": {
+      "consensus_signal": "sell",
+      "agreement_score": 0.5,
+      "buy_votes": 0,
+      "sell_votes": 2,
+      "hold_votes": 2,
+      "dissent": 0.5,
+      "weighted_confidence": 0.5,
+      "individual_recommendations": [
+        "AdviserRecommendation(symbol='TLT', signal='sell', confidence=0.5, reasoning='fast SMA 82.2110 < slow SMA 82.9356; momentum -0.0161 (norm 0.0322 >= thr 0.0050)', adviser_name='TrendAdviser', timestamp=datetime.datetime(2026, 8, 18, 17, 52, 0, 906837, tzinfo=datetime.timezone.utc), suggested_size=0.5)",
+        "AdviserRecommendation(symbol='TLT', signal='hold', confidence=0.5, reasoning='within bands: z=-1.642 inside +/-2.00 sigma (mean 82.6435, std 0.7025)', adviser_name='MeanReversionAdviser', timestamp=datetime.datetime(2026, 8, 18, 17, 52, 0, 906853, tzinfo=datetime.timezone.utc), suggested_size=0.0)",
+        "AdviserRecommendation(symbol='TLT', signal='sell', confidence=0.5, reasoning='regime=normal (ewma_vol 0.00455, avg_vol 0.00432, ratio 1.05); drift -0.00670', adviser_name='VolatilityAdviser', timestamp=datetime.datetime(2026, 8, 18, 17, 52, 0, 906878, tzinfo=datetime.timezone.utc), suggested_size=0.25)",
+        "AdviserRecommendation(symbol='TLT', signal='hold', confidence=0.5, reasoning='neutral sentiment score -0.058 within +/-0.30 (vol_proxy -0.116, pat_proxy +0.000)', adviser_name='SentimentAdviser', timestamp=datetime.datetime(2026, 8, 18, 17, 52, 0, 906904, tzinfo=datetime.timezone.utc), suggested_size=0.0)"
+      ],
+      "model_prediction": true
+    },
+    "^VIX": {
+      "consensus_signal": "hold",
+      "agreement_score": 0.5,
+      "buy_votes": 1,
+      "sell_votes": 1,
+      "hold_votes": 2,
+      "dissent": 0.5,
+      "weighted_confidence": 0.5,
+      "individual_recommendations": [
+        "AdviserRecommendation(symbol='^VIX', signal='sell', confidence=0.5, reasoning='fast SMA 15.1030 < slow SMA 16.5920; momentum -0.0418 (norm 0.0842 >= thr 0.0050)', adviser_name='TrendAdviser', timestamp=datetime.datetime(2026, 8, 18, 17, 52, 0, 906929, tzinfo=datetime.timezone.utc), suggested_size=0.5)",
+        "AdviserRecommendation(symbol='^VIX', signal='hold', confidence=0.5, reasoning='within bands: z=-0.348 inside +/-2.00 sigma (mean 16.3965, std 1.6869)', adviser_name='MeanReversionAdviser', timestamp=datetime.datetime(2026, 8, 18, 17, 52, 0, 906945, tzinfo=datetime.timezone.utc), suggested_size=0.0)",
+        "AdviserRecommendation(symbol='^VIX', signal='buy', confidence=0.5, reasoning='regime=low (ewma_vol 0.04536, avg_vol 0.05102, ratio 0.89); drift +0.10947', adviser_name='VolatilityAdviser', timestamp=datetime.datetime(2026, 8, 18, 17, 52, 0, 906967, tzinfo=datetime.timezone.utc), suggested_size=0.4)",
+        "AdviserRecommendation(symbol='^VIX', signal='hold', confidence=0.5, reasoning='neutral sentiment score +0.000 within +/-0.30 (vol_proxy +0.000, pat_proxy +0.000)', adviser_name='SentimentAdviser', timestamp=datetime.datetime(2026, 8, 18, 17, 52, 0, 906992, tzinfo=datetime.timezone.utc), suggested_size=0.0)"
+      ],
+      "model_prediction": true
+    }
+  },
+  "summary": {
+    "num_advisers": 4,
+    "adviser_names": [
+      "TrendAdviser",
+      "MeanReversionAdviser",
+      "VolatilityAdviser",
+      "SentimentAdviser"
+    ],
+    "symbols_analyzed": 8,
+    "disclaimer": "AI Adviser outputs are model-based estimates. NOT financial advice. Self-learning adjusts parameters based on historical accuracy.",
+    "model_prediction": true
+  }
+}
