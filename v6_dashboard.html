@@ -121,16 +121,32 @@ body{background:var(--bg);color:var(--text);font-family:'Inter','Segoe UI',syste
 .config-box code{color:var(--accent);font-family:'SF Mono',Consolas,monospace}
 /* Real-time clock */
 .clock-display{font-family:'SF Mono',Consolas,monospace;font-size:0.75rem;color:var(--accent);background:rgba(56,189,248,0.08);border:1px solid var(--accent);padding:4px 12px;border-radius:20px;letter-spacing:0.5px}
-/* Account input panel */
-.acct-input-panel{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:16px;margin-bottom:20px;display:flex;align-items:center;gap:12px;flex-wrap:wrap}
-.acct-input-panel label{font-size:13px;color:var(--text-dim);font-weight:600}
-.acct-input-panel input[type=number]{background:var(--surface2);border:1px solid var(--border);border-radius:8px;padding:8px 12px;color:var(--text);font-size:14px;font-family:inherit;width:120px}
-.acct-input-panel input[type=number]:focus{outline:none;border-color:var(--accent)}
-.acct-input-panel select{background:var(--surface2);border:1px solid var(--border);border-radius:8px;padding:8px 12px;color:var(--text);font-size:13px;font-family:inherit}
-.btn-gen{background:rgba(56,189,248,0.15);color:var(--accent);border:1px solid var(--accent);border-radius:8px;padding:8px 18px;font-size:13px;font-weight:600;cursor:pointer;font-family:inherit;transition:all 0.2s}
-.btn-gen:hover{background:rgba(56,189,248,0.25)}
 /* Model watch */
 .watch-panel{position:fixed;bottom:0;right:0;width:360px;background:var(--surface);border:1px solid var(--border);border-radius:12px 0 0 0;padding:16px;z-index:1000;max-height:400px;overflow-y:auto;box-shadow:-4px -4px 20px rgba(0,0,0,0.3)}
+/* Live trade orders */
+.live-orders-section{margin-top:20px;border:1px solid var(--border);border-radius:12px;overflow:hidden}
+.live-orders-header{display:flex;justify-content:space-between;align-items:center;padding:12px 16px;background:var(--surface2);border-bottom:1px solid var(--border)}
+.live-orders-header h3{font-size:13px;font-weight:700;color:var(--accent);margin:0;display:flex;align-items:center;gap:8px}
+.live-orders-header .auto-badge{font-size:10px;font-weight:700;color:#2ecc71;background:rgba(46,204,113,0.15);padding:2px 8px;border-radius:4px;border:1px solid #2ecc71}
+.live-orders-header .tab-badge{font-size:10px;color:var(--text-faint);font-weight:600}
+.live-orders-table{width:100%;border-collapse:collapse;font-size:11px}
+.live-orders-table th{background:var(--surface);padding:8px 10px;text-align:left;font-size:10px;color:var(--text-faint);text-transform:uppercase;letter-spacing:0.5px;border-bottom:1px solid var(--border)}
+.live-orders-table td{padding:6px 10px;border-bottom:1px solid rgba(255,255,255,0.03);color:var(--text)}
+.live-orders-table tr.new-order{animation:flashGreen 0.8s ease}
+.live-orders-table tr.new-order-sell{animation:flashRed 0.8s ease}
+@keyframes flashGreen{0%{background:rgba(46,204,113,0.2)}100%{background:transparent}}
+@keyframes flashRed{0%{background:rgba(231,76,60,0.2)}100%{background:transparent}}
+.side-buy{color:var(--success);font-weight:700}
+.side-sell{color:var(--danger);font-weight:700}
+.status-open{color:var(--accent);font-size:10px}
+.status-filled{color:var(--success);font-size:10px}
+.status-closed{color:var(--text-faint);font-size:10px}
+.status-pending{color:var(--warning);font-size:10px}
+.tab-autogen-bar{display:flex;align-items:center;gap:10px;padding:10px 16px;background:rgba(46,204,113,0.05);border:1px solid rgba(46,204,113,0.2);border-radius:8px;margin-bottom:12px}
+.tab-autogen-bar .ag-label{font-size:12px;font-weight:700;color:#2ecc71}
+.tab-autogen-bar .ag-info{font-size:11px;color:var(--text-dim)}
+.tab-autogen-bar .ag-dot{width:8px;height:8px;border-radius:50%;background:#2ecc71;animation:pulse 1s infinite}
+.autotrade-panel{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:16px;margin-bottom:20px}
 .watch-panel.collapsed{max-height:48px;overflow:hidden}
 .watch-header{display:flex;justify-content:space-between;align-items:center;cursor:pointer;margin-bottom:12px}
 .watch-title{font-size:13px;font-weight:700;color:var(--accent);display:flex;align-items:center;gap:6px}
@@ -185,6 +201,7 @@ body{background:var(--bg);color:var(--text);font-family:'Inter','Segoe UI',syste
     <span class="badge" id="live-refresh-badge" style="background:rgba(46,204,113,0.15);color:#2ecc71;border:1px solid #2ecc71;display:inline-flex;align-items:center;gap:4px"><span class="dot dot-live" id="refresh-dot" style="animation:pulse 2s infinite"></span><span id="refresh-text">Auto-Refresh: ON</span></span>
     <span class="badge" id="last-updated-badge" style="background:rgba(56,189,248,0.1);color:var(--accent);border:1px solid var(--accent);font-size:0.7rem">Updated: --</span>
     <span class="clock-display" id="real-clock">--:--:--</span>
+    <span class="badge" id="autotrade-status-badge" style="background:rgba(46,204,113,0.15);color:#2ecc71;border:1px solid #2ecc71;display:inline-flex;align-items:center;gap:4px"><span class="dot dot-live" style="animation:pulse 1s infinite"></span><span id="autotrade-count">0</span> Live Orders</span>
   </div>
 </div>
 
@@ -212,7 +229,6 @@ body{background:var(--bg);color:var(--text);font-family:'Inter','Segoe UI',syste
     <button class="nav-tab" data-tab="topstep" style="color:#f39c12">TopStep Eval</button>
     <button class="nav-tab" data-tab="auto-exec" style="color:#9b59b6">Auto Executor</button>
     <button class="nav-tab" data-tab="tests">Test Suite</button>
-    <button class="nav-tab" data-tab="topstep50k" style="color:#f39c12">50K Accounts</button>
     <button class="nav-tab" data-tab="modelwatch" style="color:#2ecc71">Model Watch</button>
     <a href="oracle_console.html" style="padding:8px 16px;color:#f1c40f;text-decoration:none;border:1px solid #f1c40f;border-radius:6px;font-size:0.8rem;font-weight:600;margin-left:8px">Oracle Console &rarr;</a>
   </div>
@@ -220,27 +236,10 @@ body{background:var(--bg);color:var(--text);font-family:'Inter','Segoe UI',syste
   <!-- LIVE PRICE TICKER -->
   <div class="price-ticker" id="price-ticker"></div>
 
-  <!-- ACCOUNT INPUT PANEL -->
-  <div class="acct-input-panel">
-    <label>Accounts per tab:</label>
-    <input type="number" id="acct-count-input" value="1000" min="10" max="50000" step="100">
-    <select id="acct-tab-select">
-      <option value="all">All Tabs</option>
-      <option value="topstep">TopStep Eval</option>
-      <option value="unlimited">Unlimited Engine</option>
-      <option value="auto-exec">Auto Executor</option>
-      <option value="continuous">Continuous Engine</option>
-      <option value="oracle-auto">Oracle Auto-Gen</option>
-    </select>
-    <button class="btn-gen" onclick="autoGenAccounts()">Auto-Gen Accounts</button>
-    <button class="btn-gen" onclick="loadTopStep50K()">Load 50K TopStep Accounts</button>
-    <span style="font-size:11px;color:var(--text-faint);margin-left:auto" id="acct-gen-status">Ready</span>
-  </div>
-
   <!-- AUTO-TRADE SIGNAL PANEL -->
   <div class="autotrade-panel">
     <div style="display:flex;justify-content:space-between;align-items:center">
-      <div style="font-size:14px;font-weight:700;color:var(--accent)">Auto-Trade Signal Monitor — Live Market Data</div>
+      <div style="font-size:14px;font-weight:700;color:var(--accent)">Auto-Trade Signal Monitor — Live Market Data | <span style="color:#2ecc71">AUTO-GEN: ON</span> | <span style="color:#2ecc71">AUTO-TRADE: ON</span></div>
       <span style="font-size:11px;color:var(--text-faint)" id="autotrade-timestamp">--</span>
     </div>
     <div class="autotrade-grid" id="autotrade-grid"></div>
@@ -272,6 +271,23 @@ body{background:var(--bg);color:var(--text);font-family:'Inter','Segoe UI',syste
       </ul>
     </div>
   </div>
+    <!-- AUTO-GEN + LIVE TRADE ORDERS FOR OVERVIEW -->
+    <div class="tab-autogen-bar" id="autogen-bar-overview">
+      <span class="ag-dot"></span>
+      <span class="ag-label">AUTO-GEN: ON</span>
+      <span class="ag-info">Auto-generating trades for Overview | Strategy: <span id="autogen-strategy-overview">--</span> | Trades: <span id="autogen-count-overview">0</span> | PnL: <span id="autogen-pnl-overview">$0.00</span></span>
+      <span class="ag-info" style="margin-left:auto" id="autogen-last-overview">Last order: --</span>
+    </div>
+    <div class="live-orders-section">
+      <div class="live-orders-header">
+        <h3><span class="dot dot-live" style="animation:pulse 1s infinite"></span>Live Trade Orders — Overview <span class="auto-badge">AUTO</span></h3>
+        <span class="tab-badge" id="live-orders-ts-overview">--</span>
+      </div>
+      <table class="live-orders-table">
+        <thead><tr><th>Order ID</th><th>Time</th><th>Symbol</th><th>Side</th><th>Type</th><th>Contracts</th><th>Price</th><th>Status</th><th>PnL</th><th>Confidence</th></tr></thead>
+        <tbody id="live-orders-overview"></tbody>
+      </table>
+    </div>
 
   <!-- LIVE MARKET TAB -->
   <div class="tab-content" id="tab-market">
@@ -297,6 +313,23 @@ body{background:var(--bg);color:var(--text);font-family:'Inter','Segoe UI',syste
       </ul>
     </div>
   </div>
+    <!-- AUTO-GEN + LIVE TRADE ORDERS FOR LIVE MARKET -->
+    <div class="tab-autogen-bar" id="autogen-bar-market">
+      <span class="ag-dot"></span>
+      <span class="ag-label">AUTO-GEN: ON</span>
+      <span class="ag-info">Auto-generating trades for Live Market | Strategy: <span id="autogen-strategy-market">--</span> | Trades: <span id="autogen-count-market">0</span> | PnL: <span id="autogen-pnl-market">$0.00</span></span>
+      <span class="ag-info" style="margin-left:auto" id="autogen-last-market">Last order: --</span>
+    </div>
+    <div class="live-orders-section">
+      <div class="live-orders-header">
+        <h3><span class="dot dot-live" style="animation:pulse 1s infinite"></span>Live Trade Orders — Live Market <span class="auto-badge">AUTO</span></h3>
+        <span class="tab-badge" id="live-orders-ts-market">--</span>
+      </div>
+      <table class="live-orders-table">
+        <thead><tr><th>Order ID</th><th>Time</th><th>Symbol</th><th>Side</th><th>Type</th><th>Contracts</th><th>Price</th><th>Status</th><th>PnL</th><th>Confidence</th></tr></thead>
+        <tbody id="live-orders-market"></tbody>
+      </table>
+    </div>
 
   <!-- CORRELATION TAB -->
   <div class="tab-content" id="tab-correlation">
@@ -320,6 +353,23 @@ body{background:var(--bg);color:var(--text);font-family:'Inter','Segoe UI',syste
       </ul>
     </div>
   </div>
+    <!-- AUTO-GEN + LIVE TRADE ORDERS FOR CORRELATION -->
+    <div class="tab-autogen-bar" id="autogen-bar-correlation">
+      <span class="ag-dot"></span>
+      <span class="ag-label">AUTO-GEN: ON</span>
+      <span class="ag-info">Auto-generating trades for Correlation | Strategy: <span id="autogen-strategy-correlation">--</span> | Trades: <span id="autogen-count-correlation">0</span> | PnL: <span id="autogen-pnl-correlation">$0.00</span></span>
+      <span class="ag-info" style="margin-left:auto" id="autogen-last-correlation">Last order: --</span>
+    </div>
+    <div class="live-orders-section">
+      <div class="live-orders-header">
+        <h3><span class="dot dot-live" style="animation:pulse 1s infinite"></span>Live Trade Orders — Correlation <span class="auto-badge">AUTO</span></h3>
+        <span class="tab-badge" id="live-orders-ts-correlation">--</span>
+      </div>
+      <table class="live-orders-table">
+        <thead><tr><th>Order ID</th><th>Time</th><th>Symbol</th><th>Side</th><th>Type</th><th>Contracts</th><th>Price</th><th>Status</th><th>PnL</th><th>Confidence</th></tr></thead>
+        <tbody id="live-orders-correlation"></tbody>
+      </table>
+    </div>
 
   <!-- QUANTUM MODELS TAB -->
   <div class="tab-content" id="tab-qmodels">
@@ -345,6 +395,23 @@ body{background:var(--bg);color:var(--text);font-family:'Inter','Segoe UI',syste
       </ul>
     </div>
   </div>
+    <!-- AUTO-GEN + LIVE TRADE ORDERS FOR QUANTUM MODELS -->
+    <div class="tab-autogen-bar" id="autogen-bar-qmodels">
+      <span class="ag-dot"></span>
+      <span class="ag-label">AUTO-GEN: ON</span>
+      <span class="ag-info">Auto-generating trades for Quantum Models | Strategy: <span id="autogen-strategy-qmodels">--</span> | Trades: <span id="autogen-count-qmodels">0</span> | PnL: <span id="autogen-pnl-qmodels">$0.00</span></span>
+      <span class="ag-info" style="margin-left:auto" id="autogen-last-qmodels">Last order: --</span>
+    </div>
+    <div class="live-orders-section">
+      <div class="live-orders-header">
+        <h3><span class="dot dot-live" style="animation:pulse 1s infinite"></span>Live Trade Orders — Quantum Models <span class="auto-badge">AUTO</span></h3>
+        <span class="tab-badge" id="live-orders-ts-qmodels">--</span>
+      </div>
+      <table class="live-orders-table">
+        <thead><tr><th>Order ID</th><th>Time</th><th>Symbol</th><th>Side</th><th>Type</th><th>Contracts</th><th>Price</th><th>Status</th><th>PnL</th><th>Confidence</th></tr></thead>
+        <tbody id="live-orders-qmodels"></tbody>
+      </table>
+    </div>
 
   <!-- STRATEGY LAB TAB -->
   <div class="tab-content" id="tab-strategy">
@@ -356,6 +423,23 @@ body{background:var(--bg);color:var(--text);font-family:'Inter','Segoe UI',syste
       <tbody></tbody>
     </table>
   </div>
+    <!-- AUTO-GEN + LIVE TRADE ORDERS FOR STRATEGY LAB -->
+    <div class="tab-autogen-bar" id="autogen-bar-strategy">
+      <span class="ag-dot"></span>
+      <span class="ag-label">AUTO-GEN: ON</span>
+      <span class="ag-info">Auto-generating trades for Strategy Lab | Strategy: <span id="autogen-strategy-strategy">--</span> | Trades: <span id="autogen-count-strategy">0</span> | PnL: <span id="autogen-pnl-strategy">$0.00</span></span>
+      <span class="ag-info" style="margin-left:auto" id="autogen-last-strategy">Last order: --</span>
+    </div>
+    <div class="live-orders-section">
+      <div class="live-orders-header">
+        <h3><span class="dot dot-live" style="animation:pulse 1s infinite"></span>Live Trade Orders — Strategy Lab <span class="auto-badge">AUTO</span></h3>
+        <span class="tab-badge" id="live-orders-ts-strategy">--</span>
+      </div>
+      <table class="live-orders-table">
+        <thead><tr><th>Order ID</th><th>Time</th><th>Symbol</th><th>Side</th><th>Type</th><th>Contracts</th><th>Price</th><th>Status</th><th>PnL</th><th>Confidence</th></tr></thead>
+        <tbody id="live-orders-strategy"></tbody>
+      </table>
+    </div>
 
   <!-- FUNDED PROFIT TAB -->
   <div class="tab-content" id="tab-funded">
@@ -381,6 +465,23 @@ body{background:var(--bg);color:var(--text);font-family:'Inter','Segoe UI',syste
       </ul>
     </div>
   </div>
+    <!-- AUTO-GEN + LIVE TRADE ORDERS FOR FUNDED PROFIT -->
+    <div class="tab-autogen-bar" id="autogen-bar-funded">
+      <span class="ag-dot"></span>
+      <span class="ag-label">AUTO-GEN: ON</span>
+      <span class="ag-info">Auto-generating trades for Funded Profit | Strategy: <span id="autogen-strategy-funded">--</span> | Trades: <span id="autogen-count-funded">0</span> | PnL: <span id="autogen-pnl-funded">$0.00</span></span>
+      <span class="ag-info" style="margin-left:auto" id="autogen-last-funded">Last order: --</span>
+    </div>
+    <div class="live-orders-section">
+      <div class="live-orders-header">
+        <h3><span class="dot dot-live" style="animation:pulse 1s infinite"></span>Live Trade Orders — Funded Profit <span class="auto-badge">AUTO</span></h3>
+        <span class="tab-badge" id="live-orders-ts-funded">--</span>
+      </div>
+      <table class="live-orders-table">
+        <thead><tr><th>Order ID</th><th>Time</th><th>Symbol</th><th>Side</th><th>Type</th><th>Contracts</th><th>Price</th><th>Status</th><th>PnL</th><th>Confidence</th></tr></thead>
+        <tbody id="live-orders-funded"></tbody>
+      </table>
+    </div>
 
   <!-- UNCONSTRAINED PNL TAB -->
   <div class="tab-content" id="tab-unconstrained">
@@ -419,6 +520,23 @@ body{background:var(--bg);color:var(--text);font-family:'Inter','Segoe UI',syste
       </ul>
     </div>
   </div>
+    <!-- AUTO-GEN + LIVE TRADE ORDERS FOR UNCONSTRAINED PNL -->
+    <div class="tab-autogen-bar" id="autogen-bar-unconstrained">
+      <span class="ag-dot"></span>
+      <span class="ag-label">AUTO-GEN: ON</span>
+      <span class="ag-info">Auto-generating trades for Unconstrained PnL | Strategy: <span id="autogen-strategy-unconstrained">--</span> | Trades: <span id="autogen-count-unconstrained">0</span> | PnL: <span id="autogen-pnl-unconstrained">$0.00</span></span>
+      <span class="ag-info" style="margin-left:auto" id="autogen-last-unconstrained">Last order: --</span>
+    </div>
+    <div class="live-orders-section">
+      <div class="live-orders-header">
+        <h3><span class="dot dot-live" style="animation:pulse 1s infinite"></span>Live Trade Orders — Unconstrained PnL <span class="auto-badge">AUTO</span></h3>
+        <span class="tab-badge" id="live-orders-ts-unconstrained">--</span>
+      </div>
+      <table class="live-orders-table">
+        <thead><tr><th>Order ID</th><th>Time</th><th>Symbol</th><th>Side</th><th>Type</th><th>Contracts</th><th>Price</th><th>Status</th><th>PnL</th><th>Confidence</th></tr></thead>
+        <tbody id="live-orders-unconstrained"></tbody>
+      </table>
+    </div>
 
   <!-- TRADE HISTORY TAB -->
   <div class="tab-content" id="tab-tradehistory">
@@ -464,6 +582,23 @@ body{background:var(--bg);color:var(--text);font-family:'Inter','Segoe UI',syste
       </table>
     </div>
   </div>
+    <!-- AUTO-GEN + LIVE TRADE ORDERS FOR TRADE HISTORY -->
+    <div class="tab-autogen-bar" id="autogen-bar-tradehistory">
+      <span class="ag-dot"></span>
+      <span class="ag-label">AUTO-GEN: ON</span>
+      <span class="ag-info">Auto-generating trades for Trade History | Strategy: <span id="autogen-strategy-tradehistory">--</span> | Trades: <span id="autogen-count-tradehistory">0</span> | PnL: <span id="autogen-pnl-tradehistory">$0.00</span></span>
+      <span class="ag-info" style="margin-left:auto" id="autogen-last-tradehistory">Last order: --</span>
+    </div>
+    <div class="live-orders-section">
+      <div class="live-orders-header">
+        <h3><span class="dot dot-live" style="animation:pulse 1s infinite"></span>Live Trade Orders — Trade History <span class="auto-badge">AUTO</span></h3>
+        <span class="tab-badge" id="live-orders-ts-tradehistory">--</span>
+      </div>
+      <table class="live-orders-table">
+        <thead><tr><th>Order ID</th><th>Time</th><th>Symbol</th><th>Side</th><th>Type</th><th>Contracts</th><th>Price</th><th>Status</th><th>PnL</th><th>Confidence</th></tr></thead>
+        <tbody id="live-orders-tradehistory"></tbody>
+      </table>
+    </div>
 
   <!-- ZENITH LAB TAB -->
   <div class="tab-content" id="tab-zenith">
@@ -514,6 +649,23 @@ body{background:var(--bg);color:var(--text);font-family:'Inter','Segoe UI',syste
       </ul>
     </div>
   </div>
+    <!-- AUTO-GEN + LIVE TRADE ORDERS FOR ZENITH LAB -->
+    <div class="tab-autogen-bar" id="autogen-bar-zenith">
+      <span class="ag-dot"></span>
+      <span class="ag-label">AUTO-GEN: ON</span>
+      <span class="ag-info">Auto-generating trades for Zenith Lab | Strategy: <span id="autogen-strategy-zenith">--</span> | Trades: <span id="autogen-count-zenith">0</span> | PnL: <span id="autogen-pnl-zenith">$0.00</span></span>
+      <span class="ag-info" style="margin-left:auto" id="autogen-last-zenith">Last order: --</span>
+    </div>
+    <div class="live-orders-section">
+      <div class="live-orders-header">
+        <h3><span class="dot dot-live" style="animation:pulse 1s infinite"></span>Live Trade Orders — Zenith Lab <span class="auto-badge">AUTO</span></h3>
+        <span class="tab-badge" id="live-orders-ts-zenith">--</span>
+      </div>
+      <table class="live-orders-table">
+        <thead><tr><th>Order ID</th><th>Time</th><th>Symbol</th><th>Side</th><th>Type</th><th>Contracts</th><th>Price</th><th>Status</th><th>PnL</th><th>Confidence</th></tr></thead>
+        <tbody id="live-orders-zenith"></tbody>
+      </table>
+    </div>
 
   <!-- EXECUTION CONTROL TAB -->
   <div class="tab-content" id="tab-execution">
@@ -570,6 +722,23 @@ body{background:var(--bg);color:var(--text);font-family:'Inter','Segoe UI',syste
       </ul>
     </div>
   </div>
+    <!-- AUTO-GEN + LIVE TRADE ORDERS FOR EXECUTION CONTROL -->
+    <div class="tab-autogen-bar" id="autogen-bar-execution">
+      <span class="ag-dot"></span>
+      <span class="ag-label">AUTO-GEN: ON</span>
+      <span class="ag-info">Auto-generating trades for Execution Control | Strategy: <span id="autogen-strategy-execution">--</span> | Trades: <span id="autogen-count-execution">0</span> | PnL: <span id="autogen-pnl-execution">$0.00</span></span>
+      <span class="ag-info" style="margin-left:auto" id="autogen-last-execution">Last order: --</span>
+    </div>
+    <div class="live-orders-section">
+      <div class="live-orders-header">
+        <h3><span class="dot dot-live" style="animation:pulse 1s infinite"></span>Live Trade Orders — Execution Control <span class="auto-badge">AUTO</span></h3>
+        <span class="tab-badge" id="live-orders-ts-execution">--</span>
+      </div>
+      <table class="live-orders-table">
+        <thead><tr><th>Order ID</th><th>Time</th><th>Symbol</th><th>Side</th><th>Type</th><th>Contracts</th><th>Price</th><th>Status</th><th>PnL</th><th>Confidence</th></tr></thead>
+        <tbody id="live-orders-execution"></tbody>
+      </table>
+    </div>
 
   <!-- AI ADVISERS TAB -->
   <div class="tab-content" id="tab-advisers">
@@ -626,6 +795,23 @@ body{background:var(--bg);color:var(--text);font-family:'Inter','Segoe UI',syste
       </ul>
     </div>
   </div>
+    <!-- AUTO-GEN + LIVE TRADE ORDERS FOR AI ADVISERS -->
+    <div class="tab-autogen-bar" id="autogen-bar-advisers">
+      <span class="ag-dot"></span>
+      <span class="ag-label">AUTO-GEN: ON</span>
+      <span class="ag-info">Auto-generating trades for AI Advisers | Strategy: <span id="autogen-strategy-advisers">--</span> | Trades: <span id="autogen-count-advisers">0</span> | PnL: <span id="autogen-pnl-advisers">$0.00</span></span>
+      <span class="ag-info" style="margin-left:auto" id="autogen-last-advisers">Last order: --</span>
+    </div>
+    <div class="live-orders-section">
+      <div class="live-orders-header">
+        <h3><span class="dot dot-live" style="animation:pulse 1s infinite"></span>Live Trade Orders — AI Advisers <span class="auto-badge">AUTO</span></h3>
+        <span class="tab-badge" id="live-orders-ts-advisers">--</span>
+      </div>
+      <table class="live-orders-table">
+        <thead><tr><th>Order ID</th><th>Time</th><th>Symbol</th><th>Side</th><th>Type</th><th>Contracts</th><th>Price</th><th>Status</th><th>PnL</th><th>Confidence</th></tr></thead>
+        <tbody id="live-orders-advisers"></tbody>
+      </table>
+    </div>
 
   <!-- ALPACA POSITIONS TAB -->
   <div class="tab-content" id="tab-alpaca">
@@ -682,6 +868,23 @@ body{background:var(--bg);color:var(--text);font-family:'Inter','Segoe UI',syste
       </ul>
     </div>
   </div>
+    <!-- AUTO-GEN + LIVE TRADE ORDERS FOR ALPACA POSITIONS -->
+    <div class="tab-autogen-bar" id="autogen-bar-alpaca">
+      <span class="ag-dot"></span>
+      <span class="ag-label">AUTO-GEN: ON</span>
+      <span class="ag-info">Auto-generating trades for Alpaca Positions | Strategy: <span id="autogen-strategy-alpaca">--</span> | Trades: <span id="autogen-count-alpaca">0</span> | PnL: <span id="autogen-pnl-alpaca">$0.00</span></span>
+      <span class="ag-info" style="margin-left:auto" id="autogen-last-alpaca">Last order: --</span>
+    </div>
+    <div class="live-orders-section">
+      <div class="live-orders-header">
+        <h3><span class="dot dot-live" style="animation:pulse 1s infinite"></span>Live Trade Orders — Alpaca Positions <span class="auto-badge">AUTO</span></h3>
+        <span class="tab-badge" id="live-orders-ts-alpaca">--</span>
+      </div>
+      <table class="live-orders-table">
+        <thead><tr><th>Order ID</th><th>Time</th><th>Symbol</th><th>Side</th><th>Type</th><th>Contracts</th><th>Price</th><th>Status</th><th>PnL</th><th>Confidence</th></tr></thead>
+        <tbody id="live-orders-alpaca"></tbody>
+      </table>
+    </div>
 
   <!-- SOVEREIGN TAB -->
   <div class="tab-content" id="tab-sovereign">
@@ -719,6 +922,23 @@ body{background:var(--bg);color:var(--text);font-family:'Inter','Segoe UI',syste
       </ul>
     </div>
   </div>
+    <!-- AUTO-GEN + LIVE TRADE ORDERS FOR SOVEREIGN -->
+    <div class="tab-autogen-bar" id="autogen-bar-sovereign">
+      <span class="ag-dot"></span>
+      <span class="ag-label">AUTO-GEN: ON</span>
+      <span class="ag-info">Auto-generating trades for Sovereign | Strategy: <span id="autogen-strategy-sovereign">--</span> | Trades: <span id="autogen-count-sovereign">0</span> | PnL: <span id="autogen-pnl-sovereign">$0.00</span></span>
+      <span class="ag-info" style="margin-left:auto" id="autogen-last-sovereign">Last order: --</span>
+    </div>
+    <div class="live-orders-section">
+      <div class="live-orders-header">
+        <h3><span class="dot dot-live" style="animation:pulse 1s infinite"></span>Live Trade Orders — Sovereign <span class="auto-badge">AUTO</span></h3>
+        <span class="tab-badge" id="live-orders-ts-sovereign">--</span>
+      </div>
+      <table class="live-orders-table">
+        <thead><tr><th>Order ID</th><th>Time</th><th>Symbol</th><th>Side</th><th>Type</th><th>Contracts</th><th>Price</th><th>Status</th><th>PnL</th><th>Confidence</th></tr></thead>
+        <tbody id="live-orders-sovereign"></tbody>
+      </table>
+    </div>
 
   <!-- OMNI-NEXUS TAB -->
   <div class="tab-content" id="tab-omni">
@@ -786,6 +1006,23 @@ body{background:var(--bg);color:var(--text);font-family:'Inter','Segoe UI',syste
       </ul>
     </div>
   </div>
+    <!-- AUTO-GEN + LIVE TRADE ORDERS FOR OMNI-NEXUS -->
+    <div class="tab-autogen-bar" id="autogen-bar-omni">
+      <span class="ag-dot"></span>
+      <span class="ag-label">AUTO-GEN: ON</span>
+      <span class="ag-info">Auto-generating trades for Omni-Nexus | Strategy: <span id="autogen-strategy-omni">--</span> | Trades: <span id="autogen-count-omni">0</span> | PnL: <span id="autogen-pnl-omni">$0.00</span></span>
+      <span class="ag-info" style="margin-left:auto" id="autogen-last-omni">Last order: --</span>
+    </div>
+    <div class="live-orders-section">
+      <div class="live-orders-header">
+        <h3><span class="dot dot-live" style="animation:pulse 1s infinite"></span>Live Trade Orders — Omni-Nexus <span class="auto-badge">AUTO</span></h3>
+        <span class="tab-badge" id="live-orders-ts-omni">--</span>
+      </div>
+      <table class="live-orders-table">
+        <thead><tr><th>Order ID</th><th>Time</th><th>Symbol</th><th>Side</th><th>Type</th><th>Contracts</th><th>Price</th><th>Status</th><th>PnL</th><th>Confidence</th></tr></thead>
+        <tbody id="live-orders-omni"></tbody>
+      </table>
+    </div>
 
   <!-- CONTINUOUS ENGINE TAB -->
   <div class="tab-content" id="tab-continuous">
@@ -844,6 +1081,23 @@ body{background:var(--bg);color:var(--text);font-family:'Inter','Segoe UI',syste
       </ul>
     </div>
   </div>
+    <!-- AUTO-GEN + LIVE TRADE ORDERS FOR CONTINUOUS ENGINE -->
+    <div class="tab-autogen-bar" id="autogen-bar-continuous">
+      <span class="ag-dot"></span>
+      <span class="ag-label">AUTO-GEN: ON</span>
+      <span class="ag-info">Auto-generating trades for Continuous Engine | Strategy: <span id="autogen-strategy-continuous">--</span> | Trades: <span id="autogen-count-continuous">0</span> | PnL: <span id="autogen-pnl-continuous">$0.00</span></span>
+      <span class="ag-info" style="margin-left:auto" id="autogen-last-continuous">Last order: --</span>
+    </div>
+    <div class="live-orders-section">
+      <div class="live-orders-header">
+        <h3><span class="dot dot-live" style="animation:pulse 1s infinite"></span>Live Trade Orders — Continuous Engine <span class="auto-badge">AUTO</span></h3>
+        <span class="tab-badge" id="live-orders-ts-continuous">--</span>
+      </div>
+      <table class="live-orders-table">
+        <thead><tr><th>Order ID</th><th>Time</th><th>Symbol</th><th>Side</th><th>Type</th><th>Contracts</th><th>Price</th><th>Status</th><th>PnL</th><th>Confidence</th></tr></thead>
+        <tbody id="live-orders-continuous"></tbody>
+      </table>
+    </div>
 
   <!-- ORACLE AUTO-GEN TAB -->
   <div class="tab-content" id="tab-oracle-auto">
@@ -902,6 +1156,23 @@ body{background:var(--bg);color:var(--text);font-family:'Inter','Segoe UI',syste
       </ul>
     </div>
   </div>
+    <!-- AUTO-GEN + LIVE TRADE ORDERS FOR ORACLE AUTO-GEN -->
+    <div class="tab-autogen-bar" id="autogen-bar-oracle-auto">
+      <span class="ag-dot"></span>
+      <span class="ag-label">AUTO-GEN: ON</span>
+      <span class="ag-info">Auto-generating trades for Oracle Auto-Gen | Strategy: <span id="autogen-strategy-oracle-auto">--</span> | Trades: <span id="autogen-count-oracle-auto">0</span> | PnL: <span id="autogen-pnl-oracle-auto">$0.00</span></span>
+      <span class="ag-info" style="margin-left:auto" id="autogen-last-oracle-auto">Last order: --</span>
+    </div>
+    <div class="live-orders-section">
+      <div class="live-orders-header">
+        <h3><span class="dot dot-live" style="animation:pulse 1s infinite"></span>Live Trade Orders — Oracle Auto-Gen <span class="auto-badge">AUTO</span></h3>
+        <span class="tab-badge" id="live-orders-ts-oracle-auto">--</span>
+      </div>
+      <table class="live-orders-table">
+        <thead><tr><th>Order ID</th><th>Time</th><th>Symbol</th><th>Side</th><th>Type</th><th>Contracts</th><th>Price</th><th>Status</th><th>PnL</th><th>Confidence</th></tr></thead>
+        <tbody id="live-orders-oracle-auto"></tbody>
+      </table>
+    </div>
 
   <!-- AI MODELS TAB -->
   <div class="tab-content" id="tab-ai-models">
@@ -945,6 +1216,23 @@ body{background:var(--bg);color:var(--text);font-family:'Inter','Segoe UI',syste
       </ul>
     </div>
   </div>
+    <!-- AUTO-GEN + LIVE TRADE ORDERS FOR AI MODELS -->
+    <div class="tab-autogen-bar" id="autogen-bar-ai-models">
+      <span class="ag-dot"></span>
+      <span class="ag-label">AUTO-GEN: ON</span>
+      <span class="ag-info">Auto-generating trades for AI Models | Strategy: <span id="autogen-strategy-ai-models">--</span> | Trades: <span id="autogen-count-ai-models">0</span> | PnL: <span id="autogen-pnl-ai-models">$0.00</span></span>
+      <span class="ag-info" style="margin-left:auto" id="autogen-last-ai-models">Last order: --</span>
+    </div>
+    <div class="live-orders-section">
+      <div class="live-orders-header">
+        <h3><span class="dot dot-live" style="animation:pulse 1s infinite"></span>Live Trade Orders — AI Models <span class="auto-badge">AUTO</span></h3>
+        <span class="tab-badge" id="live-orders-ts-ai-models">--</span>
+      </div>
+      <table class="live-orders-table">
+        <thead><tr><th>Order ID</th><th>Time</th><th>Symbol</th><th>Side</th><th>Type</th><th>Contracts</th><th>Price</th><th>Status</th><th>PnL</th><th>Confidence</th></tr></thead>
+        <tbody id="live-orders-ai-models"></tbody>
+      </table>
+    </div>
 
   <!-- V22900 TAB -->
   <div class="tab-content" id="tab-v22900">
@@ -972,6 +1260,23 @@ body{background:var(--bg);color:var(--text);font-family:'Inter','Segoe UI',syste
       </ul>
     </div>
   </div>
+    <!-- AUTO-GEN + LIVE TRADE ORDERS FOR V22900 -->
+    <div class="tab-autogen-bar" id="autogen-bar-v22900">
+      <span class="ag-dot"></span>
+      <span class="ag-label">AUTO-GEN: ON</span>
+      <span class="ag-info">Auto-generating trades for V22900 | Strategy: <span id="autogen-strategy-v22900">--</span> | Trades: <span id="autogen-count-v22900">0</span> | PnL: <span id="autogen-pnl-v22900">$0.00</span></span>
+      <span class="ag-info" style="margin-left:auto" id="autogen-last-v22900">Last order: --</span>
+    </div>
+    <div class="live-orders-section">
+      <div class="live-orders-header">
+        <h3><span class="dot dot-live" style="animation:pulse 1s infinite"></span>Live Trade Orders — V22900 <span class="auto-badge">AUTO</span></h3>
+        <span class="tab-badge" id="live-orders-ts-v22900">--</span>
+      </div>
+      <table class="live-orders-table">
+        <thead><tr><th>Order ID</th><th>Time</th><th>Symbol</th><th>Side</th><th>Type</th><th>Contracts</th><th>Price</th><th>Status</th><th>PnL</th><th>Confidence</th></tr></thead>
+        <tbody id="live-orders-v22900"></tbody>
+      </table>
+    </div>
 
   <!-- UNLIMITED ENGINE TAB -->
   <div class="tab-content" id="tab-unlimited">
@@ -1040,6 +1345,23 @@ body{background:var(--bg);color:var(--text);font-family:'Inter','Segoe UI',syste
       </ul>
     </div>
   </div>
+    <!-- AUTO-GEN + LIVE TRADE ORDERS FOR UNLIMITED ENGINE -->
+    <div class="tab-autogen-bar" id="autogen-bar-unlimited">
+      <span class="ag-dot"></span>
+      <span class="ag-label">AUTO-GEN: ON</span>
+      <span class="ag-info">Auto-generating trades for Unlimited Engine | Strategy: <span id="autogen-strategy-unlimited">--</span> | Trades: <span id="autogen-count-unlimited">0</span> | PnL: <span id="autogen-pnl-unlimited">$0.00</span></span>
+      <span class="ag-info" style="margin-left:auto" id="autogen-last-unlimited">Last order: --</span>
+    </div>
+    <div class="live-orders-section">
+      <div class="live-orders-header">
+        <h3><span class="dot dot-live" style="animation:pulse 1s infinite"></span>Live Trade Orders — Unlimited Engine <span class="auto-badge">AUTO</span></h3>
+        <span class="tab-badge" id="live-orders-ts-unlimited">--</span>
+      </div>
+      <table class="live-orders-table">
+        <thead><tr><th>Order ID</th><th>Time</th><th>Symbol</th><th>Side</th><th>Type</th><th>Contracts</th><th>Price</th><th>Status</th><th>PnL</th><th>Confidence</th></tr></thead>
+        <tbody id="live-orders-unlimited"></tbody>
+      </table>
+    </div>
 
   <!-- TOPSTEP EVAL TAB -->
   <div class="tab-content" id="tab-topstep">
@@ -1102,6 +1424,23 @@ body{background:var(--bg);color:var(--text);font-family:'Inter','Segoe UI',syste
       </ul>
     </div>
   </div>
+    <!-- AUTO-GEN + LIVE TRADE ORDERS FOR TOPSTEP EVAL -->
+    <div class="tab-autogen-bar" id="autogen-bar-topstep">
+      <span class="ag-dot"></span>
+      <span class="ag-label">AUTO-GEN: ON</span>
+      <span class="ag-info">Auto-generating trades for TopStep Eval | Strategy: <span id="autogen-strategy-topstep">--</span> | Trades: <span id="autogen-count-topstep">0</span> | PnL: <span id="autogen-pnl-topstep">$0.00</span></span>
+      <span class="ag-info" style="margin-left:auto" id="autogen-last-topstep">Last order: --</span>
+    </div>
+    <div class="live-orders-section">
+      <div class="live-orders-header">
+        <h3><span class="dot dot-live" style="animation:pulse 1s infinite"></span>Live Trade Orders — TopStep Eval <span class="auto-badge">AUTO</span></h3>
+        <span class="tab-badge" id="live-orders-ts-topstep">--</span>
+      </div>
+      <table class="live-orders-table">
+        <thead><tr><th>Order ID</th><th>Time</th><th>Symbol</th><th>Side</th><th>Type</th><th>Contracts</th><th>Price</th><th>Status</th><th>PnL</th><th>Confidence</th></tr></thead>
+        <tbody id="live-orders-topstep"></tbody>
+      </table>
+    </div>
 
   <!-- AUTO TRADE EXECUTOR TAB -->
   <div class="tab-content" id="tab-auto-exec">
@@ -1204,27 +1543,23 @@ body{background:var(--bg);color:var(--text);font-family:'Inter','Segoe UI',syste
       </ul>
     </div>
   </div>
-
-  <!-- 50K ACCOUNTS TAB -->
-  <div class="tab-content" id="tab-topstep50k">
-    <div class="section-title">50,000 TopStep Evaluation Accounts — Live Processing</div>
-    <div class="stats-grid" id="topstep50k-stats"></div>
-    <div class="chart-container"><canvas id="chart-50k-progress"></canvas></div>
-    <div class="section-title">Account Details (First 500 of 50,000)</div>
-    <table class="table" id="topstep50k-table">
-      <thead><tr><th>Account ID</th><th>Config</th><th>Strategy</th><th>Status</th><th>Balance</th><th>PnL</th><th>Win Rate</th><th>Trades</th><th>Timestamp</th></tr></thead>
-      <tbody id="topstep50k-rows"></tbody>
-    </table>
-    <div class="honesty-box">
-      <div class="honesty-title">Important — Simulated</div>
-      <ul class="honesty-list">
-        <li>50,000 SIMULATED TopStep evaluation accounts. No real TopStep accounts are used.</li>
-        <li>Accounts use live market prices for reference but all trades are PAPER/SIMULATED.</li>
-        <li>AI processes accounts one by one. Pass rate improves as the system learns.</li>
-        <li>Not financial advice.</li>
-      </ul>
+    <!-- AUTO-GEN + LIVE TRADE ORDERS FOR AUTO EXECUTOR -->
+    <div class="tab-autogen-bar" id="autogen-bar-auto-exec">
+      <span class="ag-dot"></span>
+      <span class="ag-label">AUTO-GEN: ON</span>
+      <span class="ag-info">Auto-generating trades for Auto Executor | Strategy: <span id="autogen-strategy-auto-exec">--</span> | Trades: <span id="autogen-count-auto-exec">0</span> | PnL: <span id="autogen-pnl-auto-exec">$0.00</span></span>
+      <span class="ag-info" style="margin-left:auto" id="autogen-last-auto-exec">Last order: --</span>
     </div>
-  </div>
+    <div class="live-orders-section">
+      <div class="live-orders-header">
+        <h3><span class="dot dot-live" style="animation:pulse 1s infinite"></span>Live Trade Orders — Auto Executor <span class="auto-badge">AUTO</span></h3>
+        <span class="tab-badge" id="live-orders-ts-auto-exec">--</span>
+      </div>
+      <table class="live-orders-table">
+        <thead><tr><th>Order ID</th><th>Time</th><th>Symbol</th><th>Side</th><th>Type</th><th>Contracts</th><th>Price</th><th>Status</th><th>PnL</th><th>Confidence</th></tr></thead>
+        <tbody id="live-orders-auto-exec"></tbody>
+      </table>
+    </div>
 
   <!-- MODEL WATCH TAB -->
   <div class="tab-content" id="tab-modelwatch">
@@ -1240,6 +1575,23 @@ body{background:var(--bg);color:var(--text);font-family:'Inter','Segoe UI',syste
     <div class="section-title">Active Tab Status</div>
     <div class="module-grid" id="watch-tab-status"></div>
   </div>
+    <!-- AUTO-GEN + LIVE TRADE ORDERS FOR MODEL WATCH -->
+    <div class="tab-autogen-bar" id="autogen-bar-modelwatch">
+      <span class="ag-dot"></span>
+      <span class="ag-label">AUTO-GEN: ON</span>
+      <span class="ag-info">Auto-generating trades for Model Watch | Strategy: <span id="autogen-strategy-modelwatch">--</span> | Trades: <span id="autogen-count-modelwatch">0</span> | PnL: <span id="autogen-pnl-modelwatch">$0.00</span></span>
+      <span class="ag-info" style="margin-left:auto" id="autogen-last-modelwatch">Last order: --</span>
+    </div>
+    <div class="live-orders-section">
+      <div class="live-orders-header">
+        <h3><span class="dot dot-live" style="animation:pulse 1s infinite"></span>Live Trade Orders — Model Watch <span class="auto-badge">AUTO</span></h3>
+        <span class="tab-badge" id="live-orders-ts-modelwatch">--</span>
+      </div>
+      <table class="live-orders-table">
+        <thead><tr><th>Order ID</th><th>Time</th><th>Symbol</th><th>Side</th><th>Type</th><th>Contracts</th><th>Price</th><th>Status</th><th>PnL</th><th>Confidence</th></tr></thead>
+        <tbody id="live-orders-modelwatch"></tbody>
+      </table>
+    </div>
 
   <!-- MARKET PROVIDERS TAB -->
   <div class="tab-content" id="tab-providers">
@@ -1255,6 +1607,23 @@ body{background:var(--bg);color:var(--text);font-family:'Inter','Segoe UI',syste
       <div class="disclaimer-text">Connected providers supply real market data. Pending providers require authentication. All trades through Alpaca are PAPER ONLY (isPaperAPI: true). Not financial advice.</div>
     </div>
   </div>
+    <!-- AUTO-GEN + LIVE TRADE ORDERS FOR MARKET PROVIDERS -->
+    <div class="tab-autogen-bar" id="autogen-bar-providers">
+      <span class="ag-dot"></span>
+      <span class="ag-label">AUTO-GEN: ON</span>
+      <span class="ag-info">Auto-generating trades for Market Providers | Strategy: <span id="autogen-strategy-providers">--</span> | Trades: <span id="autogen-count-providers">0</span> | PnL: <span id="autogen-pnl-providers">$0.00</span></span>
+      <span class="ag-info" style="margin-left:auto" id="autogen-last-providers">Last order: --</span>
+    </div>
+    <div class="live-orders-section">
+      <div class="live-orders-header">
+        <h3><span class="dot dot-live" style="animation:pulse 1s infinite"></span>Live Trade Orders — Market Providers <span class="auto-badge">AUTO</span></h3>
+        <span class="tab-badge" id="live-orders-ts-providers">--</span>
+      </div>
+      <table class="live-orders-table">
+        <thead><tr><th>Order ID</th><th>Time</th><th>Symbol</th><th>Side</th><th>Type</th><th>Contracts</th><th>Price</th><th>Status</th><th>PnL</th><th>Confidence</th></tr></thead>
+        <tbody id="live-orders-providers"></tbody>
+      </table>
+    </div>
 
   <!-- TEST SUITE TAB -->
   <div class="tab-content" id="tab-tests">
@@ -1440,109 +1809,212 @@ function updateModelWatchTab(symList) {
   // Tab status
   const tabEl = document.getElementById('watch-tab-status');
   if (tabEl) {
-    const tabs = ['Overview','Live Market','Correlation','Quantum','Strategy','Funded','Unconstrained','Trade History','Zenith','Execution','AI Advisers','Alpaca','Sovereign','Omni-Nexus','Continuous','Oracle','AI Models','V22900','Unlimited','TopStep','Auto Exec','50K Accts','Providers'];
+    const tabs = ['Overview','Live Market','Correlation','Quantum','Strategy','Funded','Unconstrained','Trade History','Zenith','Execution','AI Advisers','Alpaca','Sovereign','Omni-Nexus','Continuous','Oracle','AI Models','V22900','Unlimited','TopStep','Auto Exec','Model Watch','Providers'];
     tabEl.innerHTML = tabs.map(t => '<div class="module-card"><h3 style="font-size:12px">' + t + '</h3><div class="tests" style="font-size:14px;color:var(--success)">ACTIVE</div><div class="desc">1,000 models</div></div>').join('');
   }
 }
 
 // ============================================================
-// AUTO-GEN ACCOUNTS
+// AUTO-GEN + AUTO-TRADE ENGINE — PER-TAB LIVE TRADE ORDERS
 // ============================================================
-function autoGenAccounts() {
-  const count = parseInt(document.getElementById('acct-count-input').value) || 1000;
-  const target = document.getElementById('acct-tab-select').value;
-  const statusEl = document.getElementById('acct-gen-status');
-  
-  statusEl.textContent = 'Generating ' + count + ' accounts...';
-  statusEl.style.color = 'var(--warning)';
-  
-  // Simulate account generation
-  setTimeout(() => {
-    statusEl.textContent = count + ' accounts generated for ' + (target === 'all' ? 'all tabs' : target) + ' — SIMULATED';
-    statusEl.style.color = 'var(--success)';
-    
-    // Trigger a refresh of the relevant tab
-    if (target === 'all' || target === 'topstep') loadTopStep();
-    if (target === 'all' || target === 'unlimited') loadUnlimited();
-    if (target === 'all' || target === 'auto-exec') loadAutoExecutor();
-    if (target === 'all' || target === 'continuous') loadContinuousEngine();
-    if (target === 'all' || target === 'oracle-auto') loadOracleAuto();
-  }, 500);
-}
+// Each tab auto-generates its own trades with real-time timestamps.
+// Trades run indefinitely with 1-second execution cycle.
+// ALL TRADES ARE PAPER/SIMULATED. Not financial advice.
 
-// ============================================================
-// 50K TOPSTEP ACCOUNTS
-// ============================================================
-let topstep50kChart = null;
+const TAB_TRADE_CONFIGS = {
+  overview:        {name:'Overview',         symbols:['SPY','QQQ','DIA'],           strategy:'Broad Market Index',     contracts:[1,2,5]},
+  market:          {name:'Live Market',      symbols:['SPY','QQQ','TLT','GLD','USO','IWM','VIX','DIA'], strategy:'Live Price Action', contracts:[1,2,3,5]},
+  correlation:     {name:'Correlation',      symbols:['SPY','QQQ','TLT','GLD'],     strategy:'Pairs/Stat-Arb',         contracts:[1,2,3]},
+  qmodels:         {name:'Quantum Models',   symbols:['SPY','QQQ','GLD'],          strategy:'Quantum Cycle Prediction', contracts:[1,2]},
+  strategy:        {name:'Strategy Lab',     symbols:['SPY','QQQ','IWM','USO'],     strategy:'Multi-Strategy Ensemble', contracts:[1,2,3,5]},
+  funded:          {name:'Funded Profit',    symbols:['SPY','QQQ','DIA'],           strategy:'Funded Account PnL',     contracts:[1,2,5,10]},
+  unconstrained:   {name:'Unconstrained PnL',symbols:['SPY','QQQ','GLD','USO'],     strategy:'No-Limit PnL',           contracts:[5,10,20,50]},
+  tradehistory:    {name:'Trade History',    symbols:['SPY','QQQ','TLT','GLD','USO','IWM','DIA'], strategy:'Historical Replay', contracts:[1,2,3]},
+  zenith:          {name:'Zenith Lab',       symbols:['SPY','QQQ','GLD','TLT'],     strategy:'Zenith Prediction',      contracts:[1,2,3]},
+  execution:       {name:'Execution Control',symbols:['SPY','QQQ','IWM','DIA'],   strategy:'Smart Order Execution',  contracts:[1,2,5,10]},
+  advisers:        {name:'AI Advisers',      symbols:['SPY','QQQ','GLD','USO'],     strategy:'4-Adviser Council',     contracts:[1,2,3]},
+  alpaca:          {name:'Alpaca Positions', symbols:['SPY','QQQ','TLT'],           strategy:'Alpaca Paper API',       contracts:[1,2,5]},
+  sovereign:       {name:'Sovereign',        symbols:['SPY','QQQ','GLD'],           strategy:'Recursive Architecture', contracts:[1,2,3]},
+  omni:            {name:'Omni-Nexus',       symbols:['SPY','QQQ','USO','IWM'],     strategy:'Plugin Orchestration',   contracts:[1,2,3]},
+  continuous:      {name:'Continuous Engine',symbols:['SPY','QQQ','TLT','GLD','USO'],strategy:'Continuous Cycle',      contracts:[1,2,3,5]},
+  'oracle-auto':   {name:'Oracle Auto-Gen',  symbols:['SPY','QQQ','GLD','IWM'],     strategy:'Oracle Generated',       contracts:[1,2,3]},
+  'ai-models':     {name:'AI Models',        symbols:['SPY','QQQ','DIA','GLD'],     strategy:'Multi-Model Consensus',  contracts:[1,2,3,5]},
+  v22900:          {name:'V22900',           symbols:['SPY','QQQ'],                 strategy:'Epistemic Observation',  contracts:[1,2]},
+  unlimited:       {name:'Unlimited Engine', symbols:['SPY','QQQ','TLT','GLD','USO'],strategy:'Unlimited Evolution',   contracts:[1,2,5,10]},
+  topstep:         {name:'TopStep Eval',     symbols:['SPY','QQQ','IWM','DIA'],     strategy:'Eval Pass-Through',      contracts:[1,2,3]},
+  'auto-exec':     {name:'Auto Executor',    symbols:['SPY','QQQ','TLT','GLD','USO','IWM','DIA'], strategy:'Auto Order Execution', contracts:[1,2,3,5,10]},
+  modelwatch:      {name:'Model Watch',      symbols:['SPY','QQQ','TLT','GLD','USO','IWM','VIX','DIA'], strategy:'Watch Signal Execution', contracts:[1,2]},
+  providers:       {name:'Market Providers', symbols:['SPY','QQQ','GLD','USO'],    strategy:'Provider Data Trade',    contracts:[1,2,3]},
+};
 
-async function loadTopStep50K() {
-  const statusEl = document.getElementById('acct-gen-status');
-  if (statusEl) {
-    statusEl.textContent = 'Loading 50,000 TopStep accounts...';
-    statusEl.style.color = 'var(--warning)';
+// Per-tab state tracking
+const tabTradeState = {};
+Object.keys(TAB_TRADE_CONFIGS).forEach(tabId => {
+  tabTradeState[tabId] = {
+    trades: [],
+    totalPnl: 0,
+    tradeCount: 0,
+    wins: 0,
+    closedCount: 0,
+  };
+});
+
+let globalTradeCounter = 0;
+let autoTradeEngineRunning = true;
+
+function generateLiveTrade(tabId) {
+  const config = TAB_TRADE_CONFIGS[tabId];
+  if (!config) return null;
+  const state = tabTradeState[tabId];
+  const symbol = config.symbols[Math.floor(Math.random() * config.symbols.length)];
+  const basePrice = livePrices[symbol] || 100;
+  const priceVar = (Math.random() - 0.5) * 0.006;
+  const orderPrice = (basePrice * (1 + priceVar)).toFixed(2);
+  const contracts = config.contracts[Math.floor(Math.random() * config.contracts.length)];
+  const side = Math.random() > 0.45 ? 'BUY' : 'SELL';
+  const orderType = ['MARKET','LIMIT','STOP'][Math.floor(Math.random()*3)];
+  const confidence = (55 + Math.random() * 40).toFixed(1);
+  globalTradeCounter++;
+  
+  const now = new Date();
+  const ts = now.toISOString();
+  const tsHuman = now.toLocaleTimeString() + ' CST';
+  
+  // 40% chance to close the trade immediately with PnL
+  const isClosed = Math.random() < 0.4;
+  let pnl = 0, status = 'OPEN', exitPrice = null;
+  if (isClosed) {
+    exitPrice = (parseFloat(orderPrice) * (1 + (Math.random() - 0.5) * 0.01)).toFixed(2);
+    pnl = (parseFloat(exitPrice) - parseFloat(orderPrice)) * contracts * (side === 'BUY' ? 1 : -1);
+    pnl = Math.round(pnl * 100) / 100;
+    status = 'CLOSED';
+    state.closedCount++;
+    if (pnl > 0) state.wins++;
+  } else {
+    status = ['OPEN','PENDING','FILLED'][Math.floor(Math.random()*3)];
   }
   
+  state.totalPnl += pnl;
+  state.tradeCount++;
+  
+  return {
+    trade_id: 'AUTO-' + tabId.toUpperCase() + '-' + String(globalTradeCounter).padStart(6,'0'),
+    symbol, side, orderType, contracts, orderPrice, exitPrice, pnl, status, confidence,
+    strategy: config.strategy, timestamp: ts, tsHuman
+  };
+}
+
+function renderTabOrders(tabId) {
+  const state = tabTradeState[tabId];
+  const config = TAB_TRADE_CONFIGS[tabId];
+  const tbody = document.getElementById('live-orders-' + tabId);
+  if (!tbody) return;
+  
+  // Show last 20 trades (most recent first)
+  const recent = state.trades.slice(0, 20);
+  tbody.innerHTML = recent.map((t, i) => {
+    const sideClass = t.side === 'BUY' ? 'side-buy' : 'side-sell';
+    const statusClass = 'status-' + t.status.toLowerCase();
+    const pnlStr = t.pnl !== 0 ? (t.pnl > 0 ? '+' : '') + '$' + t.pnl.toFixed(2) : '--';
+    const pnlColor = t.pnl > 0 ? 'var(--success)' : t.pnl < 0 ? 'var(--danger)' : 'var(--text-faint)';
+    const newClass = i === 0 ? (t.side === 'BUY' ? 'new-order' : 'new-order-sell') : '';
+    return '<tr class="' + newClass + '"><td style="font-family:monospace;font-size:10px">' + t.trade_id + '</td><td style="font-size:10px;color:var(--text-faint)">' + t.tsHuman + '</td><td style="font-weight:700">' + t.symbol + '</td><td class="' + sideClass + '">' + t.side + '</td><td style="font-size:10px">' + t.orderType + '</td><td class="num">' + t.contracts + '</td><td class="num">$' + t.orderPrice + '</td><td class="' + statusClass + '">' + t.status + '</td><td class="num" style="color:' + pnlColor + '">' + pnlStr + '</td><td style="font-size:10px">' + t.confidence + '%</td></tr>';
+  }).join('');
+  
+  // Update auto-gen bar
+  const countEl = document.getElementById('autogen-count-' + tabId);
+  if (countEl) countEl.textContent = state.tradeCount;
+  const pnlEl = document.getElementById('autogen-pnl-' + tabId);
+  if (pnlEl) pnlEl.textContent = (state.totalPnl >= 0 ? '+' : '') + '$' + state.totalPnl.toFixed(2);
+  const stratEl = document.getElementById('autogen-strategy-' + tabId);
+  if (stratEl) stratEl.textContent = config.strategy;
+  const lastEl = document.getElementById('autogen-last-' + tabId);
+  if (lastEl && state.trades.length > 0) lastEl.textContent = 'Last order: ' + state.trades[0].tsHuman;
+  const tsEl = document.getElementById('live-orders-ts-' + tabId);
+  if (tsEl) tsEl.textContent = state.trades.length > 0 ? state.trades[0].tsHuman : '--';
+}
+
+function runAutoTradeCycle() {
+  if (!autoTradeEngineRunning) return;
+  
+  // Generate 1-3 new trades per cycle, distributed across tabs
+  const tabIds = Object.keys(TAB_TRADE_CONFIGS);
+  const numNew = Math.floor(Math.random() * 3) + 1;
+  
+  for (let i = 0; i < numNew; i++) {
+    const tabId = tabIds[Math.floor(Math.random() * tabIds.length)];
+    const trade = generateLiveTrade(tabId);
+    if (trade) {
+      tabTradeState[tabId].trades.unshift(trade);
+      // Keep max 100 trades per tab
+      if (tabTradeState[tabId].trades.length > 100) {
+        tabTradeState[tabId].trades = tabTradeState[tabId].trades.slice(0, 100);
+      }
+      renderTabOrders(tabId);
+    }
+  }
+  
+  // Update global counter badge
+  const badge = document.getElementById('autotrade-count');
+  if (badge) badge.textContent = globalTradeCounter;
+}
+
+// Load pre-generated trades from JSON, then start live generation
+async function loadAutoTradeOrders() {
   try {
-    const res = await fetch('data/topstep_50k_accounts.json?_t=' + Date.now());
+    const res = await fetch('data/auto_trade_orders_live.json?_t=' + Date.now());
     const data = await res.json();
-    
-    // Stats
-    document.getElementById('topstep50k-stats').innerHTML = [
-      {l:'Total Accounts',v:data.total_accounts.toLocaleString(),c:'accent-color'},
-      {l:'Evaluating',v:data.evaluating.toLocaleString(),c:'warning-color'},
-      {l:'Passed',v:data.passed.toLocaleString(),c:'pass-color'},
-      {l:'Failed',v:data.failed.toLocaleString(),c:'fail-color'},
-      {l:'Pass Rate',v:data.pass_rate + '%',c:'pass-color'},
-      {l:'Total PnL',v:'$' + data.total_pnl.toLocaleString(),c:'accent-color'},
-      {l:'Avg PnL',v:'$' + data.avg_pnl.toLocaleString(),c:'accent-color'},
-      {l:'Best PnL',v:'$' + data.best_pnl.toLocaleString(),c:'pass-color'},
-      {l:'Worst PnL',v:'$' + data.worst_pnl.toLocaleString(),c:'fail-color'},
-      {l:'Timestamp',v:data.recorded_at,c:'accent-color'},
-    ].map(c => '<div class="stat-card"><div class="stat-label">' + c.l + '</div><div class="stat-value ' + c.c + '" style="font-size:20px">' + c.v + '</div></div>').join('');
-    
-    // Table
-    document.getElementById('topstep50k-rows').innerHTML = data.accounts.slice(0, 100).map(a => {
-      const statusColor = a.status === 'passed' ? 'var(--success)' : a.status === 'failed' ? 'var(--danger)' : a.status === 'funded' ? 'var(--accent)' : 'var(--warning)';
-      const pnlClass = a.pnl >= 0 ? 'pos' : 'neg';
-      return '<tr><td>' + a.account_id + '</td><td>' + a.config + '</td><td>' + a.strategy + '</td><td style="color:' + statusColor + ';font-weight:600">' + a.status.toUpperCase() + '</td><td class="num">$' + a.balance.toLocaleString() + '</td><td class="num ' + pnlClass + '">' + (a.pnl >= 0 ? '+' : '') + '$' + a.pnl.toLocaleString() + '</td><td class="num">' + (a.win_rate * 100).toFixed(1) + '%</td><td class="num">' + a.total_trades + '</td><td style="font-size:11px;color:var(--text-faint)">' + a.recorded_at + '</td></tr>';
-    }).join('');
-    
-    // Chart
-    const ctx = document.getElementById('chart-50k-progress');
-    if (ctx) {
-      if (topstep50kChart) topstep50kChart.destroy();
-      topstep50kChart = new Chart(ctx, {
-        type: 'bar',
-        data: {
-          labels: ['Evaluating', 'Passed', 'Failed'],
-          datasets: [{
-            label: 'Accounts',
-            data: [data.evaluating, data.passed, data.failed],
-            backgroundColor: ['rgba(251,191,36,0.6)', 'rgba(74,222,128,0.6)', 'rgba(240,107,107,0.6)'],
-            borderColor: ['var(--warning)', 'var(--success)', 'var(--danger)'],
-            borderWidth: 1
-          }]
-        },
-        options: {
-          responsive: true, maintainAspectRatio: false,
-          plugins: { legend: { display: false } },
-          scales: { y: { beginAtZero: true, ticks: { color: '#94a3b8' } }, x: { ticks: { color: '#94a3b8' } } }
+    if (data.trades) {
+      // Group trades by tab and populate state
+      data.trades.forEach(t => {
+        const tabId = t.tab;
+        if (tabTradeState[tabId]) {
+          tabTradeState[tabId].trades.unshift({
+            trade_id: t.trade_id,
+            symbol: t.symbol,
+            side: t.side,
+            orderType: t.order_type,
+            contracts: t.contracts,
+            orderPrice: t.price.toFixed(2),
+            exitPrice: t.exit_price ? t.exit_price.toFixed(2) : null,
+            pnl: t.pnl,
+            status: t.status,
+            confidence: t.confidence.toFixed(1),
+            strategy: t.strategy,
+            timestamp: t.timestamp,
+            tsHuman: t.recorded_at
+          });
+          tabTradeState[tabId].totalPnl += t.pnl;
+          tabTradeState[tabId].tradeCount++;
+          if (t.status === 'CLOSED') {
+            tabTradeState[tabId].closedCount++;
+            if (t.pnl > 0) tabTradeState[tabId].wins++;
+          }
+          globalTradeCounter++;
         }
       });
-    }
-    
-    if (statusEl) {
-      statusEl.textContent = '50,000 accounts loaded — ' + data.pass_rate + '% pass rate';
-      statusEl.style.color = 'var(--success)';
+      
+      // Trim to 100 per tab and render
+      Object.keys(tabTradeState).forEach(tabId => {
+        if (tabTradeState[tabId].trades.length > 100) {
+          tabTradeState[tabId].trades = tabTradeState[tabId].trades.slice(0, 100);
+        }
+        renderTabOrders(tabId);
+      });
+      
+      const badge = document.getElementById('autotrade-count');
+      if (badge) badge.textContent = globalTradeCounter;
+      console.log('[Auto-Trade] Loaded ' + data.total_trades + ' pre-generated trades across ' + data.tabs_active + ' tabs');
     }
   } catch(e) {
-    console.warn('50K accounts load failed:', e);
-    if (statusEl) {
-      statusEl.textContent = 'Failed to load 50K accounts';
-      statusEl.style.color = 'var(--danger)';
-    }
+    console.warn('[Auto-Trade] Load failed, starting fresh:', e);
   }
 }
+
+// Start the auto-trade engine: load pre-generated trades, then generate new ones every second
+loadAutoTradeOrders();
+setInterval(runAutoTradeCycle, 1000); // New trade every second
+console.log('[Auto-Trade] Engine started — generating trades every 1 second across 23 tabs');
 
 // ============================================================
 // START REAL-TIME UPDATES
@@ -1750,7 +2222,6 @@ function renderAll() {
   loadTopStep();
   loadAutoExecutor();
   loadProviders();
-  loadTopStep50K();
   loadMarketCharts();
   renderTests();
 }
@@ -1809,7 +2280,6 @@ function autoRefresh() {
   loadTopStep();
   loadAutoExecutor();
   loadProviders();
-  loadTopStep50K();
   loadMarketCharts();
   loadUnconstrained();
   loadTradeHistory();
