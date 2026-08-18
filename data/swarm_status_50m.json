@@ -12,13 +12,13 @@
     "sample_computed": 10000,
     "extrapolation_factor": 5000,
     "votes": {
-      "buy": 17380000,
-      "sell": 17415000,
-      "hold": 15205000
+      "buy": 17115000,
+      "sell": 17995000,
+      "hold": 14890000
     },
     "consensus": "sell",
-    "agreement": 0.3483,
-    "diversity": 0.6517,
+    "agreement": 0.3599,
+    "diversity": 0.6401,
     "simulated": true,
     "model_prediction": true,
     "honesty_note": "50M agents are SIMULATED via sampling. 10K agents actually computed, results extrapolated. Swarm measures diversity, not accuracy."
