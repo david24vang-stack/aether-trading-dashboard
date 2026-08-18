@@ -28,7 +28,9 @@
     "target_met": true,
     "avg_days_to_pass": 6.8,
     "avg_pnl": 3364.54,
-    "timestamp": ""
+    "timestamp": "2026-08-18T22:02:56.042575+00:00",
+    "total_models": 1000,
+    "recorded_at": "2026-08-18 22:02:56 UTC"
   },
   "batches": [
     {
@@ -44,7 +46,8 @@
         "PROFIT_NOT_REACHED": 2
       },
       "model_config_name": "Chunk 1",
-      "timestamp": ""
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
     },
     {
       "batch_num": 1,
@@ -59,7 +62,8 @@
         "PROFIT_NOT_REACHED": 2
       },
       "model_config_name": "Chunk 2",
-      "timestamp": ""
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
     },
     {
       "batch_num": 2,
@@ -74,7 +78,8 @@
         "PROFIT_NOT_REACHED": 2
       },
       "model_config_name": "Chunk 3",
-      "timestamp": ""
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
     },
     {
       "batch_num": 3,
@@ -89,7 +94,8 @@
         "PROFIT_NOT_REACHED": 2
       },
       "model_config_name": "Chunk 4",
-      "timestamp": ""
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
     },
     {
       "batch_num": 4,
@@ -104,7 +110,8 @@
         "PROFIT_NOT_REACHED": 2
       },
       "model_config_name": "Chunk 5",
-      "timestamp": ""
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
     }
   ],
   "funded_results": [
@@ -113,140 +120,180 @@
       "pnl": 3080.0,
       "profitable": true,
       "passed": true,
-      "days": 11
+      "days": 11,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
     },
     {
       "account_id": 1,
       "pnl": 3228.0,
       "profitable": true,
       "passed": true,
-      "days": 6
+      "days": 6,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
     },
     {
       "account_id": 2,
       "pnl": 3710.0,
       "profitable": true,
       "passed": true,
-      "days": 5
+      "days": 5,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
     },
     {
       "account_id": 3,
       "pnl": 3710.0,
       "profitable": true,
       "passed": true,
-      "days": 5
+      "days": 5,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
     },
     {
       "account_id": 4,
       "pnl": 3636.0,
       "profitable": true,
       "passed": true,
-      "days": 7
+      "days": 7,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
     },
     {
       "account_id": 5,
       "pnl": 3395.0,
       "profitable": true,
       "passed": true,
-      "days": 8
+      "days": 8,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
     },
     {
       "account_id": 6,
       "pnl": 3098.0,
       "profitable": true,
       "passed": true,
-      "days": 6
+      "days": 6,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
     },
     {
       "account_id": 7,
       "pnl": 3655.0,
       "profitable": true,
       "passed": true,
-      "days": 11
+      "days": 11,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
     },
     {
       "account_id": 8,
       "pnl": 3506.0,
       "profitable": true,
       "passed": true,
-      "days": 5
+      "days": 5,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
     },
     {
       "account_id": 9,
       "pnl": 3303.0,
       "profitable": true,
       "passed": true,
-      "days": 17
+      "days": 17,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
     },
     {
       "account_id": 10,
       "pnl": 3710.0,
       "profitable": true,
       "passed": true,
-      "days": 5
+      "days": 5,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
     },
     {
       "account_id": 11,
       "pnl": 3432.0,
       "profitable": true,
       "passed": true,
-      "days": 6
+      "days": 6,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
     },
     {
       "account_id": 12,
       "pnl": 3228.0,
       "profitable": true,
       "passed": true,
-      "days": 6
+      "days": 6,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
     },
     {
       "account_id": 13,
       "pnl": 3636.0,
       "profitable": true,
       "passed": true,
-      "days": 7
+      "days": 7,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
     },
     {
       "account_id": 14,
       "pnl": 3673.0,
       "profitable": true,
       "passed": true,
-      "days": 5
+      "days": 5,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
     },
     {
       "account_id": 15,
       "pnl": 3710.0,
       "profitable": true,
       "passed": true,
-      "days": 5
+      "days": 5,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
     },
     {
       "account_id": 16,
       "pnl": 3710.0,
       "profitable": true,
       "passed": true,
-      "days": 5
+      "days": 5,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
     },
     {
       "account_id": 17,
       "pnl": 3710.0,
       "profitable": true,
       "passed": true,
-      "days": 5
+      "days": 5,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
     },
     {
       "account_id": 18,
       "pnl": 3154.0,
       "profitable": true,
       "passed": true,
-      "days": 10
+      "days": 10,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
     },
     {
       "account_id": 19,
       "pnl": 3191.0,
       "profitable": true,
       "passed": true,
-      "days": 8
+      "days": 8,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
     }
   ],
   "learning_progress": [
@@ -281,10 +328,2013 @@
       "accounts_run": 2000
     }
   ],
-  "top_models": [],
+  "top_models": [
+    {
+      "model_id": "Model_0001",
+      "type": "Trend_Follow",
+      "accuracy": 0.0,
+      "predictions": 0,
+      "correct": 0,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC",
+      "simulated": true
+    },
+    {
+      "model_id": "Model_0002",
+      "type": "Mean_Revert",
+      "accuracy": 0.0,
+      "predictions": 0,
+      "correct": 0,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC",
+      "simulated": true
+    },
+    {
+      "model_id": "Model_0003",
+      "type": "Breakout_Hunter",
+      "accuracy": 0.0,
+      "predictions": 0,
+      "correct": 0,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC",
+      "simulated": true
+    },
+    {
+      "model_id": "Model_0004",
+      "type": "Volatility_Scalp",
+      "accuracy": 0.0,
+      "predictions": 0,
+      "correct": 0,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC",
+      "simulated": true
+    },
+    {
+      "model_id": "Model_0005",
+      "type": "Pairs_Trade",
+      "accuracy": 0.0,
+      "predictions": 0,
+      "correct": 0,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC",
+      "simulated": true
+    },
+    {
+      "model_id": "Model_0006",
+      "type": "Momentum_Ride",
+      "accuracy": 0.0,
+      "predictions": 0,
+      "correct": 0,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC",
+      "simulated": true
+    },
+    {
+      "model_id": "Model_0007",
+      "type": "Range_Trade",
+      "accuracy": 0.0,
+      "predictions": 0,
+      "correct": 0,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC",
+      "simulated": true
+    },
+    {
+      "model_id": "Model_0008",
+      "type": "MACD_Cross",
+      "accuracy": 0.0,
+      "predictions": 0,
+      "correct": 0,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC",
+      "simulated": true
+    },
+    {
+      "model_id": "Model_0009",
+      "type": "RSI_Divergence",
+      "accuracy": 0.0,
+      "predictions": 0,
+      "correct": 0,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC",
+      "simulated": true
+    },
+    {
+      "model_id": "Model_0010",
+      "type": "Bollinger_Squeeze",
+      "accuracy": 0.0,
+      "predictions": 0,
+      "correct": 0,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC",
+      "simulated": true
+    },
+    {
+      "model_id": "Model_0011",
+      "type": "EMA_Ribbon",
+      "accuracy": 0.0,
+      "predictions": 0,
+      "correct": 0,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC",
+      "simulated": true
+    },
+    {
+      "model_id": "Model_0012",
+      "type": "VWAP_Bounce",
+      "accuracy": 0.0,
+      "predictions": 0,
+      "correct": 0,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC",
+      "simulated": true
+    },
+    {
+      "model_id": "Model_0013",
+      "type": "ATR_Trail",
+      "accuracy": 0.0,
+      "predictions": 0,
+      "correct": 0,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC",
+      "simulated": true
+    },
+    {
+      "model_id": "Model_0014",
+      "type": "Correlation_Hedge",
+      "accuracy": 0.0,
+      "predictions": 0,
+      "correct": 0,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC",
+      "simulated": true
+    },
+    {
+      "model_id": "Model_0015",
+      "type": "Volume_Profile",
+      "accuracy": 0.0,
+      "predictions": 0,
+      "correct": 0,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC",
+      "simulated": true
+    },
+    {
+      "model_id": "Model_0016",
+      "type": "Sentiment_Pivot",
+      "accuracy": 0.0,
+      "predictions": 0,
+      "correct": 0,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC",
+      "simulated": true
+    },
+    {
+      "model_id": "Model_0017",
+      "type": "ML_LSTM_Predict",
+      "accuracy": 0.0,
+      "predictions": 0,
+      "correct": 0,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC",
+      "simulated": true
+    },
+    {
+      "model_id": "Model_0018",
+      "type": "RL_Q_Learn",
+      "accuracy": 0.0,
+      "predictions": 0,
+      "correct": 0,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC",
+      "simulated": true
+    },
+    {
+      "model_id": "Model_0019",
+      "type": "Bayesian_Update",
+      "accuracy": 0.0,
+      "predictions": 0,
+      "correct": 0,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC",
+      "simulated": true
+    },
+    {
+      "model_id": "Model_0020",
+      "type": "GAN_Forecast",
+      "accuracy": 0.0,
+      "predictions": 0,
+      "correct": 0,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC",
+      "simulated": true
+    },
+    {
+      "model_id": "Model_0021",
+      "type": "Diffusion_Model",
+      "accuracy": 0.0,
+      "predictions": 0,
+      "correct": 0,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC",
+      "simulated": true
+    },
+    {
+      "model_id": "Model_0022",
+      "type": "Graph_Net",
+      "accuracy": 0.0,
+      "predictions": 0,
+      "correct": 0,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC",
+      "simulated": true
+    },
+    {
+      "model_id": "Model_0023",
+      "type": "Attention_Sequence",
+      "accuracy": 0.0,
+      "predictions": 0,
+      "correct": 0,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC",
+      "simulated": true
+    },
+    {
+      "model_id": "Model_0024",
+      "type": "Autoencoder_Anomaly",
+      "accuracy": 0.0,
+      "predictions": 0,
+      "correct": 0,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC",
+      "simulated": true
+    },
+    {
+      "model_id": "Model_0025",
+      "type": "Wavelet_Decompose",
+      "accuracy": 0.0,
+      "predictions": 0,
+      "correct": 0,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC",
+      "simulated": true
+    },
+    {
+      "model_id": "Model_0026",
+      "type": "Fuzzy_Logic",
+      "accuracy": 0.0,
+      "predictions": 0,
+      "correct": 0,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC",
+      "simulated": true
+    },
+    {
+      "model_id": "Model_0027",
+      "type": "Trend_Follow",
+      "accuracy": 0.0,
+      "predictions": 0,
+      "correct": 0,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC",
+      "simulated": true
+    },
+    {
+      "model_id": "Model_0028",
+      "type": "Mean_Revert",
+      "accuracy": 0.0,
+      "predictions": 0,
+      "correct": 0,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC",
+      "simulated": true
+    },
+    {
+      "model_id": "Model_0029",
+      "type": "Breakout_Hunter",
+      "accuracy": 0.0,
+      "predictions": 0,
+      "correct": 0,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC",
+      "simulated": true
+    },
+    {
+      "model_id": "Model_0030",
+      "type": "Volatility_Scalp",
+      "accuracy": 0.0,
+      "predictions": 0,
+      "correct": 0,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC",
+      "simulated": true
+    },
+    {
+      "model_id": "Model_0031",
+      "type": "Pairs_Trade",
+      "accuracy": 0.0,
+      "predictions": 0,
+      "correct": 0,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC",
+      "simulated": true
+    },
+    {
+      "model_id": "Model_0032",
+      "type": "Momentum_Ride",
+      "accuracy": 0.0,
+      "predictions": 0,
+      "correct": 0,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC",
+      "simulated": true
+    },
+    {
+      "model_id": "Model_0033",
+      "type": "Range_Trade",
+      "accuracy": 0.0,
+      "predictions": 0,
+      "correct": 0,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC",
+      "simulated": true
+    },
+    {
+      "model_id": "Model_0034",
+      "type": "MACD_Cross",
+      "accuracy": 0.0,
+      "predictions": 0,
+      "correct": 0,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC",
+      "simulated": true
+    },
+    {
+      "model_id": "Model_0035",
+      "type": "RSI_Divergence",
+      "accuracy": 0.0,
+      "predictions": 0,
+      "correct": 0,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC",
+      "simulated": true
+    },
+    {
+      "model_id": "Model_0036",
+      "type": "Bollinger_Squeeze",
+      "accuracy": 0.0,
+      "predictions": 0,
+      "correct": 0,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC",
+      "simulated": true
+    },
+    {
+      "model_id": "Model_0037",
+      "type": "EMA_Ribbon",
+      "accuracy": 0.0,
+      "predictions": 0,
+      "correct": 0,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC",
+      "simulated": true
+    },
+    {
+      "model_id": "Model_0038",
+      "type": "VWAP_Bounce",
+      "accuracy": 0.0,
+      "predictions": 0,
+      "correct": 0,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC",
+      "simulated": true
+    },
+    {
+      "model_id": "Model_0039",
+      "type": "ATR_Trail",
+      "accuracy": 0.0,
+      "predictions": 0,
+      "correct": 0,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC",
+      "simulated": true
+    },
+    {
+      "model_id": "Model_0040",
+      "type": "Correlation_Hedge",
+      "accuracy": 0.0,
+      "predictions": 0,
+      "correct": 0,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC",
+      "simulated": true
+    },
+    {
+      "model_id": "Model_0041",
+      "type": "Volume_Profile",
+      "accuracy": 0.0,
+      "predictions": 0,
+      "correct": 0,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC",
+      "simulated": true
+    },
+    {
+      "model_id": "Model_0042",
+      "type": "Sentiment_Pivot",
+      "accuracy": 0.0,
+      "predictions": 0,
+      "correct": 0,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC",
+      "simulated": true
+    },
+    {
+      "model_id": "Model_0043",
+      "type": "ML_LSTM_Predict",
+      "accuracy": 0.0,
+      "predictions": 0,
+      "correct": 0,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC",
+      "simulated": true
+    },
+    {
+      "model_id": "Model_0044",
+      "type": "RL_Q_Learn",
+      "accuracy": 0.0,
+      "predictions": 0,
+      "correct": 0,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC",
+      "simulated": true
+    },
+    {
+      "model_id": "Model_0045",
+      "type": "Bayesian_Update",
+      "accuracy": 0.0,
+      "predictions": 0,
+      "correct": 0,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC",
+      "simulated": true
+    },
+    {
+      "model_id": "Model_0046",
+      "type": "GAN_Forecast",
+      "accuracy": 0.0,
+      "predictions": 0,
+      "correct": 0,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC",
+      "simulated": true
+    },
+    {
+      "model_id": "Model_0047",
+      "type": "Diffusion_Model",
+      "accuracy": 0.0,
+      "predictions": 0,
+      "correct": 0,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC",
+      "simulated": true
+    },
+    {
+      "model_id": "Model_0048",
+      "type": "Graph_Net",
+      "accuracy": 0.0,
+      "predictions": 0,
+      "correct": 0,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC",
+      "simulated": true
+    },
+    {
+      "model_id": "Model_0049",
+      "type": "Attention_Sequence",
+      "accuracy": 0.0,
+      "predictions": 0,
+      "correct": 0,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC",
+      "simulated": true
+    },
+    {
+      "model_id": "Model_0050",
+      "type": "Autoencoder_Anomaly",
+      "accuracy": 0.0,
+      "predictions": 0,
+      "correct": 0,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC",
+      "simulated": true
+    },
+    {
+      "model_id": "Model_0051",
+      "type": "Wavelet_Decompose",
+      "accuracy": 0.0,
+      "predictions": 0,
+      "correct": 0,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC",
+      "simulated": true
+    },
+    {
+      "model_id": "Model_0052",
+      "type": "Fuzzy_Logic",
+      "accuracy": 0.0,
+      "predictions": 0,
+      "correct": 0,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC",
+      "simulated": true
+    },
+    {
+      "model_id": "Model_0053",
+      "type": "Trend_Follow",
+      "accuracy": 0.0,
+      "predictions": 0,
+      "correct": 0,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC",
+      "simulated": true
+    },
+    {
+      "model_id": "Model_0054",
+      "type": "Mean_Revert",
+      "accuracy": 0.0,
+      "predictions": 0,
+      "correct": 0,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC",
+      "simulated": true
+    },
+    {
+      "model_id": "Model_0055",
+      "type": "Breakout_Hunter",
+      "accuracy": 0.0,
+      "predictions": 0,
+      "correct": 0,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC",
+      "simulated": true
+    },
+    {
+      "model_id": "Model_0056",
+      "type": "Volatility_Scalp",
+      "accuracy": 0.0,
+      "predictions": 0,
+      "correct": 0,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC",
+      "simulated": true
+    },
+    {
+      "model_id": "Model_0057",
+      "type": "Pairs_Trade",
+      "accuracy": 0.0,
+      "predictions": 0,
+      "correct": 0,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC",
+      "simulated": true
+    },
+    {
+      "model_id": "Model_0058",
+      "type": "Momentum_Ride",
+      "accuracy": 0.0,
+      "predictions": 0,
+      "correct": 0,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC",
+      "simulated": true
+    },
+    {
+      "model_id": "Model_0059",
+      "type": "Range_Trade",
+      "accuracy": 0.0,
+      "predictions": 0,
+      "correct": 0,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC",
+      "simulated": true
+    },
+    {
+      "model_id": "Model_0060",
+      "type": "MACD_Cross",
+      "accuracy": 0.0,
+      "predictions": 0,
+      "correct": 0,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC",
+      "simulated": true
+    },
+    {
+      "model_id": "Model_0061",
+      "type": "RSI_Divergence",
+      "accuracy": 0.0,
+      "predictions": 0,
+      "correct": 0,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC",
+      "simulated": true
+    },
+    {
+      "model_id": "Model_0062",
+      "type": "Bollinger_Squeeze",
+      "accuracy": 0.0,
+      "predictions": 0,
+      "correct": 0,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC",
+      "simulated": true
+    },
+    {
+      "model_id": "Model_0063",
+      "type": "EMA_Ribbon",
+      "accuracy": 0.0,
+      "predictions": 0,
+      "correct": 0,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC",
+      "simulated": true
+    },
+    {
+      "model_id": "Model_0064",
+      "type": "VWAP_Bounce",
+      "accuracy": 0.0,
+      "predictions": 0,
+      "correct": 0,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC",
+      "simulated": true
+    },
+    {
+      "model_id": "Model_0065",
+      "type": "ATR_Trail",
+      "accuracy": 0.0,
+      "predictions": 0,
+      "correct": 0,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC",
+      "simulated": true
+    },
+    {
+      "model_id": "Model_0066",
+      "type": "Correlation_Hedge",
+      "accuracy": 0.0,
+      "predictions": 0,
+      "correct": 0,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC",
+      "simulated": true
+    },
+    {
+      "model_id": "Model_0067",
+      "type": "Volume_Profile",
+      "accuracy": 0.0,
+      "predictions": 0,
+      "correct": 0,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC",
+      "simulated": true
+    },
+    {
+      "model_id": "Model_0068",
+      "type": "Sentiment_Pivot",
+      "accuracy": 0.0,
+      "predictions": 0,
+      "correct": 0,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC",
+      "simulated": true
+    },
+    {
+      "model_id": "Model_0069",
+      "type": "ML_LSTM_Predict",
+      "accuracy": 0.0,
+      "predictions": 0,
+      "correct": 0,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC",
+      "simulated": true
+    },
+    {
+      "model_id": "Model_0070",
+      "type": "RL_Q_Learn",
+      "accuracy": 0.0,
+      "predictions": 0,
+      "correct": 0,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC",
+      "simulated": true
+    },
+    {
+      "model_id": "Model_0071",
+      "type": "Bayesian_Update",
+      "accuracy": 0.0,
+      "predictions": 0,
+      "correct": 0,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC",
+      "simulated": true
+    },
+    {
+      "model_id": "Model_0072",
+      "type": "GAN_Forecast",
+      "accuracy": 0.0,
+      "predictions": 0,
+      "correct": 0,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC",
+      "simulated": true
+    },
+    {
+      "model_id": "Model_0073",
+      "type": "Diffusion_Model",
+      "accuracy": 0.0,
+      "predictions": 0,
+      "correct": 0,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC",
+      "simulated": true
+    },
+    {
+      "model_id": "Model_0074",
+      "type": "Graph_Net",
+      "accuracy": 0.0,
+      "predictions": 0,
+      "correct": 0,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC",
+      "simulated": true
+    },
+    {
+      "model_id": "Model_0075",
+      "type": "Attention_Sequence",
+      "accuracy": 0.0,
+      "predictions": 0,
+      "correct": 0,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC",
+      "simulated": true
+    },
+    {
+      "model_id": "Model_0076",
+      "type": "Autoencoder_Anomaly",
+      "accuracy": 0.0,
+      "predictions": 0,
+      "correct": 0,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC",
+      "simulated": true
+    },
+    {
+      "model_id": "Model_0077",
+      "type": "Wavelet_Decompose",
+      "accuracy": 0.0,
+      "predictions": 0,
+      "correct": 0,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC",
+      "simulated": true
+    },
+    {
+      "model_id": "Model_0078",
+      "type": "Fuzzy_Logic",
+      "accuracy": 0.0,
+      "predictions": 0,
+      "correct": 0,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC",
+      "simulated": true
+    },
+    {
+      "model_id": "Model_0079",
+      "type": "Trend_Follow",
+      "accuracy": 0.0,
+      "predictions": 0,
+      "correct": 0,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC",
+      "simulated": true
+    },
+    {
+      "model_id": "Model_0080",
+      "type": "Mean_Revert",
+      "accuracy": 0.0,
+      "predictions": 0,
+      "correct": 0,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC",
+      "simulated": true
+    },
+    {
+      "model_id": "Model_0081",
+      "type": "Breakout_Hunter",
+      "accuracy": 0.0,
+      "predictions": 0,
+      "correct": 0,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC",
+      "simulated": true
+    },
+    {
+      "model_id": "Model_0082",
+      "type": "Volatility_Scalp",
+      "accuracy": 0.0,
+      "predictions": 0,
+      "correct": 0,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC",
+      "simulated": true
+    },
+    {
+      "model_id": "Model_0083",
+      "type": "Pairs_Trade",
+      "accuracy": 0.0,
+      "predictions": 0,
+      "correct": 0,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC",
+      "simulated": true
+    },
+    {
+      "model_id": "Model_0084",
+      "type": "Momentum_Ride",
+      "accuracy": 0.0,
+      "predictions": 0,
+      "correct": 0,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC",
+      "simulated": true
+    },
+    {
+      "model_id": "Model_0085",
+      "type": "Range_Trade",
+      "accuracy": 0.0,
+      "predictions": 0,
+      "correct": 0,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC",
+      "simulated": true
+    },
+    {
+      "model_id": "Model_0086",
+      "type": "MACD_Cross",
+      "accuracy": 0.0,
+      "predictions": 0,
+      "correct": 0,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC",
+      "simulated": true
+    },
+    {
+      "model_id": "Model_0087",
+      "type": "RSI_Divergence",
+      "accuracy": 0.0,
+      "predictions": 0,
+      "correct": 0,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC",
+      "simulated": true
+    },
+    {
+      "model_id": "Model_0088",
+      "type": "Bollinger_Squeeze",
+      "accuracy": 0.0,
+      "predictions": 0,
+      "correct": 0,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC",
+      "simulated": true
+    },
+    {
+      "model_id": "Model_0089",
+      "type": "EMA_Ribbon",
+      "accuracy": 0.0,
+      "predictions": 0,
+      "correct": 0,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC",
+      "simulated": true
+    },
+    {
+      "model_id": "Model_0090",
+      "type": "VWAP_Bounce",
+      "accuracy": 0.0,
+      "predictions": 0,
+      "correct": 0,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC",
+      "simulated": true
+    },
+    {
+      "model_id": "Model_0091",
+      "type": "ATR_Trail",
+      "accuracy": 0.0,
+      "predictions": 0,
+      "correct": 0,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC",
+      "simulated": true
+    },
+    {
+      "model_id": "Model_0092",
+      "type": "Correlation_Hedge",
+      "accuracy": 0.0,
+      "predictions": 0,
+      "correct": 0,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC",
+      "simulated": true
+    },
+    {
+      "model_id": "Model_0093",
+      "type": "Volume_Profile",
+      "accuracy": 0.0,
+      "predictions": 0,
+      "correct": 0,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC",
+      "simulated": true
+    },
+    {
+      "model_id": "Model_0094",
+      "type": "Sentiment_Pivot",
+      "accuracy": 0.0,
+      "predictions": 0,
+      "correct": 0,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC",
+      "simulated": true
+    },
+    {
+      "model_id": "Model_0095",
+      "type": "ML_LSTM_Predict",
+      "accuracy": 0.0,
+      "predictions": 0,
+      "correct": 0,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC",
+      "simulated": true
+    },
+    {
+      "model_id": "Model_0096",
+      "type": "RL_Q_Learn",
+      "accuracy": 0.0,
+      "predictions": 0,
+      "correct": 0,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC",
+      "simulated": true
+    },
+    {
+      "model_id": "Model_0097",
+      "type": "Bayesian_Update",
+      "accuracy": 0.0,
+      "predictions": 0,
+      "correct": 0,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC",
+      "simulated": true
+    },
+    {
+      "model_id": "Model_0098",
+      "type": "GAN_Forecast",
+      "accuracy": 0.0,
+      "predictions": 0,
+      "correct": 0,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC",
+      "simulated": true
+    },
+    {
+      "model_id": "Model_0099",
+      "type": "Diffusion_Model",
+      "accuracy": 0.0,
+      "predictions": 0,
+      "correct": 0,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC",
+      "simulated": true
+    },
+    {
+      "model_id": "Model_0100",
+      "type": "Graph_Net",
+      "accuracy": 0.0,
+      "predictions": 0,
+      "correct": 0,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC",
+      "simulated": true
+    },
+    {
+      "model_id": "Model_0101",
+      "type": "Attention_Sequence",
+      "accuracy": 0.0,
+      "predictions": 0,
+      "correct": 0,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC",
+      "simulated": true
+    },
+    {
+      "model_id": "Model_0102",
+      "type": "Autoencoder_Anomaly",
+      "accuracy": 0.0,
+      "predictions": 0,
+      "correct": 0,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC",
+      "simulated": true
+    },
+    {
+      "model_id": "Model_0103",
+      "type": "Wavelet_Decompose",
+      "accuracy": 0.0,
+      "predictions": 0,
+      "correct": 0,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC",
+      "simulated": true
+    },
+    {
+      "model_id": "Model_0104",
+      "type": "Fuzzy_Logic",
+      "accuracy": 0.0,
+      "predictions": 0,
+      "correct": 0,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC",
+      "simulated": true
+    },
+    {
+      "model_id": "Model_0105",
+      "type": "Trend_Follow",
+      "accuracy": 0.0,
+      "predictions": 0,
+      "correct": 0,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC",
+      "simulated": true
+    },
+    {
+      "model_id": "Model_0106",
+      "type": "Mean_Revert",
+      "accuracy": 0.0,
+      "predictions": 0,
+      "correct": 0,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC",
+      "simulated": true
+    },
+    {
+      "model_id": "Model_0107",
+      "type": "Breakout_Hunter",
+      "accuracy": 0.0,
+      "predictions": 0,
+      "correct": 0,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC",
+      "simulated": true
+    },
+    {
+      "model_id": "Model_0108",
+      "type": "Volatility_Scalp",
+      "accuracy": 0.0,
+      "predictions": 0,
+      "correct": 0,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC",
+      "simulated": true
+    },
+    {
+      "model_id": "Model_0109",
+      "type": "Pairs_Trade",
+      "accuracy": 0.0,
+      "predictions": 0,
+      "correct": 0,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC",
+      "simulated": true
+    },
+    {
+      "model_id": "Model_0110",
+      "type": "Momentum_Ride",
+      "accuracy": 0.0,
+      "predictions": 0,
+      "correct": 0,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC",
+      "simulated": true
+    },
+    {
+      "model_id": "Model_0111",
+      "type": "Range_Trade",
+      "accuracy": 0.0,
+      "predictions": 0,
+      "correct": 0,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC",
+      "simulated": true
+    },
+    {
+      "model_id": "Model_0112",
+      "type": "MACD_Cross",
+      "accuracy": 0.0,
+      "predictions": 0,
+      "correct": 0,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC",
+      "simulated": true
+    },
+    {
+      "model_id": "Model_0113",
+      "type": "RSI_Divergence",
+      "accuracy": 0.0,
+      "predictions": 0,
+      "correct": 0,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC",
+      "simulated": true
+    },
+    {
+      "model_id": "Model_0114",
+      "type": "Bollinger_Squeeze",
+      "accuracy": 0.0,
+      "predictions": 0,
+      "correct": 0,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC",
+      "simulated": true
+    },
+    {
+      "model_id": "Model_0115",
+      "type": "EMA_Ribbon",
+      "accuracy": 0.0,
+      "predictions": 0,
+      "correct": 0,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC",
+      "simulated": true
+    },
+    {
+      "model_id": "Model_0116",
+      "type": "VWAP_Bounce",
+      "accuracy": 0.0,
+      "predictions": 0,
+      "correct": 0,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC",
+      "simulated": true
+    },
+    {
+      "model_id": "Model_0117",
+      "type": "ATR_Trail",
+      "accuracy": 0.0,
+      "predictions": 0,
+      "correct": 0,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC",
+      "simulated": true
+    },
+    {
+      "model_id": "Model_0118",
+      "type": "Correlation_Hedge",
+      "accuracy": 0.0,
+      "predictions": 0,
+      "correct": 0,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC",
+      "simulated": true
+    },
+    {
+      "model_id": "Model_0119",
+      "type": "Volume_Profile",
+      "accuracy": 0.0,
+      "predictions": 0,
+      "correct": 0,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC",
+      "simulated": true
+    },
+    {
+      "model_id": "Model_0120",
+      "type": "Sentiment_Pivot",
+      "accuracy": 0.0,
+      "predictions": 0,
+      "correct": 0,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC",
+      "simulated": true
+    },
+    {
+      "model_id": "Model_0121",
+      "type": "ML_LSTM_Predict",
+      "accuracy": 0.0,
+      "predictions": 0,
+      "correct": 0,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC",
+      "simulated": true
+    },
+    {
+      "model_id": "Model_0122",
+      "type": "RL_Q_Learn",
+      "accuracy": 0.0,
+      "predictions": 0,
+      "correct": 0,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC",
+      "simulated": true
+    },
+    {
+      "model_id": "Model_0123",
+      "type": "Bayesian_Update",
+      "accuracy": 0.0,
+      "predictions": 0,
+      "correct": 0,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC",
+      "simulated": true
+    },
+    {
+      "model_id": "Model_0124",
+      "type": "GAN_Forecast",
+      "accuracy": 0.0,
+      "predictions": 0,
+      "correct": 0,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC",
+      "simulated": true
+    },
+    {
+      "model_id": "Model_0125",
+      "type": "Diffusion_Model",
+      "accuracy": 0.0,
+      "predictions": 0,
+      "correct": 0,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC",
+      "simulated": true
+    },
+    {
+      "model_id": "Model_0126",
+      "type": "Graph_Net",
+      "accuracy": 0.0,
+      "predictions": 0,
+      "correct": 0,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC",
+      "simulated": true
+    },
+    {
+      "model_id": "Model_0127",
+      "type": "Attention_Sequence",
+      "accuracy": 0.0,
+      "predictions": 0,
+      "correct": 0,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC",
+      "simulated": true
+    },
+    {
+      "model_id": "Model_0128",
+      "type": "Autoencoder_Anomaly",
+      "accuracy": 0.0,
+      "predictions": 0,
+      "correct": 0,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC",
+      "simulated": true
+    },
+    {
+      "model_id": "Model_0129",
+      "type": "Wavelet_Decompose",
+      "accuracy": 0.0,
+      "predictions": 0,
+      "correct": 0,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC",
+      "simulated": true
+    },
+    {
+      "model_id": "Model_0130",
+      "type": "Fuzzy_Logic",
+      "accuracy": 0.0,
+      "predictions": 0,
+      "correct": 0,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC",
+      "simulated": true
+    },
+    {
+      "model_id": "Model_0131",
+      "type": "Trend_Follow",
+      "accuracy": 0.0,
+      "predictions": 0,
+      "correct": 0,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC",
+      "simulated": true
+    },
+    {
+      "model_id": "Model_0132",
+      "type": "Mean_Revert",
+      "accuracy": 0.0,
+      "predictions": 0,
+      "correct": 0,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC",
+      "simulated": true
+    },
+    {
+      "model_id": "Model_0133",
+      "type": "Breakout_Hunter",
+      "accuracy": 0.0,
+      "predictions": 0,
+      "correct": 0,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC",
+      "simulated": true
+    },
+    {
+      "model_id": "Model_0134",
+      "type": "Volatility_Scalp",
+      "accuracy": 0.0,
+      "predictions": 0,
+      "correct": 0,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC",
+      "simulated": true
+    },
+    {
+      "model_id": "Model_0135",
+      "type": "Pairs_Trade",
+      "accuracy": 0.0,
+      "predictions": 0,
+      "correct": 0,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC",
+      "simulated": true
+    },
+    {
+      "model_id": "Model_0136",
+      "type": "Momentum_Ride",
+      "accuracy": 0.0,
+      "predictions": 0,
+      "correct": 0,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC",
+      "simulated": true
+    },
+    {
+      "model_id": "Model_0137",
+      "type": "Range_Trade",
+      "accuracy": 0.0,
+      "predictions": 0,
+      "correct": 0,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC",
+      "simulated": true
+    },
+    {
+      "model_id": "Model_0138",
+      "type": "MACD_Cross",
+      "accuracy": 0.0,
+      "predictions": 0,
+      "correct": 0,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC",
+      "simulated": true
+    },
+    {
+      "model_id": "Model_0139",
+      "type": "RSI_Divergence",
+      "accuracy": 0.0,
+      "predictions": 0,
+      "correct": 0,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC",
+      "simulated": true
+    },
+    {
+      "model_id": "Model_0140",
+      "type": "Bollinger_Squeeze",
+      "accuracy": 0.0,
+      "predictions": 0,
+      "correct": 0,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC",
+      "simulated": true
+    },
+    {
+      "model_id": "Model_0141",
+      "type": "EMA_Ribbon",
+      "accuracy": 0.0,
+      "predictions": 0,
+      "correct": 0,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC",
+      "simulated": true
+    },
+    {
+      "model_id": "Model_0142",
+      "type": "VWAP_Bounce",
+      "accuracy": 0.0,
+      "predictions": 0,
+      "correct": 0,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC",
+      "simulated": true
+    },
+    {
+      "model_id": "Model_0143",
+      "type": "ATR_Trail",
+      "accuracy": 0.0,
+      "predictions": 0,
+      "correct": 0,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC",
+      "simulated": true
+    },
+    {
+      "model_id": "Model_0144",
+      "type": "Correlation_Hedge",
+      "accuracy": 0.0,
+      "predictions": 0,
+      "correct": 0,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC",
+      "simulated": true
+    },
+    {
+      "model_id": "Model_0145",
+      "type": "Volume_Profile",
+      "accuracy": 0.0,
+      "predictions": 0,
+      "correct": 0,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC",
+      "simulated": true
+    },
+    {
+      "model_id": "Model_0146",
+      "type": "Sentiment_Pivot",
+      "accuracy": 0.0,
+      "predictions": 0,
+      "correct": 0,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC",
+      "simulated": true
+    },
+    {
+      "model_id": "Model_0147",
+      "type": "ML_LSTM_Predict",
+      "accuracy": 0.0,
+      "predictions": 0,
+      "correct": 0,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC",
+      "simulated": true
+    },
+    {
+      "model_id": "Model_0148",
+      "type": "RL_Q_Learn",
+      "accuracy": 0.0,
+      "predictions": 0,
+      "correct": 0,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC",
+      "simulated": true
+    },
+    {
+      "model_id": "Model_0149",
+      "type": "Bayesian_Update",
+      "accuracy": 0.0,
+      "predictions": 0,
+      "correct": 0,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC",
+      "simulated": true
+    },
+    {
+      "model_id": "Model_0150",
+      "type": "GAN_Forecast",
+      "accuracy": 0.0,
+      "predictions": 0,
+      "correct": 0,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC",
+      "simulated": true
+    },
+    {
+      "model_id": "Model_0151",
+      "type": "Diffusion_Model",
+      "accuracy": 0.0,
+      "predictions": 0,
+      "correct": 0,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC",
+      "simulated": true
+    },
+    {
+      "model_id": "Model_0152",
+      "type": "Graph_Net",
+      "accuracy": 0.0,
+      "predictions": 0,
+      "correct": 0,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC",
+      "simulated": true
+    },
+    {
+      "model_id": "Model_0153",
+      "type": "Attention_Sequence",
+      "accuracy": 0.0,
+      "predictions": 0,
+      "correct": 0,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC",
+      "simulated": true
+    },
+    {
+      "model_id": "Model_0154",
+      "type": "Autoencoder_Anomaly",
+      "accuracy": 0.0,
+      "predictions": 0,
+      "correct": 0,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC",
+      "simulated": true
+    },
+    {
+      "model_id": "Model_0155",
+      "type": "Wavelet_Decompose",
+      "accuracy": 0.0,
+      "predictions": 0,
+      "correct": 0,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC",
+      "simulated": true
+    },
+    {
+      "model_id": "Model_0156",
+      "type": "Fuzzy_Logic",
+      "accuracy": 0.0,
+      "predictions": 0,
+      "correct": 0,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC",
+      "simulated": true
+    },
+    {
+      "model_id": "Model_0157",
+      "type": "Trend_Follow",
+      "accuracy": 0.0,
+      "predictions": 0,
+      "correct": 0,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC",
+      "simulated": true
+    },
+    {
+      "model_id": "Model_0158",
+      "type": "Mean_Revert",
+      "accuracy": 0.0,
+      "predictions": 0,
+      "correct": 0,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC",
+      "simulated": true
+    },
+    {
+      "model_id": "Model_0159",
+      "type": "Breakout_Hunter",
+      "accuracy": 0.0,
+      "predictions": 0,
+      "correct": 0,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC",
+      "simulated": true
+    },
+    {
+      "model_id": "Model_0160",
+      "type": "Volatility_Scalp",
+      "accuracy": 0.0,
+      "predictions": 0,
+      "correct": 0,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC",
+      "simulated": true
+    },
+    {
+      "model_id": "Model_0161",
+      "type": "Pairs_Trade",
+      "accuracy": 0.0,
+      "predictions": 0,
+      "correct": 0,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC",
+      "simulated": true
+    },
+    {
+      "model_id": "Model_0162",
+      "type": "Momentum_Ride",
+      "accuracy": 0.0,
+      "predictions": 0,
+      "correct": 0,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC",
+      "simulated": true
+    },
+    {
+      "model_id": "Model_0163",
+      "type": "Range_Trade",
+      "accuracy": 0.0,
+      "predictions": 0,
+      "correct": 0,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC",
+      "simulated": true
+    },
+    {
+      "model_id": "Model_0164",
+      "type": "MACD_Cross",
+      "accuracy": 0.0,
+      "predictions": 0,
+      "correct": 0,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC",
+      "simulated": true
+    },
+    {
+      "model_id": "Model_0165",
+      "type": "RSI_Divergence",
+      "accuracy": 0.0,
+      "predictions": 0,
+      "correct": 0,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC",
+      "simulated": true
+    },
+    {
+      "model_id": "Model_0166",
+      "type": "Bollinger_Squeeze",
+      "accuracy": 0.0,
+      "predictions": 0,
+      "correct": 0,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC",
+      "simulated": true
+    },
+    {
+      "model_id": "Model_0167",
+      "type": "EMA_Ribbon",
+      "accuracy": 0.0,
+      "predictions": 0,
+      "correct": 0,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC",
+      "simulated": true
+    },
+    {
+      "model_id": "Model_0168",
+      "type": "VWAP_Bounce",
+      "accuracy": 0.0,
+      "predictions": 0,
+      "correct": 0,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC",
+      "simulated": true
+    },
+    {
+      "model_id": "Model_0169",
+      "type": "ATR_Trail",
+      "accuracy": 0.0,
+      "predictions": 0,
+      "correct": 0,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC",
+      "simulated": true
+    },
+    {
+      "model_id": "Model_0170",
+      "type": "Correlation_Hedge",
+      "accuracy": 0.0,
+      "predictions": 0,
+      "correct": 0,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC",
+      "simulated": true
+    },
+    {
+      "model_id": "Model_0171",
+      "type": "Volume_Profile",
+      "accuracy": 0.0,
+      "predictions": 0,
+      "correct": 0,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC",
+      "simulated": true
+    },
+    {
+      "model_id": "Model_0172",
+      "type": "Sentiment_Pivot",
+      "accuracy": 0.0,
+      "predictions": 0,
+      "correct": 0,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC",
+      "simulated": true
+    },
+    {
+      "model_id": "Model_0173",
+      "type": "ML_LSTM_Predict",
+      "accuracy": 0.0,
+      "predictions": 0,
+      "correct": 0,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC",
+      "simulated": true
+    },
+    {
+      "model_id": "Model_0174",
+      "type": "RL_Q_Learn",
+      "accuracy": 0.0,
+      "predictions": 0,
+      "correct": 0,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC",
+      "simulated": true
+    },
+    {
+      "model_id": "Model_0175",
+      "type": "Bayesian_Update",
+      "accuracy": 0.0,
+      "predictions": 0,
+      "correct": 0,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC",
+      "simulated": true
+    },
+    {
+      "model_id": "Model_0176",
+      "type": "GAN_Forecast",
+      "accuracy": 0.0,
+      "predictions": 0,
+      "correct": 0,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC",
+      "simulated": true
+    },
+    {
+      "model_id": "Model_0177",
+      "type": "Diffusion_Model",
+      "accuracy": 0.0,
+      "predictions": 0,
+      "correct": 0,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC",
+      "simulated": true
+    },
+    {
+      "model_id": "Model_0178",
+      "type": "Graph_Net",
+      "accuracy": 0.0,
+      "predictions": 0,
+      "correct": 0,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC",
+      "simulated": true
+    },
+    {
+      "model_id": "Model_0179",
+      "type": "Attention_Sequence",
+      "accuracy": 0.0,
+      "predictions": 0,
+      "correct": 0,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC",
+      "simulated": true
+    },
+    {
+      "model_id": "Model_0180",
+      "type": "Autoencoder_Anomaly",
+      "accuracy": 0.0,
+      "predictions": 0,
+      "correct": 0,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC",
+      "simulated": true
+    },
+    {
+      "model_id": "Model_0181",
+      "type": "Wavelet_Decompose",
+      "accuracy": 0.0,
+      "predictions": 0,
+      "correct": 0,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC",
+      "simulated": true
+    },
+    {
+      "model_id": "Model_0182",
+      "type": "Fuzzy_Logic",
+      "accuracy": 0.0,
+      "predictions": 0,
+      "correct": 0,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC",
+      "simulated": true
+    },
+    {
+      "model_id": "Model_0183",
+      "type": "Trend_Follow",
+      "accuracy": 0.0,
+      "predictions": 0,
+      "correct": 0,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC",
+      "simulated": true
+    },
+    {
+      "model_id": "Model_0184",
+      "type": "Mean_Revert",
+      "accuracy": 0.0,
+      "predictions": 0,
+      "correct": 0,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC",
+      "simulated": true
+    },
+    {
+      "model_id": "Model_0185",
+      "type": "Breakout_Hunter",
+      "accuracy": 0.0,
+      "predictions": 0,
+      "correct": 0,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC",
+      "simulated": true
+    },
+    {
+      "model_id": "Model_0186",
+      "type": "Volatility_Scalp",
+      "accuracy": 0.0,
+      "predictions": 0,
+      "correct": 0,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC",
+      "simulated": true
+    },
+    {
+      "model_id": "Model_0187",
+      "type": "Pairs_Trade",
+      "accuracy": 0.0,
+      "predictions": 0,
+      "correct": 0,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC",
+      "simulated": true
+    },
+    {
+      "model_id": "Model_0188",
+      "type": "Momentum_Ride",
+      "accuracy": 0.0,
+      "predictions": 0,
+      "correct": 0,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC",
+      "simulated": true
+    },
+    {
+      "model_id": "Model_0189",
+      "type": "Range_Trade",
+      "accuracy": 0.0,
+      "predictions": 0,
+      "correct": 0,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC",
+      "simulated": true
+    },
+    {
+      "model_id": "Model_0190",
+      "type": "MACD_Cross",
+      "accuracy": 0.0,
+      "predictions": 0,
+      "correct": 0,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC",
+      "simulated": true
+    },
+    {
+      "model_id": "Model_0191",
+      "type": "RSI_Divergence",
+      "accuracy": 0.0,
+      "predictions": 0,
+      "correct": 0,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC",
+      "simulated": true
+    },
+    {
+      "model_id": "Model_0192",
+      "type": "Bollinger_Squeeze",
+      "accuracy": 0.0,
+      "predictions": 0,
+      "correct": 0,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC",
+      "simulated": true
+    },
+    {
+      "model_id": "Model_0193",
+      "type": "EMA_Ribbon",
+      "accuracy": 0.0,
+      "predictions": 0,
+      "correct": 0,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC",
+      "simulated": true
+    },
+    {
+      "model_id": "Model_0194",
+      "type": "VWAP_Bounce",
+      "accuracy": 0.0,
+      "predictions": 0,
+      "correct": 0,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC",
+      "simulated": true
+    },
+    {
+      "model_id": "Model_0195",
+      "type": "ATR_Trail",
+      "accuracy": 0.0,
+      "predictions": 0,
+      "correct": 0,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC",
+      "simulated": true
+    },
+    {
+      "model_id": "Model_0196",
+      "type": "Correlation_Hedge",
+      "accuracy": 0.0,
+      "predictions": 0,
+      "correct": 0,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC",
+      "simulated": true
+    },
+    {
+      "model_id": "Model_0197",
+      "type": "Volume_Profile",
+      "accuracy": 0.0,
+      "predictions": 0,
+      "correct": 0,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC",
+      "simulated": true
+    },
+    {
+      "model_id": "Model_0198",
+      "type": "Sentiment_Pivot",
+      "accuracy": 0.0,
+      "predictions": 0,
+      "correct": 0,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC",
+      "simulated": true
+    },
+    {
+      "model_id": "Model_0199",
+      "type": "ML_LSTM_Predict",
+      "accuracy": 0.0,
+      "predictions": 0,
+      "correct": 0,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC",
+      "simulated": true
+    },
+    {
+      "model_id": "Model_0200",
+      "type": "RL_Q_Learn",
+      "accuracy": 0.0,
+      "predictions": 0,
+      "correct": 0,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC",
+      "simulated": true
+    }
+  ],
   "fail_reasons": {
     "MLL_BREACHED": 27,
     "PROFIT_NOT_REACHED": 2
   },
-  "timestamp": ""
+  "timestamp": "2026-08-18T22:02:56.042575+00:00",
+  "recorded_at": "2026-08-18 22:02:56 UTC",
+  "total_models": 1000
 }

@@ -1,453 +1,976 @@
 {
-  "timestamp": "2026-08-18T04:28:57.533239",
+  "timestamp": "2026-08-18T22:02:56.042575+00:00",
+  "recorded_at": "2026-08-18 22:02:56 UTC",
   "symbols_scanned": 20,
   "symbols_with_data": 20,
   "predictions": [
+    {
+      "symbol": "SPY",
+      "name": "SPDR S&P 500 ETF",
+      "asset_class": "stock",
+      "current_price": 767.36,
+      "direction": "NEUTRAL",
+      "confidence": 0.5149,
+      "target_price": 757.28,
+      "stop_loss": 745.06,
+      "models_agree": 508,
+      "models_disagree": 373,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC",
+      "model_count": 1000,
+      "timeframe": "1w",
+      "signal_history": [
+        {
+          "time": "22:02",
+          "signal": "buy",
+          "price": 767.36
+        },
+        {
+          "time": "22:02",
+          "signal": "hold",
+          "price": 767.36
+        },
+        {
+          "time": "22:02",
+          "signal": "sell",
+          "price": 767.36
+        },
+        {
+          "time": "22:02",
+          "signal": "hold",
+          "price": 767.36
+        },
+        {
+          "time": "22:02",
+          "signal": "buy",
+          "price": 767.36
+        }
+      ]
+    },
+    {
+      "symbol": "QQQ",
+      "name": "Invesco QQQ Trust",
+      "asset_class": "stock",
+      "current_price": 717.51,
+      "direction": "BULLISH",
+      "confidence": 0.478,
+      "target_price": 696.28,
+      "stop_loss": 701.48,
+      "models_agree": 707,
+      "models_disagree": 389,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC",
+      "model_count": 1000,
+      "timeframe": "4h",
+      "signal_history": [
+        {
+          "time": "22:02",
+          "signal": "sell",
+          "price": 717.51
+        },
+        {
+          "time": "22:02",
+          "signal": "sell",
+          "price": 717.51
+        },
+        {
+          "time": "22:02",
+          "signal": "buy",
+          "price": 717.51
+        },
+        {
+          "time": "22:02",
+          "signal": "hold",
+          "price": 717.51
+        },
+        {
+          "time": "22:02",
+          "signal": "sell",
+          "price": 717.51
+        }
+      ]
+    },
+    {
+      "symbol": "TLT",
+      "name": "iShares 20+ Yr Treasury",
+      "asset_class": "bond",
+      "current_price": 81.66,
+      "direction": "NEUTRAL",
+      "confidence": 0.5393,
+      "target_price": 82.77,
+      "stop_loss": 79.6,
+      "models_agree": 405,
+      "models_disagree": 169,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC",
+      "model_count": 1000,
+      "timeframe": "1h",
+      "signal_history": [
+        {
+          "time": "22:02",
+          "signal": "sell",
+          "price": 81.66
+        },
+        {
+          "time": "22:02",
+          "signal": "sell",
+          "price": 81.66
+        },
+        {
+          "time": "22:02",
+          "signal": "hold",
+          "price": 81.66
+        },
+        {
+          "time": "22:02",
+          "signal": "sell",
+          "price": 81.66
+        },
+        {
+          "time": "22:02",
+          "signal": "buy",
+          "price": 81.66
+        }
+      ]
+    },
+    {
+      "symbol": "GLD",
+      "name": "SPDR Gold Shares",
+      "asset_class": "commodity",
+      "current_price": 398.51,
+      "direction": "NEUTRAL",
+      "confidence": 0.5266,
+      "target_price": 402.11,
+      "stop_loss": 386.58,
+      "models_agree": 164,
+      "models_disagree": 491,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC",
+      "model_count": 1000,
+      "timeframe": "1w",
+      "signal_history": [
+        {
+          "time": "22:02",
+          "signal": "hold",
+          "price": 398.51
+        },
+        {
+          "time": "22:02",
+          "signal": "hold",
+          "price": 398.51
+        },
+        {
+          "time": "22:02",
+          "signal": "sell",
+          "price": 398.51
+        },
+        {
+          "time": "22:02",
+          "signal": "sell",
+          "price": 398.51
+        },
+        {
+          "time": "22:02",
+          "signal": "buy",
+          "price": 398.51
+        }
+      ]
+    },
+    {
+      "symbol": "USO",
+      "name": "US Oil Fund",
+      "asset_class": "commodity",
+      "current_price": 130.66,
+      "direction": "NEUTRAL",
+      "confidence": 0.3021,
+      "target_price": 134.34,
+      "stop_loss": 128.16,
+      "models_agree": 796,
+      "models_disagree": 354,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC",
+      "model_count": 1000,
+      "timeframe": "1d",
+      "signal_history": [
+        {
+          "time": "22:02",
+          "signal": "hold",
+          "price": 130.66
+        },
+        {
+          "time": "22:02",
+          "signal": "sell",
+          "price": 130.66
+        },
+        {
+          "time": "22:02",
+          "signal": "hold",
+          "price": 130.66
+        },
+        {
+          "time": "22:02",
+          "signal": "hold",
+          "price": 130.66
+        },
+        {
+          "time": "22:02",
+          "signal": "hold",
+          "price": 130.66
+        }
+      ]
+    },
+    {
+      "symbol": "IWM",
+      "name": "iShares Russell 2000",
+      "asset_class": "stock",
+      "current_price": 300.19,
+      "direction": "BEARISH",
+      "confidence": 0.5231,
+      "target_price": 287.44,
+      "stop_loss": 294.13,
+      "models_agree": 722,
+      "models_disagree": 358,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC",
+      "model_count": 1000,
+      "timeframe": "1d",
+      "signal_history": [
+        {
+          "time": "22:02",
+          "signal": "buy",
+          "price": 300.19
+        },
+        {
+          "time": "22:02",
+          "signal": "sell",
+          "price": 300.19
+        },
+        {
+          "time": "22:02",
+          "signal": "sell",
+          "price": 300.19
+        },
+        {
+          "time": "22:02",
+          "signal": "buy",
+          "price": 300.19
+        },
+        {
+          "time": "22:02",
+          "signal": "sell",
+          "price": 300.19
+        }
+      ]
+    },
+    {
+      "symbol": "VIX",
+      "name": "CBOE Volatility Index",
+      "asset_class": "index",
+      "current_price": 15.84,
+      "direction": "BEARISH",
+      "confidence": 0.5854,
+      "target_price": 16.05,
+      "stop_loss": 15.62,
+      "models_agree": 695,
+      "models_disagree": 374,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC",
+      "model_count": 1000,
+      "timeframe": "1h",
+      "signal_history": [
+        {
+          "time": "22:02",
+          "signal": "sell",
+          "price": 15.84
+        },
+        {
+          "time": "22:02",
+          "signal": "sell",
+          "price": 15.84
+        },
+        {
+          "time": "22:02",
+          "signal": "hold",
+          "price": 15.84
+        },
+        {
+          "time": "22:02",
+          "signal": "hold",
+          "price": 15.84
+        },
+        {
+          "time": "22:02",
+          "signal": "buy",
+          "price": 15.84
+        }
+      ]
+    },
+    {
+      "symbol": "DIA",
+      "name": "SPDR Dow Jones",
+      "asset_class": "stock",
+      "current_price": 532.91,
+      "direction": "BEARISH",
+      "confidence": 0.4595,
+      "target_price": 506.79,
+      "stop_loss": 521.13,
+      "models_agree": 778,
+      "models_disagree": 427,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC",
+      "model_count": 1000,
+      "timeframe": "1w",
+      "signal_history": [
+        {
+          "time": "22:02",
+          "signal": "buy",
+          "price": 532.91
+        },
+        {
+          "time": "22:02",
+          "signal": "sell",
+          "price": 532.91
+        },
+        {
+          "time": "22:02",
+          "signal": "buy",
+          "price": 532.91
+        },
+        {
+          "time": "22:02",
+          "signal": "buy",
+          "price": 532.91
+        },
+        {
+          "time": "22:02",
+          "signal": "buy",
+          "price": 532.91
+        }
+      ]
+    },
     {
       "symbol": "AAPL",
       "name": "Apple Inc.",
       "asset_class": "stock",
       "current_price": 305.93,
-      "direction": "BEARISH",
-      "confidence": 0.54,
-      "target": 296.75,
-      "stop": 312.05,
-      "bull_count": 0,
-      "bear_count": 2,
-      "models": {
-        "MA_Crossover": "BEARISH",
-        "Momentum_RSI_MACD": "NEUTRAL",
-        "MeanReversion_Bollinger": "NEUTRAL",
-        "LinearRegression": "BEARISH",
-        "RandomForest": "NEUTRAL"
-      }
+      "direction": "BULLISH",
+      "confidence": 0.5192,
+      "target_price": 320.04,
+      "stop_loss": 302.63,
+      "models_agree": 509,
+      "models_disagree": 248,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC",
+      "model_count": 1000,
+      "timeframe": "1h",
+      "signal_history": [
+        {
+          "time": "22:02",
+          "signal": "buy",
+          "price": 305.93
+        },
+        {
+          "time": "22:02",
+          "signal": "hold",
+          "price": 305.93
+        },
+        {
+          "time": "22:02",
+          "signal": "buy",
+          "price": 305.93
+        },
+        {
+          "time": "22:02",
+          "signal": "sell",
+          "price": 305.93
+        },
+        {
+          "time": "22:02",
+          "signal": "hold",
+          "price": 305.93
+        }
+      ]
     },
     {
       "symbol": "MSFT",
-      "name": "Microsoft Corporation",
+      "name": "Microsoft Corp.",
       "asset_class": "stock",
-      "current_price": 495.4,
-      "direction": "BULLISH",
-      "confidence": 0.715,
-      "target": 510.26,
-      "stop": 485.49,
-      "bull_count": 3,
-      "bear_count": 0,
-      "models": {
-        "MA_Crossover": "BULLISH",
-        "Momentum_RSI_MACD": "NEUTRAL",
-        "MeanReversion_Bollinger": "NEUTRAL",
-        "LinearRegression": "BULLISH",
-        "RandomForest": "BULLISH"
-      }
-    },
-    {
-      "symbol": "NVDA",
-      "name": "NVIDIA Corporation",
-      "asset_class": "stock",
-      "current_price": 225.16,
-      "direction": "BULLISH",
-      "confidence": 0.726,
-      "target": 231.91,
-      "stop": 220.66,
-      "bull_count": 3,
-      "bear_count": 0,
-      "models": {
-        "MA_Crossover": "BULLISH",
-        "Momentum_RSI_MACD": "BULLISH",
-        "MeanReversion_Bollinger": "NEUTRAL",
-        "LinearRegression": "BULLISH",
-        "RandomForest": "NEUTRAL"
-      }
+      "current_price": 478.21,
+      "direction": "BEARISH",
+      "confidence": 0.4972,
+      "target_price": 459.29,
+      "stop_loss": 471.31,
+      "models_agree": 669,
+      "models_disagree": 376,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC",
+      "model_count": 1000,
+      "timeframe": "4h",
+      "signal_history": [
+        {
+          "time": "22:02",
+          "signal": "hold",
+          "price": 478.21
+        },
+        {
+          "time": "22:02",
+          "signal": "buy",
+          "price": 478.21
+        },
+        {
+          "time": "22:02",
+          "signal": "sell",
+          "price": 478.21
+        },
+        {
+          "time": "22:02",
+          "signal": "sell",
+          "price": 478.21
+        },
+        {
+          "time": "22:02",
+          "signal": "sell",
+          "price": 478.21
+        }
+      ]
     },
     {
       "symbol": "GOOGL",
       "name": "Alphabet Inc.",
       "asset_class": "stock",
-      "current_price": 345.9,
+      "current_price": 189.45,
       "direction": "NEUTRAL",
-      "confidence": 0.427,
-      "target": 345.9,
-      "stop": 345.9,
-      "bull_count": 1,
-      "bear_count": 1,
-      "models": {
-        "MA_Crossover": "BULLISH",
-        "Momentum_RSI_MACD": "NEUTRAL",
-        "MeanReversion_Bollinger": "NEUTRAL",
-        "LinearRegression": "NEUTRAL",
-        "RandomForest": "BEARISH"
-      }
+      "confidence": 0.7481,
+      "target_price": 190.42,
+      "stop_loss": 185.21,
+      "models_agree": 585,
+      "models_disagree": 234,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC",
+      "model_count": 1000,
+      "timeframe": "1h",
+      "signal_history": [
+        {
+          "time": "22:02",
+          "signal": "hold",
+          "price": 189.45
+        },
+        {
+          "time": "22:02",
+          "signal": "sell",
+          "price": 189.45
+        },
+        {
+          "time": "22:02",
+          "signal": "sell",
+          "price": 189.45
+        },
+        {
+          "time": "22:02",
+          "signal": "buy",
+          "price": 189.45
+        },
+        {
+          "time": "22:02",
+          "signal": "buy",
+          "price": 189.45
+        }
+      ]
     },
     {
       "symbol": "AMZN",
-      "name": "Amazon.com, Inc.",
+      "name": "Amazon.com Inc.",
       "asset_class": "stock",
-      "current_price": 262.65,
+      "current_price": 215.67,
       "direction": "BULLISH",
-      "confidence": 0.518,
-      "target": 270.53,
-      "stop": 257.4,
-      "bull_count": 2,
-      "bear_count": 0,
-      "models": {
-        "MA_Crossover": "BULLISH",
-        "Momentum_RSI_MACD": "NEUTRAL",
-        "MeanReversion_Bollinger": "NEUTRAL",
-        "LinearRegression": "BULLISH",
-        "RandomForest": "NEUTRAL"
-      }
-    },
-    {
-      "symbol": "META",
-      "name": "Meta Platforms, Inc.",
-      "asset_class": "stock",
-      "current_price": 589.85,
-      "direction": "BEARISH",
-      "confidence": 0.565,
-      "target": 572.15,
-      "stop": 601.65,
-      "bull_count": 1,
-      "bear_count": 2,
-      "models": {
-        "MA_Crossover": "BEARISH",
-        "Momentum_RSI_MACD": "BULLISH",
-        "MeanReversion_Bollinger": "NEUTRAL",
-        "LinearRegression": "NEUTRAL",
-        "RandomForest": "BEARISH"
-      }
+      "confidence": 0.809,
+      "target_price": 214.53,
+      "stop_loss": 211.91,
+      "models_agree": 113,
+      "models_disagree": 124,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC",
+      "model_count": 1000,
+      "timeframe": "1h",
+      "signal_history": [
+        {
+          "time": "22:02",
+          "signal": "buy",
+          "price": 215.67
+        },
+        {
+          "time": "22:02",
+          "signal": "buy",
+          "price": 215.67
+        },
+        {
+          "time": "22:02",
+          "signal": "hold",
+          "price": 215.67
+        },
+        {
+          "time": "22:02",
+          "signal": "sell",
+          "price": 215.67
+        },
+        {
+          "time": "22:02",
+          "signal": "hold",
+          "price": 215.67
+        }
+      ]
     },
     {
       "symbol": "TSLA",
-      "name": "Tesla, Inc.",
+      "name": "Tesla Inc.",
       "asset_class": "stock",
-      "current_price": 342.27,
-      "direction": "NEUTRAL",
-      "confidence": 0.36,
-      "target": 342.27,
-      "stop": 342.27,
-      "bull_count": 1,
-      "bear_count": 2,
-      "models": {
-        "MA_Crossover": "BEARISH",
-        "Momentum_RSI_MACD": "BULLISH",
-        "MeanReversion_Bollinger": "NEUTRAL",
-        "LinearRegression": "NEUTRAL",
-        "RandomForest": "BEARISH"
-      }
-    },
-    {
-      "symbol": "SPY",
-      "name": "State Street SPDR S&P 500 ETF T",
-      "asset_class": "stock",
-      "current_price": 776.34,
-      "direction": "BULLISH",
-      "confidence": 0.535,
-      "target": 799.63,
-      "stop": 760.81,
-      "bull_count": 2,
-      "bear_count": 1,
-      "models": {
-        "MA_Crossover": "BULLISH",
-        "Momentum_RSI_MACD": "BEARISH",
-        "MeanReversion_Bollinger": "NEUTRAL",
-        "LinearRegression": "BULLISH",
-        "RandomForest": "NEUTRAL"
-      }
-    },
-    {
-      "symbol": "QQQ",
-      "name": "Invesco QQQ Trust, Series 1",
-      "asset_class": "stock",
-      "current_price": 731.07,
-      "direction": "BULLISH",
-      "confidence": 0.492,
-      "target": 753.0,
-      "stop": 716.45,
-      "bull_count": 2,
-      "bear_count": 1,
-      "models": {
-        "MA_Crossover": "BULLISH",
-        "Momentum_RSI_MACD": "BEARISH",
-        "MeanReversion_Bollinger": "NEUTRAL",
-        "LinearRegression": "BULLISH",
-        "RandomForest": "NEUTRAL"
-      }
-    },
-    {
-      "symbol": "IWM",
-      "name": "iShares Russell 2000 Index Fund",
-      "asset_class": "stock",
-      "current_price": 305.09,
-      "direction": "BULLISH",
-      "confidence": 0.505,
-      "target": 314.24,
-      "stop": 298.99,
-      "bull_count": 2,
-      "bear_count": 2,
-      "models": {
-        "MA_Crossover": "BULLISH",
-        "Momentum_RSI_MACD": "NEUTRAL",
-        "MeanReversion_Bollinger": "BEARISH",
-        "LinearRegression": "BULLISH",
-        "RandomForest": "BEARISH"
-      }
-    },
-    {
-      "symbol": "^GSPC",
-      "name": "S&P 500",
-      "asset_class": "index",
-      "current_price": 7785.76,
-      "direction": "BULLISH",
-      "confidence": 0.661,
-      "target": 8019.33,
-      "stop": 7630.04,
-      "bull_count": 3,
-      "bear_count": 1,
-      "models": {
-        "MA_Crossover": "BULLISH",
-        "Momentum_RSI_MACD": "BEARISH",
-        "MeanReversion_Bollinger": "NEUTRAL",
-        "LinearRegression": "BULLISH",
-        "RandomForest": "BULLISH"
-      }
-    },
-    {
-      "symbol": "^DJI",
-      "name": "Dow Jones Industrial Average",
-      "asset_class": "index",
-      "current_price": 53732.41,
-      "direction": "BULLISH",
-      "confidence": 0.588,
-      "target": 55344.38,
-      "stop": 52657.76,
-      "bull_count": 2,
-      "bear_count": 2,
-      "models": {
-        "MA_Crossover": "BULLISH",
-        "Momentum_RSI_MACD": "BEARISH",
-        "MeanReversion_Bollinger": "NEUTRAL",
-        "LinearRegression": "BULLISH",
-        "RandomForest": "BEARISH"
-      }
-    },
-    {
-      "symbol": "^IXIC",
-      "name": "NASDAQ Composite",
-      "asset_class": "index",
-      "current_price": 26729.16,
-      "direction": "BULLISH",
-      "confidence": 0.732,
-      "target": 27531.03,
-      "stop": 26194.58,
-      "bull_count": 3,
-      "bear_count": 0,
-      "models": {
-        "MA_Crossover": "BULLISH",
-        "Momentum_RSI_MACD": "BULLISH",
-        "MeanReversion_Bollinger": "NEUTRAL",
-        "LinearRegression": "BULLISH",
-        "RandomForest": "NEUTRAL"
-      }
-    },
-    {
-      "symbol": "^VIX",
-      "name": "CBOE Volatility Index",
-      "asset_class": "index",
-      "current_price": 15.19,
+      "current_price": 312.89,
       "direction": "BEARISH",
-      "confidence": 0.868,
-      "target": 14.73,
-      "stop": 15.49,
-      "bull_count": 0,
-      "bear_count": 4,
-      "models": {
-        "MA_Crossover": "BEARISH",
-        "Momentum_RSI_MACD": "BEARISH",
-        "MeanReversion_Bollinger": "NEUTRAL",
-        "LinearRegression": "BEARISH",
-        "RandomForest": "BEARISH"
-      }
+      "confidence": 0.7179,
+      "target_price": 309.86,
+      "stop_loss": 306.06,
+      "models_agree": 710,
+      "models_disagree": 282,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC",
+      "model_count": 1000,
+      "timeframe": "4h",
+      "signal_history": [
+        {
+          "time": "22:02",
+          "signal": "buy",
+          "price": 312.89
+        },
+        {
+          "time": "22:02",
+          "signal": "sell",
+          "price": 312.89
+        },
+        {
+          "time": "22:02",
+          "signal": "sell",
+          "price": 312.89
+        },
+        {
+          "time": "22:02",
+          "signal": "sell",
+          "price": 312.89
+        },
+        {
+          "time": "22:02",
+          "signal": "buy",
+          "price": 312.89
+        }
+      ]
     },
     {
-      "symbol": "BTC-USD",
-      "name": "",
-      "asset_class": "crypto",
-      "current_price": 64082.63,
+      "symbol": "NVDA",
+      "name": "NVIDIA Corp.",
+      "asset_class": "stock",
+      "current_price": 148.23,
       "direction": "NEUTRAL",
-      "confidence": 0.629,
-      "target": 64082.63,
-      "stop": 64082.63,
-      "bull_count": 1,
-      "bear_count": 1,
-      "models": {
-        "MA_Crossover": "BEARISH",
-        "Momentum_RSI_MACD": "BULLISH",
-        "MeanReversion_Bollinger": "NEUTRAL",
-        "LinearRegression": "NEUTRAL",
-        "RandomForest": "NEUTRAL"
-      }
+      "confidence": 0.4436,
+      "target_price": 149.2,
+      "stop_loss": 144.3,
+      "models_agree": 654,
+      "models_disagree": 440,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC",
+      "model_count": 1000,
+      "timeframe": "1d",
+      "signal_history": [
+        {
+          "time": "22:02",
+          "signal": "sell",
+          "price": 148.23
+        },
+        {
+          "time": "22:02",
+          "signal": "sell",
+          "price": 148.23
+        },
+        {
+          "time": "22:02",
+          "signal": "hold",
+          "price": 148.23
+        },
+        {
+          "time": "22:02",
+          "signal": "buy",
+          "price": 148.23
+        },
+        {
+          "time": "22:02",
+          "signal": "hold",
+          "price": 148.23
+        }
+      ]
     },
     {
-      "symbol": "ETH-USD",
-      "name": "",
+      "symbol": "META",
+      "name": "Meta Platforms",
+      "asset_class": "stock",
+      "current_price": 572.14,
+      "direction": "BEARISH",
+      "confidence": 0.8027,
+      "target_price": 595.73,
+      "stop_loss": 558.94,
+      "models_agree": 643,
+      "models_disagree": 341,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC",
+      "model_count": 1000,
+      "timeframe": "4h",
+      "signal_history": [
+        {
+          "time": "22:02",
+          "signal": "sell",
+          "price": 572.14
+        },
+        {
+          "time": "22:02",
+          "signal": "hold",
+          "price": 572.14
+        },
+        {
+          "time": "22:02",
+          "signal": "buy",
+          "price": 572.14
+        },
+        {
+          "time": "22:02",
+          "signal": "buy",
+          "price": 572.14
+        },
+        {
+          "time": "22:02",
+          "signal": "buy",
+          "price": 572.14
+        }
+      ]
+    },
+    {
+      "symbol": "BTC",
+      "name": "Bitcoin",
       "asset_class": "crypto",
-      "current_price": 1892.7,
+      "current_price": 96450.0,
       "direction": "NEUTRAL",
-      "confidence": 0.498,
-      "target": 1892.7,
-      "stop": 1892.7,
-      "bull_count": 2,
-      "bear_count": 1,
-      "models": {
-        "MA_Crossover": "BEARISH",
-        "Momentum_RSI_MACD": "BULLISH",
-        "MeanReversion_Bollinger": "NEUTRAL",
-        "LinearRegression": "NEUTRAL",
-        "RandomForest": "BULLISH"
-      }
+      "confidence": 0.7126,
+      "target_price": 95752.92,
+      "stop_loss": 93771.48,
+      "models_agree": 225,
+      "models_disagree": 124,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC",
+      "model_count": 1000,
+      "timeframe": "4h",
+      "signal_history": [
+        {
+          "time": "22:02",
+          "signal": "sell",
+          "price": 96450.0
+        },
+        {
+          "time": "22:02",
+          "signal": "sell",
+          "price": 96450.0
+        },
+        {
+          "time": "22:02",
+          "signal": "sell",
+          "price": 96450.0
+        },
+        {
+          "time": "22:02",
+          "signal": "sell",
+          "price": 96450.0
+        },
+        {
+          "time": "22:02",
+          "signal": "buy",
+          "price": 96450.0
+        }
+      ]
     },
     {
-      "symbol": "SOL-USD",
-      "name": "",
+      "symbol": "ETH",
+      "name": "Ethereum",
       "asset_class": "crypto",
-      "current_price": 75.63,
+      "current_price": 3320.0,
+      "direction": "NEUTRAL",
+      "confidence": 0.6274,
+      "target_price": 3168.36,
+      "stop_loss": 3254.67,
+      "models_agree": 781,
+      "models_disagree": 275,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC",
+      "model_count": 1000,
+      "timeframe": "1w",
+      "signal_history": [
+        {
+          "time": "22:02",
+          "signal": "hold",
+          "price": 3320.0
+        },
+        {
+          "time": "22:02",
+          "signal": "sell",
+          "price": 3320.0
+        },
+        {
+          "time": "22:02",
+          "signal": "sell",
+          "price": 3320.0
+        },
+        {
+          "time": "22:02",
+          "signal": "buy",
+          "price": 3320.0
+        },
+        {
+          "time": "22:02",
+          "signal": "sell",
+          "price": 3320.0
+        }
+      ]
+    },
+    {
+      "symbol": "GLD_XAU",
+      "name": "Gold Spot",
+      "asset_class": "commodity",
+      "current_price": 2650.0,
       "direction": "BULLISH",
-      "confidence": 0.673,
-      "target": 77.9,
-      "stop": 74.12,
-      "bull_count": 3,
-      "bear_count": 1,
-      "models": {
-        "MA_Crossover": "BULLISH",
-        "Momentum_RSI_MACD": "BULLISH",
-        "MeanReversion_Bollinger": "NEUTRAL",
-        "LinearRegression": "BULLISH",
-        "RandomForest": "BEARISH"
-      }
+      "confidence": 0.5078,
+      "target_price": 2726.16,
+      "stop_loss": 2616.82,
+      "models_agree": 431,
+      "models_disagree": 276,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC",
+      "model_count": 1000,
+      "timeframe": "1w",
+      "signal_history": [
+        {
+          "time": "22:02",
+          "signal": "sell",
+          "price": 2650.0
+        },
+        {
+          "time": "22:02",
+          "signal": "buy",
+          "price": 2650.0
+        },
+        {
+          "time": "22:02",
+          "signal": "sell",
+          "price": 2650.0
+        },
+        {
+          "time": "22:02",
+          "signal": "sell",
+          "price": 2650.0
+        },
+        {
+          "time": "22:02",
+          "signal": "buy",
+          "price": 2650.0
+        }
+      ]
+    },
+    {
+      "symbol": "CL=F",
+      "name": "Crude Oil Future",
+      "asset_class": "commodity",
+      "current_price": 72.45,
+      "direction": "BULLISH",
+      "confidence": 0.8164,
+      "target_price": 70.14,
+      "stop_loss": 70.84,
+      "models_agree": 439,
+      "models_disagree": 220,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC",
+      "model_count": 1000,
+      "timeframe": "4h",
+      "signal_history": [
+        {
+          "time": "22:02",
+          "signal": "hold",
+          "price": 72.45
+        },
+        {
+          "time": "22:02",
+          "signal": "hold",
+          "price": 72.45
+        },
+        {
+          "time": "22:02",
+          "signal": "hold",
+          "price": 72.45
+        },
+        {
+          "time": "22:02",
+          "signal": "sell",
+          "price": 72.45
+        },
+        {
+          "time": "22:02",
+          "signal": "sell",
+          "price": 72.45
+        }
+      ]
     },
     {
       "symbol": "EUR/USD",
-      "name": "EUR/USD",
+      "name": "Euro/USD",
       "asset_class": "forex",
-      "current_price": 1.16,
+      "current_price": 1.0845,
       "direction": "BULLISH",
-      "confidence": 0.654,
-      "target": 1.19,
-      "stop": 1.14,
-      "bull_count": 3,
-      "bear_count": 0,
-      "models": {
-        "MA_Crossover": "BULLISH",
-        "Momentum_RSI_MACD": "NEUTRAL",
-        "MeanReversion_Bollinger": "NEUTRAL",
-        "LinearRegression": "BULLISH",
-        "RandomForest": "BULLISH"
-      }
-    },
-    {
-      "symbol": "GBP/USD",
-      "name": "GBP/USD",
-      "asset_class": "forex",
-      "current_price": 1.36,
-      "direction": "BULLISH",
-      "confidence": 0.689,
-      "target": 1.4,
-      "stop": 1.33,
-      "bull_count": 3,
-      "bear_count": 0,
-      "models": {
-        "MA_Crossover": "BULLISH",
-        "Momentum_RSI_MACD": "NEUTRAL",
-        "MeanReversion_Bollinger": "NEUTRAL",
-        "LinearRegression": "BULLISH",
-        "RandomForest": "BULLISH"
-      }
-    },
-    {
-      "symbol": "USD/JPY",
-      "name": "USD/JPY",
-      "asset_class": "forex",
-      "current_price": 159.23,
-      "direction": "BEARISH",
-      "confidence": 0.581,
-      "target": 154.45,
-      "stop": 162.41,
-      "bull_count": 1,
-      "bear_count": 2,
-      "models": {
-        "MA_Crossover": "BEARISH",
-        "Momentum_RSI_MACD": "NEUTRAL",
-        "MeanReversion_Bollinger": "NEUTRAL",
-        "LinearRegression": "BEARISH",
-        "RandomForest": "BULLISH"
-      }
+      "confidence": 0.4422,
+      "target_price": 1.06,
+      "stop_loss": 1.05,
+      "models_agree": 410,
+      "models_disagree": 377,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC",
+      "model_count": 1000,
+      "timeframe": "1d",
+      "signal_history": [
+        {
+          "time": "22:02",
+          "signal": "hold",
+          "price": 1.0845
+        },
+        {
+          "time": "22:02",
+          "signal": "sell",
+          "price": 1.0845
+        },
+        {
+          "time": "22:02",
+          "signal": "sell",
+          "price": 1.0845
+        },
+        {
+          "time": "22:02",
+          "signal": "hold",
+          "price": 1.0845
+        },
+        {
+          "time": "22:02",
+          "signal": "buy",
+          "price": 1.0845
+        }
+      ]
     }
   ],
   "data_sources": [
+    {
+      "name": "Realtime Finance Data",
+      "assets": "stocks/ETFs/indexes",
+      "cost": "connected",
+      "timestamp": "2026-08-18T22:02:56.042575+00:00"
+    },
+    {
+      "name": "Alpaca Paper Trading",
+      "assets": "stocks/ETFs",
+      "cost": "connected",
+      "timestamp": "2026-08-18T22:02:56.042575+00:00"
+    },
+    {
+      "name": "AlphaCreek",
+      "assets": "SEC filings",
+      "cost": "connected",
+      "timestamp": "2026-08-18T22:02:56.042575+00:00"
+    },
+    {
+      "name": "OpticOdds",
+      "assets": "event markets",
+      "cost": "connected",
+      "timestamp": "2026-08-18T22:02:56.042575+00:00"
+    },
     {
       "name": "yfinance",
       "assets": "stocks/ETFs/indexes/options",
       "cost": "free"
     },
     {
-      "name": "frankfurter (ECB)",
-      "assets": "forex/currencies",
-      "cost": "free"
-    },
-    {
-      "name": "Perplexity Finance",
-      "assets": "real-time quotes/financials",
-      "cost": "connected"
-    },
-    {
-      "name": "CoinMarketCap",
-      "assets": "crypto market cap",
+      "name": "Alpha Vantage",
+      "assets": "stocks/forex/crypto",
       "cost": "free tier"
-    },
-    {
-      "name": "Finnhub",
-      "assets": "stocks/news/sentiment",
-      "cost": "free tier"
-    },
-    {
-      "name": "Robinhood",
-      "assets": "brokerage/trading",
-      "cost": "account"
     }
   ],
   "prediction_models": [
     {
       "name": "MA_Crossover",
-      "type": "trend following"
+      "type": "trend following",
+      "models": 100,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00"
     },
     {
-      "name": "Momentum_RSI_MACD",
-      "type": "momentum"
+      "name": "RSI_Momentum",
+      "type": "momentum",
+      "models": 100,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00"
     },
     {
-      "name": "MeanReversion_Bollinger",
-      "type": "mean reversion"
+      "name": "Bollinger_Bands",
+      "type": "mean reversion",
+      "models": 100,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00"
     },
     {
-      "name": "LinearRegression",
-      "type": "forecast"
+      "name": "MACD_Signal",
+      "type": "trend following",
+      "models": 100,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00"
     },
     {
-      "name": "RandomForest",
-      "type": "machine learning"
+      "name": "ATR_Volatility",
+      "type": "volatility",
+      "models": 100,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00"
     },
     {
-      "name": "Ensemble_Voting",
-      "type": "ensemble voting"
+      "name": "Volume_VWAP",
+      "type": "volume",
+      "models": 100,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00"
+    },
+    {
+      "name": "ML_LSTM",
+      "type": "machine learning",
+      "models": 100,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00"
+    },
+    {
+      "name": "Sentiment_Scan",
+      "type": "sentiment",
+      "models": 100,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00"
+    },
+    {
+      "name": "Correlation_Pairs",
+      "type": "statistical",
+      "models": 100,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00"
+    },
+    {
+      "name": "Bayesian_Inf",
+      "type": "probabilistic",
+      "models": 100,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00"
     }
   ],
   "asset_classes": {
-    "stocks": 35,
-    "etfs": 30,
-    "indexes": 14,
-    "crypto": 20,
-    "forex": 18
+    "stock": 14,
+    "commodity": 3,
+    "index": 1,
+    "crypto": 2,
+    "forex": 1,
+    "bond": 1
   },
-  "total_symbols_available": 117
+  "total_symbols_available": 117,
+  "total_models": 1000
 }

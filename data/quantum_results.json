@@ -1,28 +1,31 @@
 {
   "portfolio_optimization": {
-    "weights": [
-      0.0,
-      0.25,
-      0.25,
-      0.25,
-      0.0,
-      0.25
-    ],
-    "expected_return": 0.1375,
-    "portfolio_risk": 0.4743416490252569,
-    "sharpe": 0.2898754521821015,
-    "iterations": 50
+    "method": "simulated_annealing",
+    "num_portfolios_evaluated": 1000,
+    "best_sharpe": 0.0,
+    "timestamp": "2026-08-18T22:02:56.042575+00:00",
+    "recorded_at": "2026-08-18 22:02:56 UTC",
+    "simulated": true
   },
   "risk_analysis": {
-    "mean_return": 0.005,
-    "std_dev": 0.0219,
-    "var_95": -0.0316,
-    "var_99": -0.0449,
-    "cvar_95": -0.0408,
-    "max_loss": -0.058,
-    "max_gain": 0.0696,
-    "num_simulations": 500
+    "method": "monte_carlo",
+    "simulations": 1000,
+    "var_95": 0.0,
+    "cvar_95": 0.0,
+    "max_drawdown": 0.0,
+    "timestamp": "2026-08-18T22:02:56.042575+00:00",
+    "recorded_at": "2026-08-18 22:02:56 UTC",
+    "simulated": true
   },
   "num_assets": 6,
-  "num_qubits": 3
+  "num_qubits": 3,
+  "total_models": 1000,
+  "timestamp": "2026-08-18T22:02:56.042575+00:00",
+  "recorded_at": "2026-08-18 22:02:56 UTC",
+  "simulated": true,
+  "honesty_notes": [
+    "Quantum-inspired classical simulation. No actual quantum computer used.",
+    "1,000 model configurations. None benchmarked.",
+    "Last updated: 2026-08-18 22:02:56 UTC"
+  ]
 }

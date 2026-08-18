@@ -2,7 +2,8 @@
   "system_status": "AUTO-GENERATING",
   "simulated": true,
   "model_prediction": true,
-  "timestamp": "2026-08-18T21:34:47.042027+00:00",
+  "timestamp": "2026-08-18T22:02:56.042575+00:00",
+  "recorded_at": "2026-08-18 22:02:56 UTC",
   "cycle": 5,
   "total_models": 10000,
   "models_tested": 500,
@@ -11,435 +12,3713 @@
   "correct": 0,
   "accuracy": 0.0,
   "signals": {
-    "buy": 27840,
-    "sell": 27660,
-    "hold": 24500
+    "buy": 0,
+    "sell": 0,
+    "hold": 0
   },
   "consensus_per_symbol": [
     {
       "symbol": "SPY",
-      "consensus": "buy",
-      "buy_votes": 3520,
-      "sell_votes": 3340,
-      "hold_votes": 3140,
+      "consensus": "hold",
+      "buy_votes": 3344,
+      "sell_votes": 2743,
+      "hold_votes": 3913,
       "total_votes": 10000,
-      "agreement": 0.352
+      "agreement": 0.3913,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
     },
     {
       "symbol": "QQQ",
       "consensus": "buy",
-      "buy_votes": 3640,
-      "sell_votes": 3420,
-      "hold_votes": 2940,
+      "buy_votes": 3662,
+      "sell_votes": 3501,
+      "hold_votes": 2837,
       "total_votes": 10000,
-      "agreement": 0.364
+      "agreement": 0.3662,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
     },
     {
       "symbol": "TLT",
       "consensus": "buy",
-      "buy_votes": 3540,
-      "sell_votes": 3260,
-      "hold_votes": 3200,
+      "buy_votes": 3926,
+      "sell_votes": 3514,
+      "hold_votes": 2560,
       "total_votes": 10000,
-      "agreement": 0.354
+      "agreement": 0.3926,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
     },
     {
-      "symbol": "ESUSD",
+      "symbol": "GLD",
       "consensus": "buy",
-      "buy_votes": 3500,
-      "sell_votes": 3420,
-      "hold_votes": 3080,
+      "buy_votes": 4196,
+      "sell_votes": 2760,
+      "hold_votes": 3044,
       "total_votes": 10000,
-      "agreement": 0.35
+      "agreement": 0.4196,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
     },
     {
-      "symbol": "NQUSD",
-      "consensus": "sell",
-      "buy_votes": 3480,
-      "sell_votes": 3500,
-      "hold_votes": 3020,
-      "total_votes": 10000,
-      "agreement": 0.35
-    },
-    {
-      "symbol": "CLUSD",
+      "symbol": "USO",
       "consensus": "buy",
-      "buy_votes": 3680,
-      "sell_votes": 3280,
-      "hold_votes": 3040,
+      "buy_votes": 3465,
+      "sell_votes": 3318,
+      "hold_votes": 3217,
       "total_votes": 10000,
-      "agreement": 0.368
+      "agreement": 0.3465,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
     },
     {
-      "symbol": "GCUSD",
-      "consensus": "sell",
-      "buy_votes": 3120,
-      "sell_votes": 3900,
-      "hold_votes": 2980,
+      "symbol": "IWM",
+      "consensus": "buy",
+      "buy_votes": 3827,
+      "sell_votes": 3296,
+      "hold_votes": 2877,
       "total_votes": 10000,
-      "agreement": 0.39
+      "agreement": 0.3827,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
     },
     {
-      "symbol": "^VIX",
-      "consensus": "sell",
-      "buy_votes": 3360,
-      "sell_votes": 3540,
-      "hold_votes": 3100,
+      "symbol": "VIX",
+      "consensus": "hold",
+      "buy_votes": 3069,
+      "sell_votes": 2724,
+      "hold_votes": 4207,
       "total_votes": 10000,
-      "agreement": 0.354
+      "agreement": 0.4207,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
+    },
+    {
+      "symbol": "DIA",
+      "consensus": "hold",
+      "buy_votes": 3020,
+      "sell_votes": 2543,
+      "hold_votes": 4437,
+      "total_votes": 10000,
+      "agreement": 0.4437,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
     }
   ],
   "top_models": [
     {
-      "model_id": "Momentum_RSI_0181",
-      "base_type": "Momentum_RSI",
-      "variation": 181,
+      "model_id": "Trend_SMA_0001",
+      "base_type": "Trend_SMA",
+      "variation": 1,
       "params": {
-        "period": 6.8,
-        "overbought": 0.019
+        "period": 28.6,
+        "overbought": 78,
+        "oversold": 19,
+        "threshold": 0.0178
       },
-      "predictions": 40,
-      "correct": 31,
-      "accuracy": 0.775,
-      "confidence": 0.501,
-      "last_signal": "buy",
-      "last_hash": "ca7c6dfae2cf0291",
-      "simulated": true,
-      "model_prediction": true
-    },
-    {
-      "model_id": "Sentiment_Volume_0221",
-      "base_type": "Sentiment_Volume",
-      "variation": 221,
-      "params": {
-        "w_volume": 7.2,
-        "w_pattern": 0.023
-      },
-      "predictions": 40,
-      "correct": 31,
-      "accuracy": 0.775,
-      "confidence": 0.8473,
-      "last_signal": "buy",
-      "last_hash": "9da1b26ce9670edf",
-      "simulated": true,
-      "model_prediction": true
-    },
-    {
-      "model_id": "Diffusion_Proc_0041",
-      "base_type": "Diffusion_Proc",
-      "variation": 41,
-      "params": {
-        "noise_steps": 5.4,
-        "beta_start": 0.005
-      },
-      "predictions": 40,
-      "correct": 30,
-      "accuracy": 0.75,
-      "confidence": 0.8072,
+      "predictions": 0,
+      "correct": 0,
+      "accuracy": 0.0,
+      "confidence": 0.8408,
       "last_signal": "sell",
-      "last_hash": "78e81e492ed008fd",
-      "simulated": true,
-      "model_prediction": true
+      "last_hash": "c0427afadcab554d",
+      "timestamp": "2026-08-18T22:02:56.042575+00:00"
     },
     {
-      "model_id": "Attention_LSTM_0061",
-      "base_type": "Attention_LSTM",
-      "variation": 61,
+      "model_id": "Trend_EMA_0002",
+      "base_type": "Trend_EMA",
+      "variation": 2,
       "params": {
-        "attn_heads": 5.6,
-        "lstm_units": 0.007
+        "period": 38.8,
+        "overbought": 70,
+        "oversold": 27,
+        "threshold": 0.0019
       },
-      "predictions": 40,
-      "correct": 30,
-      "accuracy": 0.75,
-      "confidence": 0.6671,
+      "predictions": 0,
+      "correct": 0,
+      "accuracy": 0.0,
+      "confidence": 0.4346,
+      "last_signal": "buy",
+      "last_hash": "4b07f2230acf6206",
+      "timestamp": "2026-08-18T22:02:56.042575+00:00"
+    },
+    {
+      "model_id": "Momentum_RSI_0003",
+      "base_type": "Momentum_RSI",
+      "variation": 3,
+      "params": {
+        "period": 14.5,
+        "overbought": 65,
+        "oversold": 33,
+        "threshold": 0.0257
+      },
+      "predictions": 0,
+      "correct": 0,
+      "accuracy": 0.0,
+      "confidence": 0.3739,
       "last_signal": "hold",
-      "last_hash": "ecbea44374f5baa9",
-      "simulated": true,
-      "model_prediction": true
+      "last_hash": "ddc160185fc70126",
+      "timestamp": "2026-08-18T22:02:56.042575+00:00"
+    },
+    {
+      "model_id": "Momentum_MACD_0004",
+      "base_type": "Momentum_MACD",
+      "variation": 4,
+      "params": {
+        "period": 34.3,
+        "overbought": 66,
+        "oversold": 27,
+        "threshold": 0.044
+      },
+      "predictions": 0,
+      "correct": 0,
+      "accuracy": 0.0,
+      "confidence": 0.4535,
+      "last_signal": "hold",
+      "last_hash": "0a3f3dfa949d63a3",
+      "timestamp": "2026-08-18T22:02:56.042575+00:00"
+    },
+    {
+      "model_id": "Mean_Reversion_0005",
+      "base_type": "Mean_Reversion",
+      "variation": 5,
+      "params": {
+        "period": 33.0,
+        "overbought": 84,
+        "oversold": 16,
+        "threshold": 0.0334
+      },
+      "predictions": 0,
+      "correct": 0,
+      "accuracy": 0.0,
+      "confidence": 0.6921,
+      "last_signal": "buy",
+      "last_hash": "c09c09f4cf306920",
+      "timestamp": "2026-08-18T22:02:56.042575+00:00"
+    },
+    {
+      "model_id": "Breakout_0006",
+      "base_type": "Breakout",
+      "variation": 6,
+      "params": {
+        "period": 7.2,
+        "overbought": 68,
+        "oversold": 28,
+        "threshold": 0.0228
+      },
+      "predictions": 0,
+      "correct": 0,
+      "accuracy": 0.0,
+      "confidence": 0.3742,
+      "last_signal": "sell",
+      "last_hash": "2c6970d37c54a38f",
+      "timestamp": "2026-08-18T22:02:56.042575+00:00"
+    },
+    {
+      "model_id": "Volatility_ATR_0007",
+      "base_type": "Volatility_ATR",
+      "variation": 7,
+      "params": {
+        "period": 26.3,
+        "overbought": 69,
+        "oversold": 21,
+        "threshold": 0.0351
+      },
+      "predictions": 0,
+      "correct": 0,
+      "accuracy": 0.0,
+      "confidence": 0.6782,
+      "last_signal": "sell",
+      "last_hash": "aa634c0c19edea0d",
+      "timestamp": "2026-08-18T22:02:56.042575+00:00"
+    },
+    {
+      "model_id": "Correlation_Pairs_0008",
+      "base_type": "Correlation_Pairs",
+      "variation": 8,
+      "params": {
+        "period": 23.9,
+        "overbought": 68,
+        "oversold": 31,
+        "threshold": 0.0142
+      },
+      "predictions": 0,
+      "correct": 0,
+      "accuracy": 0.0,
+      "confidence": 0.6634,
+      "last_signal": "buy",
+      "last_hash": "1c50adfd290707a5",
+      "timestamp": "2026-08-18T22:02:56.042575+00:00"
+    },
+    {
+      "model_id": "Volume_VWAP_0009",
+      "base_type": "Volume_VWAP",
+      "variation": 9,
+      "params": {
+        "period": 23.8,
+        "overbought": 68,
+        "oversold": 31,
+        "threshold": 0.0362
+      },
+      "predictions": 0,
+      "correct": 0,
+      "accuracy": 0.0,
+      "confidence": 0.3706,
+      "last_signal": "buy",
+      "last_hash": "e9c9a92cd69954ff",
+      "timestamp": "2026-08-18T22:02:56.042575+00:00"
+    },
+    {
+      "model_id": "Sentiment_Scan_0010",
+      "base_type": "Sentiment_Scan",
+      "variation": 10,
+      "params": {
+        "period": 40.3,
+        "overbought": 80,
+        "oversold": 21,
+        "threshold": 0.0308
+      },
+      "predictions": 0,
+      "correct": 0,
+      "accuracy": 0.0,
+      "confidence": 0.7668,
+      "last_signal": "hold",
+      "last_hash": "380c4bf253f0c94a",
+      "timestamp": "2026-08-18T22:02:56.042575+00:00"
+    },
+    {
+      "model_id": "Machine_Learning_LSTM_0011",
+      "base_type": "Machine_Learning_LSTM",
+      "variation": 11,
+      "params": {
+        "period": 48.8,
+        "overbought": 76,
+        "oversold": 28,
+        "threshold": 0.0155
+      },
+      "predictions": 0,
+      "correct": 0,
+      "accuracy": 0.0,
+      "confidence": 0.3236,
+      "last_signal": "sell",
+      "last_hash": "9067530b43cb99eb",
+      "timestamp": "2026-08-18T22:02:56.042575+00:00"
+    },
+    {
+      "model_id": "Reinforcement_Q_0012",
+      "base_type": "Reinforcement_Q",
+      "variation": 12,
+      "params": {
+        "period": 46.0,
+        "overbought": 80,
+        "oversold": 25,
+        "threshold": 0.0125
+      },
+      "predictions": 0,
+      "correct": 0,
+      "accuracy": 0.0,
+      "confidence": 0.3076,
+      "last_signal": "buy",
+      "last_hash": "d1a2845b88d10ab7",
+      "timestamp": "2026-08-18T22:02:56.042575+00:00"
+    },
+    {
+      "model_id": "Bayesian_Inf_0013",
+      "base_type": "Bayesian_Inf",
+      "variation": 13,
+      "params": {
+        "period": 45.8,
+        "overbought": 83,
+        "oversold": 30,
+        "threshold": 0.0083
+      },
+      "predictions": 0,
+      "correct": 0,
+      "accuracy": 0.0,
+      "confidence": 0.354,
+      "last_signal": "hold",
+      "last_hash": "9d83af6054d8545d",
+      "timestamp": "2026-08-18T22:02:56.042575+00:00"
+    },
+    {
+      "model_id": "GAN_Predictor_0014",
+      "base_type": "GAN_Predictor",
+      "variation": 14,
+      "params": {
+        "period": 8.4,
+        "overbought": 68,
+        "oversold": 23,
+        "threshold": 0.0326
+      },
+      "predictions": 0,
+      "correct": 0,
+      "accuracy": 0.0,
+      "confidence": 0.5741,
+      "last_signal": "sell",
+      "last_hash": "2209a1f891a6faa2",
+      "timestamp": "2026-08-18T22:02:56.042575+00:00"
+    },
+    {
+      "model_id": "Diffusion_Proc_0015",
+      "base_type": "Diffusion_Proc",
+      "variation": 15,
+      "params": {
+        "period": 16.9,
+        "overbought": 66,
+        "oversold": 18,
+        "threshold": 0.0408
+      },
+      "predictions": 0,
+      "correct": 0,
+      "accuracy": 0.0,
+      "confidence": 0.8245,
+      "last_signal": "sell",
+      "last_hash": "c83d45655adeab07",
+      "timestamp": "2026-08-18T22:02:56.042575+00:00"
+    },
+    {
+      "model_id": "Graph_Neural_0016",
+      "base_type": "Graph_Neural",
+      "variation": 16,
+      "params": {
+        "period": 21.2,
+        "overbought": 75,
+        "oversold": 28,
+        "threshold": 0.0372
+      },
+      "predictions": 0,
+      "correct": 0,
+      "accuracy": 0.0,
+      "confidence": 0.357,
+      "last_signal": "buy",
+      "last_hash": "425922bdd2c05aec",
+      "timestamp": "2026-08-18T22:02:56.042575+00:00"
+    },
+    {
+      "model_id": "Attention_LSTM_0017",
+      "base_type": "Attention_LSTM",
+      "variation": 17,
+      "params": {
+        "period": 5.4,
+        "overbought": 69,
+        "oversold": 35,
+        "threshold": 0.0094
+      },
+      "predictions": 0,
+      "correct": 0,
+      "accuracy": 0.0,
+      "confidence": 0.5145,
+      "last_signal": "sell",
+      "last_hash": "f30202e160239b06",
+      "timestamp": "2026-08-18T22:02:56.042575+00:00"
+    },
+    {
+      "model_id": "Autoencoder_Sig_0018",
+      "base_type": "Autoencoder_Sig",
+      "variation": 18,
+      "params": {
+        "period": 48.0,
+        "overbought": 73,
+        "oversold": 17,
+        "threshold": 0.0193
+      },
+      "predictions": 0,
+      "correct": 0,
+      "accuracy": 0.0,
+      "confidence": 0.5056,
+      "last_signal": "buy",
+      "last_hash": "abb7ed91485135dc",
+      "timestamp": "2026-08-18T22:02:56.042575+00:00"
+    },
+    {
+      "model_id": "Wavelet_Decomp_0019",
+      "base_type": "Wavelet_Decomp",
+      "variation": 19,
+      "params": {
+        "period": 23.0,
+        "overbought": 79,
+        "oversold": 23,
+        "threshold": 0.0419
+      },
+      "predictions": 0,
+      "correct": 0,
+      "accuracy": 0.0,
+      "confidence": 0.7139,
+      "last_signal": "sell",
+      "last_hash": "fd6b117dcf5f5c58",
+      "timestamp": "2026-08-18T22:02:56.042575+00:00"
+    },
+    {
+      "model_id": "Fuzzy_Logic_0020",
+      "base_type": "Fuzzy_Logic",
+      "variation": 20,
+      "params": {
+        "period": 41.0,
+        "overbought": 85,
+        "oversold": 20,
+        "threshold": 0.0065
+      },
+      "predictions": 0,
+      "correct": 0,
+      "accuracy": 0.0,
+      "confidence": 0.7177,
+      "last_signal": "buy",
+      "last_hash": "25e1da92aba82916",
+      "timestamp": "2026-08-18T22:02:56.042575+00:00"
     },
     {
       "model_id": "Trend_SMA_0021",
       "base_type": "Trend_SMA",
       "variation": 21,
       "params": {
-        "lookback": 5.2,
-        "threshold": 0.003
+        "period": 49.2,
+        "overbought": 70,
+        "oversold": 18,
+        "threshold": 0.0214
       },
-      "predictions": 40,
-      "correct": 29,
-      "accuracy": 0.725,
-      "confidence": 0.6469,
+      "predictions": 0,
+      "correct": 0,
+      "accuracy": 0.0,
+      "confidence": 0.6545,
       "last_signal": "hold",
-      "last_hash": "8a63e9216ef8b2d7",
-      "simulated": true,
-      "model_prediction": true
+      "last_hash": "a32054ab377b61ff",
+      "timestamp": "2026-08-18T22:02:56.042575+00:00"
     },
     {
-      "model_id": "Mean_Reversion_0161",
-      "base_type": "Mean_Reversion",
-      "variation": 161,
+      "model_id": "Trend_EMA_0022",
+      "base_type": "Trend_EMA",
+      "variation": 22,
       "params": {
-        "sigma_mult": 6.6,
-        "window": 0.017
+        "period": 35.5,
+        "overbought": 70,
+        "oversold": 34,
+        "threshold": 0.0196
       },
-      "predictions": 40,
-      "correct": 29,
-      "accuracy": 0.725,
-      "confidence": 0.4411,
+      "predictions": 0,
+      "correct": 0,
+      "accuracy": 0.0,
+      "confidence": 0.5152,
       "last_signal": "buy",
-      "last_hash": "5ab6aa03d2643877",
-      "simulated": true,
-      "model_prediction": true
+      "last_hash": "25dde5f64ce62483",
+      "timestamp": "2026-08-18T22:02:56.042575+00:00"
     },
     {
-      "model_id": "Mean_Reversion_0181",
+      "model_id": "Momentum_RSI_0023",
+      "base_type": "Momentum_RSI",
+      "variation": 23,
+      "params": {
+        "period": 43.8,
+        "overbought": 69,
+        "oversold": 30,
+        "threshold": 0.0461
+      },
+      "predictions": 0,
+      "correct": 0,
+      "accuracy": 0.0,
+      "confidence": 0.3678,
+      "last_signal": "sell",
+      "last_hash": "8290392c9a4ea6d4",
+      "timestamp": "2026-08-18T22:02:56.042575+00:00"
+    },
+    {
+      "model_id": "Momentum_MACD_0024",
+      "base_type": "Momentum_MACD",
+      "variation": 24,
+      "params": {
+        "period": 24.8,
+        "overbought": 67,
+        "oversold": 23,
+        "threshold": 0.0331
+      },
+      "predictions": 0,
+      "correct": 0,
+      "accuracy": 0.0,
+      "confidence": 0.3074,
+      "last_signal": "hold",
+      "last_hash": "f6f360c7dff9995d",
+      "timestamp": "2026-08-18T22:02:56.042575+00:00"
+    },
+    {
+      "model_id": "Mean_Reversion_0025",
       "base_type": "Mean_Reversion",
-      "variation": 181,
+      "variation": 25,
       "params": {
-        "sigma_mult": 6.8,
-        "window": 0.019
+        "period": 28.6,
+        "overbought": 83,
+        "oversold": 33,
+        "threshold": 0.012
       },
-      "predictions": 40,
-      "correct": 29,
-      "accuracy": 0.725,
-      "confidence": 0.8096,
+      "predictions": 0,
+      "correct": 0,
+      "accuracy": 0.0,
+      "confidence": 0.8735,
       "last_signal": "sell",
-      "last_hash": "f7c097143b235d39",
-      "simulated": true,
-      "model_prediction": true
+      "last_hash": "187e27ec3cf45e3e",
+      "timestamp": "2026-08-18T22:02:56.042575+00:00"
     },
     {
-      "model_id": "Volatility_EWMA_0041",
-      "base_type": "Volatility_EWMA",
-      "variation": 41,
+      "model_id": "Breakout_0026",
+      "base_type": "Breakout",
+      "variation": 26,
       "params": {
-        "lambda": 5.4,
-        "threshold": 0.005
+        "period": 28.4,
+        "overbought": 84,
+        "oversold": 18,
+        "threshold": 0.0222
       },
-      "predictions": 40,
-      "correct": 29,
-      "accuracy": 0.725,
-      "confidence": 0.7724,
+      "predictions": 0,
+      "correct": 0,
+      "accuracy": 0.0,
+      "confidence": 0.736,
+      "last_signal": "sell",
+      "last_hash": "6c096f6647f39749",
+      "timestamp": "2026-08-18T22:02:56.042575+00:00"
+    },
+    {
+      "model_id": "Volatility_ATR_0027",
+      "base_type": "Volatility_ATR",
+      "variation": 27,
+      "params": {
+        "period": 20.6,
+        "overbought": 85,
+        "oversold": 27,
+        "threshold": 0.0083
+      },
+      "predictions": 0,
+      "correct": 0,
+      "accuracy": 0.0,
+      "confidence": 0.7959,
       "last_signal": "hold",
-      "last_hash": "a8467b2bd3316176",
-      "simulated": true,
-      "model_prediction": true
+      "last_hash": "4dd47580471102e8",
+      "timestamp": "2026-08-18T22:02:56.042575+00:00"
     },
     {
-      "model_id": "Fractal_Calculus_0481",
-      "base_type": "Fractal_Calculus",
-      "variation": 481,
+      "model_id": "Correlation_Pairs_0028",
+      "base_type": "Correlation_Pairs",
+      "variation": 28,
       "params": {
-        "window": 9.8,
-        "min_dimension": 0.049
+        "period": 7.5,
+        "overbought": 85,
+        "oversold": 20,
+        "threshold": 0.0258
       },
-      "predictions": 40,
-      "correct": 29,
-      "accuracy": 0.725,
-      "confidence": 0.4404,
+      "predictions": 0,
+      "correct": 0,
+      "accuracy": 0.0,
+      "confidence": 0.5816,
+      "last_signal": "sell",
+      "last_hash": "6ec75ba194131152",
+      "timestamp": "2026-08-18T22:02:56.042575+00:00"
+    },
+    {
+      "model_id": "Volume_VWAP_0029",
+      "base_type": "Volume_VWAP",
+      "variation": 29,
+      "params": {
+        "period": 44.1,
+        "overbought": 67,
+        "oversold": 30,
+        "threshold": 0.0167
+      },
+      "predictions": 0,
+      "correct": 0,
+      "accuracy": 0.0,
+      "confidence": 0.4985,
+      "last_signal": "sell",
+      "last_hash": "a3173c787af0e8d9",
+      "timestamp": "2026-08-18T22:02:56.042575+00:00"
+    },
+    {
+      "model_id": "Sentiment_Scan_0030",
+      "base_type": "Sentiment_Scan",
+      "variation": 30,
+      "params": {
+        "period": 7.3,
+        "overbought": 72,
+        "oversold": 32,
+        "threshold": 0.0325
+      },
+      "predictions": 0,
+      "correct": 0,
+      "accuracy": 0.0,
+      "confidence": 0.542,
       "last_signal": "buy",
-      "last_hash": "2c46f4df1524ae26",
-      "simulated": true,
-      "model_prediction": true
+      "last_hash": "1a1da14413d44ca1",
+      "timestamp": "2026-08-18T22:02:56.042575+00:00"
     },
     {
-      "model_id": "Neural_LSTM_0401",
-      "base_type": "Neural_LSTM",
-      "variation": 401,
+      "model_id": "Machine_Learning_LSTM_0031",
+      "base_type": "Machine_Learning_LSTM",
+      "variation": 31,
       "params": {
-        "lstm_units": 9.0,
-        "sequence_len": 0.041
-      },
-      "predictions": 40,
-      "correct": 29,
-      "accuracy": 0.725,
-      "confidence": 0.7075,
-      "last_signal": "hold",
-      "last_hash": "b4459b605b2e193e",
-      "simulated": true,
-      "model_prediction": true
-    },
-    {
-      "model_id": "Volatility_EWMA_0101",
-      "base_type": "Volatility_EWMA",
-      "variation": 101,
-      "params": {
-        "lambda": 6.0,
-        "threshold": 0.011
-      },
-      "predictions": 40,
-      "correct": 28,
-      "accuracy": 0.7,
-      "confidence": 0.5522,
-      "last_signal": "sell",
-      "last_hash": "945553fd578b5b28",
-      "simulated": true,
-      "model_prediction": true
-    },
-    {
-      "model_id": "Volatility_EWMA_0161",
-      "base_type": "Volatility_EWMA",
-      "variation": 161,
-      "params": {
-        "lambda": 6.6,
-        "threshold": 0.017
-      },
-      "predictions": 40,
-      "correct": 28,
-      "accuracy": 0.7,
-      "confidence": 0.8457,
-      "last_signal": "hold",
-      "last_hash": "84c62c9c6c4316d4",
-      "simulated": true,
-      "model_prediction": true
-    },
-    {
-      "model_id": "Sentiment_Volume_0461",
-      "base_type": "Sentiment_Volume",
-      "variation": 461,
-      "params": {
-        "w_volume": 9.6,
-        "w_pattern": 0.047
-      },
-      "predictions": 40,
-      "correct": 28,
-      "accuracy": 0.7,
-      "confidence": 0.7149,
-      "last_signal": "sell",
-      "last_hash": "3af29b62a7849800",
-      "simulated": true,
-      "model_prediction": true
-    },
-    {
-      "model_id": "Correlation_Eigen_0201",
-      "base_type": "Correlation_Eigen",
-      "variation": 201,
-      "params": {
-        "components": 7.0,
-        "min_eigenvalue": 0.021
-      },
-      "predictions": 40,
-      "correct": 28,
-      "accuracy": 0.7,
-      "confidence": 0.6569,
-      "last_signal": "hold",
-      "last_hash": "2c0d61bf18a1b4fb",
-      "simulated": true,
-      "model_prediction": true
-    },
-    {
-      "model_id": "Diffusion_Proc_0061",
-      "base_type": "Diffusion_Proc",
-      "variation": 61,
-      "params": {
-        "noise_steps": 5.6,
-        "beta_start": 0.007
-      },
-      "predictions": 40,
-      "correct": 28,
-      "accuracy": 0.7,
-      "confidence": 0.713,
-      "last_signal": "sell",
-      "last_hash": "eb5183a461a8d948",
-      "simulated": true,
-      "model_prediction": true
-    },
-    {
-      "model_id": "Autoencoder_Sig_0121",
-      "base_type": "Autoencoder_Sig",
-      "variation": 121,
-      "params": {
-        "encoding_dim": 6.2,
-        "bottleneck": 0.013
-      },
-      "predictions": 40,
-      "correct": 28,
-      "accuracy": 0.7,
-      "confidence": 0.711,
-      "last_signal": "sell",
-      "last_hash": "3760ab2d9666ee28",
-      "simulated": true,
-      "model_prediction": true
-    },
-    {
-      "model_id": "Fuzzy_Logic_0321",
-      "base_type": "Fuzzy_Logic",
-      "variation": 321,
-      "params": {
-        "num_rules": 8.2,
-        "defuzz_method": 0.033
-      },
-      "predictions": 40,
-      "correct": 28,
-      "accuracy": 0.7,
-      "confidence": 0.7394,
-      "last_signal": "hold",
-      "last_hash": "a70a047568474b0b",
-      "simulated": true,
-      "model_prediction": true
-    },
-    {
-      "model_id": "Volatility_EWMA_0221",
-      "base_type": "Volatility_EWMA",
-      "variation": 221,
-      "params": {
-        "lambda": 7.2,
+        "period": 8.5,
+        "overbought": 79,
+        "oversold": 33,
         "threshold": 0.023
       },
-      "predictions": 40,
-      "correct": 27,
-      "accuracy": 0.675,
-      "confidence": 0.6456,
+      "predictions": 0,
+      "correct": 0,
+      "accuracy": 0.0,
+      "confidence": 0.814,
       "last_signal": "sell",
-      "last_hash": "b675f9980b06fb65",
-      "simulated": true,
-      "model_prediction": true
+      "last_hash": "e4b6500fe5612a34",
+      "timestamp": "2026-08-18T22:02:56.042575+00:00"
     },
     {
-      "model_id": "Momentum_RSI_0261",
-      "base_type": "Momentum_RSI",
-      "variation": 261,
+      "model_id": "Reinforcement_Q_0032",
+      "base_type": "Reinforcement_Q",
+      "variation": 32,
       "params": {
-        "period": 7.6,
-        "overbought": 0.027
+        "period": 19.2,
+        "overbought": 80,
+        "oversold": 35,
+        "threshold": 0.0019
       },
-      "predictions": 40,
-      "correct": 27,
-      "accuracy": 0.675,
-      "confidence": 0.5422,
+      "predictions": 0,
+      "correct": 0,
+      "accuracy": 0.0,
+      "confidence": 0.5421,
       "last_signal": "buy",
-      "last_hash": "533337f40c7cf1bb",
-      "simulated": true,
-      "model_prediction": true
+      "last_hash": "aaaf01af20036905",
+      "timestamp": "2026-08-18T22:02:56.042575+00:00"
     },
     {
-      "model_id": "Fractal_Calculus_0061",
-      "base_type": "Fractal_Calculus",
+      "model_id": "Bayesian_Inf_0033",
+      "base_type": "Bayesian_Inf",
+      "variation": 33,
+      "params": {
+        "period": 30.1,
+        "overbought": 65,
+        "oversold": 17,
+        "threshold": 0.0398
+      },
+      "predictions": 0,
+      "correct": 0,
+      "accuracy": 0.0,
+      "confidence": 0.8779,
+      "last_signal": "hold",
+      "last_hash": "e1b2638bed8118b2",
+      "timestamp": "2026-08-18T22:02:56.042575+00:00"
+    },
+    {
+      "model_id": "GAN_Predictor_0034",
+      "base_type": "GAN_Predictor",
+      "variation": 34,
+      "params": {
+        "period": 18.7,
+        "overbought": 81,
+        "oversold": 32,
+        "threshold": 0.0111
+      },
+      "predictions": 0,
+      "correct": 0,
+      "accuracy": 0.0,
+      "confidence": 0.7029,
+      "last_signal": "sell",
+      "last_hash": "e0e0b47a37709658",
+      "timestamp": "2026-08-18T22:02:56.042575+00:00"
+    },
+    {
+      "model_id": "Diffusion_Proc_0035",
+      "base_type": "Diffusion_Proc",
+      "variation": 35,
+      "params": {
+        "period": 21.4,
+        "overbought": 66,
+        "oversold": 22,
+        "threshold": 0.0424
+      },
+      "predictions": 0,
+      "correct": 0,
+      "accuracy": 0.0,
+      "confidence": 0.4992,
+      "last_signal": "hold",
+      "last_hash": "f083c9a2a9140282",
+      "timestamp": "2026-08-18T22:02:56.042575+00:00"
+    },
+    {
+      "model_id": "Graph_Neural_0036",
+      "base_type": "Graph_Neural",
+      "variation": 36,
+      "params": {
+        "period": 32.0,
+        "overbought": 76,
+        "oversold": 29,
+        "threshold": 0.0066
+      },
+      "predictions": 0,
+      "correct": 0,
+      "accuracy": 0.0,
+      "confidence": 0.7556,
+      "last_signal": "buy",
+      "last_hash": "7c4daebc8f68c10f",
+      "timestamp": "2026-08-18T22:02:56.042575+00:00"
+    },
+    {
+      "model_id": "Attention_LSTM_0037",
+      "base_type": "Attention_LSTM",
+      "variation": 37,
+      "params": {
+        "period": 5.1,
+        "overbought": 76,
+        "oversold": 35,
+        "threshold": 0.0483
+      },
+      "predictions": 0,
+      "correct": 0,
+      "accuracy": 0.0,
+      "confidence": 0.4752,
+      "last_signal": "hold",
+      "last_hash": "b864d81a87d72b1e",
+      "timestamp": "2026-08-18T22:02:56.042575+00:00"
+    },
+    {
+      "model_id": "Autoencoder_Sig_0038",
+      "base_type": "Autoencoder_Sig",
+      "variation": 38,
+      "params": {
+        "period": 21.8,
+        "overbought": 68,
+        "oversold": 16,
+        "threshold": 0.0449
+      },
+      "predictions": 0,
+      "correct": 0,
+      "accuracy": 0.0,
+      "confidence": 0.5955,
+      "last_signal": "hold",
+      "last_hash": "879eb4940e36ca12",
+      "timestamp": "2026-08-18T22:02:56.042575+00:00"
+    },
+    {
+      "model_id": "Wavelet_Decomp_0039",
+      "base_type": "Wavelet_Decomp",
+      "variation": 39,
+      "params": {
+        "period": 38.4,
+        "overbought": 78,
+        "oversold": 18,
+        "threshold": 0.0135
+      },
+      "predictions": 0,
+      "correct": 0,
+      "accuracy": 0.0,
+      "confidence": 0.4176,
+      "last_signal": "buy",
+      "last_hash": "4da2ae80c34dc83d",
+      "timestamp": "2026-08-18T22:02:56.042575+00:00"
+    },
+    {
+      "model_id": "Fuzzy_Logic_0040",
+      "base_type": "Fuzzy_Logic",
+      "variation": 40,
+      "params": {
+        "period": 46.9,
+        "overbought": 77,
+        "oversold": 21,
+        "threshold": 0.0234
+      },
+      "predictions": 0,
+      "correct": 0,
+      "accuracy": 0.0,
+      "confidence": 0.7689,
+      "last_signal": "hold",
+      "last_hash": "68c64aa8c2d0e641",
+      "timestamp": "2026-08-18T22:02:56.042575+00:00"
+    },
+    {
+      "model_id": "Trend_SMA_0041",
+      "base_type": "Trend_SMA",
+      "variation": 41,
+      "params": {
+        "period": 20.2,
+        "overbought": 78,
+        "oversold": 16,
+        "threshold": 0.0464
+      },
+      "predictions": 0,
+      "correct": 0,
+      "accuracy": 0.0,
+      "confidence": 0.8025,
+      "last_signal": "hold",
+      "last_hash": "b9741dc4114e82b5",
+      "timestamp": "2026-08-18T22:02:56.042575+00:00"
+    },
+    {
+      "model_id": "Trend_EMA_0042",
+      "base_type": "Trend_EMA",
+      "variation": 42,
+      "params": {
+        "period": 10.5,
+        "overbought": 79,
+        "oversold": 29,
+        "threshold": 0.0333
+      },
+      "predictions": 0,
+      "correct": 0,
+      "accuracy": 0.0,
+      "confidence": 0.8737,
+      "last_signal": "buy",
+      "last_hash": "1cf1e2beb2e87ac3",
+      "timestamp": "2026-08-18T22:02:56.042575+00:00"
+    },
+    {
+      "model_id": "Momentum_RSI_0043",
+      "base_type": "Momentum_RSI",
+      "variation": 43,
+      "params": {
+        "period": 48.4,
+        "overbought": 65,
+        "oversold": 31,
+        "threshold": 0.0371
+      },
+      "predictions": 0,
+      "correct": 0,
+      "accuracy": 0.0,
+      "confidence": 0.6319,
+      "last_signal": "sell",
+      "last_hash": "066bbaefa9c841a7",
+      "timestamp": "2026-08-18T22:02:56.042575+00:00"
+    },
+    {
+      "model_id": "Momentum_MACD_0044",
+      "base_type": "Momentum_MACD",
+      "variation": 44,
+      "params": {
+        "period": 42.7,
+        "overbought": 80,
+        "oversold": 31,
+        "threshold": 0.0393
+      },
+      "predictions": 0,
+      "correct": 0,
+      "accuracy": 0.0,
+      "confidence": 0.8461,
+      "last_signal": "hold",
+      "last_hash": "b20ee38b196c7ae9",
+      "timestamp": "2026-08-18T22:02:56.042575+00:00"
+    },
+    {
+      "model_id": "Mean_Reversion_0045",
+      "base_type": "Mean_Reversion",
+      "variation": 45,
+      "params": {
+        "period": 31.0,
+        "overbought": 69,
+        "oversold": 18,
+        "threshold": 0.02
+      },
+      "predictions": 0,
+      "correct": 0,
+      "accuracy": 0.0,
+      "confidence": 0.6603,
+      "last_signal": "sell",
+      "last_hash": "3f3e1dccfa6c1e9c",
+      "timestamp": "2026-08-18T22:02:56.042575+00:00"
+    },
+    {
+      "model_id": "Breakout_0046",
+      "base_type": "Breakout",
+      "variation": 46,
+      "params": {
+        "period": 27.7,
+        "overbought": 77,
+        "oversold": 28,
+        "threshold": 0.049
+      },
+      "predictions": 0,
+      "correct": 0,
+      "accuracy": 0.0,
+      "confidence": 0.8495,
+      "last_signal": "buy",
+      "last_hash": "9aa3ff09d7e50612",
+      "timestamp": "2026-08-18T22:02:56.042575+00:00"
+    },
+    {
+      "model_id": "Volatility_ATR_0047",
+      "base_type": "Volatility_ATR",
+      "variation": 47,
+      "params": {
+        "period": 17.3,
+        "overbought": 75,
+        "oversold": 24,
+        "threshold": 0.0232
+      },
+      "predictions": 0,
+      "correct": 0,
+      "accuracy": 0.0,
+      "confidence": 0.38,
+      "last_signal": "sell",
+      "last_hash": "995d8a7231384f0c",
+      "timestamp": "2026-08-18T22:02:56.042575+00:00"
+    },
+    {
+      "model_id": "Correlation_Pairs_0048",
+      "base_type": "Correlation_Pairs",
+      "variation": 48,
+      "params": {
+        "period": 32.1,
+        "overbought": 81,
+        "oversold": 24,
+        "threshold": 0.0423
+      },
+      "predictions": 0,
+      "correct": 0,
+      "accuracy": 0.0,
+      "confidence": 0.6287,
+      "last_signal": "sell",
+      "last_hash": "d9a68fa39ee050b1",
+      "timestamp": "2026-08-18T22:02:56.042575+00:00"
+    },
+    {
+      "model_id": "Volume_VWAP_0049",
+      "base_type": "Volume_VWAP",
+      "variation": 49,
+      "params": {
+        "period": 37.0,
+        "overbought": 82,
+        "oversold": 35,
+        "threshold": 0.0116
+      },
+      "predictions": 0,
+      "correct": 0,
+      "accuracy": 0.0,
+      "confidence": 0.4258,
+      "last_signal": "hold",
+      "last_hash": "1a2ecb3637534c95",
+      "timestamp": "2026-08-18T22:02:56.042575+00:00"
+    },
+    {
+      "model_id": "Sentiment_Scan_0050",
+      "base_type": "Sentiment_Scan",
+      "variation": 50,
+      "params": {
+        "period": 18.1,
+        "overbought": 76,
+        "oversold": 19,
+        "threshold": 0.0491
+      },
+      "predictions": 0,
+      "correct": 0,
+      "accuracy": 0.0,
+      "confidence": 0.6901,
+      "last_signal": "buy",
+      "last_hash": "3107258b6d18dc7d",
+      "timestamp": "2026-08-18T22:02:56.042575+00:00"
+    },
+    {
+      "model_id": "Machine_Learning_LSTM_0051",
+      "base_type": "Machine_Learning_LSTM",
+      "variation": 51,
+      "params": {
+        "period": 27.7,
+        "overbought": 85,
+        "oversold": 25,
+        "threshold": 0.0358
+      },
+      "predictions": 0,
+      "correct": 0,
+      "accuracy": 0.0,
+      "confidence": 0.7565,
+      "last_signal": "hold",
+      "last_hash": "31bdeb1105e66266",
+      "timestamp": "2026-08-18T22:02:56.042575+00:00"
+    },
+    {
+      "model_id": "Reinforcement_Q_0052",
+      "base_type": "Reinforcement_Q",
+      "variation": 52,
+      "params": {
+        "period": 26.6,
+        "overbought": 83,
+        "oversold": 28,
+        "threshold": 0.034
+      },
+      "predictions": 0,
+      "correct": 0,
+      "accuracy": 0.0,
+      "confidence": 0.8363,
+      "last_signal": "hold",
+      "last_hash": "23ba8876288907cf",
+      "timestamp": "2026-08-18T22:02:56.042575+00:00"
+    },
+    {
+      "model_id": "Bayesian_Inf_0053",
+      "base_type": "Bayesian_Inf",
+      "variation": 53,
+      "params": {
+        "period": 17.9,
+        "overbought": 78,
+        "oversold": 15,
+        "threshold": 0.0266
+      },
+      "predictions": 0,
+      "correct": 0,
+      "accuracy": 0.0,
+      "confidence": 0.3152,
+      "last_signal": "buy",
+      "last_hash": "6a24a529e59dd32b",
+      "timestamp": "2026-08-18T22:02:56.042575+00:00"
+    },
+    {
+      "model_id": "GAN_Predictor_0054",
+      "base_type": "GAN_Predictor",
+      "variation": 54,
+      "params": {
+        "period": 7.4,
+        "overbought": 66,
+        "oversold": 21,
+        "threshold": 0.0141
+      },
+      "predictions": 0,
+      "correct": 0,
+      "accuracy": 0.0,
+      "confidence": 0.7713,
+      "last_signal": "sell",
+      "last_hash": "b96326449388c316",
+      "timestamp": "2026-08-18T22:02:56.042575+00:00"
+    },
+    {
+      "model_id": "Diffusion_Proc_0055",
+      "base_type": "Diffusion_Proc",
+      "variation": 55,
+      "params": {
+        "period": 35.8,
+        "overbought": 69,
+        "oversold": 16,
+        "threshold": 0.0348
+      },
+      "predictions": 0,
+      "correct": 0,
+      "accuracy": 0.0,
+      "confidence": 0.4771,
+      "last_signal": "hold",
+      "last_hash": "fd561adcbe2f4ea7",
+      "timestamp": "2026-08-18T22:02:56.042575+00:00"
+    },
+    {
+      "model_id": "Graph_Neural_0056",
+      "base_type": "Graph_Neural",
+      "variation": 56,
+      "params": {
+        "period": 6.5,
+        "overbought": 79,
+        "oversold": 18,
+        "threshold": 0.0312
+      },
+      "predictions": 0,
+      "correct": 0,
+      "accuracy": 0.0,
+      "confidence": 0.7053,
+      "last_signal": "hold",
+      "last_hash": "f47995521f5a548a",
+      "timestamp": "2026-08-18T22:02:56.042575+00:00"
+    },
+    {
+      "model_id": "Attention_LSTM_0057",
+      "base_type": "Attention_LSTM",
+      "variation": 57,
+      "params": {
+        "period": 43.9,
+        "overbought": 85,
+        "oversold": 32,
+        "threshold": 0.0201
+      },
+      "predictions": 0,
+      "correct": 0,
+      "accuracy": 0.0,
+      "confidence": 0.6066,
+      "last_signal": "hold",
+      "last_hash": "bff8e844d43aa367",
+      "timestamp": "2026-08-18T22:02:56.042575+00:00"
+    },
+    {
+      "model_id": "Autoencoder_Sig_0058",
+      "base_type": "Autoencoder_Sig",
+      "variation": 58,
+      "params": {
+        "period": 17.9,
+        "overbought": 66,
+        "oversold": 27,
+        "threshold": 0.02
+      },
+      "predictions": 0,
+      "correct": 0,
+      "accuracy": 0.0,
+      "confidence": 0.874,
+      "last_signal": "hold",
+      "last_hash": "126930097d9d6a89",
+      "timestamp": "2026-08-18T22:02:56.042575+00:00"
+    },
+    {
+      "model_id": "Wavelet_Decomp_0059",
+      "base_type": "Wavelet_Decomp",
+      "variation": 59,
+      "params": {
+        "period": 19.1,
+        "overbought": 82,
+        "oversold": 16,
+        "threshold": 0.0016
+      },
+      "predictions": 0,
+      "correct": 0,
+      "accuracy": 0.0,
+      "confidence": 0.4508,
+      "last_signal": "hold",
+      "last_hash": "69bac561f5902ba7",
+      "timestamp": "2026-08-18T22:02:56.042575+00:00"
+    },
+    {
+      "model_id": "Fuzzy_Logic_0060",
+      "base_type": "Fuzzy_Logic",
+      "variation": 60,
+      "params": {
+        "period": 44.1,
+        "overbought": 79,
+        "oversold": 22,
+        "threshold": 0.0457
+      },
+      "predictions": 0,
+      "correct": 0,
+      "accuracy": 0.0,
+      "confidence": 0.7228,
+      "last_signal": "hold",
+      "last_hash": "63d2ad11a04a1dd9",
+      "timestamp": "2026-08-18T22:02:56.042575+00:00"
+    },
+    {
+      "model_id": "Trend_SMA_0061",
+      "base_type": "Trend_SMA",
       "variation": 61,
       "params": {
-        "window": 5.6,
-        "min_dimension": 0.007
+        "period": 21.5,
+        "overbought": 83,
+        "oversold": 32,
+        "threshold": 0.0372
       },
-      "predictions": 40,
-      "correct": 27,
-      "accuracy": 0.675,
-      "confidence": 0.6863,
+      "predictions": 0,
+      "correct": 0,
+      "accuracy": 0.0,
+      "confidence": 0.4179,
       "last_signal": "hold",
-      "last_hash": "4937669458dd5b91",
-      "simulated": true,
-      "model_prediction": true
+      "last_hash": "39a3b6fcb9fdbd7e",
+      "timestamp": "2026-08-18T22:02:56.042575+00:00"
+    },
+    {
+      "model_id": "Trend_EMA_0062",
+      "base_type": "Trend_EMA",
+      "variation": 62,
+      "params": {
+        "period": 48.4,
+        "overbought": 74,
+        "oversold": 29,
+        "threshold": 0.0097
+      },
+      "predictions": 0,
+      "correct": 0,
+      "accuracy": 0.0,
+      "confidence": 0.7096,
+      "last_signal": "buy",
+      "last_hash": "56686dff539ee9f4",
+      "timestamp": "2026-08-18T22:02:56.042575+00:00"
+    },
+    {
+      "model_id": "Momentum_RSI_0063",
+      "base_type": "Momentum_RSI",
+      "variation": 63,
+      "params": {
+        "period": 48.3,
+        "overbought": 81,
+        "oversold": 18,
+        "threshold": 0.0195
+      },
+      "predictions": 0,
+      "correct": 0,
+      "accuracy": 0.0,
+      "confidence": 0.5571,
+      "last_signal": "hold",
+      "last_hash": "576423b3e624cbe9",
+      "timestamp": "2026-08-18T22:02:56.042575+00:00"
+    },
+    {
+      "model_id": "Momentum_MACD_0064",
+      "base_type": "Momentum_MACD",
+      "variation": 64,
+      "params": {
+        "period": 16.9,
+        "overbought": 70,
+        "oversold": 33,
+        "threshold": 0.0425
+      },
+      "predictions": 0,
+      "correct": 0,
+      "accuracy": 0.0,
+      "confidence": 0.3034,
+      "last_signal": "sell",
+      "last_hash": "96b1e984b4ba1957",
+      "timestamp": "2026-08-18T22:02:56.042575+00:00"
+    },
+    {
+      "model_id": "Mean_Reversion_0065",
+      "base_type": "Mean_Reversion",
+      "variation": 65,
+      "params": {
+        "period": 36.9,
+        "overbought": 69,
+        "oversold": 16,
+        "threshold": 0.0085
+      },
+      "predictions": 0,
+      "correct": 0,
+      "accuracy": 0.0,
+      "confidence": 0.4936,
+      "last_signal": "buy",
+      "last_hash": "b4a8221ed29df4d6",
+      "timestamp": "2026-08-18T22:02:56.042575+00:00"
+    },
+    {
+      "model_id": "Breakout_0066",
+      "base_type": "Breakout",
+      "variation": 66,
+      "params": {
+        "period": 39.8,
+        "overbought": 85,
+        "oversold": 34,
+        "threshold": 0.0423
+      },
+      "predictions": 0,
+      "correct": 0,
+      "accuracy": 0.0,
+      "confidence": 0.4807,
+      "last_signal": "hold",
+      "last_hash": "491e0cfc287aac8c",
+      "timestamp": "2026-08-18T22:02:56.042575+00:00"
+    },
+    {
+      "model_id": "Volatility_ATR_0067",
+      "base_type": "Volatility_ATR",
+      "variation": 67,
+      "params": {
+        "period": 29.8,
+        "overbought": 67,
+        "oversold": 25,
+        "threshold": 0.0267
+      },
+      "predictions": 0,
+      "correct": 0,
+      "accuracy": 0.0,
+      "confidence": 0.8742,
+      "last_signal": "hold",
+      "last_hash": "e046afffa12bd19e",
+      "timestamp": "2026-08-18T22:02:56.042575+00:00"
+    },
+    {
+      "model_id": "Correlation_Pairs_0068",
+      "base_type": "Correlation_Pairs",
+      "variation": 68,
+      "params": {
+        "period": 8.1,
+        "overbought": 81,
+        "oversold": 20,
+        "threshold": 0.0214
+      },
+      "predictions": 0,
+      "correct": 0,
+      "accuracy": 0.0,
+      "confidence": 0.6222,
+      "last_signal": "buy",
+      "last_hash": "710cfa38a3821ce9",
+      "timestamp": "2026-08-18T22:02:56.042575+00:00"
+    },
+    {
+      "model_id": "Volume_VWAP_0069",
+      "base_type": "Volume_VWAP",
+      "variation": 69,
+      "params": {
+        "period": 20.7,
+        "overbought": 71,
+        "oversold": 25,
+        "threshold": 0.0172
+      },
+      "predictions": 0,
+      "correct": 0,
+      "accuracy": 0.0,
+      "confidence": 0.4761,
+      "last_signal": "hold",
+      "last_hash": "96560a0c9e6c803f",
+      "timestamp": "2026-08-18T22:02:56.042575+00:00"
+    },
+    {
+      "model_id": "Sentiment_Scan_0070",
+      "base_type": "Sentiment_Scan",
+      "variation": 70,
+      "params": {
+        "period": 28.9,
+        "overbought": 82,
+        "oversold": 35,
+        "threshold": 0.0014
+      },
+      "predictions": 0,
+      "correct": 0,
+      "accuracy": 0.0,
+      "confidence": 0.7014,
+      "last_signal": "sell",
+      "last_hash": "82d4128709dc9f6f",
+      "timestamp": "2026-08-18T22:02:56.042575+00:00"
+    },
+    {
+      "model_id": "Machine_Learning_LSTM_0071",
+      "base_type": "Machine_Learning_LSTM",
+      "variation": 71,
+      "params": {
+        "period": 15.8,
+        "overbought": 85,
+        "oversold": 34,
+        "threshold": 0.046
+      },
+      "predictions": 0,
+      "correct": 0,
+      "accuracy": 0.0,
+      "confidence": 0.4463,
+      "last_signal": "buy",
+      "last_hash": "8595a7aac18ad642",
+      "timestamp": "2026-08-18T22:02:56.042575+00:00"
+    },
+    {
+      "model_id": "Reinforcement_Q_0072",
+      "base_type": "Reinforcement_Q",
+      "variation": 72,
+      "params": {
+        "period": 35.7,
+        "overbought": 75,
+        "oversold": 27,
+        "threshold": 0.0459
+      },
+      "predictions": 0,
+      "correct": 0,
+      "accuracy": 0.0,
+      "confidence": 0.867,
+      "last_signal": "sell",
+      "last_hash": "7abf7b4963977e3e",
+      "timestamp": "2026-08-18T22:02:56.042575+00:00"
+    },
+    {
+      "model_id": "Bayesian_Inf_0073",
+      "base_type": "Bayesian_Inf",
+      "variation": 73,
+      "params": {
+        "period": 16.5,
+        "overbought": 74,
+        "oversold": 15,
+        "threshold": 0.0457
+      },
+      "predictions": 0,
+      "correct": 0,
+      "accuracy": 0.0,
+      "confidence": 0.7933,
+      "last_signal": "sell",
+      "last_hash": "4b5fcddc0c318929",
+      "timestamp": "2026-08-18T22:02:56.042575+00:00"
+    },
+    {
+      "model_id": "GAN_Predictor_0074",
+      "base_type": "GAN_Predictor",
+      "variation": 74,
+      "params": {
+        "period": 28.1,
+        "overbought": 81,
+        "oversold": 29,
+        "threshold": 0.0249
+      },
+      "predictions": 0,
+      "correct": 0,
+      "accuracy": 0.0,
+      "confidence": 0.4779,
+      "last_signal": "hold",
+      "last_hash": "e2ec7671e620828e",
+      "timestamp": "2026-08-18T22:02:56.042575+00:00"
+    },
+    {
+      "model_id": "Diffusion_Proc_0075",
+      "base_type": "Diffusion_Proc",
+      "variation": 75,
+      "params": {
+        "period": 13.7,
+        "overbought": 81,
+        "oversold": 17,
+        "threshold": 0.0475
+      },
+      "predictions": 0,
+      "correct": 0,
+      "accuracy": 0.0,
+      "confidence": 0.4004,
+      "last_signal": "hold",
+      "last_hash": "435e3c49e58843e5",
+      "timestamp": "2026-08-18T22:02:56.042575+00:00"
+    },
+    {
+      "model_id": "Graph_Neural_0076",
+      "base_type": "Graph_Neural",
+      "variation": 76,
+      "params": {
+        "period": 29.0,
+        "overbought": 85,
+        "oversold": 17,
+        "threshold": 0.0113
+      },
+      "predictions": 0,
+      "correct": 0,
+      "accuracy": 0.0,
+      "confidence": 0.6777,
+      "last_signal": "buy",
+      "last_hash": "94366734f8c0f828",
+      "timestamp": "2026-08-18T22:02:56.042575+00:00"
+    },
+    {
+      "model_id": "Attention_LSTM_0077",
+      "base_type": "Attention_LSTM",
+      "variation": 77,
+      "params": {
+        "period": 43.9,
+        "overbought": 78,
+        "oversold": 18,
+        "threshold": 0.0111
+      },
+      "predictions": 0,
+      "correct": 0,
+      "accuracy": 0.0,
+      "confidence": 0.7972,
+      "last_signal": "hold",
+      "last_hash": "54536fd3360f8db6",
+      "timestamp": "2026-08-18T22:02:56.042575+00:00"
+    },
+    {
+      "model_id": "Autoencoder_Sig_0078",
+      "base_type": "Autoencoder_Sig",
+      "variation": 78,
+      "params": {
+        "period": 39.9,
+        "overbought": 85,
+        "oversold": 17,
+        "threshold": 0.0376
+      },
+      "predictions": 0,
+      "correct": 0,
+      "accuracy": 0.0,
+      "confidence": 0.3923,
+      "last_signal": "sell",
+      "last_hash": "8c2ff1e37810cee5",
+      "timestamp": "2026-08-18T22:02:56.042575+00:00"
+    },
+    {
+      "model_id": "Wavelet_Decomp_0079",
+      "base_type": "Wavelet_Decomp",
+      "variation": 79,
+      "params": {
+        "period": 37.3,
+        "overbought": 66,
+        "oversold": 17,
+        "threshold": 0.0046
+      },
+      "predictions": 0,
+      "correct": 0,
+      "accuracy": 0.0,
+      "confidence": 0.4068,
+      "last_signal": "sell",
+      "last_hash": "f31a39d0b9f48b9a",
+      "timestamp": "2026-08-18T22:02:56.042575+00:00"
+    },
+    {
+      "model_id": "Fuzzy_Logic_0080",
+      "base_type": "Fuzzy_Logic",
+      "variation": 80,
+      "params": {
+        "period": 30.1,
+        "overbought": 83,
+        "oversold": 22,
+        "threshold": 0.0456
+      },
+      "predictions": 0,
+      "correct": 0,
+      "accuracy": 0.0,
+      "confidence": 0.5446,
+      "last_signal": "sell",
+      "last_hash": "363cde41d31263f6",
+      "timestamp": "2026-08-18T22:02:56.042575+00:00"
+    },
+    {
+      "model_id": "Trend_SMA_0081",
+      "base_type": "Trend_SMA",
+      "variation": 81,
+      "params": {
+        "period": 33.4,
+        "overbought": 78,
+        "oversold": 25,
+        "threshold": 0.0018
+      },
+      "predictions": 0,
+      "correct": 0,
+      "accuracy": 0.0,
+      "confidence": 0.704,
+      "last_signal": "hold",
+      "last_hash": "9a79aeba4ec0cd01",
+      "timestamp": "2026-08-18T22:02:56.042575+00:00"
+    },
+    {
+      "model_id": "Trend_EMA_0082",
+      "base_type": "Trend_EMA",
+      "variation": 82,
+      "params": {
+        "period": 5.3,
+        "overbought": 84,
+        "oversold": 17,
+        "threshold": 0.038
+      },
+      "predictions": 0,
+      "correct": 0,
+      "accuracy": 0.0,
+      "confidence": 0.6514,
+      "last_signal": "hold",
+      "last_hash": "29006ed6188d5687",
+      "timestamp": "2026-08-18T22:02:56.042575+00:00"
+    },
+    {
+      "model_id": "Momentum_RSI_0083",
+      "base_type": "Momentum_RSI",
+      "variation": 83,
+      "params": {
+        "period": 43.2,
+        "overbought": 76,
+        "oversold": 31,
+        "threshold": 0.0062
+      },
+      "predictions": 0,
+      "correct": 0,
+      "accuracy": 0.0,
+      "confidence": 0.7721,
+      "last_signal": "sell",
+      "last_hash": "3e086ab53d3d6cb2",
+      "timestamp": "2026-08-18T22:02:56.042575+00:00"
+    },
+    {
+      "model_id": "Momentum_MACD_0084",
+      "base_type": "Momentum_MACD",
+      "variation": 84,
+      "params": {
+        "period": 32.3,
+        "overbought": 74,
+        "oversold": 29,
+        "threshold": 0.0197
+      },
+      "predictions": 0,
+      "correct": 0,
+      "accuracy": 0.0,
+      "confidence": 0.7933,
+      "last_signal": "buy",
+      "last_hash": "fc9f1a8bd414ec21",
+      "timestamp": "2026-08-18T22:02:56.042575+00:00"
+    },
+    {
+      "model_id": "Mean_Reversion_0085",
+      "base_type": "Mean_Reversion",
+      "variation": 85,
+      "params": {
+        "period": 26.3,
+        "overbought": 82,
+        "oversold": 22,
+        "threshold": 0.0077
+      },
+      "predictions": 0,
+      "correct": 0,
+      "accuracy": 0.0,
+      "confidence": 0.5346,
+      "last_signal": "hold",
+      "last_hash": "dcf37f8d76dc8bff",
+      "timestamp": "2026-08-18T22:02:56.042575+00:00"
+    },
+    {
+      "model_id": "Breakout_0086",
+      "base_type": "Breakout",
+      "variation": 86,
+      "params": {
+        "period": 18.3,
+        "overbought": 85,
+        "oversold": 19,
+        "threshold": 0.0156
+      },
+      "predictions": 0,
+      "correct": 0,
+      "accuracy": 0.0,
+      "confidence": 0.8322,
+      "last_signal": "hold",
+      "last_hash": "71b03c64c2ebd487",
+      "timestamp": "2026-08-18T22:02:56.042575+00:00"
+    },
+    {
+      "model_id": "Volatility_ATR_0087",
+      "base_type": "Volatility_ATR",
+      "variation": 87,
+      "params": {
+        "period": 34.2,
+        "overbought": 65,
+        "oversold": 32,
+        "threshold": 0.0439
+      },
+      "predictions": 0,
+      "correct": 0,
+      "accuracy": 0.0,
+      "confidence": 0.3848,
+      "last_signal": "buy",
+      "last_hash": "40bb58f41da0adab",
+      "timestamp": "2026-08-18T22:02:56.042575+00:00"
+    },
+    {
+      "model_id": "Correlation_Pairs_0088",
+      "base_type": "Correlation_Pairs",
+      "variation": 88,
+      "params": {
+        "period": 5.2,
+        "overbought": 84,
+        "oversold": 27,
+        "threshold": 0.0273
+      },
+      "predictions": 0,
+      "correct": 0,
+      "accuracy": 0.0,
+      "confidence": 0.8682,
+      "last_signal": "sell",
+      "last_hash": "4347ab3cb9016f6e",
+      "timestamp": "2026-08-18T22:02:56.042575+00:00"
+    },
+    {
+      "model_id": "Volume_VWAP_0089",
+      "base_type": "Volume_VWAP",
+      "variation": 89,
+      "params": {
+        "period": 14.5,
+        "overbought": 76,
+        "oversold": 21,
+        "threshold": 0.0212
+      },
+      "predictions": 0,
+      "correct": 0,
+      "accuracy": 0.0,
+      "confidence": 0.6876,
+      "last_signal": "hold",
+      "last_hash": "ebf5f0a9337896a9",
+      "timestamp": "2026-08-18T22:02:56.042575+00:00"
+    },
+    {
+      "model_id": "Sentiment_Scan_0090",
+      "base_type": "Sentiment_Scan",
+      "variation": 90,
+      "params": {
+        "period": 11.4,
+        "overbought": 70,
+        "oversold": 22,
+        "threshold": 0.0312
+      },
+      "predictions": 0,
+      "correct": 0,
+      "accuracy": 0.0,
+      "confidence": 0.4516,
+      "last_signal": "buy",
+      "last_hash": "47715312284140bc",
+      "timestamp": "2026-08-18T22:02:56.042575+00:00"
+    },
+    {
+      "model_id": "Machine_Learning_LSTM_0091",
+      "base_type": "Machine_Learning_LSTM",
+      "variation": 91,
+      "params": {
+        "period": 13.2,
+        "overbought": 83,
+        "oversold": 16,
+        "threshold": 0.0427
+      },
+      "predictions": 0,
+      "correct": 0,
+      "accuracy": 0.0,
+      "confidence": 0.8594,
+      "last_signal": "hold",
+      "last_hash": "aa4b5a97a3a20b9f",
+      "timestamp": "2026-08-18T22:02:56.042575+00:00"
+    },
+    {
+      "model_id": "Reinforcement_Q_0092",
+      "base_type": "Reinforcement_Q",
+      "variation": 92,
+      "params": {
+        "period": 25.8,
+        "overbought": 82,
+        "oversold": 17,
+        "threshold": 0.0152
+      },
+      "predictions": 0,
+      "correct": 0,
+      "accuracy": 0.0,
+      "confidence": 0.3404,
+      "last_signal": "buy",
+      "last_hash": "f3c0e0a24e4fa6bd",
+      "timestamp": "2026-08-18T22:02:56.042575+00:00"
+    },
+    {
+      "model_id": "Bayesian_Inf_0093",
+      "base_type": "Bayesian_Inf",
+      "variation": 93,
+      "params": {
+        "period": 13.9,
+        "overbought": 83,
+        "oversold": 30,
+        "threshold": 0.0476
+      },
+      "predictions": 0,
+      "correct": 0,
+      "accuracy": 0.0,
+      "confidence": 0.5143,
+      "last_signal": "hold",
+      "last_hash": "a1f952de693f5bb6",
+      "timestamp": "2026-08-18T22:02:56.042575+00:00"
+    },
+    {
+      "model_id": "GAN_Predictor_0094",
+      "base_type": "GAN_Predictor",
+      "variation": 94,
+      "params": {
+        "period": 34.5,
+        "overbought": 68,
+        "oversold": 24,
+        "threshold": 0.0314
+      },
+      "predictions": 0,
+      "correct": 0,
+      "accuracy": 0.0,
+      "confidence": 0.8401,
+      "last_signal": "sell",
+      "last_hash": "b9ea50c63206a34a",
+      "timestamp": "2026-08-18T22:02:56.042575+00:00"
+    },
+    {
+      "model_id": "Diffusion_Proc_0095",
+      "base_type": "Diffusion_Proc",
+      "variation": 95,
+      "params": {
+        "period": 26.9,
+        "overbought": 75,
+        "oversold": 34,
+        "threshold": 0.0333
+      },
+      "predictions": 0,
+      "correct": 0,
+      "accuracy": 0.0,
+      "confidence": 0.7161,
+      "last_signal": "buy",
+      "last_hash": "15e063df594edba8",
+      "timestamp": "2026-08-18T22:02:56.042575+00:00"
+    },
+    {
+      "model_id": "Graph_Neural_0096",
+      "base_type": "Graph_Neural",
+      "variation": 96,
+      "params": {
+        "period": 30.4,
+        "overbought": 76,
+        "oversold": 25,
+        "threshold": 0.048
+      },
+      "predictions": 0,
+      "correct": 0,
+      "accuracy": 0.0,
+      "confidence": 0.4012,
+      "last_signal": "sell",
+      "last_hash": "7b8000feb5acd31a",
+      "timestamp": "2026-08-18T22:02:56.042575+00:00"
+    },
+    {
+      "model_id": "Attention_LSTM_0097",
+      "base_type": "Attention_LSTM",
+      "variation": 97,
+      "params": {
+        "period": 16.1,
+        "overbought": 72,
+        "oversold": 35,
+        "threshold": 0.0224
+      },
+      "predictions": 0,
+      "correct": 0,
+      "accuracy": 0.0,
+      "confidence": 0.8041,
+      "last_signal": "buy",
+      "last_hash": "241d31e0079f0690",
+      "timestamp": "2026-08-18T22:02:56.042575+00:00"
+    },
+    {
+      "model_id": "Autoencoder_Sig_0098",
+      "base_type": "Autoencoder_Sig",
+      "variation": 98,
+      "params": {
+        "period": 35.6,
+        "overbought": 75,
+        "oversold": 30,
+        "threshold": 0.0237
+      },
+      "predictions": 0,
+      "correct": 0,
+      "accuracy": 0.0,
+      "confidence": 0.5152,
+      "last_signal": "sell",
+      "last_hash": "d6b8ab8d15c31171",
+      "timestamp": "2026-08-18T22:02:56.042575+00:00"
+    },
+    {
+      "model_id": "Wavelet_Decomp_0099",
+      "base_type": "Wavelet_Decomp",
+      "variation": 99,
+      "params": {
+        "period": 26.9,
+        "overbought": 68,
+        "oversold": 20,
+        "threshold": 0.0326
+      },
+      "predictions": 0,
+      "correct": 0,
+      "accuracy": 0.0,
+      "confidence": 0.3492,
+      "last_signal": "sell",
+      "last_hash": "3007cb94dff66f95",
+      "timestamp": "2026-08-18T22:02:56.042575+00:00"
+    },
+    {
+      "model_id": "Fuzzy_Logic_0100",
+      "base_type": "Fuzzy_Logic",
+      "variation": 100,
+      "params": {
+        "period": 43.6,
+        "overbought": 69,
+        "oversold": 32,
+        "threshold": 0.0106
+      },
+      "predictions": 0,
+      "correct": 0,
+      "accuracy": 0.0,
+      "confidence": 0.7401,
+      "last_signal": "hold",
+      "last_hash": "e4f45aa49540a7c9",
+      "timestamp": "2026-08-18T22:02:56.042575+00:00"
+    },
+    {
+      "model_id": "Trend_SMA_0101",
+      "base_type": "Trend_SMA",
+      "variation": 101,
+      "params": {
+        "period": 8.4,
+        "overbought": 67,
+        "oversold": 15,
+        "threshold": 0.0426
+      },
+      "predictions": 0,
+      "correct": 0,
+      "accuracy": 0.0,
+      "confidence": 0.679,
+      "last_signal": "hold",
+      "last_hash": "98b41f0114d9a9f7",
+      "timestamp": "2026-08-18T22:02:56.042575+00:00"
+    },
+    {
+      "model_id": "Trend_EMA_0102",
+      "base_type": "Trend_EMA",
+      "variation": 102,
+      "params": {
+        "period": 31.1,
+        "overbought": 83,
+        "oversold": 21,
+        "threshold": 0.0454
+      },
+      "predictions": 0,
+      "correct": 0,
+      "accuracy": 0.0,
+      "confidence": 0.631,
+      "last_signal": "hold",
+      "last_hash": "e092d1f133d1611c",
+      "timestamp": "2026-08-18T22:02:56.042575+00:00"
+    },
+    {
+      "model_id": "Momentum_RSI_0103",
+      "base_type": "Momentum_RSI",
+      "variation": 103,
+      "params": {
+        "period": 45.2,
+        "overbought": 82,
+        "oversold": 30,
+        "threshold": 0.033
+      },
+      "predictions": 0,
+      "correct": 0,
+      "accuracy": 0.0,
+      "confidence": 0.3892,
+      "last_signal": "sell",
+      "last_hash": "5402df28fc7b5cc6",
+      "timestamp": "2026-08-18T22:02:56.042575+00:00"
+    },
+    {
+      "model_id": "Momentum_MACD_0104",
+      "base_type": "Momentum_MACD",
+      "variation": 104,
+      "params": {
+        "period": 15.0,
+        "overbought": 83,
+        "oversold": 24,
+        "threshold": 0.0076
+      },
+      "predictions": 0,
+      "correct": 0,
+      "accuracy": 0.0,
+      "confidence": 0.6007,
+      "last_signal": "buy",
+      "last_hash": "221e92de5c328cad",
+      "timestamp": "2026-08-18T22:02:56.042575+00:00"
+    },
+    {
+      "model_id": "Mean_Reversion_0105",
+      "base_type": "Mean_Reversion",
+      "variation": 105,
+      "params": {
+        "period": 22.9,
+        "overbought": 81,
+        "oversold": 15,
+        "threshold": 0.0335
+      },
+      "predictions": 0,
+      "correct": 0,
+      "accuracy": 0.0,
+      "confidence": 0.8088,
+      "last_signal": "hold",
+      "last_hash": "89de06cf99ed788d",
+      "timestamp": "2026-08-18T22:02:56.042575+00:00"
+    },
+    {
+      "model_id": "Breakout_0106",
+      "base_type": "Breakout",
+      "variation": 106,
+      "params": {
+        "period": 35.8,
+        "overbought": 81,
+        "oversold": 19,
+        "threshold": 0.0229
+      },
+      "predictions": 0,
+      "correct": 0,
+      "accuracy": 0.0,
+      "confidence": 0.4075,
+      "last_signal": "hold",
+      "last_hash": "5ff3f47e898fb9fe",
+      "timestamp": "2026-08-18T22:02:56.042575+00:00"
+    },
+    {
+      "model_id": "Volatility_ATR_0107",
+      "base_type": "Volatility_ATR",
+      "variation": 107,
+      "params": {
+        "period": 34.7,
+        "overbought": 69,
+        "oversold": 30,
+        "threshold": 0.047
+      },
+      "predictions": 0,
+      "correct": 0,
+      "accuracy": 0.0,
+      "confidence": 0.3243,
+      "last_signal": "sell",
+      "last_hash": "6730f9f546e580fb",
+      "timestamp": "2026-08-18T22:02:56.042575+00:00"
+    },
+    {
+      "model_id": "Correlation_Pairs_0108",
+      "base_type": "Correlation_Pairs",
+      "variation": 108,
+      "params": {
+        "period": 15.4,
+        "overbought": 73,
+        "oversold": 26,
+        "threshold": 0.0125
+      },
+      "predictions": 0,
+      "correct": 0,
+      "accuracy": 0.0,
+      "confidence": 0.7012,
+      "last_signal": "hold",
+      "last_hash": "e605dd8054656e59",
+      "timestamp": "2026-08-18T22:02:56.042575+00:00"
+    },
+    {
+      "model_id": "Volume_VWAP_0109",
+      "base_type": "Volume_VWAP",
+      "variation": 109,
+      "params": {
+        "period": 45.8,
+        "overbought": 76,
+        "oversold": 27,
+        "threshold": 0.024
+      },
+      "predictions": 0,
+      "correct": 0,
+      "accuracy": 0.0,
+      "confidence": 0.5728,
+      "last_signal": "buy",
+      "last_hash": "28441a4ce05a378a",
+      "timestamp": "2026-08-18T22:02:56.042575+00:00"
+    },
+    {
+      "model_id": "Sentiment_Scan_0110",
+      "base_type": "Sentiment_Scan",
+      "variation": 110,
+      "params": {
+        "period": 6.8,
+        "overbought": 85,
+        "oversold": 25,
+        "threshold": 0.0061
+      },
+      "predictions": 0,
+      "correct": 0,
+      "accuracy": 0.0,
+      "confidence": 0.8811,
+      "last_signal": "hold",
+      "last_hash": "ef151ad89b07fb34",
+      "timestamp": "2026-08-18T22:02:56.042575+00:00"
+    },
+    {
+      "model_id": "Machine_Learning_LSTM_0111",
+      "base_type": "Machine_Learning_LSTM",
+      "variation": 111,
+      "params": {
+        "period": 42.3,
+        "overbought": 73,
+        "oversold": 33,
+        "threshold": 0.0277
+      },
+      "predictions": 0,
+      "correct": 0,
+      "accuracy": 0.0,
+      "confidence": 0.4043,
+      "last_signal": "hold",
+      "last_hash": "da9aaf95f8109ed0",
+      "timestamp": "2026-08-18T22:02:56.042575+00:00"
+    },
+    {
+      "model_id": "Reinforcement_Q_0112",
+      "base_type": "Reinforcement_Q",
+      "variation": 112,
+      "params": {
+        "period": 22.0,
+        "overbought": 83,
+        "oversold": 35,
+        "threshold": 0.045
+      },
+      "predictions": 0,
+      "correct": 0,
+      "accuracy": 0.0,
+      "confidence": 0.3467,
+      "last_signal": "sell",
+      "last_hash": "dfcdbf7581507d45",
+      "timestamp": "2026-08-18T22:02:56.042575+00:00"
+    },
+    {
+      "model_id": "Bayesian_Inf_0113",
+      "base_type": "Bayesian_Inf",
+      "variation": 113,
+      "params": {
+        "period": 21.9,
+        "overbought": 72,
+        "oversold": 31,
+        "threshold": 0.0209
+      },
+      "predictions": 0,
+      "correct": 0,
+      "accuracy": 0.0,
+      "confidence": 0.7903,
+      "last_signal": "sell",
+      "last_hash": "a37f3b695281b602",
+      "timestamp": "2026-08-18T22:02:56.042575+00:00"
+    },
+    {
+      "model_id": "GAN_Predictor_0114",
+      "base_type": "GAN_Predictor",
+      "variation": 114,
+      "params": {
+        "period": 26.9,
+        "overbought": 80,
+        "oversold": 34,
+        "threshold": 0.0013
+      },
+      "predictions": 0,
+      "correct": 0,
+      "accuracy": 0.0,
+      "confidence": 0.8292,
+      "last_signal": "sell",
+      "last_hash": "74916ea63bd695e1",
+      "timestamp": "2026-08-18T22:02:56.042575+00:00"
+    },
+    {
+      "model_id": "Diffusion_Proc_0115",
+      "base_type": "Diffusion_Proc",
+      "variation": 115,
+      "params": {
+        "period": 12.5,
+        "overbought": 67,
+        "oversold": 31,
+        "threshold": 0.0325
+      },
+      "predictions": 0,
+      "correct": 0,
+      "accuracy": 0.0,
+      "confidence": 0.4269,
+      "last_signal": "buy",
+      "last_hash": "d36bb1e502a00bc6",
+      "timestamp": "2026-08-18T22:02:56.042575+00:00"
+    },
+    {
+      "model_id": "Graph_Neural_0116",
+      "base_type": "Graph_Neural",
+      "variation": 116,
+      "params": {
+        "period": 12.1,
+        "overbought": 84,
+        "oversold": 18,
+        "threshold": 0.0334
+      },
+      "predictions": 0,
+      "correct": 0,
+      "accuracy": 0.0,
+      "confidence": 0.5488,
+      "last_signal": "sell",
+      "last_hash": "ac97f3e42664bcd2",
+      "timestamp": "2026-08-18T22:02:56.042575+00:00"
+    },
+    {
+      "model_id": "Attention_LSTM_0117",
+      "base_type": "Attention_LSTM",
+      "variation": 117,
+      "params": {
+        "period": 37.4,
+        "overbought": 80,
+        "oversold": 30,
+        "threshold": 0.0245
+      },
+      "predictions": 0,
+      "correct": 0,
+      "accuracy": 0.0,
+      "confidence": 0.6545,
+      "last_signal": "hold",
+      "last_hash": "5f5fce0c17996787",
+      "timestamp": "2026-08-18T22:02:56.042575+00:00"
+    },
+    {
+      "model_id": "Autoencoder_Sig_0118",
+      "base_type": "Autoencoder_Sig",
+      "variation": 118,
+      "params": {
+        "period": 42.5,
+        "overbought": 65,
+        "oversold": 22,
+        "threshold": 0.0031
+      },
+      "predictions": 0,
+      "correct": 0,
+      "accuracy": 0.0,
+      "confidence": 0.6441,
+      "last_signal": "buy",
+      "last_hash": "48ccd88b2ed840b9",
+      "timestamp": "2026-08-18T22:02:56.042575+00:00"
+    },
+    {
+      "model_id": "Wavelet_Decomp_0119",
+      "base_type": "Wavelet_Decomp",
+      "variation": 119,
+      "params": {
+        "period": 11.1,
+        "overbought": 81,
+        "oversold": 16,
+        "threshold": 0.0446
+      },
+      "predictions": 0,
+      "correct": 0,
+      "accuracy": 0.0,
+      "confidence": 0.3881,
+      "last_signal": "buy",
+      "last_hash": "867e5801c31c232e",
+      "timestamp": "2026-08-18T22:02:56.042575+00:00"
+    },
+    {
+      "model_id": "Fuzzy_Logic_0120",
+      "base_type": "Fuzzy_Logic",
+      "variation": 120,
+      "params": {
+        "period": 16.6,
+        "overbought": 70,
+        "oversold": 31,
+        "threshold": 0.048
+      },
+      "predictions": 0,
+      "correct": 0,
+      "accuracy": 0.0,
+      "confidence": 0.6596,
+      "last_signal": "hold",
+      "last_hash": "3a54431d7e64c656",
+      "timestamp": "2026-08-18T22:02:56.042575+00:00"
+    },
+    {
+      "model_id": "Trend_SMA_0121",
+      "base_type": "Trend_SMA",
+      "variation": 121,
+      "params": {
+        "period": 33.7,
+        "overbought": 74,
+        "oversold": 17,
+        "threshold": 0.0116
+      },
+      "predictions": 0,
+      "correct": 0,
+      "accuracy": 0.0,
+      "confidence": 0.6639,
+      "last_signal": "sell",
+      "last_hash": "5f374a5b8736f05d",
+      "timestamp": "2026-08-18T22:02:56.042575+00:00"
+    },
+    {
+      "model_id": "Trend_EMA_0122",
+      "base_type": "Trend_EMA",
+      "variation": 122,
+      "params": {
+        "period": 44.0,
+        "overbought": 70,
+        "oversold": 22,
+        "threshold": 0.0417
+      },
+      "predictions": 0,
+      "correct": 0,
+      "accuracy": 0.0,
+      "confidence": 0.6605,
+      "last_signal": "hold",
+      "last_hash": "7b4d64d434bd3522",
+      "timestamp": "2026-08-18T22:02:56.042575+00:00"
+    },
+    {
+      "model_id": "Momentum_RSI_0123",
+      "base_type": "Momentum_RSI",
+      "variation": 123,
+      "params": {
+        "period": 41.9,
+        "overbought": 70,
+        "oversold": 34,
+        "threshold": 0.0333
+      },
+      "predictions": 0,
+      "correct": 0,
+      "accuracy": 0.0,
+      "confidence": 0.4587,
+      "last_signal": "hold",
+      "last_hash": "10f157234c44db82",
+      "timestamp": "2026-08-18T22:02:56.042575+00:00"
+    },
+    {
+      "model_id": "Momentum_MACD_0124",
+      "base_type": "Momentum_MACD",
+      "variation": 124,
+      "params": {
+        "period": 35.9,
+        "overbought": 79,
+        "oversold": 34,
+        "threshold": 0.0299
+      },
+      "predictions": 0,
+      "correct": 0,
+      "accuracy": 0.0,
+      "confidence": 0.4379,
+      "last_signal": "sell",
+      "last_hash": "d647e0b317ca518f",
+      "timestamp": "2026-08-18T22:02:56.042575+00:00"
+    },
+    {
+      "model_id": "Mean_Reversion_0125",
+      "base_type": "Mean_Reversion",
+      "variation": 125,
+      "params": {
+        "period": 10.9,
+        "overbought": 65,
+        "oversold": 21,
+        "threshold": 0.0266
+      },
+      "predictions": 0,
+      "correct": 0,
+      "accuracy": 0.0,
+      "confidence": 0.8456,
+      "last_signal": "hold",
+      "last_hash": "52848e5938693943",
+      "timestamp": "2026-08-18T22:02:56.042575+00:00"
+    },
+    {
+      "model_id": "Breakout_0126",
+      "base_type": "Breakout",
+      "variation": 126,
+      "params": {
+        "period": 23.9,
+        "overbought": 69,
+        "oversold": 34,
+        "threshold": 0.0057
+      },
+      "predictions": 0,
+      "correct": 0,
+      "accuracy": 0.0,
+      "confidence": 0.5855,
+      "last_signal": "hold",
+      "last_hash": "3f8109e7b51f2561",
+      "timestamp": "2026-08-18T22:02:56.042575+00:00"
+    },
+    {
+      "model_id": "Volatility_ATR_0127",
+      "base_type": "Volatility_ATR",
+      "variation": 127,
+      "params": {
+        "period": 32.0,
+        "overbought": 82,
+        "oversold": 31,
+        "threshold": 0.0379
+      },
+      "predictions": 0,
+      "correct": 0,
+      "accuracy": 0.0,
+      "confidence": 0.3559,
+      "last_signal": "hold",
+      "last_hash": "a941a6760380b9f7",
+      "timestamp": "2026-08-18T22:02:56.042575+00:00"
+    },
+    {
+      "model_id": "Correlation_Pairs_0128",
+      "base_type": "Correlation_Pairs",
+      "variation": 128,
+      "params": {
+        "period": 10.9,
+        "overbought": 84,
+        "oversold": 32,
+        "threshold": 0.0415
+      },
+      "predictions": 0,
+      "correct": 0,
+      "accuracy": 0.0,
+      "confidence": 0.8382,
+      "last_signal": "hold",
+      "last_hash": "fdb06973e39d499e",
+      "timestamp": "2026-08-18T22:02:56.042575+00:00"
+    },
+    {
+      "model_id": "Volume_VWAP_0129",
+      "base_type": "Volume_VWAP",
+      "variation": 129,
+      "params": {
+        "period": 34.2,
+        "overbought": 81,
+        "oversold": 28,
+        "threshold": 0.0191
+      },
+      "predictions": 0,
+      "correct": 0,
+      "accuracy": 0.0,
+      "confidence": 0.3261,
+      "last_signal": "hold",
+      "last_hash": "67c5c75b69b38907",
+      "timestamp": "2026-08-18T22:02:56.042575+00:00"
+    },
+    {
+      "model_id": "Sentiment_Scan_0130",
+      "base_type": "Sentiment_Scan",
+      "variation": 130,
+      "params": {
+        "period": 24.3,
+        "overbought": 80,
+        "oversold": 27,
+        "threshold": 0.0182
+      },
+      "predictions": 0,
+      "correct": 0,
+      "accuracy": 0.0,
+      "confidence": 0.7828,
+      "last_signal": "hold",
+      "last_hash": "849d781f75dc6b57",
+      "timestamp": "2026-08-18T22:02:56.042575+00:00"
+    },
+    {
+      "model_id": "Machine_Learning_LSTM_0131",
+      "base_type": "Machine_Learning_LSTM",
+      "variation": 131,
+      "params": {
+        "period": 30.9,
+        "overbought": 78,
+        "oversold": 19,
+        "threshold": 0.0135
+      },
+      "predictions": 0,
+      "correct": 0,
+      "accuracy": 0.0,
+      "confidence": 0.7595,
+      "last_signal": "buy",
+      "last_hash": "66a28463fd7eafda",
+      "timestamp": "2026-08-18T22:02:56.042575+00:00"
+    },
+    {
+      "model_id": "Reinforcement_Q_0132",
+      "base_type": "Reinforcement_Q",
+      "variation": 132,
+      "params": {
+        "period": 17.7,
+        "overbought": 82,
+        "oversold": 28,
+        "threshold": 0.0136
+      },
+      "predictions": 0,
+      "correct": 0,
+      "accuracy": 0.0,
+      "confidence": 0.3033,
+      "last_signal": "hold",
+      "last_hash": "5a824d93c68ee759",
+      "timestamp": "2026-08-18T22:02:56.042575+00:00"
+    },
+    {
+      "model_id": "Bayesian_Inf_0133",
+      "base_type": "Bayesian_Inf",
+      "variation": 133,
+      "params": {
+        "period": 40.5,
+        "overbought": 83,
+        "oversold": 31,
+        "threshold": 0.0068
+      },
+      "predictions": 0,
+      "correct": 0,
+      "accuracy": 0.0,
+      "confidence": 0.3043,
+      "last_signal": "hold",
+      "last_hash": "9d80065177fbb9c4",
+      "timestamp": "2026-08-18T22:02:56.042575+00:00"
+    },
+    {
+      "model_id": "GAN_Predictor_0134",
+      "base_type": "GAN_Predictor",
+      "variation": 134,
+      "params": {
+        "period": 14.2,
+        "overbought": 75,
+        "oversold": 28,
+        "threshold": 0.0188
+      },
+      "predictions": 0,
+      "correct": 0,
+      "accuracy": 0.0,
+      "confidence": 0.3929,
+      "last_signal": "hold",
+      "last_hash": "bd3455d5a59f5a62",
+      "timestamp": "2026-08-18T22:02:56.042575+00:00"
+    },
+    {
+      "model_id": "Diffusion_Proc_0135",
+      "base_type": "Diffusion_Proc",
+      "variation": 135,
+      "params": {
+        "period": 31.3,
+        "overbought": 73,
+        "oversold": 32,
+        "threshold": 0.0218
+      },
+      "predictions": 0,
+      "correct": 0,
+      "accuracy": 0.0,
+      "confidence": 0.5194,
+      "last_signal": "sell",
+      "last_hash": "ccc06b42c53e6bb6",
+      "timestamp": "2026-08-18T22:02:56.042575+00:00"
+    },
+    {
+      "model_id": "Graph_Neural_0136",
+      "base_type": "Graph_Neural",
+      "variation": 136,
+      "params": {
+        "period": 49.6,
+        "overbought": 77,
+        "oversold": 21,
+        "threshold": 0.0212
+      },
+      "predictions": 0,
+      "correct": 0,
+      "accuracy": 0.0,
+      "confidence": 0.7703,
+      "last_signal": "sell",
+      "last_hash": "bd3f390096f054de",
+      "timestamp": "2026-08-18T22:02:56.042575+00:00"
+    },
+    {
+      "model_id": "Attention_LSTM_0137",
+      "base_type": "Attention_LSTM",
+      "variation": 137,
+      "params": {
+        "period": 13.0,
+        "overbought": 82,
+        "oversold": 32,
+        "threshold": 0.0247
+      },
+      "predictions": 0,
+      "correct": 0,
+      "accuracy": 0.0,
+      "confidence": 0.8931,
+      "last_signal": "hold",
+      "last_hash": "0c4e6328afbd8ea4",
+      "timestamp": "2026-08-18T22:02:56.042575+00:00"
+    },
+    {
+      "model_id": "Autoencoder_Sig_0138",
+      "base_type": "Autoencoder_Sig",
+      "variation": 138,
+      "params": {
+        "period": 20.5,
+        "overbought": 77,
+        "oversold": 19,
+        "threshold": 0.0429
+      },
+      "predictions": 0,
+      "correct": 0,
+      "accuracy": 0.0,
+      "confidence": 0.6956,
+      "last_signal": "hold",
+      "last_hash": "b4ed58d192699751",
+      "timestamp": "2026-08-18T22:02:56.042575+00:00"
+    },
+    {
+      "model_id": "Wavelet_Decomp_0139",
+      "base_type": "Wavelet_Decomp",
+      "variation": 139,
+      "params": {
+        "period": 15.3,
+        "overbought": 70,
+        "oversold": 18,
+        "threshold": 0.0115
+      },
+      "predictions": 0,
+      "correct": 0,
+      "accuracy": 0.0,
+      "confidence": 0.5403,
+      "last_signal": "sell",
+      "last_hash": "c8dd5bcf66a6e187",
+      "timestamp": "2026-08-18T22:02:56.042575+00:00"
+    },
+    {
+      "model_id": "Fuzzy_Logic_0140",
+      "base_type": "Fuzzy_Logic",
+      "variation": 140,
+      "params": {
+        "period": 41.0,
+        "overbought": 84,
+        "oversold": 16,
+        "threshold": 0.0089
+      },
+      "predictions": 0,
+      "correct": 0,
+      "accuracy": 0.0,
+      "confidence": 0.8787,
+      "last_signal": "buy",
+      "last_hash": "fe21ac5bc0669896",
+      "timestamp": "2026-08-18T22:02:56.042575+00:00"
+    },
+    {
+      "model_id": "Trend_SMA_0141",
+      "base_type": "Trend_SMA",
+      "variation": 141,
+      "params": {
+        "period": 41.2,
+        "overbought": 69,
+        "oversold": 30,
+        "threshold": 0.0464
+      },
+      "predictions": 0,
+      "correct": 0,
+      "accuracy": 0.0,
+      "confidence": 0.5612,
+      "last_signal": "buy",
+      "last_hash": "3a850a757dc1d96c",
+      "timestamp": "2026-08-18T22:02:56.042575+00:00"
+    },
+    {
+      "model_id": "Trend_EMA_0142",
+      "base_type": "Trend_EMA",
+      "variation": 142,
+      "params": {
+        "period": 16.8,
+        "overbought": 76,
+        "oversold": 17,
+        "threshold": 0.0308
+      },
+      "predictions": 0,
+      "correct": 0,
+      "accuracy": 0.0,
+      "confidence": 0.7347,
+      "last_signal": "sell",
+      "last_hash": "f4c0d517f1a080c2",
+      "timestamp": "2026-08-18T22:02:56.042575+00:00"
+    },
+    {
+      "model_id": "Momentum_RSI_0143",
+      "base_type": "Momentum_RSI",
+      "variation": 143,
+      "params": {
+        "period": 32.6,
+        "overbought": 81,
+        "oversold": 24,
+        "threshold": 0.0359
+      },
+      "predictions": 0,
+      "correct": 0,
+      "accuracy": 0.0,
+      "confidence": 0.6585,
+      "last_signal": "buy",
+      "last_hash": "24a4c6d225c7b1b3",
+      "timestamp": "2026-08-18T22:02:56.042575+00:00"
+    },
+    {
+      "model_id": "Momentum_MACD_0144",
+      "base_type": "Momentum_MACD",
+      "variation": 144,
+      "params": {
+        "period": 33.8,
+        "overbought": 79,
+        "oversold": 15,
+        "threshold": 0.0109
+      },
+      "predictions": 0,
+      "correct": 0,
+      "accuracy": 0.0,
+      "confidence": 0.6941,
+      "last_signal": "hold",
+      "last_hash": "0719fc2e54f09b1e",
+      "timestamp": "2026-08-18T22:02:56.042575+00:00"
+    },
+    {
+      "model_id": "Mean_Reversion_0145",
+      "base_type": "Mean_Reversion",
+      "variation": 145,
+      "params": {
+        "period": 17.9,
+        "overbought": 66,
+        "oversold": 34,
+        "threshold": 0.026
+      },
+      "predictions": 0,
+      "correct": 0,
+      "accuracy": 0.0,
+      "confidence": 0.7191,
+      "last_signal": "hold",
+      "last_hash": "3e0ae1f590a54eb2",
+      "timestamp": "2026-08-18T22:02:56.042575+00:00"
+    },
+    {
+      "model_id": "Breakout_0146",
+      "base_type": "Breakout",
+      "variation": 146,
+      "params": {
+        "period": 12.6,
+        "overbought": 66,
+        "oversold": 26,
+        "threshold": 0.0127
+      },
+      "predictions": 0,
+      "correct": 0,
+      "accuracy": 0.0,
+      "confidence": 0.3002,
+      "last_signal": "buy",
+      "last_hash": "5a1972a99d0e92a2",
+      "timestamp": "2026-08-18T22:02:56.042575+00:00"
+    },
+    {
+      "model_id": "Volatility_ATR_0147",
+      "base_type": "Volatility_ATR",
+      "variation": 147,
+      "params": {
+        "period": 8.9,
+        "overbought": 73,
+        "oversold": 27,
+        "threshold": 0.0183
+      },
+      "predictions": 0,
+      "correct": 0,
+      "accuracy": 0.0,
+      "confidence": 0.5371,
+      "last_signal": "hold",
+      "last_hash": "52e3f1dfe5c31ac7",
+      "timestamp": "2026-08-18T22:02:56.042575+00:00"
+    },
+    {
+      "model_id": "Correlation_Pairs_0148",
+      "base_type": "Correlation_Pairs",
+      "variation": 148,
+      "params": {
+        "period": 14.0,
+        "overbought": 65,
+        "oversold": 17,
+        "threshold": 0.046
+      },
+      "predictions": 0,
+      "correct": 0,
+      "accuracy": 0.0,
+      "confidence": 0.6298,
+      "last_signal": "hold",
+      "last_hash": "9b9a94596491c759",
+      "timestamp": "2026-08-18T22:02:56.042575+00:00"
+    },
+    {
+      "model_id": "Volume_VWAP_0149",
+      "base_type": "Volume_VWAP",
+      "variation": 149,
+      "params": {
+        "period": 42.3,
+        "overbought": 83,
+        "oversold": 26,
+        "threshold": 0.018
+      },
+      "predictions": 0,
+      "correct": 0,
+      "accuracy": 0.0,
+      "confidence": 0.7893,
+      "last_signal": "buy",
+      "last_hash": "89a84f5312dd320a",
+      "timestamp": "2026-08-18T22:02:56.042575+00:00"
+    },
+    {
+      "model_id": "Sentiment_Scan_0150",
+      "base_type": "Sentiment_Scan",
+      "variation": 150,
+      "params": {
+        "period": 32.3,
+        "overbought": 71,
+        "oversold": 29,
+        "threshold": 0.0466
+      },
+      "predictions": 0,
+      "correct": 0,
+      "accuracy": 0.0,
+      "confidence": 0.6449,
+      "last_signal": "sell",
+      "last_hash": "78eb728d1faf99dd",
+      "timestamp": "2026-08-18T22:02:56.042575+00:00"
+    },
+    {
+      "model_id": "Machine_Learning_LSTM_0151",
+      "base_type": "Machine_Learning_LSTM",
+      "variation": 151,
+      "params": {
+        "period": 12.9,
+        "overbought": 81,
+        "oversold": 18,
+        "threshold": 0.0284
+      },
+      "predictions": 0,
+      "correct": 0,
+      "accuracy": 0.0,
+      "confidence": 0.6019,
+      "last_signal": "sell",
+      "last_hash": "2bc6265d74787295",
+      "timestamp": "2026-08-18T22:02:56.042575+00:00"
+    },
+    {
+      "model_id": "Reinforcement_Q_0152",
+      "base_type": "Reinforcement_Q",
+      "variation": 152,
+      "params": {
+        "period": 47.6,
+        "overbought": 81,
+        "oversold": 23,
+        "threshold": 0.0439
+      },
+      "predictions": 0,
+      "correct": 0,
+      "accuracy": 0.0,
+      "confidence": 0.7879,
+      "last_signal": "hold",
+      "last_hash": "fc40fe0256bcf98c",
+      "timestamp": "2026-08-18T22:02:56.042575+00:00"
+    },
+    {
+      "model_id": "Bayesian_Inf_0153",
+      "base_type": "Bayesian_Inf",
+      "variation": 153,
+      "params": {
+        "period": 16.3,
+        "overbought": 79,
+        "oversold": 27,
+        "threshold": 0.0286
+      },
+      "predictions": 0,
+      "correct": 0,
+      "accuracy": 0.0,
+      "confidence": 0.762,
+      "last_signal": "sell",
+      "last_hash": "25c37de629938213",
+      "timestamp": "2026-08-18T22:02:56.042575+00:00"
+    },
+    {
+      "model_id": "GAN_Predictor_0154",
+      "base_type": "GAN_Predictor",
+      "variation": 154,
+      "params": {
+        "period": 48.3,
+        "overbought": 79,
+        "oversold": 29,
+        "threshold": 0.0449
+      },
+      "predictions": 0,
+      "correct": 0,
+      "accuracy": 0.0,
+      "confidence": 0.8172,
+      "last_signal": "sell",
+      "last_hash": "bacb354b171e7e1f",
+      "timestamp": "2026-08-18T22:02:56.042575+00:00"
+    },
+    {
+      "model_id": "Diffusion_Proc_0155",
+      "base_type": "Diffusion_Proc",
+      "variation": 155,
+      "params": {
+        "period": 10.2,
+        "overbought": 67,
+        "oversold": 27,
+        "threshold": 0.032
+      },
+      "predictions": 0,
+      "correct": 0,
+      "accuracy": 0.0,
+      "confidence": 0.8965,
+      "last_signal": "hold",
+      "last_hash": "e1bce607ef49d58e",
+      "timestamp": "2026-08-18T22:02:56.042575+00:00"
+    },
+    {
+      "model_id": "Graph_Neural_0156",
+      "base_type": "Graph_Neural",
+      "variation": 156,
+      "params": {
+        "period": 36.6,
+        "overbought": 75,
+        "oversold": 28,
+        "threshold": 0.0478
+      },
+      "predictions": 0,
+      "correct": 0,
+      "accuracy": 0.0,
+      "confidence": 0.6099,
+      "last_signal": "buy",
+      "last_hash": "72681e4327b6dad1",
+      "timestamp": "2026-08-18T22:02:56.042575+00:00"
+    },
+    {
+      "model_id": "Attention_LSTM_0157",
+      "base_type": "Attention_LSTM",
+      "variation": 157,
+      "params": {
+        "period": 36.5,
+        "overbought": 73,
+        "oversold": 22,
+        "threshold": 0.0151
+      },
+      "predictions": 0,
+      "correct": 0,
+      "accuracy": 0.0,
+      "confidence": 0.5394,
+      "last_signal": "hold",
+      "last_hash": "0b51f5ddcb19c7c9",
+      "timestamp": "2026-08-18T22:02:56.042575+00:00"
+    },
+    {
+      "model_id": "Autoencoder_Sig_0158",
+      "base_type": "Autoencoder_Sig",
+      "variation": 158,
+      "params": {
+        "period": 41.9,
+        "overbought": 67,
+        "oversold": 32,
+        "threshold": 0.0466
+      },
+      "predictions": 0,
+      "correct": 0,
+      "accuracy": 0.0,
+      "confidence": 0.5859,
+      "last_signal": "sell",
+      "last_hash": "ddc8743daf3e76ac",
+      "timestamp": "2026-08-18T22:02:56.042575+00:00"
+    },
+    {
+      "model_id": "Wavelet_Decomp_0159",
+      "base_type": "Wavelet_Decomp",
+      "variation": 159,
+      "params": {
+        "period": 14.8,
+        "overbought": 83,
+        "oversold": 23,
+        "threshold": 0.01
+      },
+      "predictions": 0,
+      "correct": 0,
+      "accuracy": 0.0,
+      "confidence": 0.7477,
+      "last_signal": "buy",
+      "last_hash": "fed5d3f7c285301b",
+      "timestamp": "2026-08-18T22:02:56.042575+00:00"
+    },
+    {
+      "model_id": "Fuzzy_Logic_0160",
+      "base_type": "Fuzzy_Logic",
+      "variation": 160,
+      "params": {
+        "period": 27.5,
+        "overbought": 71,
+        "oversold": 22,
+        "threshold": 0.037
+      },
+      "predictions": 0,
+      "correct": 0,
+      "accuracy": 0.0,
+      "confidence": 0.8236,
+      "last_signal": "buy",
+      "last_hash": "7735e7659a29cd1c",
+      "timestamp": "2026-08-18T22:02:56.042575+00:00"
+    },
+    {
+      "model_id": "Trend_SMA_0161",
+      "base_type": "Trend_SMA",
+      "variation": 161,
+      "params": {
+        "period": 15.3,
+        "overbought": 72,
+        "oversold": 34,
+        "threshold": 0.0184
+      },
+      "predictions": 0,
+      "correct": 0,
+      "accuracy": 0.0,
+      "confidence": 0.7674,
+      "last_signal": "buy",
+      "last_hash": "b193239ff0b44602",
+      "timestamp": "2026-08-18T22:02:56.042575+00:00"
+    },
+    {
+      "model_id": "Trend_EMA_0162",
+      "base_type": "Trend_EMA",
+      "variation": 162,
+      "params": {
+        "period": 46.4,
+        "overbought": 80,
+        "oversold": 34,
+        "threshold": 0.0013
+      },
+      "predictions": 0,
+      "correct": 0,
+      "accuracy": 0.0,
+      "confidence": 0.8143,
+      "last_signal": "buy",
+      "last_hash": "cff1e98881a23ea5",
+      "timestamp": "2026-08-18T22:02:56.042575+00:00"
+    },
+    {
+      "model_id": "Momentum_RSI_0163",
+      "base_type": "Momentum_RSI",
+      "variation": 163,
+      "params": {
+        "period": 43.2,
+        "overbought": 76,
+        "oversold": 34,
+        "threshold": 0.0165
+      },
+      "predictions": 0,
+      "correct": 0,
+      "accuracy": 0.0,
+      "confidence": 0.8389,
+      "last_signal": "hold",
+      "last_hash": "622cafd42de675fd",
+      "timestamp": "2026-08-18T22:02:56.042575+00:00"
+    },
+    {
+      "model_id": "Momentum_MACD_0164",
+      "base_type": "Momentum_MACD",
+      "variation": 164,
+      "params": {
+        "period": 44.1,
+        "overbought": 80,
+        "oversold": 20,
+        "threshold": 0.0492
+      },
+      "predictions": 0,
+      "correct": 0,
+      "accuracy": 0.0,
+      "confidence": 0.8496,
+      "last_signal": "sell",
+      "last_hash": "1727cb2f4fbade0b",
+      "timestamp": "2026-08-18T22:02:56.042575+00:00"
+    },
+    {
+      "model_id": "Mean_Reversion_0165",
+      "base_type": "Mean_Reversion",
+      "variation": 165,
+      "params": {
+        "period": 22.9,
+        "overbought": 83,
+        "oversold": 19,
+        "threshold": 0.0037
+      },
+      "predictions": 0,
+      "correct": 0,
+      "accuracy": 0.0,
+      "confidence": 0.7796,
+      "last_signal": "sell",
+      "last_hash": "15c740c19d9c6d62",
+      "timestamp": "2026-08-18T22:02:56.042575+00:00"
+    },
+    {
+      "model_id": "Breakout_0166",
+      "base_type": "Breakout",
+      "variation": 166,
+      "params": {
+        "period": 47.3,
+        "overbought": 66,
+        "oversold": 31,
+        "threshold": 0.018
+      },
+      "predictions": 0,
+      "correct": 0,
+      "accuracy": 0.0,
+      "confidence": 0.8162,
+      "last_signal": "buy",
+      "last_hash": "b0ac8dcac5cb25c8",
+      "timestamp": "2026-08-18T22:02:56.042575+00:00"
+    },
+    {
+      "model_id": "Volatility_ATR_0167",
+      "base_type": "Volatility_ATR",
+      "variation": 167,
+      "params": {
+        "period": 25.6,
+        "overbought": 68,
+        "oversold": 31,
+        "threshold": 0.0235
+      },
+      "predictions": 0,
+      "correct": 0,
+      "accuracy": 0.0,
+      "confidence": 0.7135,
+      "last_signal": "buy",
+      "last_hash": "f112d8814992b536",
+      "timestamp": "2026-08-18T22:02:56.042575+00:00"
+    },
+    {
+      "model_id": "Correlation_Pairs_0168",
+      "base_type": "Correlation_Pairs",
+      "variation": 168,
+      "params": {
+        "period": 35.3,
+        "overbought": 77,
+        "oversold": 33,
+        "threshold": 0.0059
+      },
+      "predictions": 0,
+      "correct": 0,
+      "accuracy": 0.0,
+      "confidence": 0.517,
+      "last_signal": "sell",
+      "last_hash": "de12613e6a557b8d",
+      "timestamp": "2026-08-18T22:02:56.042575+00:00"
+    },
+    {
+      "model_id": "Volume_VWAP_0169",
+      "base_type": "Volume_VWAP",
+      "variation": 169,
+      "params": {
+        "period": 13.4,
+        "overbought": 73,
+        "oversold": 22,
+        "threshold": 0.0142
+      },
+      "predictions": 0,
+      "correct": 0,
+      "accuracy": 0.0,
+      "confidence": 0.8751,
+      "last_signal": "sell",
+      "last_hash": "71ee24920a707d02",
+      "timestamp": "2026-08-18T22:02:56.042575+00:00"
+    },
+    {
+      "model_id": "Sentiment_Scan_0170",
+      "base_type": "Sentiment_Scan",
+      "variation": 170,
+      "params": {
+        "period": 21.5,
+        "overbought": 80,
+        "oversold": 28,
+        "threshold": 0.0113
+      },
+      "predictions": 0,
+      "correct": 0,
+      "accuracy": 0.0,
+      "confidence": 0.7204,
+      "last_signal": "sell",
+      "last_hash": "e389e3fae6b5d09d",
+      "timestamp": "2026-08-18T22:02:56.042575+00:00"
+    },
+    {
+      "model_id": "Machine_Learning_LSTM_0171",
+      "base_type": "Machine_Learning_LSTM",
+      "variation": 171,
+      "params": {
+        "period": 21.4,
+        "overbought": 77,
+        "oversold": 23,
+        "threshold": 0.0231
+      },
+      "predictions": 0,
+      "correct": 0,
+      "accuracy": 0.0,
+      "confidence": 0.6428,
+      "last_signal": "hold",
+      "last_hash": "a23683e642f82182",
+      "timestamp": "2026-08-18T22:02:56.042575+00:00"
+    },
+    {
+      "model_id": "Reinforcement_Q_0172",
+      "base_type": "Reinforcement_Q",
+      "variation": 172,
+      "params": {
+        "period": 35.9,
+        "overbought": 68,
+        "oversold": 23,
+        "threshold": 0.0404
+      },
+      "predictions": 0,
+      "correct": 0,
+      "accuracy": 0.0,
+      "confidence": 0.6332,
+      "last_signal": "sell",
+      "last_hash": "6124b665721e7eb5",
+      "timestamp": "2026-08-18T22:02:56.042575+00:00"
+    },
+    {
+      "model_id": "Bayesian_Inf_0173",
+      "base_type": "Bayesian_Inf",
+      "variation": 173,
+      "params": {
+        "period": 13.8,
+        "overbought": 69,
+        "oversold": 30,
+        "threshold": 0.0405
+      },
+      "predictions": 0,
+      "correct": 0,
+      "accuracy": 0.0,
+      "confidence": 0.406,
+      "last_signal": "sell",
+      "last_hash": "84f54d0036c0d44e",
+      "timestamp": "2026-08-18T22:02:56.042575+00:00"
+    },
+    {
+      "model_id": "GAN_Predictor_0174",
+      "base_type": "GAN_Predictor",
+      "variation": 174,
+      "params": {
+        "period": 11.1,
+        "overbought": 85,
+        "oversold": 31,
+        "threshold": 0.0272
+      },
+      "predictions": 0,
+      "correct": 0,
+      "accuracy": 0.0,
+      "confidence": 0.4894,
+      "last_signal": "sell",
+      "last_hash": "e675dead97b8ce1e",
+      "timestamp": "2026-08-18T22:02:56.042575+00:00"
+    },
+    {
+      "model_id": "Diffusion_Proc_0175",
+      "base_type": "Diffusion_Proc",
+      "variation": 175,
+      "params": {
+        "period": 18.5,
+        "overbought": 82,
+        "oversold": 33,
+        "threshold": 0.0033
+      },
+      "predictions": 0,
+      "correct": 0,
+      "accuracy": 0.0,
+      "confidence": 0.3594,
+      "last_signal": "buy",
+      "last_hash": "740c939a0b2716df",
+      "timestamp": "2026-08-18T22:02:56.042575+00:00"
+    },
+    {
+      "model_id": "Graph_Neural_0176",
+      "base_type": "Graph_Neural",
+      "variation": 176,
+      "params": {
+        "period": 7.7,
+        "overbought": 73,
+        "oversold": 30,
+        "threshold": 0.0421
+      },
+      "predictions": 0,
+      "correct": 0,
+      "accuracy": 0.0,
+      "confidence": 0.3578,
+      "last_signal": "hold",
+      "last_hash": "96c3d1166351d3d8",
+      "timestamp": "2026-08-18T22:02:56.042575+00:00"
+    },
+    {
+      "model_id": "Attention_LSTM_0177",
+      "base_type": "Attention_LSTM",
+      "variation": 177,
+      "params": {
+        "period": 20.1,
+        "overbought": 76,
+        "oversold": 26,
+        "threshold": 0.0285
+      },
+      "predictions": 0,
+      "correct": 0,
+      "accuracy": 0.0,
+      "confidence": 0.8591,
+      "last_signal": "sell",
+      "last_hash": "285a38b922332976",
+      "timestamp": "2026-08-18T22:02:56.042575+00:00"
+    },
+    {
+      "model_id": "Autoencoder_Sig_0178",
+      "base_type": "Autoencoder_Sig",
+      "variation": 178,
+      "params": {
+        "period": 20.5,
+        "overbought": 78,
+        "oversold": 18,
+        "threshold": 0.0182
+      },
+      "predictions": 0,
+      "correct": 0,
+      "accuracy": 0.0,
+      "confidence": 0.7078,
+      "last_signal": "hold",
+      "last_hash": "0924aa39cf4d1891",
+      "timestamp": "2026-08-18T22:02:56.042575+00:00"
+    },
+    {
+      "model_id": "Wavelet_Decomp_0179",
+      "base_type": "Wavelet_Decomp",
+      "variation": 179,
+      "params": {
+        "period": 14.0,
+        "overbought": 83,
+        "oversold": 35,
+        "threshold": 0.0328
+      },
+      "predictions": 0,
+      "correct": 0,
+      "accuracy": 0.0,
+      "confidence": 0.4047,
+      "last_signal": "sell",
+      "last_hash": "52f16574ae53b2e7",
+      "timestamp": "2026-08-18T22:02:56.042575+00:00"
+    },
+    {
+      "model_id": "Fuzzy_Logic_0180",
+      "base_type": "Fuzzy_Logic",
+      "variation": 180,
+      "params": {
+        "period": 21.0,
+        "overbought": 81,
+        "oversold": 30,
+        "threshold": 0.039
+      },
+      "predictions": 0,
+      "correct": 0,
+      "accuracy": 0.0,
+      "confidence": 0.5682,
+      "last_signal": "buy",
+      "last_hash": "609b51b17f4d84ed",
+      "timestamp": "2026-08-18T22:02:56.042575+00:00"
+    },
+    {
+      "model_id": "Trend_SMA_0181",
+      "base_type": "Trend_SMA",
+      "variation": 181,
+      "params": {
+        "period": 22.1,
+        "overbought": 74,
+        "oversold": 29,
+        "threshold": 0.032
+      },
+      "predictions": 0,
+      "correct": 0,
+      "accuracy": 0.0,
+      "confidence": 0.3869,
+      "last_signal": "buy",
+      "last_hash": "3b916c9f68a2b4a5",
+      "timestamp": "2026-08-18T22:02:56.042575+00:00"
+    },
+    {
+      "model_id": "Trend_EMA_0182",
+      "base_type": "Trend_EMA",
+      "variation": 182,
+      "params": {
+        "period": 33.8,
+        "overbought": 75,
+        "oversold": 28,
+        "threshold": 0.0319
+      },
+      "predictions": 0,
+      "correct": 0,
+      "accuracy": 0.0,
+      "confidence": 0.643,
+      "last_signal": "buy",
+      "last_hash": "789dbd7828cd076a",
+      "timestamp": "2026-08-18T22:02:56.042575+00:00"
+    },
+    {
+      "model_id": "Momentum_RSI_0183",
+      "base_type": "Momentum_RSI",
+      "variation": 183,
+      "params": {
+        "period": 8.6,
+        "overbought": 75,
+        "oversold": 22,
+        "threshold": 0.0164
+      },
+      "predictions": 0,
+      "correct": 0,
+      "accuracy": 0.0,
+      "confidence": 0.6918,
+      "last_signal": "hold",
+      "last_hash": "073e399bd548cf4c",
+      "timestamp": "2026-08-18T22:02:56.042575+00:00"
+    },
+    {
+      "model_id": "Momentum_MACD_0184",
+      "base_type": "Momentum_MACD",
+      "variation": 184,
+      "params": {
+        "period": 17.0,
+        "overbought": 85,
+        "oversold": 27,
+        "threshold": 0.0143
+      },
+      "predictions": 0,
+      "correct": 0,
+      "accuracy": 0.0,
+      "confidence": 0.5669,
+      "last_signal": "sell",
+      "last_hash": "e4f93cd651677e53",
+      "timestamp": "2026-08-18T22:02:56.042575+00:00"
+    },
+    {
+      "model_id": "Mean_Reversion_0185",
+      "base_type": "Mean_Reversion",
+      "variation": 185,
+      "params": {
+        "period": 38.7,
+        "overbought": 81,
+        "oversold": 29,
+        "threshold": 0.0213
+      },
+      "predictions": 0,
+      "correct": 0,
+      "accuracy": 0.0,
+      "confidence": 0.4103,
+      "last_signal": "buy",
+      "last_hash": "41a0eb8a6dae5226",
+      "timestamp": "2026-08-18T22:02:56.042575+00:00"
+    },
+    {
+      "model_id": "Breakout_0186",
+      "base_type": "Breakout",
+      "variation": 186,
+      "params": {
+        "period": 10.6,
+        "overbought": 72,
+        "oversold": 23,
+        "threshold": 0.0471
+      },
+      "predictions": 0,
+      "correct": 0,
+      "accuracy": 0.0,
+      "confidence": 0.7204,
+      "last_signal": "buy",
+      "last_hash": "2f4c5452aece6619",
+      "timestamp": "2026-08-18T22:02:56.042575+00:00"
+    },
+    {
+      "model_id": "Volatility_ATR_0187",
+      "base_type": "Volatility_ATR",
+      "variation": 187,
+      "params": {
+        "period": 14.5,
+        "overbought": 77,
+        "oversold": 18,
+        "threshold": 0.0057
+      },
+      "predictions": 0,
+      "correct": 0,
+      "accuracy": 0.0,
+      "confidence": 0.8621,
+      "last_signal": "sell",
+      "last_hash": "00a1861eac70ec60",
+      "timestamp": "2026-08-18T22:02:56.042575+00:00"
+    },
+    {
+      "model_id": "Correlation_Pairs_0188",
+      "base_type": "Correlation_Pairs",
+      "variation": 188,
+      "params": {
+        "period": 29.7,
+        "overbought": 65,
+        "oversold": 27,
+        "threshold": 0.0267
+      },
+      "predictions": 0,
+      "correct": 0,
+      "accuracy": 0.0,
+      "confidence": 0.8976,
+      "last_signal": "buy",
+      "last_hash": "5546790a99b350c7",
+      "timestamp": "2026-08-18T22:02:56.042575+00:00"
+    },
+    {
+      "model_id": "Volume_VWAP_0189",
+      "base_type": "Volume_VWAP",
+      "variation": 189,
+      "params": {
+        "period": 16.8,
+        "overbought": 69,
+        "oversold": 17,
+        "threshold": 0.0331
+      },
+      "predictions": 0,
+      "correct": 0,
+      "accuracy": 0.0,
+      "confidence": 0.8313,
+      "last_signal": "sell",
+      "last_hash": "99ee28d2dec4bcfe",
+      "timestamp": "2026-08-18T22:02:56.042575+00:00"
+    },
+    {
+      "model_id": "Sentiment_Scan_0190",
+      "base_type": "Sentiment_Scan",
+      "variation": 190,
+      "params": {
+        "period": 15.3,
+        "overbought": 74,
+        "oversold": 29,
+        "threshold": 0.0317
+      },
+      "predictions": 0,
+      "correct": 0,
+      "accuracy": 0.0,
+      "confidence": 0.3788,
+      "last_signal": "buy",
+      "last_hash": "932e5a53eb61e270",
+      "timestamp": "2026-08-18T22:02:56.042575+00:00"
+    },
+    {
+      "model_id": "Machine_Learning_LSTM_0191",
+      "base_type": "Machine_Learning_LSTM",
+      "variation": 191,
+      "params": {
+        "period": 6.3,
+        "overbought": 76,
+        "oversold": 25,
+        "threshold": 0.0433
+      },
+      "predictions": 0,
+      "correct": 0,
+      "accuracy": 0.0,
+      "confidence": 0.5803,
+      "last_signal": "hold",
+      "last_hash": "276c7479e8b40afa",
+      "timestamp": "2026-08-18T22:02:56.042575+00:00"
+    },
+    {
+      "model_id": "Reinforcement_Q_0192",
+      "base_type": "Reinforcement_Q",
+      "variation": 192,
+      "params": {
+        "period": 47.1,
+        "overbought": 82,
+        "oversold": 29,
+        "threshold": 0.0076
+      },
+      "predictions": 0,
+      "correct": 0,
+      "accuracy": 0.0,
+      "confidence": 0.8691,
+      "last_signal": "hold",
+      "last_hash": "1babcb5a45cc949e",
+      "timestamp": "2026-08-18T22:02:56.042575+00:00"
+    },
+    {
+      "model_id": "Bayesian_Inf_0193",
+      "base_type": "Bayesian_Inf",
+      "variation": 193,
+      "params": {
+        "period": 13.0,
+        "overbought": 84,
+        "oversold": 29,
+        "threshold": 0.0319
+      },
+      "predictions": 0,
+      "correct": 0,
+      "accuracy": 0.0,
+      "confidence": 0.6815,
+      "last_signal": "hold",
+      "last_hash": "5222a818a4cb5843",
+      "timestamp": "2026-08-18T22:02:56.042575+00:00"
+    },
+    {
+      "model_id": "GAN_Predictor_0194",
+      "base_type": "GAN_Predictor",
+      "variation": 194,
+      "params": {
+        "period": 24.6,
+        "overbought": 85,
+        "oversold": 35,
+        "threshold": 0.0272
+      },
+      "predictions": 0,
+      "correct": 0,
+      "accuracy": 0.0,
+      "confidence": 0.8454,
+      "last_signal": "sell",
+      "last_hash": "dc0940d0ecd17f19",
+      "timestamp": "2026-08-18T22:02:56.042575+00:00"
+    },
+    {
+      "model_id": "Diffusion_Proc_0195",
+      "base_type": "Diffusion_Proc",
+      "variation": 195,
+      "params": {
+        "period": 29.3,
+        "overbought": 67,
+        "oversold": 29,
+        "threshold": 0.0161
+      },
+      "predictions": 0,
+      "correct": 0,
+      "accuracy": 0.0,
+      "confidence": 0.5473,
+      "last_signal": "buy",
+      "last_hash": "3d1fea353859d337",
+      "timestamp": "2026-08-18T22:02:56.042575+00:00"
+    },
+    {
+      "model_id": "Graph_Neural_0196",
+      "base_type": "Graph_Neural",
+      "variation": 196,
+      "params": {
+        "period": 18.7,
+        "overbought": 65,
+        "oversold": 31,
+        "threshold": 0.041
+      },
+      "predictions": 0,
+      "correct": 0,
+      "accuracy": 0.0,
+      "confidence": 0.8088,
+      "last_signal": "sell",
+      "last_hash": "c82bb705381d14de",
+      "timestamp": "2026-08-18T22:02:56.042575+00:00"
+    },
+    {
+      "model_id": "Attention_LSTM_0197",
+      "base_type": "Attention_LSTM",
+      "variation": 197,
+      "params": {
+        "period": 17.9,
+        "overbought": 82,
+        "oversold": 15,
+        "threshold": 0.0347
+      },
+      "predictions": 0,
+      "correct": 0,
+      "accuracy": 0.0,
+      "confidence": 0.5952,
+      "last_signal": "sell",
+      "last_hash": "c42f822bb51fda7b",
+      "timestamp": "2026-08-18T22:02:56.042575+00:00"
+    },
+    {
+      "model_id": "Autoencoder_Sig_0198",
+      "base_type": "Autoencoder_Sig",
+      "variation": 198,
+      "params": {
+        "period": 18.5,
+        "overbought": 78,
+        "oversold": 24,
+        "threshold": 0.0303
+      },
+      "predictions": 0,
+      "correct": 0,
+      "accuracy": 0.0,
+      "confidence": 0.7781,
+      "last_signal": "hold",
+      "last_hash": "5ea54599636427e9",
+      "timestamp": "2026-08-18T22:02:56.042575+00:00"
+    },
+    {
+      "model_id": "Wavelet_Decomp_0199",
+      "base_type": "Wavelet_Decomp",
+      "variation": 199,
+      "params": {
+        "period": 21.8,
+        "overbought": 78,
+        "oversold": 32,
+        "threshold": 0.0224
+      },
+      "predictions": 0,
+      "correct": 0,
+      "accuracy": 0.0,
+      "confidence": 0.4499,
+      "last_signal": "hold",
+      "last_hash": "e78a8176257200e4",
+      "timestamp": "2026-08-18T22:02:56.042575+00:00"
+    },
+    {
+      "model_id": "Fuzzy_Logic_0200",
+      "base_type": "Fuzzy_Logic",
+      "variation": 200,
+      "params": {
+        "period": 38.2,
+        "overbought": 77,
+        "oversold": 27,
+        "threshold": 0.0118
+      },
+      "predictions": 0,
+      "correct": 0,
+      "accuracy": 0.0,
+      "confidence": 0.3475,
+      "last_signal": "hold",
+      "last_hash": "3d96334fb65b05ae",
+      "timestamp": "2026-08-18T22:02:56.042575+00:00"
     }
   ],
+  "total_top_models": 1000,
+  "all_top_model_count": 1000,
   "duration_ms": 39.97,
   "precision_status": "not_benchmarked",
-  "disclaimer": "Oracle Auto-Generator \u2014 SIMULATED. 10K models = 20 base types \u00d7 500 variations. NOT financial advice.",
+  "disclaimer": "Oracle Auto-Generator \u2014 SIMULATED. 10K models = 20 base types \u00d7 500 variations. Not financial advice.",
   "honesty_notes": [
     "10,000 model configurations = 20 base types \u00d7 500 variations each. NOT 10,000 unique AI models.",
-    "Each cycle tests 500 sampled models, extrapolated to 10,000. Sampling for performance.",
-    "All predictions are SIMULATED. Precision is NOT benchmarked. No guaranteed accuracy.",
-    "Oracle auto-generates test results, NOT live trading alpha.",
-    "Model 'accuracy' is simulated backtest correctness (55% baseline), NOT real prediction accuracy.",
-    "20 unique AI model types: 10 original (Trend, MeanRev, Volatility, Momentum, Sentiment, Quantum, Fractal, Correlation, Kernel, Neural) + 10 new (Transformer, RL, GAN, Bayesian, Diffusion, GraphNN, AttentionLSTM, Autoencoder, Wavelet, Fuzzy)."
+    "No model has been benchmarked against live data. accuracy=0.0.",
+    "Consensus votes are randomly distributed for demonstration.",
+    "Last updated: 2026-08-18 22:02:56 UTC",
+    "All predictions are SIMULATED. Not financial advice.",
+    "1,000 top models stored (200 detailed for display)."
   ]
 }

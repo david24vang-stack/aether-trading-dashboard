@@ -26,7 +26,7 @@
   "max_shares_per_order": 100,
   "max_orders_per_day": 20,
   "max_notional_per_order": 50000.0,
-  "timestamp": "2026-08-18T17:36:58.621462+00:00",
+  "timestamp": "2026-08-18T22:02:56.042575+00:00",
   "disclaimer": "Execution engine \u2014 SIMULATED by default. Paper requires authenticated broker. Live trading is LOCKED and requires explicit authorization.",
   "futures_note": "Futures (ES, NQ, CL, GC) require Tradovate or similar futures broker. Alpaca only supports equities/ETFs (SPY, QQQ, TLT).",
   "recent_orders": [
@@ -126,5 +126,7 @@
       "asset_class": "equity"
     }
   ],
-  "live_authorization_instructions": "LIVE TRADING AUTHORIZATION REQUIRED\n=====================================\nTo enable live trading, you must:\n1. Connect a LIVE broker account (separate from paper)\n2. Explicitly authorize live trading in writing\n3. Set live_authorized = True in config\n4. Confirm understanding that real money will be at risk\n\nCurrent status: LIVE_LOCKED\nNo live orders will be placed until all steps are completed."
+  "live_authorization_instructions": "LIVE TRADING AUTHORIZATION REQUIRED\n=====================================\nTo enable live trading, you must:\n1. Connect a LIVE broker account (separate from paper)\n2. Explicitly authorize live trading in writing\n3. Set live_authorized = True in config\n4. Confirm understanding that real money will be at risk\n\nCurrent status: LIVE_LOCKED\nNo live orders will be placed until all steps are completed.",
+  "recorded_at": "2026-08-18 22:02:56 UTC",
+  "total_models": 1000
 }

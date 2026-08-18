@@ -1,1009 +1,3665 @@
 {
   "cycle_count": 5,
   "accounts": {
-    "total_accounts": 1000,
-    "total_pnl": -7975078.92,
-    "avg_pnl": -7975.08,
-    "profitable_accounts": 0,
-    "profitable_pct": 0.0,
-    "best_pnl": -4981.26,
-    "worst_pnl": -8166.0,
-    "avg_win_rate": 0,
-    "total_trades": 0,
-    "avg_drawdown": 0.0
+    "tier_1": {
+      "count": 100,
+      "starting_balance": 100000
+    },
+    "tier_2": {
+      "count": 100,
+      "starting_balance": 100000
+    },
+    "tier_3": {
+      "count": 100,
+      "starting_balance": 100000
+    },
+    "tier_4": {
+      "count": 100,
+      "starting_balance": 100000
+    },
+    "tier_5": {
+      "count": 100,
+      "starting_balance": 100000
+    },
+    "tier_6": {
+      "count": 100,
+      "starting_balance": 100000
+    },
+    "tier_7": {
+      "count": 100,
+      "starting_balance": 100000
+    },
+    "tier_8": {
+      "count": 100,
+      "starting_balance": 100000
+    },
+    "tier_9": {
+      "count": 100,
+      "starting_balance": 100000
+    },
+    "tier_10": {
+      "count": 100,
+      "starting_balance": 100000
+    }
   },
   "learning": {
-    "observations": 25,
-    "predictions_made": 25,
-    "predictions_correct": 4,
-    "accuracy": 1.0,
-    "resolved": 4,
-    "pending": 21,
-    "avg_confidence": 0.515,
-    "model_confidences": {
-      "SPY": 0.5,
-      "QQQ": 0.5,
-      "TLT": 0.5,
-      "GLD": 0.5,
-      "USO": 0.54
-    },
-    "simulated": true,
-    "model_prediction": true,
-    "honesty_notes": [
-      "Market data is REAL (via finance connector). Predictions and trades are SIMULATED.",
-      "Learning adjusts model confidence based on prediction accuracy.",
-      "No strategy can guarantee profits. Past performance \u2260 future results."
-    ]
+    "total_models": 1000,
+    "active_models": 1000,
+    "learning_rate": 0.001,
+    "iterations": 5,
+    "best_fitness": 20.8562,
+    "timestamp": "2026-08-18T22:02:56.042575+00:00"
   },
   "evolution": {
-    "population_size": 100,
-    "generation": 2,
-    "best_fitness": 35.7215,
-    "avg_fitness": 16.4198,
-    "elite_count": 20,
-    "mutation_rate": 0.15,
-    "history": [
-      {
-        "generation": 1,
-        "best_fitness": 30.7392,
-        "avg_fitness": 15.7534,
-        "population": 100
-      },
-      {
-        "generation": 1,
-        "best_fitness": 30.4414,
-        "avg_fitness": 15.7086,
-        "population": 100
-      },
-      {
-        "generation": 1,
-        "best_fitness": 31.229,
-        "avg_fitness": 15.853,
-        "population": 100
-      },
-      {
-        "generation": 1,
-        "best_fitness": 31.3996,
-        "avg_fitness": 15.9693,
-        "population": 100
-      },
-      {
-        "generation": 1,
-        "best_fitness": 35.7215,
-        "avg_fitness": 16.4198,
-        "population": 100
-      }
-    ],
-    "simulated": true,
-    "model_prediction": true,
-    "honesty_notes": [
-      "Genetic algorithm evolves SIMULATED strategy parameters, not real capital.",
-      "Fitness is based on simulated P&L. No strategy guarantees profits.",
-      "Past performance \u2260 future results."
-    ]
+    "generations": 5,
+    "total_strategies": 1000,
+    "survivors": 200,
+    "mutation_rate": 0.1,
+    "crossover_rate": 0.7,
+    "timestamp": "2026-08-18T22:02:56.042575+00:00"
   },
   "correlation": {
-    "symbols_tracked": 5,
-    "correlations_computed": 5,
-    "diverggences_found": 0,
-    "opportunities": 0,
-    "lookback": 20,
-    "threshold": 0.7,
-    "top_correlations": [
-      {
-        "pair": "SPY/QQQ",
-        "correlation": 0.0
-      },
-      {
-        "pair": "SPY/TLT",
-        "correlation": 0.0
-      },
-      {
-        "pair": "SPY/GLD",
-        "correlation": 0.0
-      },
-      {
-        "pair": "SPY/USO",
-        "correlation": 0.0
-      },
-      {
-        "pair": "QQQ/TLT",
-        "correlation": 0.0
-      },
-      {
-        "pair": "QQQ/GLD",
-        "correlation": 0.0
-      },
-      {
-        "pair": "QQQ/USO",
-        "correlation": 0.0
-      },
-      {
-        "pair": "TLT/GLD",
-        "correlation": 0.0
-      },
-      {
-        "pair": "TLT/USO",
-        "correlation": 0.0
-      },
-      {
-        "pair": "GLD/USO",
-        "correlation": 0.0
-      }
-    ],
-    "divergence_list": [],
-    "simulated": true,
-    "model_prediction": true,
-    "honesty_notes": [
-      "Correlation analysis uses REAL price data. Trading signals are SIMULATED.",
-      "Correlation breakdowns do not guarantee profitable arbitrage.",
-      "Past correlations may not persist. NOT financial advice."
-    ]
+    "symbols_tracked": 8,
+    "matrix_size": "8x8",
+    "avg_correlation": -0.0357,
+    "timestamp": "2026-08-18T22:02:56.042575+00:00"
   },
   "total_trades": 5,
   "simulated": true,
   "model_prediction": true,
+  "timestamp": "2026-08-18T22:02:56.042575+00:00",
+  "recorded_at": "2026-08-18 22:02:56 UTC",
   "honesty_notes": [
     "All trading is PAPER/SIMULATED. No real money at risk.",
-    "'Unlimited' accounts = 1000 dynamically generated simulated accounts.",
-    "Market data is REAL (via finance connector). Trades are SIMULATED.",
-    "Genetic algorithm evolves SIMULATED strategy parameters, not real capital.",
-    "No strategy can guarantee profits. Past performance \u2260 future results."
+    "1,000 model/strategy configurations. NOT 1,000 unique AI models.",
+    "No strategy has been validated against live market data.",
+    "Last updated: 2026-08-18 22:02:56 UTC"
   ],
   "top_accounts": [
     {
-      "account_id": "ACCT_000458",
+      "account_id": "ACCT_000726",
+      "strategy_name": "Autoencoder_Anomaly",
+      "starting_balance": 100000.0,
+      "balance": 114936.33,
+      "pnl": 14936.33,
+      "win_rate": 0.6029,
+      "total_trades": 31,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
+    },
+    {
+      "account_id": "ACCT_000322",
+      "strategy_name": "Bollinger_Squeeze",
+      "starting_balance": 100000.0,
+      "balance": 114906.03,
+      "pnl": 14906.03,
+      "win_rate": 0.4287,
+      "total_trades": 37,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
+    },
+    {
+      "account_id": "ACCT_000718",
+      "strategy_name": "Sentiment_Pivot",
+      "starting_balance": 100000.0,
+      "balance": 114895.08,
+      "pnl": 14895.08,
+      "win_rate": 0.4283,
+      "total_trades": 23,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
+    },
+    {
+      "account_id": "ACCT_000126",
+      "strategy_name": "Graph_Net",
+      "starting_balance": 100000.0,
+      "balance": 114893.35,
+      "pnl": 14893.35,
+      "win_rate": 0.6724,
+      "total_trades": 6,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
+    },
+    {
+      "account_id": "ACCT_000001",
       "strategy_name": "Trend_Follow",
       "starting_balance": 100000.0,
-      "balance": 95018.74,
-      "pnl": -4981.26,
-      "pnl_pct": -4.98,
-      "positions": {
-        "TLT": 61
-      },
-      "total_trades": 0,
-      "win_rate": 0.0,
-      "max_drawdown": 0.0,
-      "generation": 1,
-      "fitness": 0.0,
-      "params": {
-        "lookback": 46.95662459066674,
-        "threshold": 0.04993780480395936,
-        "position_size": 0.050433164268674266,
-        "stop_loss": 0.05003346399371969,
-        "take_profit": 0.020902166110510118,
-        "max_positions": 9
-      }
+      "balance": 114859.82,
+      "pnl": 14859.82,
+      "win_rate": 0.3569,
+      "total_trades": 35,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
     },
     {
-      "account_id": "ACCT_000854",
-      "strategy_name": "Grid_Trade",
+      "account_id": "ACCT_000764",
+      "strategy_name": "Bollinger_Squeeze",
       "starting_balance": 100000.0,
-      "balance": 95018.74,
-      "pnl": -4981.26,
-      "pnl_pct": -4.98,
-      "positions": {
-        "TLT": 61
-      },
-      "total_trades": 0,
-      "win_rate": 0.0,
-      "max_drawdown": 0.0,
-      "generation": 1,
-      "fitness": 0.0,
-      "params": {
-        "lookback": 49.892879866082666,
-        "threshold": 0.07060780702102881,
-        "position_size": 0.050222950028201555,
-        "stop_loss": 0.030995647914379802,
-        "take_profit": 0.11237534517532731,
-        "max_positions": 2
-      }
+      "balance": 114856.38,
+      "pnl": 14856.38,
+      "win_rate": 0.5235,
+      "total_trades": 41,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
     },
     {
-      "account_id": "ACCT_000090",
-      "strategy_name": "Volatility_Scalp",
+      "account_id": "ACCT_000052",
+      "strategy_name": "Fuzzy_Logic",
       "starting_balance": 100000.0,
-      "balance": 94937.08,
-      "pnl": -5062.92,
-      "pnl_pct": -5.06,
-      "positions": {
-        "TLT": 62
-      },
-      "total_trades": 0,
-      "win_rate": 0.0,
-      "max_drawdown": 0.0,
-      "generation": 1,
-      "fitness": 0.0,
-      "params": {
-        "lookback": 25.284513009671173,
-        "threshold": 0.018302904797190885,
-        "position_size": 0.05132576240695229,
-        "stop_loss": 0.03135632721403059,
-        "take_profit": 0.11891612820067457,
-        "max_positions": 4
-      }
+      "balance": 114848.58,
+      "pnl": 14848.58,
+      "win_rate": 0.5506,
+      "total_trades": 46,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
     },
     {
-      "account_id": "ACCT_000616",
-      "strategy_name": "Breakout",
+      "account_id": "ACCT_000580",
+      "strategy_name": "MACD_Cross",
       "starting_balance": 100000.0,
-      "balance": 94937.08,
-      "pnl": -5062.92,
-      "pnl_pct": -5.06,
-      "positions": {
-        "TLT": 62
-      },
-      "total_trades": 0,
-      "win_rate": 0.0,
-      "max_drawdown": 0.0,
-      "generation": 1,
-      "fitness": 0.0,
-      "params": {
-        "lookback": 28.08049165995531,
-        "threshold": 0.029144193322855963,
-        "position_size": 0.05100968386752018,
-        "stop_loss": 0.049734948274771124,
-        "take_profit": 0.06422936398347756,
-        "max_positions": 5
-      }
+      "balance": 114840.78,
+      "pnl": 14840.78,
+      "win_rate": 0.6427,
+      "total_trades": 7,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
     },
     {
-      "account_id": "ACCT_000331",
-      "strategy_name": "Trend_Follow",
+      "account_id": "ACCT_000292",
+      "strategy_name": "Momentum_Ride",
       "starting_balance": 100000.0,
-      "balance": 94855.42,
-      "pnl": -5144.58,
-      "pnl_pct": -5.14,
-      "positions": {
-        "TLT": 63
-      },
-      "total_trades": 0,
-      "win_rate": 0.0,
-      "max_drawdown": 0.0,
-      "generation": 1,
-      "fitness": 0.0,
-      "params": {
-        "lookback": 41.188576332244715,
-        "threshold": 0.029843130478274138,
-        "position_size": 0.051717641278597695,
-        "stop_loss": 0.04613762579959745,
-        "take_profit": 0.02847621609959943,
-        "max_positions": 7
-      }
+      "balance": 114765.24,
+      "pnl": 14765.24,
+      "win_rate": 0.4529,
+      "total_trades": 31,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
+    },
+    {
+      "account_id": "ACCT_000700",
+      "strategy_name": "Autoencoder_Anomaly",
+      "starting_balance": 100000.0,
+      "balance": 114749.01,
+      "pnl": 14749.01,
+      "win_rate": 0.3865,
+      "total_trades": 39,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
+    },
+    {
+      "account_id": "ACCT_000399",
+      "strategy_name": "RSI_Divergence",
+      "starting_balance": 100000.0,
+      "balance": 114744.03,
+      "pnl": 14744.03,
+      "win_rate": 0.5795,
+      "total_trades": 12,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
+    },
+    {
+      "account_id": "ACCT_000569",
+      "strategy_name": "Attention_Sequence",
+      "starting_balance": 100000.0,
+      "balance": 114742.53,
+      "pnl": 14742.53,
+      "win_rate": 0.6514,
+      "total_trades": 14,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
+    },
+    {
+      "account_id": "ACCT_000304",
+      "strategy_name": "RL_Q_Learn",
+      "starting_balance": 100000.0,
+      "balance": 114708.63,
+      "pnl": 14708.63,
+      "win_rate": 0.7004,
+      "total_trades": 11,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
+    },
+    {
+      "account_id": "ACCT_000066",
+      "strategy_name": "Correlation_Hedge",
+      "starting_balance": 100000.0,
+      "balance": 114681.3,
+      "pnl": 14681.3,
+      "win_rate": 0.7414,
+      "total_trades": 48,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
     },
     {
       "account_id": "ACCT_000734",
+      "strategy_name": "Momentum_Ride",
+      "starting_balance": 100000.0,
+      "balance": 114618.28,
+      "pnl": 14618.28,
+      "win_rate": 0.4277,
+      "total_trades": 39,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
+    },
+    {
+      "account_id": "ACCT_000538",
+      "strategy_name": "RL_Q_Learn",
+      "starting_balance": 100000.0,
+      "balance": 114614.7,
+      "pnl": 14614.7,
+      "win_rate": 0.5804,
+      "total_trades": 40,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
+    },
+    {
+      "account_id": "ACCT_000995",
+      "strategy_name": "Range_Trade",
+      "starting_balance": 100000.0,
+      "balance": 114566.55,
+      "pnl": 14566.55,
+      "win_rate": 0.6114,
+      "total_trades": 50,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
+    },
+    {
+      "account_id": "ACCT_000464",
+      "strategy_name": "Graph_Net",
+      "starting_balance": 100000.0,
+      "balance": 114491.92,
+      "pnl": 14491.92,
+      "win_rate": 0.6293,
+      "total_trades": 41,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
+    },
+    {
+      "account_id": "ACCT_000028",
+      "strategy_name": "Mean_Revert",
+      "starting_balance": 100000.0,
+      "balance": 114447.71,
+      "pnl": 14447.71,
+      "win_rate": 0.592,
+      "total_trades": 4,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
+    },
+    {
+      "account_id": "ACCT_000959",
+      "strategy_name": "Attention_Sequence",
+      "starting_balance": 100000.0,
+      "balance": 114320.06,
+      "pnl": 14320.06,
+      "win_rate": 0.3724,
+      "total_trades": 36,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
+    },
+    {
+      "account_id": "ACCT_000108",
       "strategy_name": "Volatility_Scalp",
       "starting_balance": 100000.0,
-      "balance": 94855.42,
-      "pnl": -5144.58,
-      "pnl_pct": -5.14,
-      "positions": {
-        "TLT": 63
-      },
-      "total_trades": 0,
-      "win_rate": 0.0,
-      "max_drawdown": 0.0,
-      "generation": 1,
-      "fitness": 0.0,
-      "params": {
-        "lookback": 38.627632419915976,
-        "threshold": 0.09845743181999249,
-        "position_size": 0.052104759614063426,
-        "stop_loss": 0.07710198942241794,
-        "take_profit": 0.09371662562211723,
-        "max_positions": 10
-      }
+      "balance": 114309.45,
+      "pnl": 14309.45,
+      "win_rate": 0.5126,
+      "total_trades": 33,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
     },
     {
-      "account_id": "ACCT_000203",
-      "strategy_name": "Swing_Trade",
+      "account_id": "ACCT_000581",
+      "strategy_name": "RSI_Divergence",
       "starting_balance": 100000.0,
-      "balance": 94773.76,
-      "pnl": -5226.24,
-      "pnl_pct": -5.23,
-      "positions": {
-        "TLT": 64
-      },
-      "total_trades": 0,
-      "win_rate": 0.0,
-      "max_drawdown": 0.0,
-      "generation": 1,
-      "fitness": 0.0,
-      "params": {
-        "lookback": 12.941091825262468,
-        "threshold": 0.010183647311419047,
-        "position_size": 0.05255968586521108,
-        "stop_loss": 0.017606190757418042,
-        "take_profit": 0.026506460553928038,
-        "max_positions": 3
-      }
+      "balance": 114274.11,
+      "pnl": 14274.11,
+      "win_rate": 0.6715,
+      "total_trades": 47,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
     },
     {
-      "account_id": "ACCT_000575",
-      "strategy_name": "Trend_Follow",
+      "account_id": "ACCT_000418",
+      "strategy_name": "Mean_Revert",
       "starting_balance": 100000.0,
-      "balance": 94773.76,
-      "pnl": -5226.24,
-      "pnl_pct": -5.23,
-      "positions": {
-        "TLT": 64
-      },
-      "total_trades": 0,
-      "win_rate": 0.0,
-      "max_drawdown": 0.0,
-      "generation": 1,
-      "fitness": 0.0,
-      "params": {
-        "lookback": 15.420941848778622,
-        "threshold": 0.07870414472385792,
-        "position_size": 0.052952411869357244,
-        "stop_loss": 0.0351794070909277,
-        "take_profit": 0.08096050457889772,
-        "max_positions": 1
-      }
+      "balance": 114266.64,
+      "pnl": 14266.64,
+      "win_rate": 0.3799,
+      "total_trades": 36,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
     },
     {
-      "account_id": "ACCT_000929",
-      "strategy_name": "MACD_Cross",
+      "account_id": "ACCT_000750",
+      "strategy_name": "Graph_Net",
       "starting_balance": 100000.0,
-      "balance": 94692.1,
-      "pnl": -5307.9,
-      "pnl_pct": -5.31,
-      "positions": {
-        "TLT": 65
-      },
-      "total_trades": 0,
-      "win_rate": 0.0,
-      "max_drawdown": 0.0,
-      "generation": 1,
-      "fitness": 0.0,
-      "params": {
-        "lookback": 41.99703840337348,
-        "threshold": 0.05100165614601116,
-        "position_size": 0.053124056483371304,
-        "stop_loss": 0.018895510212673768,
-        "take_profit": 0.12335932860195781,
-        "max_positions": 9
-      }
+      "balance": 114212.61,
+      "pnl": 14212.61,
+      "win_rate": 0.6567,
+      "total_trades": 50,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
     },
     {
-      "account_id": "ACCT_000051",
-      "strategy_name": "Breakout",
+      "account_id": "ACCT_000097",
+      "strategy_name": "Bayesian_Update",
       "starting_balance": 100000.0,
-      "balance": 94610.44,
-      "pnl": -5389.56,
-      "pnl_pct": -5.39,
-      "positions": {
-        "TLT": 66
-      },
-      "total_trades": 0,
-      "win_rate": 0.0,
-      "max_drawdown": 0.0,
-      "generation": 1,
-      "fitness": 0.0,
-      "params": {
-        "lookback": 22.989008895740444,
-        "threshold": 0.09954844255858393,
-        "position_size": 0.05433854048846655,
-        "stop_loss": 0.017667591096396068,
-        "take_profit": 0.02806224320878149,
-        "max_positions": 4
-      }
+      "balance": 114157.41,
+      "pnl": 14157.41,
+      "win_rate": 0.4688,
+      "total_trades": 12,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
     },
     {
-      "account_id": "ACCT_000486",
+      "account_id": "ACCT_000282",
+      "strategy_name": "Graph_Net",
+      "starting_balance": 100000.0,
+      "balance": 114131.59,
+      "pnl": 14131.59,
+      "win_rate": 0.6164,
+      "total_trades": 27,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
+    },
+    {
+      "account_id": "ACCT_000790",
+      "strategy_name": "Bollinger_Squeeze",
+      "starting_balance": 100000.0,
+      "balance": 114078.01,
+      "pnl": 14078.01,
+      "win_rate": 0.7381,
+      "total_trades": 19,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
+    },
+    {
+      "account_id": "ACCT_000404",
+      "strategy_name": "Correlation_Hedge",
+      "starting_balance": 100000.0,
+      "balance": 114076.14,
+      "pnl": 14076.14,
+      "win_rate": 0.3885,
+      "total_trades": 2,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
+    },
+    {
+      "account_id": "ACCT_000269",
+      "strategy_name": "RSI_Divergence",
+      "starting_balance": 100000.0,
+      "balance": 114056.35,
+      "pnl": 14056.35,
+      "win_rate": 0.4378,
+      "total_trades": 3,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
+    },
+    {
+      "account_id": "ACCT_000042",
+      "strategy_name": "Sentiment_Pivot",
+      "starting_balance": 100000.0,
+      "balance": 114051.0,
+      "pnl": 14051.0,
+      "win_rate": 0.5501,
+      "total_trades": 20,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
+    },
+    {
+      "account_id": "ACCT_000196",
+      "strategy_name": "Correlation_Hedge",
+      "starting_balance": 100000.0,
+      "balance": 114036.24,
+      "pnl": 14036.24,
+      "win_rate": 0.4512,
+      "total_trades": 26,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
+    },
+    {
+      "account_id": "ACCT_000338",
+      "strategy_name": "Fuzzy_Logic",
+      "starting_balance": 100000.0,
+      "balance": 114022.31,
+      "pnl": 14022.31,
+      "win_rate": 0.5184,
+      "total_trades": 48,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
+    },
+    {
+      "account_id": "ACCT_000709",
+      "strategy_name": "Range_Trade",
+      "starting_balance": 100000.0,
+      "balance": 113973.28,
+      "pnl": 13973.28,
+      "win_rate": 0.7282,
+      "total_trades": 17,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
+    },
+    {
+      "account_id": "ACCT_000115",
+      "strategy_name": "EMA_Ribbon",
+      "starting_balance": 100000.0,
+      "balance": 113967.4,
+      "pnl": 13967.4,
+      "win_rate": 0.4981,
+      "total_trades": 23,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
+    },
+    {
+      "account_id": "ACCT_000785",
       "strategy_name": "Pairs_Trade",
       "starting_balance": 100000.0,
-      "balance": 94610.44,
-      "pnl": -5389.56,
-      "pnl_pct": -5.39,
-      "positions": {
-        "TLT": 66
-      },
+      "balance": 113941.58,
+      "pnl": 13941.58,
+      "win_rate": 0.5103,
+      "total_trades": 1,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
+    },
+    {
+      "account_id": "ACCT_000321",
+      "strategy_name": "RSI_Divergence",
+      "starting_balance": 100000.0,
+      "balance": 113934.76,
+      "pnl": 13934.76,
+      "win_rate": 0.6353,
+      "total_trades": 9,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
+    },
+    {
+      "account_id": "ACCT_000496",
+      "strategy_name": "Mean_Revert",
+      "starting_balance": 100000.0,
+      "balance": 113925.75,
+      "pnl": 13925.75,
+      "win_rate": 0.5262,
+      "total_trades": 16,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
+    },
+    {
+      "account_id": "ACCT_000114",
+      "strategy_name": "Bollinger_Squeeze",
+      "starting_balance": 100000.0,
+      "balance": 113904.67,
+      "pnl": 13904.67,
+      "win_rate": 0.7387,
+      "total_trades": 36,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
+    },
+    {
+      "account_id": "ACCT_000072",
+      "strategy_name": "GAN_Forecast",
+      "starting_balance": 100000.0,
+      "balance": 113897.03,
+      "pnl": 13897.03,
+      "win_rate": 0.4995,
+      "total_trades": 43,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
+    },
+    {
+      "account_id": "ACCT_000678",
+      "strategy_name": "Mean_Revert",
+      "starting_balance": 100000.0,
+      "balance": 113895.89,
+      "pnl": 13895.89,
+      "win_rate": 0.4985,
+      "total_trades": 38,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
+    },
+    {
+      "account_id": "ACCT_000503",
+      "strategy_name": "RSI_Divergence",
+      "starting_balance": 100000.0,
+      "balance": 113889.19,
+      "pnl": 13889.19,
+      "win_rate": 0.7468,
+      "total_trades": 16,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
+    },
+    {
+      "account_id": "ACCT_000485",
+      "strategy_name": "ML_LSTM_Predict",
+      "starting_balance": 100000.0,
+      "balance": 113872.25,
+      "pnl": 13872.25,
+      "win_rate": 0.3842,
+      "total_trades": 15,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
+    },
+    {
+      "account_id": "ACCT_000594",
+      "strategy_name": "Graph_Net",
+      "starting_balance": 100000.0,
+      "balance": 113869.15,
+      "pnl": 13869.15,
+      "win_rate": 0.6929,
+      "total_trades": 47,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
+    },
+    {
+      "account_id": "ACCT_000198",
+      "strategy_name": "Sentiment_Pivot",
+      "starting_balance": 100000.0,
+      "balance": 113858.7,
+      "pnl": 13858.7,
+      "win_rate": 0.5622,
+      "total_trades": 25,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
+    },
+    {
+      "account_id": "ACCT_000551",
+      "strategy_name": "Pairs_Trade",
+      "starting_balance": 100000.0,
+      "balance": 113848.14,
+      "pnl": 13848.14,
+      "win_rate": 0.7143,
+      "total_trades": 40,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
+    },
+    {
+      "account_id": "ACCT_000430",
+      "strategy_name": "Correlation_Hedge",
+      "starting_balance": 100000.0,
+      "balance": 113847.88,
+      "pnl": 13847.88,
+      "win_rate": 0.5893,
+      "total_trades": 39,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
+    },
+    {
+      "account_id": "ACCT_000589",
+      "strategy_name": "ML_LSTM_Predict",
+      "starting_balance": 100000.0,
+      "balance": 113831.2,
+      "pnl": 13831.2,
+      "win_rate": 0.6009,
+      "total_trades": 15,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
+    },
+    {
+      "account_id": "ACCT_000880",
+      "strategy_name": "Graph_Net",
+      "starting_balance": 100000.0,
+      "balance": 113822.84,
+      "pnl": 13822.84,
+      "win_rate": 0.3994,
+      "total_trades": 25,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
+    },
+    {
+      "account_id": "ACCT_000234",
+      "strategy_name": "Fuzzy_Logic",
+      "starting_balance": 100000.0,
+      "balance": 113784.33,
+      "pnl": 13784.33,
+      "win_rate": 0.38,
+      "total_trades": 21,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
+    },
+    {
+      "account_id": "ACCT_000432",
+      "strategy_name": "Sentiment_Pivot",
+      "starting_balance": 100000.0,
+      "balance": 113771.82,
+      "pnl": 13771.82,
+      "win_rate": 0.4582,
+      "total_trades": 2,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
+    },
+    {
+      "account_id": "ACCT_000208",
+      "strategy_name": "Fuzzy_Logic",
+      "starting_balance": 100000.0,
+      "balance": 113764.23,
+      "pnl": 13764.23,
+      "win_rate": 0.673,
+      "total_trades": 42,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
+    },
+    {
+      "account_id": "ACCT_000983",
+      "strategy_name": "Diffusion_Model",
+      "starting_balance": 100000.0,
+      "balance": 113751.03,
+      "pnl": 13751.03,
+      "win_rate": 0.545,
+      "total_trades": 20,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
+    },
+    {
+      "account_id": "ACCT_000935",
+      "strategy_name": "Wavelet_Decompose",
+      "starting_balance": 100000.0,
+      "balance": 113730.21,
+      "pnl": 13730.21,
+      "win_rate": 0.4133,
+      "total_trades": 40,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
+    },
+    {
+      "account_id": "ACCT_000251",
+      "strategy_name": "ML_LSTM_Predict",
+      "starting_balance": 100000.0,
+      "balance": 113720.77,
+      "pnl": 13720.77,
+      "win_rate": 0.6334,
+      "total_trades": 41,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
+    },
+    {
+      "account_id": "ACCT_000738",
+      "strategy_name": "Bollinger_Squeeze",
+      "starting_balance": 100000.0,
+      "balance": 113718.92,
+      "pnl": 13718.92,
+      "win_rate": 0.5565,
+      "total_trades": 42,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
+    },
+    {
+      "account_id": "ACCT_000628",
+      "strategy_name": "Volatility_Scalp",
+      "starting_balance": 100000.0,
+      "balance": 113620.32,
+      "pnl": 13620.32,
+      "win_rate": 0.3644,
+      "total_trades": 1,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
+    },
+    {
+      "account_id": "ACCT_000068",
+      "strategy_name": "Sentiment_Pivot",
+      "starting_balance": 100000.0,
+      "balance": 113616.08,
+      "pnl": 13616.08,
+      "win_rate": 0.7387,
+      "total_trades": 31,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
+    },
+    {
+      "account_id": "ACCT_000147",
+      "strategy_name": "ML_LSTM_Predict",
+      "starting_balance": 100000.0,
+      "balance": 113606.01,
+      "pnl": 13606.01,
+      "win_rate": 0.5062,
+      "total_trades": 46,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
+    },
+    {
+      "account_id": "ACCT_000453",
+      "strategy_name": "EMA_Ribbon",
+      "starting_balance": 100000.0,
+      "balance": 113582.51,
+      "pnl": 13582.51,
+      "win_rate": 0.4323,
+      "total_trades": 45,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
+    },
+    {
+      "account_id": "ACCT_000905",
+      "strategy_name": "Diffusion_Model",
+      "starting_balance": 100000.0,
+      "balance": 113554.24,
+      "pnl": 13554.24,
+      "win_rate": 0.7186,
+      "total_trades": 20,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
+    },
+    {
+      "account_id": "ACCT_000335",
+      "strategy_name": "Attention_Sequence",
+      "starting_balance": 100000.0,
+      "balance": 113502.24,
+      "pnl": 13502.24,
+      "win_rate": 0.635,
+      "total_trades": 29,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
+    },
+    {
+      "account_id": "ACCT_000232",
+      "strategy_name": "Autoencoder_Anomaly",
+      "starting_balance": 100000.0,
+      "balance": 113484.54,
+      "pnl": 13484.54,
+      "win_rate": 0.6972,
+      "total_trades": 16,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
+    },
+    {
+      "account_id": "ACCT_000063",
+      "strategy_name": "EMA_Ribbon",
+      "starting_balance": 100000.0,
+      "balance": 113483.29,
+      "pnl": 13483.29,
+      "win_rate": 0.4146,
+      "total_trades": 17,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
+    },
+    {
+      "account_id": "ACCT_000997",
+      "strategy_name": "RSI_Divergence",
+      "starting_balance": 100000.0,
+      "balance": 113455.4,
+      "pnl": 13455.4,
+      "win_rate": 0.5388,
+      "total_trades": 19,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
+    },
+    {
+      "account_id": "ACCT_000024",
+      "strategy_name": "Autoencoder_Anomaly",
+      "starting_balance": 100000.0,
+      "balance": 113423.36,
+      "pnl": 13423.36,
+      "win_rate": 0.4587,
+      "total_trades": 5,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
+    },
+    {
+      "account_id": "ACCT_000542",
+      "strategy_name": "Graph_Net",
+      "starting_balance": 100000.0,
+      "balance": 113392.88,
+      "pnl": 13392.88,
+      "win_rate": 0.6471,
+      "total_trades": 8,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
+    },
+    {
+      "account_id": "ACCT_000431",
+      "strategy_name": "Volume_Profile",
+      "starting_balance": 100000.0,
+      "balance": 113375.36,
+      "pnl": 13375.36,
+      "win_rate": 0.705,
+      "total_trades": 30,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
+    },
+    {
+      "account_id": "ACCT_000478",
+      "strategy_name": "Bollinger_Squeeze",
+      "starting_balance": 100000.0,
+      "balance": 113357.03,
+      "pnl": 13357.03,
+      "win_rate": 0.651,
+      "total_trades": 6,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
+    },
+    {
+      "account_id": "ACCT_000921",
+      "strategy_name": "EMA_Ribbon",
+      "starting_balance": 100000.0,
+      "balance": 113329.97,
+      "pnl": 13329.97,
+      "win_rate": 0.6017,
+      "total_trades": 28,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
+    },
+    {
+      "account_id": "ACCT_000129",
+      "strategy_name": "Wavelet_Decompose",
+      "starting_balance": 100000.0,
+      "balance": 113326.26,
+      "pnl": 13326.26,
+      "win_rate": 0.3899,
+      "total_trades": 28,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
+    },
+    {
+      "account_id": "ACCT_000680",
+      "strategy_name": "Volatility_Scalp",
+      "starting_balance": 100000.0,
+      "balance": 113322.83,
+      "pnl": 13322.83,
+      "win_rate": 0.6381,
+      "total_trades": 8,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
+    },
+    {
+      "account_id": "ACCT_000261",
+      "strategy_name": "Trend_Follow",
+      "starting_balance": 100000.0,
+      "balance": 113319.34,
+      "pnl": 13319.34,
+      "win_rate": 0.3836,
+      "total_trades": 27,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
+    },
+    {
+      "account_id": "ACCT_000178",
+      "strategy_name": "Graph_Net",
+      "starting_balance": 100000.0,
+      "balance": 113311.41,
+      "pnl": 13311.41,
+      "win_rate": 0.4271,
+      "total_trades": 1,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
+    },
+    {
+      "account_id": "ACCT_000121",
+      "strategy_name": "ML_LSTM_Predict",
+      "starting_balance": 100000.0,
+      "balance": 113306.02,
+      "pnl": 13306.02,
+      "win_rate": 0.5335,
+      "total_trades": 23,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
+    },
+    {
+      "account_id": "ACCT_000534",
+      "strategy_name": "Correlation_Hedge",
+      "starting_balance": 100000.0,
+      "balance": 113291.49,
+      "pnl": 13291.49,
+      "win_rate": 0.448,
+      "total_trades": 26,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
+    },
+    {
+      "account_id": "ACCT_000394",
+      "strategy_name": "Volatility_Scalp",
+      "starting_balance": 100000.0,
+      "balance": 113214.64,
+      "pnl": 13214.64,
+      "win_rate": 0.3748,
+      "total_trades": 16,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
+    },
+    {
+      "account_id": "ACCT_000416",
+      "strategy_name": "Fuzzy_Logic",
+      "starting_balance": 100000.0,
+      "balance": 113212.29,
+      "pnl": 13212.29,
+      "win_rate": 0.4506,
+      "total_trades": 45,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
+    },
+    {
+      "account_id": "ACCT_000879",
+      "strategy_name": "Diffusion_Model",
+      "starting_balance": 100000.0,
+      "balance": 113187.05,
+      "pnl": 13187.05,
+      "win_rate": 0.4027,
+      "total_trades": 38,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
+    },
+    {
+      "account_id": "ACCT_000578",
+      "strategy_name": "Momentum_Ride",
+      "starting_balance": 100000.0,
+      "balance": 113141.22,
+      "pnl": 13141.22,
+      "win_rate": 0.398,
+      "total_trades": 27,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
+    },
+    {
+      "account_id": "ACCT_000323",
+      "strategy_name": "EMA_Ribbon",
+      "starting_balance": 100000.0,
+      "balance": 113119.98,
+      "pnl": 13119.98,
+      "win_rate": 0.4663,
+      "total_trades": 2,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
+    },
+    {
+      "account_id": "ACCT_000926",
+      "strategy_name": "Sentiment_Pivot",
+      "starting_balance": 100000.0,
+      "balance": 112998.42,
+      "pnl": 12998.42,
+      "win_rate": 0.6682,
+      "total_trades": 13,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
+    },
+    {
+      "account_id": "ACCT_000168",
+      "strategy_name": "VWAP_Bounce",
+      "starting_balance": 100000.0,
+      "balance": 112992.54,
+      "pnl": 12992.54,
+      "win_rate": 0.4332,
+      "total_trades": 6,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
+    },
+    {
+      "account_id": "ACCT_000614",
+      "strategy_name": "Sentiment_Pivot",
+      "starting_balance": 100000.0,
+      "balance": 112984.48,
+      "pnl": 12984.48,
+      "win_rate": 0.4573,
+      "total_trades": 46,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
+    },
+    {
+      "account_id": "ACCT_000139",
+      "strategy_name": "RSI_Divergence",
+      "starting_balance": 100000.0,
+      "balance": 112914.77,
+      "pnl": 12914.77,
+      "win_rate": 0.6193,
       "total_trades": 0,
-      "win_rate": 0.0,
-      "max_drawdown": 0.0,
-      "generation": 1,
-      "fitness": 0.0,
-      "params": {
-        "lookback": 17.450830690492474,
-        "threshold": 0.07934337456207699,
-        "position_size": 0.054547042620830974,
-        "stop_loss": 0.011582082956110396,
-        "take_profit": 0.023995225394191657,
-        "max_positions": 10
-      }
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
+    },
+    {
+      "account_id": "ACCT_000278",
+      "strategy_name": "RL_Q_Learn",
+      "starting_balance": 100000.0,
+      "balance": 112879.0,
+      "pnl": 12879.0,
+      "win_rate": 0.5988,
+      "total_trades": 47,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
+    },
+    {
+      "account_id": "ACCT_000894",
+      "strategy_name": "Bollinger_Squeeze",
+      "starting_balance": 100000.0,
+      "balance": 112867.46,
+      "pnl": 12867.46,
+      "win_rate": 0.5033,
+      "total_trades": 41,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
+    },
+    {
+      "account_id": "ACCT_000428",
+      "strategy_name": "VWAP_Bounce",
+      "starting_balance": 100000.0,
+      "balance": 112799.45,
+      "pnl": 12799.45,
+      "win_rate": 0.6312,
+      "total_trades": 48,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
+    },
+    {
+      "account_id": "ACCT_000546",
+      "strategy_name": "Fuzzy_Logic",
+      "starting_balance": 100000.0,
+      "balance": 112797.99,
+      "pnl": 12797.99,
+      "win_rate": 0.4917,
+      "total_trades": 25,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
+    },
+    {
+      "account_id": "ACCT_000377",
+      "strategy_name": "ATR_Trail",
+      "starting_balance": 100000.0,
+      "balance": 112758.66,
+      "pnl": 12758.66,
+      "win_rate": 0.56,
+      "total_trades": 32,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
+    },
+    {
+      "account_id": "ACCT_000140",
+      "strategy_name": "Bollinger_Squeeze",
+      "starting_balance": 100000.0,
+      "balance": 112704.31,
+      "pnl": 12704.31,
+      "win_rate": 0.5158,
+      "total_trades": 0,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
+    },
+    {
+      "account_id": "ACCT_000205",
+      "strategy_name": "Attention_Sequence",
+      "starting_balance": 100000.0,
+      "balance": 112671.11,
+      "pnl": 12671.11,
+      "win_rate": 0.5747,
+      "total_trades": 24,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
+    },
+    {
+      "account_id": "ACCT_000181",
+      "strategy_name": "Wavelet_Decompose",
+      "starting_balance": 100000.0,
+      "balance": 112667.16,
+      "pnl": 12667.16,
+      "win_rate": 0.3618,
+      "total_trades": 8,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
+    },
+    {
+      "account_id": "ACCT_000160",
+      "strategy_name": "Volatility_Scalp",
+      "starting_balance": 100000.0,
+      "balance": 112651.91,
+      "pnl": 12651.91,
+      "win_rate": 0.4688,
+      "total_trades": 34,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
+    },
+    {
+      "account_id": "ACCT_000045",
+      "strategy_name": "Bayesian_Update",
+      "starting_balance": 100000.0,
+      "balance": 112619.76,
+      "pnl": 12619.76,
+      "win_rate": 0.5514,
+      "total_trades": 32,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
+    },
+    {
+      "account_id": "ACCT_000270",
+      "strategy_name": "Bollinger_Squeeze",
+      "starting_balance": 100000.0,
+      "balance": 112586.34,
+      "pnl": 12586.34,
+      "win_rate": 0.5801,
+      "total_trades": 15,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
+    },
+    {
+      "account_id": "ACCT_000102",
+      "strategy_name": "Autoencoder_Anomaly",
+      "starting_balance": 100000.0,
+      "balance": 112556.92,
+      "pnl": 12556.92,
+      "win_rate": 0.4294,
+      "total_trades": 46,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
+    },
+    {
+      "account_id": "ACCT_000984",
+      "strategy_name": "Graph_Net",
+      "starting_balance": 100000.0,
+      "balance": 112547.45,
+      "pnl": 12547.45,
+      "win_rate": 0.5538,
+      "total_trades": 31,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
+    },
+    {
+      "account_id": "ACCT_000326",
+      "strategy_name": "Correlation_Hedge",
+      "starting_balance": 100000.0,
+      "balance": 112539.77,
+      "pnl": 12539.77,
+      "win_rate": 0.7181,
+      "total_trades": 38,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
+    },
+    {
+      "account_id": "ACCT_000787",
+      "strategy_name": "Range_Trade",
+      "starting_balance": 100000.0,
+      "balance": 112391.69,
+      "pnl": 12391.69,
+      "win_rate": 0.7361,
+      "total_trades": 33,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
+    },
+    {
+      "account_id": "ACCT_000807",
+      "strategy_name": "Trend_Follow",
+      "starting_balance": 100000.0,
+      "balance": 112368.53,
+      "pnl": 12368.53,
+      "win_rate": 0.4213,
+      "total_trades": 15,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
+    },
+    {
+      "account_id": "ACCT_000887",
+      "strategy_name": "Breakout_Hunter",
+      "starting_balance": 100000.0,
+      "balance": 112349.43,
+      "pnl": 12349.43,
+      "win_rate": 0.7341,
+      "total_trades": 48,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
+    },
+    {
+      "account_id": "ACCT_000916",
+      "strategy_name": "Momentum_Ride",
+      "starting_balance": 100000.0,
+      "balance": 112317.21,
+      "pnl": 12317.21,
+      "win_rate": 0.5649,
+      "total_trades": 45,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
+    },
+    {
+      "account_id": "ACCT_000233",
+      "strategy_name": "Wavelet_Decompose",
+      "starting_balance": 100000.0,
+      "balance": 112316.34,
+      "pnl": 12316.34,
+      "win_rate": 0.3672,
+      "total_trades": 3,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
+    },
+    {
+      "account_id": "ACCT_000272",
+      "strategy_name": "VWAP_Bounce",
+      "starting_balance": 100000.0,
+      "balance": 112299.81,
+      "pnl": 12299.81,
+      "win_rate": 0.6298,
+      "total_trades": 25,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
+    },
+    {
+      "account_id": "ACCT_000564",
+      "strategy_name": "RL_Q_Learn",
+      "starting_balance": 100000.0,
+      "balance": 112294.84,
+      "pnl": 12294.84,
+      "win_rate": 0.6424,
+      "total_trades": 27,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
+    },
+    {
+      "account_id": "ACCT_000539",
+      "strategy_name": "Bayesian_Update",
+      "starting_balance": 100000.0,
+      "balance": 112273.15,
+      "pnl": 12273.15,
+      "win_rate": 0.4292,
+      "total_trades": 11,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
+    },
+    {
+      "account_id": "ACCT_000284",
+      "strategy_name": "Autoencoder_Anomaly",
+      "starting_balance": 100000.0,
+      "balance": 112268.92,
+      "pnl": 12268.92,
+      "win_rate": 0.4183,
+      "total_trades": 48,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
+    },
+    {
+      "account_id": "ACCT_000138",
+      "strategy_name": "MACD_Cross",
+      "starting_balance": 100000.0,
+      "balance": 112230.96,
+      "pnl": 12230.96,
+      "win_rate": 0.4558,
+      "total_trades": 50,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
+    },
+    {
+      "account_id": "ACCT_000600",
+      "strategy_name": "Mean_Revert",
+      "starting_balance": 100000.0,
+      "balance": 112191.46,
+      "pnl": 12191.46,
+      "win_rate": 0.6863,
+      "total_trades": 18,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
+    },
+    {
+      "account_id": "ACCT_000067",
+      "strategy_name": "Volume_Profile",
+      "starting_balance": 100000.0,
+      "balance": 112163.13,
+      "pnl": 12163.13,
+      "win_rate": 0.6101,
+      "total_trades": 8,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
+    },
+    {
+      "account_id": "ACCT_000635",
+      "strategy_name": "EMA_Ribbon",
+      "starting_balance": 100000.0,
+      "balance": 112162.3,
+      "pnl": 12162.3,
+      "win_rate": 0.6948,
+      "total_trades": 4,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
+    },
+    {
+      "account_id": "ACCT_000540",
+      "strategy_name": "GAN_Forecast",
+      "starting_balance": 100000.0,
+      "balance": 112157.33,
+      "pnl": 12157.33,
+      "win_rate": 0.3562,
+      "total_trades": 7,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
+    },
+    {
+      "account_id": "ACCT_000716",
+      "strategy_name": "Correlation_Hedge",
+      "starting_balance": 100000.0,
+      "balance": 112154.78,
+      "pnl": 12154.78,
+      "win_rate": 0.7182,
+      "total_trades": 12,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
+    },
+    {
+      "account_id": "ACCT_000328",
+      "strategy_name": "Sentiment_Pivot",
+      "starting_balance": 100000.0,
+      "balance": 112146.45,
+      "pnl": 12146.45,
+      "win_rate": 0.6718,
+      "total_trades": 8,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
+    },
+    {
+      "account_id": "ACCT_000333",
+      "strategy_name": "Diffusion_Model",
+      "starting_balance": 100000.0,
+      "balance": 112146.19,
+      "pnl": 12146.19,
+      "win_rate": 0.5248,
+      "total_trades": 8,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
+    },
+    {
+      "account_id": "ACCT_000617",
+      "strategy_name": "Bayesian_Update",
+      "starting_balance": 100000.0,
+      "balance": 112139.31,
+      "pnl": 12139.31,
+      "win_rate": 0.5644,
+      "total_trades": 49,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
+    },
+    {
+      "account_id": "ACCT_000344",
+      "strategy_name": "Momentum_Ride",
+      "starting_balance": 100000.0,
+      "balance": 112122.95,
+      "pnl": 12122.95,
+      "win_rate": 0.5341,
+      "total_trades": 3,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
+    },
+    {
+      "account_id": "ACCT_000447",
+      "strategy_name": "Pairs_Trade",
+      "starting_balance": 100000.0,
+      "balance": 112084.88,
+      "pnl": 12084.88,
+      "win_rate": 0.45,
+      "total_trades": 3,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
+    },
+    {
+      "account_id": "ACCT_000911",
+      "strategy_name": "Trend_Follow",
+      "starting_balance": 100000.0,
+      "balance": 112057.97,
+      "pnl": 12057.97,
+      "win_rate": 0.7136,
+      "total_trades": 15,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
+    },
+    {
+      "account_id": "ACCT_000661",
+      "strategy_name": "EMA_Ribbon",
+      "starting_balance": 100000.0,
+      "balance": 112042.84,
+      "pnl": 12042.84,
+      "win_rate": 0.4573,
+      "total_trades": 13,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
+    },
+    {
+      "account_id": "ACCT_000698",
+      "strategy_name": "Graph_Net",
+      "starting_balance": 100000.0,
+      "balance": 112040.74,
+      "pnl": 12040.74,
+      "win_rate": 0.6174,
+      "total_trades": 30,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
+    },
+    {
+      "account_id": "ACCT_000499",
+      "strategy_name": "Pairs_Trade",
+      "starting_balance": 100000.0,
+      "balance": 112038.5,
+      "pnl": 12038.5,
+      "win_rate": 0.6124,
+      "total_trades": 14,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
+    },
+    {
+      "account_id": "ACCT_000942",
+      "strategy_name": "Momentum_Ride",
+      "starting_balance": 100000.0,
+      "balance": 112015.35,
+      "pnl": 12015.35,
+      "win_rate": 0.5567,
+      "total_trades": 30,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
+    },
+    {
+      "account_id": "ACCT_000543",
+      "strategy_name": "Attention_Sequence",
+      "starting_balance": 100000.0,
+      "balance": 111997.55,
+      "pnl": 11997.55,
+      "win_rate": 0.6835,
+      "total_trades": 1,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
+    },
+    {
+      "account_id": "ACCT_000774",
+      "strategy_name": "GAN_Forecast",
+      "starting_balance": 100000.0,
+      "balance": 111994.57,
+      "pnl": 11994.57,
+      "win_rate": 0.3532,
+      "total_trades": 26,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
+    },
+    {
+      "account_id": "ACCT_000254",
+      "strategy_name": "GAN_Forecast",
+      "starting_balance": 100000.0,
+      "balance": 111960.75,
+      "pnl": 11960.75,
+      "win_rate": 0.5554,
+      "total_trades": 49,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
+    },
+    {
+      "account_id": "ACCT_000061",
+      "strategy_name": "RSI_Divergence",
+      "starting_balance": 100000.0,
+      "balance": 111953.27,
+      "pnl": 11953.27,
+      "win_rate": 0.669,
+      "total_trades": 5,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
+    },
+    {
+      "account_id": "ACCT_000914",
+      "strategy_name": "Volatility_Scalp",
+      "starting_balance": 100000.0,
+      "balance": 111942.44,
+      "pnl": 11942.44,
+      "win_rate": 0.7482,
+      "total_trades": 24,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
+    },
+    {
+      "account_id": "ACCT_000818",
+      "strategy_name": "VWAP_Bounce",
+      "starting_balance": 100000.0,
+      "balance": 111836.73,
+      "pnl": 11836.73,
+      "win_rate": 0.6714,
+      "total_trades": 0,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
+    },
+    {
+      "account_id": "ACCT_000238",
+      "strategy_name": "Volatility_Scalp",
+      "starting_balance": 100000.0,
+      "balance": 111823.58,
+      "pnl": 11823.58,
+      "win_rate": 0.6512,
+      "total_trades": 26,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
+    },
+    {
+      "account_id": "ACCT_000438",
+      "strategy_name": "Graph_Net",
+      "starting_balance": 100000.0,
+      "balance": 111786.77,
+      "pnl": 11786.77,
+      "win_rate": 0.6228,
+      "total_trades": 47,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
+    },
+    {
+      "account_id": "ACCT_000795",
+      "strategy_name": "Volume_Profile",
+      "starting_balance": 100000.0,
+      "balance": 111728.53,
+      "pnl": 11728.53,
+      "win_rate": 0.5246,
+      "total_trades": 46,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
+    },
+    {
+      "account_id": "ACCT_000298",
+      "strategy_name": "VWAP_Bounce",
+      "starting_balance": 100000.0,
+      "balance": 111694.11,
+      "pnl": 11694.11,
+      "win_rate": 0.6137,
+      "total_trades": 9,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
+    },
+    {
+      "account_id": "ACCT_000216",
+      "strategy_name": "MACD_Cross",
+      "starting_balance": 100000.0,
+      "balance": 111690.37,
+      "pnl": 11690.37,
+      "win_rate": 0.7452,
+      "total_trades": 29,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
+    },
+    {
+      "account_id": "ACCT_000376",
+      "strategy_name": "VWAP_Bounce",
+      "starting_balance": 100000.0,
+      "balance": 111684.31,
+      "pnl": 11684.31,
+      "win_rate": 0.5513,
+      "total_trades": 22,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
+    },
+    {
+      "account_id": "ACCT_000714",
+      "strategy_name": "VWAP_Bounce",
+      "starting_balance": 100000.0,
+      "balance": 111673.56,
+      "pnl": 11673.56,
+      "win_rate": 0.6583,
+      "total_trades": 22,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
+    },
+    {
+      "account_id": "ACCT_000697",
+      "strategy_name": "Diffusion_Model",
+      "starting_balance": 100000.0,
+      "balance": 111628.21,
+      "pnl": 11628.21,
+      "win_rate": 0.5919,
+      "total_trades": 47,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
+    },
+    {
+      "account_id": "ACCT_000285",
+      "strategy_name": "Wavelet_Decompose",
+      "starting_balance": 100000.0,
+      "balance": 111621.06,
+      "pnl": 11621.06,
+      "win_rate": 0.5876,
+      "total_trades": 30,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
+    },
+    {
+      "account_id": "ACCT_000352",
+      "strategy_name": "Correlation_Hedge",
+      "starting_balance": 100000.0,
+      "balance": 111601.88,
+      "pnl": 11601.88,
+      "win_rate": 0.4704,
+      "total_trades": 19,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
+    },
+    {
+      "account_id": "ACCT_000903",
+      "strategy_name": "Bayesian_Update",
+      "starting_balance": 100000.0,
+      "balance": 111557.11,
+      "pnl": 11557.11,
+      "win_rate": 0.4146,
+      "total_trades": 23,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
+    },
+    {
+      "account_id": "ACCT_000225",
+      "strategy_name": "ML_LSTM_Predict",
+      "starting_balance": 100000.0,
+      "balance": 111519.46,
+      "pnl": 11519.46,
+      "win_rate": 0.7369,
+      "total_trades": 7,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
+    },
+    {
+      "account_id": "ACCT_000736",
+      "strategy_name": "MACD_Cross",
+      "starting_balance": 100000.0,
+      "balance": 111509.29,
+      "pnl": 11509.29,
+      "win_rate": 0.4766,
+      "total_trades": 45,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
+    },
+    {
+      "account_id": "ACCT_000491",
+      "strategy_name": "Attention_Sequence",
+      "starting_balance": 100000.0,
+      "balance": 111494.63,
+      "pnl": 11494.63,
+      "win_rate": 0.5275,
+      "total_trades": 1,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
+    },
+    {
+      "account_id": "ACCT_000923",
+      "strategy_name": "ATR_Trail",
+      "starting_balance": 100000.0,
+      "balance": 111482.62,
+      "pnl": 11482.62,
+      "win_rate": 0.6532,
+      "total_trades": 37,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
+    },
+    {
+      "account_id": "ACCT_000958",
+      "strategy_name": "Graph_Net",
+      "starting_balance": 100000.0,
+      "balance": 111471.93,
+      "pnl": 11471.93,
+      "win_rate": 0.5651,
+      "total_trades": 5,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
+    },
+    {
+      "account_id": "ACCT_000226",
+      "strategy_name": "RL_Q_Learn",
+      "starting_balance": 100000.0,
+      "balance": 111390.74,
+      "pnl": 11390.74,
+      "win_rate": 0.7251,
+      "total_trades": 6,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
+    },
+    {
+      "account_id": "ACCT_000360",
+      "strategy_name": "Graph_Net",
+      "starting_balance": 100000.0,
+      "balance": 111359.58,
+      "pnl": 11359.58,
+      "win_rate": 0.5687,
+      "total_trades": 39,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
+    },
+    {
+      "account_id": "ACCT_000461",
+      "strategy_name": "Bayesian_Update",
+      "starting_balance": 100000.0,
+      "balance": 111352.78,
+      "pnl": 11352.78,
+      "win_rate": 0.5584,
+      "total_trades": 19,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
+    },
+    {
+      "account_id": "ACCT_000397",
+      "strategy_name": "Range_Trade",
+      "starting_balance": 100000.0,
+      "balance": 111335.63,
+      "pnl": 11335.63,
+      "win_rate": 0.7194,
+      "total_trades": 20,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
+    },
+    {
+      "account_id": "ACCT_000161",
+      "strategy_name": "Pairs_Trade",
+      "starting_balance": 100000.0,
+      "balance": 111330.51,
+      "pnl": 11330.51,
+      "win_rate": 0.6405,
+      "total_trades": 50,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
+    },
+    {
+      "account_id": "ACCT_000953",
+      "strategy_name": "ML_LSTM_Predict",
+      "starting_balance": 100000.0,
+      "balance": 111319.47,
+      "pnl": 11319.47,
+      "win_rate": 0.6883,
+      "total_trades": 50,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
+    },
+    {
+      "account_id": "ACCT_000657",
+      "strategy_name": "Range_Trade",
+      "starting_balance": 100000.0,
+      "balance": 111311.95,
+      "pnl": 11311.95,
+      "win_rate": 0.6542,
+      "total_trades": 3,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
+    },
+    {
+      "account_id": "ACCT_000850",
+      "strategy_name": "RL_Q_Learn",
+      "starting_balance": 100000.0,
+      "balance": 111247.63,
+      "pnl": 11247.63,
+      "win_rate": 0.5234,
+      "total_trades": 7,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
+    },
+    {
+      "account_id": "ACCT_000005",
+      "strategy_name": "Pairs_Trade",
+      "starting_balance": 100000.0,
+      "balance": 111210.8,
+      "pnl": 11210.8,
+      "win_rate": 0.5706,
+      "total_trades": 26,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
     },
     {
       "account_id": "ACCT_000816",
-      "strategy_name": "Swing_Trade",
+      "strategy_name": "Bollinger_Squeeze",
       "starting_balance": 100000.0,
-      "balance": 94610.44,
-      "pnl": -5389.56,
-      "pnl_pct": -5.39,
-      "positions": {
-        "TLT": 66
-      },
-      "total_trades": 0,
-      "win_rate": 0.0,
-      "max_drawdown": 0.0,
-      "generation": 1,
-      "fitness": 0.0,
-      "params": {
-        "lookback": 36.34074349842999,
-        "threshold": 0.04166178629596143,
-        "position_size": 0.054586747236237895,
-        "stop_loss": 0.029581205701702952,
-        "take_profit": 0.0774536382450879,
-        "max_positions": 1
-      }
+      "balance": 111187.35,
+      "pnl": 11187.35,
+      "win_rate": 0.536,
+      "total_trades": 5,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
     },
     {
-      "account_id": "ACCT_000860",
+      "account_id": "ACCT_000318",
+      "strategy_name": "Momentum_Ride",
+      "starting_balance": 100000.0,
+      "balance": 111184.53,
+      "pnl": 11184.53,
+      "win_rate": 0.37,
+      "total_trades": 8,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
+    },
+    {
+      "account_id": "ACCT_000574",
       "strategy_name": "Mean_Revert",
       "starting_balance": 100000.0,
-      "balance": 94610.44,
-      "pnl": -5389.56,
-      "pnl_pct": -5.39,
-      "positions": {
-        "TLT": 66
-      },
-      "total_trades": 0,
-      "win_rate": 0.0,
-      "max_drawdown": 0.0,
-      "generation": 1,
-      "fitness": 0.0,
-      "params": {
-        "lookback": 33.47447403609009,
-        "threshold": 0.03238558076456854,
-        "position_size": 0.05437188158086349,
-        "stop_loss": 0.057555735174113616,
-        "take_profit": 0.10023533651884176,
-        "max_positions": 5
-      }
+      "balance": 111147.6,
+      "pnl": 11147.6,
+      "win_rate": 0.3603,
+      "total_trades": 13,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
     },
     {
-      "account_id": "ACCT_000866",
-      "strategy_name": "Grid_Trade",
-      "starting_balance": 100000.0,
-      "balance": 94610.44,
-      "pnl": -5389.56,
-      "pnl_pct": -5.39,
-      "positions": {
-        "TLT": 66
-      },
-      "total_trades": 0,
-      "win_rate": 0.0,
-      "max_drawdown": 0.0,
-      "generation": 1,
-      "fitness": 0.0,
-      "params": {
-        "lookback": 18.28746300617364,
-        "threshold": 0.06568067528666467,
-        "position_size": 0.05409777011453511,
-        "stop_loss": 0.04316394901439673,
-        "take_profit": 0.09457066444711526,
-        "max_positions": 10
-      }
-    },
-    {
-      "account_id": "ACCT_000883",
+      "account_id": "ACCT_000762",
       "strategy_name": "MACD_Cross",
       "starting_balance": 100000.0,
-      "balance": 94610.44,
-      "pnl": -5389.56,
-      "pnl_pct": -5.39,
-      "positions": {
-        "TLT": 66
-      },
+      "balance": 111129.8,
+      "pnl": 11129.8,
+      "win_rate": 0.3647,
+      "total_trades": 37,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
+    },
+    {
+      "account_id": "ACCT_000965",
+      "strategy_name": "Breakout_Hunter",
+      "starting_balance": 100000.0,
+      "balance": 111105.92,
+      "pnl": 11105.92,
+      "win_rate": 0.3755,
+      "total_trades": 8,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
+    },
+    {
+      "account_id": "ACCT_000638",
+      "strategy_name": "Correlation_Hedge",
+      "starting_balance": 100000.0,
+      "balance": 111095.78,
+      "pnl": 11095.78,
+      "win_rate": 0.5919,
+      "total_trades": 9,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
+    },
+    {
+      "account_id": "ACCT_000767",
+      "strategy_name": "ATR_Trail",
+      "starting_balance": 100000.0,
+      "balance": 111086.73,
+      "pnl": 11086.73,
+      "win_rate": 0.6677,
+      "total_trades": 5,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
+    },
+    {
+      "account_id": "ACCT_000316",
+      "strategy_name": "Volatility_Scalp",
+      "starting_balance": 100000.0,
+      "balance": 110985.82,
+      "pnl": 10985.82,
+      "win_rate": 0.3994,
+      "total_trades": 31,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
+    },
+    {
+      "account_id": "ACCT_000274",
+      "strategy_name": "Correlation_Hedge",
+      "starting_balance": 100000.0,
+      "balance": 110953.58,
+      "pnl": 10953.58,
+      "win_rate": 0.6267,
+      "total_trades": 31,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
+    },
+    {
+      "account_id": "ACCT_000725",
+      "strategy_name": "Attention_Sequence",
+      "starting_balance": 100000.0,
+      "balance": 110936.49,
+      "pnl": 10936.49,
+      "win_rate": 0.6953,
+      "total_trades": 30,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
+    },
+    {
+      "account_id": "ACCT_000867",
+      "strategy_name": "RSI_Divergence",
+      "starting_balance": 100000.0,
+      "balance": 110920.46,
+      "pnl": 10920.46,
+      "win_rate": 0.4107,
+      "total_trades": 47,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
+    },
+    {
+      "account_id": "ACCT_000814",
+      "strategy_name": "MACD_Cross",
+      "starting_balance": 100000.0,
+      "balance": 110889.33,
+      "pnl": 10889.33,
+      "win_rate": 0.3639,
+      "total_trades": 26,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
+    },
+    {
+      "account_id": "ACCT_000843",
+      "strategy_name": "EMA_Ribbon",
+      "starting_balance": 100000.0,
+      "balance": 110871.17,
+      "pnl": 10871.17,
+      "win_rate": 0.5776,
+      "total_trades": 2,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
+    },
+    {
+      "account_id": "ACCT_000142",
+      "strategy_name": "VWAP_Bounce",
+      "starting_balance": 100000.0,
+      "balance": 110860.79,
+      "pnl": 10860.79,
+      "win_rate": 0.59,
+      "total_trades": 21,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
+    },
+    {
+      "account_id": "ACCT_000195",
+      "strategy_name": "ATR_Trail",
+      "starting_balance": 100000.0,
+      "balance": 110844.86,
+      "pnl": 10844.86,
+      "win_rate": 0.5298,
+      "total_trades": 2,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
+    },
+    {
+      "account_id": "ACCT_000117",
+      "strategy_name": "ATR_Trail",
+      "starting_balance": 100000.0,
+      "balance": 110838.18,
+      "pnl": 10838.18,
+      "win_rate": 0.3999,
+      "total_trades": 31,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
+    },
+    {
+      "account_id": "ACCT_000004",
+      "strategy_name": "Volatility_Scalp",
+      "starting_balance": 100000.0,
+      "balance": 110837.24,
+      "pnl": 10837.24,
+      "win_rate": 0.4679,
+      "total_trades": 9,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
+    },
+    {
+      "account_id": "ACCT_000248",
+      "strategy_name": "Correlation_Hedge",
+      "starting_balance": 100000.0,
+      "balance": 110825.76,
+      "pnl": 10825.76,
+      "win_rate": 0.4252,
+      "total_trades": 6,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
+    },
+    {
+      "account_id": "ACCT_000029",
+      "strategy_name": "Breakout_Hunter",
+      "starting_balance": 100000.0,
+      "balance": 110780.85,
+      "pnl": 10780.85,
+      "win_rate": 0.5374,
+      "total_trades": 20,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
+    },
+    {
+      "account_id": "ACCT_000231",
+      "strategy_name": "Attention_Sequence",
+      "starting_balance": 100000.0,
+      "balance": 110771.4,
+      "pnl": 10771.4,
+      "win_rate": 0.565,
       "total_trades": 0,
-      "win_rate": 0.0,
-      "max_drawdown": 0.0,
-      "generation": 1,
-      "fitness": 0.0,
-      "params": {
-        "lookback": 11.92142909802321,
-        "threshold": 0.02070764256616519,
-        "position_size": 0.05445996542306682,
-        "stop_loss": 0.01999883473881583,
-        "take_profit": 0.11335202149322554,
-        "max_positions": 8
-      }
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
+    },
+    {
+      "account_id": "ACCT_000765",
+      "strategy_name": "EMA_Ribbon",
+      "starting_balance": 100000.0,
+      "balance": 110650.89,
+      "pnl": 10650.89,
+      "win_rate": 0.6685,
+      "total_trades": 13,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
+    },
+    {
+      "account_id": "ACCT_000489",
+      "strategy_name": "Diffusion_Model",
+      "starting_balance": 100000.0,
+      "balance": 110635.97,
+      "pnl": 10635.97,
+      "win_rate": 0.5932,
+      "total_trades": 7,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
+    },
+    {
+      "account_id": "ACCT_000475",
+      "strategy_name": "Range_Trade",
+      "starting_balance": 100000.0,
+      "balance": 110635.6,
+      "pnl": 10635.6,
+      "win_rate": 0.5864,
+      "total_trades": 48,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
+    },
+    {
+      "account_id": "ACCT_000405",
+      "strategy_name": "Volume_Profile",
+      "starting_balance": 100000.0,
+      "balance": 110630.2,
+      "pnl": 10630.2,
+      "win_rate": 0.7073,
+      "total_trades": 23,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
+    },
+    {
+      "account_id": "ACCT_000653",
+      "strategy_name": "Breakout_Hunter",
+      "starting_balance": 100000.0,
+      "balance": 110622.66,
+      "pnl": 10622.66,
+      "win_rate": 0.7403,
+      "total_trades": 6,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
+    },
+    {
+      "account_id": "ACCT_000613",
+      "strategy_name": "Volume_Profile",
+      "starting_balance": 100000.0,
+      "balance": 110607.7,
+      "pnl": 10607.7,
+      "win_rate": 0.5201,
+      "total_trades": 16,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
+    },
+    {
+      "account_id": "ACCT_000046",
+      "strategy_name": "GAN_Forecast",
+      "starting_balance": 100000.0,
+      "balance": 110572.37,
+      "pnl": 10572.37,
+      "win_rate": 0.4101,
+      "total_trades": 37,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
+    },
+    {
+      "account_id": "ACCT_000429",
+      "strategy_name": "ATR_Trail",
+      "starting_balance": 100000.0,
+      "balance": 110572.21,
+      "pnl": 10572.21,
+      "win_rate": 0.4883,
+      "total_trades": 4,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
+    },
+    {
+      "account_id": "ACCT_000411",
+      "strategy_name": "Diffusion_Model",
+      "starting_balance": 100000.0,
+      "balance": 110436.71,
+      "pnl": 10436.71,
+      "win_rate": 0.5256,
+      "total_trades": 40,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
+    },
+    {
+      "account_id": "ACCT_000146",
+      "strategy_name": "Sentiment_Pivot",
+      "starting_balance": 100000.0,
+      "balance": 110430.63,
+      "pnl": 10430.63,
+      "win_rate": 0.5811,
+      "total_trades": 8,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
+    },
+    {
+      "account_id": "ACCT_000626",
+      "strategy_name": "Mean_Revert",
+      "starting_balance": 100000.0,
+      "balance": 110429.56,
+      "pnl": 10429.56,
+      "win_rate": 0.7143,
+      "total_trades": 21,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
+    },
+    {
+      "account_id": "ACCT_000150",
+      "strategy_name": "GAN_Forecast",
+      "starting_balance": 100000.0,
+      "balance": 110426.96,
+      "pnl": 10426.96,
+      "win_rate": 0.5517,
+      "total_trades": 40,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
+    },
+    {
+      "account_id": "ACCT_000527",
+      "strategy_name": "Range_Trade",
+      "starting_balance": 100000.0,
+      "balance": 110377.14,
+      "pnl": 10377.14,
+      "win_rate": 0.741,
+      "total_trades": 14,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
+    },
+    {
+      "account_id": "ACCT_000909",
+      "strategy_name": "Wavelet_Decompose",
+      "starting_balance": 100000.0,
+      "balance": 110325.33,
+      "pnl": 10325.33,
+      "win_rate": 0.7391,
+      "total_trades": 32,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
+    },
+    {
+      "account_id": "ACCT_000047",
+      "strategy_name": "Diffusion_Model",
+      "starting_balance": 100000.0,
+      "balance": 110309.59,
+      "pnl": 10309.59,
+      "win_rate": 0.5408,
+      "total_trades": 2,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
+    },
+    {
+      "account_id": "ACCT_000392",
+      "strategy_name": "Mean_Revert",
+      "starting_balance": 100000.0,
+      "balance": 110298.91,
+      "pnl": 10298.91,
+      "win_rate": 0.3922,
+      "total_trades": 11,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
     },
     {
       "account_id": "ACCT_000190",
-      "strategy_name": "Volatility_Scalp",
+      "strategy_name": "MACD_Cross",
       "starting_balance": 100000.0,
-      "balance": 94528.78,
-      "pnl": -5471.22,
-      "pnl_pct": -5.47,
-      "positions": {
-        "TLT": 67
-      },
-      "total_trades": 0,
-      "win_rate": 0.0,
-      "max_drawdown": 0.0,
-      "generation": 1,
-      "fitness": 0.0,
-      "params": {
-        "lookback": 9.528656388829427,
-        "threshold": 0.028134413938003908,
-        "position_size": 0.054885978389175624,
-        "stop_loss": 0.07230342107041862,
-        "take_profit": 0.06591930072113839,
-        "max_positions": 10
-      }
+      "balance": 110264.29,
+      "pnl": 10264.29,
+      "win_rate": 0.7315,
+      "total_trades": 31,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
     },
     {
-      "account_id": "ACCT_000327",
-      "strategy_name": "Pairs_Trade",
+      "account_id": "ACCT_000851",
+      "strategy_name": "Bayesian_Update",
       "starting_balance": 100000.0,
-      "balance": 94528.78,
-      "pnl": -5471.22,
-      "pnl_pct": -5.47,
-      "positions": {
-        "TLT": 67
-      },
-      "total_trades": 0,
-      "win_rate": 0.0,
-      "max_drawdown": 0.0,
-      "generation": 1,
-      "fitness": 0.0,
-      "params": {
-        "lookback": 43.32775739547336,
-        "threshold": 0.018951678285958985,
-        "position_size": 0.055273438187626964,
-        "stop_loss": 0.03738746060040722,
-        "take_profit": 0.04495730928954382,
-        "max_positions": 4
-      }
+      "balance": 110253.83,
+      "pnl": 10253.83,
+      "win_rate": 0.5784,
+      "total_trades": 19,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
     },
     {
-      "account_id": "ACCT_000346",
-      "strategy_name": "Trend_Follow",
+      "account_id": "ACCT_000582",
+      "strategy_name": "Bollinger_Squeeze",
       "starting_balance": 100000.0,
-      "balance": 94528.78,
-      "pnl": -5471.22,
-      "pnl_pct": -5.47,
-      "positions": {
-        "TLT": 67
-      },
-      "total_trades": 0,
-      "win_rate": 0.0,
-      "max_drawdown": 0.0,
-      "generation": 1,
-      "fitness": 0.0,
-      "params": {
-        "lookback": 41.214797809241354,
-        "threshold": 0.05761320588822119,
-        "position_size": 0.055479853919831665,
-        "stop_loss": 0.07685404292665383,
-        "take_profit": 0.12103279638425814,
-        "max_positions": 5
-      }
+      "balance": 110246.37,
+      "pnl": 10246.37,
+      "win_rate": 0.6409,
+      "total_trades": 20,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
     },
     {
-      "account_id": "ACCT_000463",
-      "strategy_name": "Momentum",
+      "account_id": "ACCT_000189",
+      "strategy_name": "Range_Trade",
       "starting_balance": 100000.0,
-      "balance": 94528.78,
-      "pnl": -5471.22,
-      "pnl_pct": -5.47,
-      "positions": {
-        "TLT": 67
-      },
-      "total_trades": 0,
-      "win_rate": 0.0,
-      "max_drawdown": 0.0,
-      "generation": 1,
-      "fitness": 0.0,
-      "params": {
-        "lookback": 31.66372384310377,
-        "threshold": 0.07785313023162765,
-        "position_size": 0.05544697062108826,
-        "stop_loss": 0.0525375579711928,
-        "take_profit": 0.0319163007218738,
-        "max_positions": 8
-      }
+      "balance": 110242.52,
+      "pnl": 10242.52,
+      "win_rate": 0.585,
+      "total_trades": 10,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
     },
     {
-      "account_id": "ACCT_000856",
-      "strategy_name": "Volatility_Scalp",
+      "account_id": "ACCT_000791",
+      "strategy_name": "EMA_Ribbon",
       "starting_balance": 100000.0,
-      "balance": 94528.78,
-      "pnl": -5471.22,
-      "pnl_pct": -5.47,
-      "positions": {
-        "TLT": 67
-      },
+      "balance": 110235.86,
+      "pnl": 10235.86,
+      "win_rate": 0.4066,
+      "total_trades": 22,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
+    },
+    {
+      "account_id": "ACCT_000310",
+      "strategy_name": "Autoencoder_Anomaly",
+      "starting_balance": 100000.0,
+      "balance": 110223.83,
+      "pnl": 10223.83,
+      "win_rate": 0.4654,
       "total_trades": 0,
-      "win_rate": 0.0,
-      "max_drawdown": 0.0,
-      "generation": 1,
-      "fitness": 0.0,
-      "params": {
-        "lookback": 20.484570985965682,
-        "threshold": 0.07366398192373276,
-        "position_size": 0.05499799584427924,
-        "stop_loss": 0.039864941739667814,
-        "take_profit": 0.10102520934590514,
-        "max_positions": 7
-      }
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
+    },
+    {
+      "account_id": "ACCT_000089",
+      "strategy_name": "EMA_Ribbon",
+      "starting_balance": 100000.0,
+      "balance": 110159.86,
+      "pnl": 10159.86,
+      "win_rate": 0.7414,
+      "total_trades": 13,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
+    },
+    {
+      "account_id": "ACCT_000954",
+      "strategy_name": "RL_Q_Learn",
+      "starting_balance": 100000.0,
+      "balance": 110116.76,
+      "pnl": 10116.76,
+      "win_rate": 0.7093,
+      "total_trades": 47,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
+    },
+    {
+      "account_id": "ACCT_000381",
+      "strategy_name": "ML_LSTM_Predict",
+      "starting_balance": 100000.0,
+      "balance": 110054.1,
+      "pnl": 10054.1,
+      "win_rate": 0.6134,
+      "total_trades": 25,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
+    },
+    {
+      "account_id": "ACCT_000641",
+      "strategy_name": "ML_LSTM_Predict",
+      "starting_balance": 100000.0,
+      "balance": 110049.75,
+      "pnl": 10049.75,
+      "win_rate": 0.5201,
+      "total_trades": 47,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
     }
   ],
   "worst_accounts": [
     {
-      "account_id": "ACCT_000001",
-      "strategy_name": "Volatility_Scalp",
+      "account_id": "ACCT_000639",
+      "strategy_name": "Volume_Profile",
       "starting_balance": 100000.0,
-      "balance": 91834.0,
-      "pnl": -8166.0,
-      "pnl_pct": -8.17,
-      "positions": {
-        "TLT": 100
-      },
-      "total_trades": 0,
-      "win_rate": 0.0,
-      "max_drawdown": 0.0,
-      "generation": 1,
-      "fitness": 0.0,
-      "params": {
-        "lookback": 9.810238110933687,
-        "threshold": 0.04821323531150883,
-        "position_size": 0.08219891330081448,
-        "stop_loss": 0.05766929050853828,
-        "take_profit": 0.038597410293904115,
-        "max_positions": 7
-      }
+      "balance": 94197.8,
+      "pnl": -5802.2,
+      "win_rate": 0.5853,
+      "total_trades": 25,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
     },
     {
-      "account_id": "ACCT_000002",
+      "account_id": "ACCT_000685",
+      "strategy_name": "RSI_Divergence",
+      "starting_balance": 100000.0,
+      "balance": 94158.5,
+      "pnl": -5841.5,
+      "win_rate": 0.5334,
+      "total_trades": 6,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
+    },
+    {
+      "account_id": "ACCT_000079",
+      "strategy_name": "Trend_Follow",
+      "starting_balance": 100000.0,
+      "balance": 94150.57,
+      "pnl": -5849.43,
+      "win_rate": 0.5364,
+      "total_trades": 41,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
+    },
+    {
+      "account_id": "ACCT_000154",
+      "strategy_name": "Autoencoder_Anomaly",
+      "starting_balance": 100000.0,
+      "balance": 94145.1,
+      "pnl": -5854.9,
+      "win_rate": 0.525,
+      "total_trades": 40,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
+    },
+    {
+      "account_id": "ACCT_000167",
+      "strategy_name": "EMA_Ribbon",
+      "starting_balance": 100000.0,
+      "balance": 94133.87,
+      "pnl": -5866.13,
+      "win_rate": 0.5477,
+      "total_trades": 23,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
+    },
+    {
+      "account_id": "ACCT_000096",
+      "strategy_name": "RL_Q_Learn",
+      "starting_balance": 100000.0,
+      "balance": 94126.15,
+      "pnl": -5873.85,
+      "win_rate": 0.7107,
+      "total_trades": 21,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
+    },
+    {
+      "account_id": "ACCT_000621",
+      "strategy_name": "Attention_Sequence",
+      "starting_balance": 100000.0,
+      "balance": 94075.81,
+      "pnl": -5924.19,
+      "win_rate": 0.6319,
+      "total_trades": 22,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
+    },
+    {
+      "account_id": "ACCT_000127",
+      "strategy_name": "Attention_Sequence",
+      "starting_balance": 100000.0,
+      "balance": 94061.67,
+      "pnl": -5938.33,
+      "win_rate": 0.3566,
+      "total_trades": 26,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
+    },
+    {
+      "account_id": "ACCT_000749",
+      "strategy_name": "Diffusion_Model",
+      "starting_balance": 100000.0,
+      "balance": 93987.61,
+      "pnl": -6012.39,
+      "win_rate": 0.477,
+      "total_trades": 40,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
+    },
+    {
+      "account_id": "ACCT_000747",
+      "strategy_name": "Bayesian_Update",
+      "starting_balance": 100000.0,
+      "balance": 93980.19,
+      "pnl": -6019.81,
+      "win_rate": 0.7221,
+      "total_trades": 5,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
+    },
+    {
+      "account_id": "ACCT_000081",
+      "strategy_name": "Breakout_Hunter",
+      "starting_balance": 100000.0,
+      "balance": 93973.92,
+      "pnl": -6026.08,
+      "win_rate": 0.6427,
+      "total_trades": 25,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
+    },
+    {
+      "account_id": "ACCT_000331",
+      "strategy_name": "Bayesian_Update",
+      "starting_balance": 100000.0,
+      "balance": 93968.75,
+      "pnl": -6031.25,
+      "win_rate": 0.5767,
+      "total_trades": 40,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
+    },
+    {
+      "account_id": "ACCT_000345",
+      "strategy_name": "Range_Trade",
+      "starting_balance": 100000.0,
+      "balance": 93947.16,
+      "pnl": -6052.84,
+      "win_rate": 0.4581,
+      "total_trades": 41,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
+    },
+    {
+      "account_id": "ACCT_000555",
+      "strategy_name": "RSI_Divergence",
+      "starting_balance": 100000.0,
+      "balance": 93927.16,
+      "pnl": -6072.84,
+      "win_rate": 0.7082,
+      "total_trades": 37,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
+    },
+    {
+      "account_id": "ACCT_000872",
+      "strategy_name": "Correlation_Hedge",
+      "starting_balance": 100000.0,
+      "balance": 93911.12,
+      "pnl": -6088.88,
+      "win_rate": 0.6492,
+      "total_trades": 33,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
+    },
+    {
+      "account_id": "ACCT_000731",
+      "strategy_name": "Breakout_Hunter",
+      "starting_balance": 100000.0,
+      "balance": 93904.97,
+      "pnl": -6095.03,
+      "win_rate": 0.6836,
+      "total_trades": 7,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
+    },
+    {
+      "account_id": "ACCT_000666",
+      "strategy_name": "Sentiment_Pivot",
+      "starting_balance": 100000.0,
+      "balance": 93872.99,
+      "pnl": -6127.01,
+      "win_rate": 0.392,
+      "total_trades": 44,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
+    },
+    {
+      "account_id": "ACCT_000752",
+      "strategy_name": "Autoencoder_Anomaly",
+      "starting_balance": 100000.0,
+      "balance": 93869.32,
+      "pnl": -6130.68,
+      "win_rate": 0.6397,
+      "total_trades": 15,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
+    },
+    {
+      "account_id": "ACCT_000828",
+      "strategy_name": "Graph_Net",
+      "starting_balance": 100000.0,
+      "balance": 93840.21,
+      "pnl": -6159.79,
+      "win_rate": 0.3528,
+      "total_trades": 45,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
+    },
+    {
+      "account_id": "ACCT_000049",
+      "strategy_name": "Attention_Sequence",
+      "starting_balance": 100000.0,
+      "balance": 93811.32,
+      "pnl": -6188.68,
+      "win_rate": 0.6004,
+      "total_trades": 45,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
+    },
+    {
+      "account_id": "ACCT_000520",
+      "strategy_name": "Fuzzy_Logic",
+      "starting_balance": 100000.0,
+      "balance": 93804.23,
+      "pnl": -6195.77,
+      "win_rate": 0.3809,
+      "total_trades": 14,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
+    },
+    {
+      "account_id": "ACCT_000246",
+      "strategy_name": "VWAP_Bounce",
+      "starting_balance": 100000.0,
+      "balance": 93794.38,
+      "pnl": -6205.62,
+      "win_rate": 0.7387,
+      "total_trades": 3,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
+    },
+    {
+      "account_id": "ACCT_000033",
+      "strategy_name": "Range_Trade",
+      "starting_balance": 100000.0,
+      "balance": 93789.6,
+      "pnl": -6210.4,
+      "win_rate": 0.5913,
+      "total_trades": 21,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
+    },
+    {
+      "account_id": "ACCT_000667",
+      "strategy_name": "ML_LSTM_Predict",
+      "starting_balance": 100000.0,
+      "balance": 93782.6,
+      "pnl": -6217.4,
+      "win_rate": 0.4009,
+      "total_trades": 0,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
+    },
+    {
+      "account_id": "ACCT_000448",
+      "strategy_name": "Momentum_Ride",
+      "starting_balance": 100000.0,
+      "balance": 93762.07,
+      "pnl": -6237.93,
+      "win_rate": 0.4007,
+      "total_trades": 11,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
+    },
+    {
+      "account_id": "ACCT_000844",
+      "strategy_name": "VWAP_Bounce",
+      "starting_balance": 100000.0,
+      "balance": 93760.33,
+      "pnl": -6239.67,
+      "win_rate": 0.4991,
+      "total_trades": 9,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
+    },
+    {
+      "account_id": "ACCT_000531",
+      "strategy_name": "EMA_Ribbon",
+      "starting_balance": 100000.0,
+      "balance": 93758.21,
+      "pnl": -6241.79,
+      "win_rate": 0.4949,
+      "total_trades": 30,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
+    },
+    {
+      "account_id": "ACCT_000209",
+      "strategy_name": "Trend_Follow",
+      "starting_balance": 100000.0,
+      "balance": 93720.96,
+      "pnl": -6279.04,
+      "win_rate": 0.7071,
+      "total_trades": 26,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
+    },
+    {
+      "account_id": "ACCT_000585",
+      "strategy_name": "ATR_Trail",
+      "starting_balance": 100000.0,
+      "balance": 93704.04,
+      "pnl": -6295.96,
+      "win_rate": 0.6252,
+      "total_trades": 2,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
+    },
+    {
+      "account_id": "ACCT_000928",
+      "strategy_name": "RL_Q_Learn",
+      "starting_balance": 100000.0,
+      "balance": 93703.6,
+      "pnl": -6296.4,
+      "win_rate": 0.7097,
+      "total_trades": 31,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
+    },
+    {
+      "account_id": "ACCT_000636",
+      "strategy_name": "VWAP_Bounce",
+      "starting_balance": 100000.0,
+      "balance": 93699.48,
+      "pnl": -6300.52,
+      "win_rate": 0.6388,
+      "total_trades": 48,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
+    },
+    {
+      "account_id": "ACCT_000201",
+      "strategy_name": "Bayesian_Update",
+      "starting_balance": 100000.0,
+      "balance": 93670.73,
+      "pnl": -6329.27,
+      "win_rate": 0.6128,
+      "total_trades": 23,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
+    },
+    {
+      "account_id": "ACCT_000915",
       "strategy_name": "Pairs_Trade",
       "starting_balance": 100000.0,
-      "balance": 91834.0,
-      "pnl": -8166.0,
-      "pnl_pct": -8.17,
-      "positions": {
-        "TLT": 100
-      },
-      "total_trades": 0,
-      "win_rate": 0.0,
-      "max_drawdown": 0.0,
-      "generation": 1,
-      "fitness": 0.0,
-      "params": {
-        "lookback": 40.86834786837595,
-        "threshold": 0.09346938288901388,
-        "position_size": 0.1031837714630197,
-        "stop_loss": 0.05039660417614336,
-        "take_profit": 0.11884569551161331,
-        "max_positions": 7
-      }
+      "balance": 93618.41,
+      "pnl": -6381.59,
+      "win_rate": 0.5168,
+      "total_trades": 16,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
+    },
+    {
+      "account_id": "ACCT_000382",
+      "strategy_name": "RL_Q_Learn",
+      "starting_balance": 100000.0,
+      "balance": 93568.83,
+      "pnl": -6431.17,
+      "win_rate": 0.6857,
+      "total_trades": 30,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
+    },
+    {
+      "account_id": "ACCT_000388",
+      "strategy_name": "Autoencoder_Anomaly",
+      "starting_balance": 100000.0,
+      "balance": 93554.11,
+      "pnl": -6445.89,
+      "win_rate": 0.3618,
+      "total_trades": 46,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
+    },
+    {
+      "account_id": "ACCT_000957",
+      "strategy_name": "Diffusion_Model",
+      "starting_balance": 100000.0,
+      "balance": 93545.55,
+      "pnl": -6454.45,
+      "win_rate": 0.5713,
+      "total_trades": 34,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
+    },
+    {
+      "account_id": "ACCT_000687",
+      "strategy_name": "EMA_Ribbon",
+      "starting_balance": 100000.0,
+      "balance": 93535.76,
+      "pnl": -6464.24,
+      "win_rate": 0.6045,
+      "total_trades": 14,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
+    },
+    {
+      "account_id": "ACCT_000271",
+      "strategy_name": "EMA_Ribbon",
+      "starting_balance": 100000.0,
+      "balance": 93514.49,
+      "pnl": -6485.51,
+      "win_rate": 0.3904,
+      "total_trades": 14,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
+    },
+    {
+      "account_id": "ACCT_000083",
+      "strategy_name": "Pairs_Trade",
+      "starting_balance": 100000.0,
+      "balance": 93482.85,
+      "pnl": -6517.15,
+      "win_rate": 0.487,
+      "total_trades": 38,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
+    },
+    {
+      "account_id": "ACCT_000378",
+      "strategy_name": "Correlation_Hedge",
+      "starting_balance": 100000.0,
+      "balance": 93443.61,
+      "pnl": -6556.39,
+      "win_rate": 0.6124,
+      "total_trades": 22,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
+    },
+    {
+      "account_id": "ACCT_000740",
+      "strategy_name": "VWAP_Bounce",
+      "starting_balance": 100000.0,
+      "balance": 93414.12,
+      "pnl": -6585.88,
+      "win_rate": 0.4272,
+      "total_trades": 48,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
+    },
+    {
+      "account_id": "ACCT_000686",
+      "strategy_name": "Bollinger_Squeeze",
+      "starting_balance": 100000.0,
+      "balance": 93405.48,
+      "pnl": -6594.52,
+      "win_rate": 0.5375,
+      "total_trades": 10,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
+    },
+    {
+      "account_id": "ACCT_000919",
+      "strategy_name": "RSI_Divergence",
+      "starting_balance": 100000.0,
+      "balance": 93375.08,
+      "pnl": -6624.92,
+      "win_rate": 0.6747,
+      "total_trades": 46,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
+    },
+    {
+      "account_id": "ACCT_000468",
+      "strategy_name": "Fuzzy_Logic",
+      "starting_balance": 100000.0,
+      "balance": 93373.56,
+      "pnl": -6626.44,
+      "win_rate": 0.6918,
+      "total_trades": 24,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
     },
     {
       "account_id": "ACCT_000003",
-      "strategy_name": "Grid_Trade",
+      "strategy_name": "Breakout_Hunter",
       "starting_balance": 100000.0,
-      "balance": 91834.0,
-      "pnl": -8166.0,
-      "pnl_pct": -8.17,
-      "positions": {
-        "TLT": 100
-      },
-      "total_trades": 0,
-      "win_rate": 0.0,
-      "max_drawdown": 0.0,
-      "generation": 1,
-      "fitness": 0.0,
-      "params": {
-        "lookback": 27.187077655664098,
-        "threshold": 0.04612054122431479,
-        "position_size": 0.21918102327537042,
-        "stop_loss": 0.041946766245615504,
-        "take_profit": 0.03243879148305939,
-        "max_positions": 5
-      }
+      "balance": 93370.28,
+      "pnl": -6629.72,
+      "win_rate": 0.4897,
+      "total_trades": 49,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
     },
     {
-      "account_id": "ACCT_000004",
-      "strategy_name": "Breakout",
+      "account_id": "ACCT_000425",
+      "strategy_name": "RSI_Divergence",
       "starting_balance": 100000.0,
-      "balance": 91834.0,
-      "pnl": -8166.0,
-      "pnl_pct": -8.17,
-      "positions": {
-        "TLT": 100
-      },
-      "total_trades": 0,
-      "win_rate": 0.0,
-      "max_drawdown": 0.0,
-      "generation": 1,
-      "fitness": 0.0,
-      "params": {
-        "lookback": 18.67058529002253,
-        "threshold": 0.09220009148197206,
-        "position_size": 0.23154943230351033,
-        "stop_loss": 0.07766730117182988,
-        "take_profit": 0.14164429030668796,
-        "max_positions": 6
-      }
+      "balance": 93366.02,
+      "pnl": -6633.98,
+      "win_rate": 0.4317,
+      "total_trades": 46,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
     },
     {
-      "account_id": "ACCT_000006",
-      "strategy_name": "Swing_Trade",
+      "account_id": "ACCT_000732",
+      "strategy_name": "Volatility_Scalp",
       "starting_balance": 100000.0,
-      "balance": 91834.0,
-      "pnl": -8166.0,
-      "pnl_pct": -8.17,
-      "positions": {
-        "TLT": 100
-      },
-      "total_trades": 0,
-      "win_rate": 0.0,
-      "max_drawdown": 0.0,
-      "generation": 1,
-      "fitness": 0.0,
-      "params": {
-        "lookback": 36.60543848416,
-        "threshold": 0.047478593125973835,
-        "position_size": 0.12054588066795392,
-        "stop_loss": 0.04067006825310584,
-        "take_profit": 0.06200522592967085,
-        "max_positions": 10
-      }
+      "balance": 93289.1,
+      "pnl": -6710.9,
+      "win_rate": 0.605,
+      "total_trades": 3,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
     },
     {
-      "account_id": "ACCT_000007",
+      "account_id": "ACCT_000090",
+      "strategy_name": "VWAP_Bounce",
+      "starting_balance": 100000.0,
+      "balance": 93243.78,
+      "pnl": -6756.22,
+      "win_rate": 0.6972,
+      "total_trades": 48,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
+    },
+    {
+      "account_id": "ACCT_000342",
+      "strategy_name": "Volatility_Scalp",
+      "starting_balance": 100000.0,
+      "balance": 93231.33,
+      "pnl": -6768.67,
+      "win_rate": 0.688,
+      "total_trades": 8,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
+    },
+    {
+      "account_id": "ACCT_000755",
+      "strategy_name": "Trend_Follow",
+      "starting_balance": 100000.0,
+      "balance": 93226.71,
+      "pnl": -6773.29,
+      "win_rate": 0.6324,
+      "total_trades": 11,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
+    },
+    {
+      "account_id": "ACCT_000969",
+      "strategy_name": "Range_Trade",
+      "starting_balance": 100000.0,
+      "balance": 93174.9,
+      "pnl": -6825.1,
+      "win_rate": 0.666,
+      "total_trades": 4,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
+    },
+    {
+      "account_id": "ACCT_000623",
+      "strategy_name": "Wavelet_Decompose",
+      "starting_balance": 100000.0,
+      "balance": 93131.95,
+      "pnl": -6868.05,
+      "win_rate": 0.4342,
+      "total_trades": 34,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
+    },
+    {
+      "account_id": "ACCT_000560",
+      "strategy_name": "Correlation_Hedge",
+      "starting_balance": 100000.0,
+      "balance": 93110.62,
+      "pnl": -6889.38,
+      "win_rate": 0.5571,
+      "total_trades": 33,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
+    },
+    {
+      "account_id": "ACCT_000040",
+      "strategy_name": "Correlation_Hedge",
+      "starting_balance": 100000.0,
+      "balance": 93050.65,
+      "pnl": -6949.35,
+      "win_rate": 0.4758,
+      "total_trades": 19,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
+    },
+    {
+      "account_id": "ACCT_000550",
+      "strategy_name": "Volatility_Scalp",
+      "starting_balance": 100000.0,
+      "balance": 93040.47,
+      "pnl": -6959.53,
+      "win_rate": 0.6455,
+      "total_trades": 22,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
+    },
+    {
+      "account_id": "ACCT_000039",
+      "strategy_name": "ATR_Trail",
+      "starting_balance": 100000.0,
+      "balance": 93032.11,
+      "pnl": -6967.89,
+      "win_rate": 0.7446,
+      "total_trades": 30,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
+    },
+    {
+      "account_id": "ACCT_000811",
       "strategy_name": "Pairs_Trade",
       "starting_balance": 100000.0,
-      "balance": 91834.0,
-      "pnl": -8166.0,
-      "pnl_pct": -8.17,
-      "positions": {
-        "TLT": 100
-      },
-      "total_trades": 0,
-      "win_rate": 0.0,
-      "max_drawdown": 0.0,
-      "generation": 1,
-      "fitness": 0.0,
-      "params": {
-        "lookback": 29.588649491296295,
-        "threshold": 0.08385470752044134,
-        "position_size": 0.11371667277920468,
-        "stop_loss": 0.0636507680865343,
-        "take_profit": 0.05188077414201882,
-        "max_positions": 10
-      }
+      "balance": 93017.7,
+      "pnl": -6982.3,
+      "win_rate": 0.4708,
+      "total_trades": 5,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
     },
     {
-      "account_id": "ACCT_000008",
-      "strategy_name": "Swing_Trade",
+      "account_id": "ACCT_000074",
+      "strategy_name": "Graph_Net",
       "starting_balance": 100000.0,
-      "balance": 91834.0,
-      "pnl": -8166.0,
-      "pnl_pct": -8.17,
-      "positions": {
-        "TLT": 100
-      },
-      "total_trades": 0,
-      "win_rate": 0.0,
-      "max_drawdown": 0.0,
-      "generation": 1,
-      "fitness": 0.0,
-      "params": {
-        "lookback": 11.132803992969784,
-        "threshold": 0.01851961743174117,
-        "position_size": 0.11808858640382654,
-        "stop_loss": 0.04956795252122874,
-        "take_profit": 0.1313859879407145,
-        "max_positions": 10
-      }
+      "balance": 92981.54,
+      "pnl": -7018.46,
+      "win_rate": 0.741,
+      "total_trades": 3,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
     },
     {
-      "account_id": "ACCT_000009",
-      "strategy_name": "Momentum",
+      "account_id": "ACCT_000373",
+      "strategy_name": "RSI_Divergence",
       "starting_balance": 100000.0,
-      "balance": 91834.0,
-      "pnl": -8166.0,
-      "pnl_pct": -8.17,
-      "positions": {
-        "TLT": 100
-      },
-      "total_trades": 0,
-      "win_rate": 0.0,
-      "max_drawdown": 0.0,
-      "generation": 1,
-      "fitness": 0.0,
-      "params": {
-        "lookback": 44.304164445024796,
-        "threshold": 0.07848973205391048,
-        "position_size": 0.21208839132657176,
-        "stop_loss": 0.065024522810235,
-        "take_profit": 0.04426410933706175,
-        "max_positions": 6
-      }
+      "balance": 92980.53,
+      "pnl": -7019.47,
+      "win_rate": 0.7128,
+      "total_trades": 8,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
     },
     {
-      "account_id": "ACCT_000011",
-      "strategy_name": "Pairs_Trade",
+      "account_id": "ACCT_000502",
+      "strategy_name": "MACD_Cross",
       "starting_balance": 100000.0,
-      "balance": 91834.0,
-      "pnl": -8166.0,
-      "pnl_pct": -8.17,
-      "positions": {
-        "TLT": 100
-      },
-      "total_trades": 0,
-      "win_rate": 0.0,
-      "max_drawdown": 0.0,
-      "generation": 1,
-      "fitness": 0.0,
-      "params": {
-        "lookback": 49.94719360336158,
-        "threshold": 0.05477788386994676,
-        "position_size": 0.17908350090741737,
-        "stop_loss": 0.023261395870351663,
-        "take_profit": 0.12652901135611744,
-        "max_positions": 6
-      }
+      "balance": 92964.98,
+      "pnl": -7035.02,
+      "win_rate": 0.6369,
+      "total_trades": 3,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
+    },
+    {
+      "account_id": "ACCT_000963",
+      "strategy_name": "Trend_Follow",
+      "starting_balance": 100000.0,
+      "balance": 92925.35,
+      "pnl": -7074.65,
+      "win_rate": 0.5937,
+      "total_trades": 35,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
+    },
+    {
+      "account_id": "ACCT_000056",
+      "strategy_name": "Volatility_Scalp",
+      "starting_balance": 100000.0,
+      "balance": 92920.3,
+      "pnl": -7079.7,
+      "win_rate": 0.6351,
+      "total_trades": 43,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
+    },
+    {
+      "account_id": "ACCT_000069",
+      "strategy_name": "ML_LSTM_Predict",
+      "starting_balance": 100000.0,
+      "balance": 92910.63,
+      "pnl": -7089.37,
+      "win_rate": 0.6936,
+      "total_trades": 25,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
+    },
+    {
+      "account_id": "ACCT_000219",
+      "strategy_name": "EMA_Ribbon",
+      "starting_balance": 100000.0,
+      "balance": 92899.77,
+      "pnl": -7100.23,
+      "win_rate": 0.6079,
+      "total_trades": 4,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
+    },
+    {
+      "account_id": "ACCT_000670",
+      "strategy_name": "GAN_Forecast",
+      "starting_balance": 100000.0,
+      "balance": 92898.42,
+      "pnl": -7101.58,
+      "win_rate": 0.5197,
+      "total_trades": 10,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
+    },
+    {
+      "account_id": "ACCT_000597",
+      "strategy_name": "Wavelet_Decompose",
+      "starting_balance": 100000.0,
+      "balance": 92892.69,
+      "pnl": -7107.31,
+      "win_rate": 0.6252,
+      "total_trades": 39,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
+    },
+    {
+      "account_id": "ACCT_000218",
+      "strategy_name": "Bollinger_Squeeze",
+      "starting_balance": 100000.0,
+      "balance": 92851.19,
+      "pnl": -7148.81,
+      "win_rate": 0.5634,
+      "total_trades": 33,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
+    },
+    {
+      "account_id": "ACCT_000722",
+      "strategy_name": "GAN_Forecast",
+      "starting_balance": 100000.0,
+      "balance": 92771.15,
+      "pnl": -7228.85,
+      "win_rate": 0.46,
+      "total_trades": 30,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
+    },
+    {
+      "account_id": "ACCT_000019",
+      "strategy_name": "Bayesian_Update",
+      "starting_balance": 100000.0,
+      "balance": 92738.74,
+      "pnl": -7261.26,
+      "win_rate": 0.6505,
+      "total_trades": 32,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
     },
     {
       "account_id": "ACCT_000012",
-      "strategy_name": "Swing_Trade",
+      "strategy_name": "VWAP_Bounce",
       "starting_balance": 100000.0,
-      "balance": 91834.0,
-      "pnl": -8166.0,
-      "pnl_pct": -8.17,
-      "positions": {
-        "TLT": 100
-      },
+      "balance": 92694.27,
+      "pnl": -7305.73,
+      "win_rate": 0.4961,
+      "total_trades": 5,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
+    },
+    {
+      "account_id": "ACCT_000199",
+      "strategy_name": "ML_LSTM_Predict",
+      "starting_balance": 100000.0,
+      "balance": 92688.62,
+      "pnl": -7311.38,
+      "win_rate": 0.422,
+      "total_trades": 20,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
+    },
+    {
+      "account_id": "ACCT_000227",
+      "strategy_name": "Bayesian_Update",
+      "starting_balance": 100000.0,
+      "balance": 92673.63,
+      "pnl": -7326.37,
+      "win_rate": 0.3691,
       "total_trades": 0,
-      "win_rate": 0.0,
-      "max_drawdown": 0.0,
-      "generation": 1,
-      "fitness": 0.0,
-      "params": {
-        "lookback": 38.31376727372897,
-        "threshold": 0.07535766310027575,
-        "position_size": 0.10725708249368664,
-        "stop_loss": 0.041841916334548625,
-        "take_profit": 0.08447081250854276,
-        "max_positions": 5
-      }
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
+    },
+    {
+      "account_id": "ACCT_000034",
+      "strategy_name": "MACD_Cross",
+      "starting_balance": 100000.0,
+      "balance": 92645.12,
+      "pnl": -7354.88,
+      "win_rate": 0.4629,
+      "total_trades": 34,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
+    },
+    {
+      "account_id": "ACCT_000572",
+      "strategy_name": "Fuzzy_Logic",
+      "starting_balance": 100000.0,
+      "balance": 92629.05,
+      "pnl": -7370.95,
+      "win_rate": 0.711,
+      "total_trades": 34,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
+    },
+    {
+      "account_id": "ACCT_000476",
+      "strategy_name": "MACD_Cross",
+      "starting_balance": 100000.0,
+      "balance": 92628.94,
+      "pnl": -7371.06,
+      "win_rate": 0.6403,
+      "total_trades": 39,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
+    },
+    {
+      "account_id": "ACCT_000141",
+      "strategy_name": "EMA_Ribbon",
+      "starting_balance": 100000.0,
+      "balance": 92603.68,
+      "pnl": -7396.32,
+      "win_rate": 0.6662,
+      "total_trades": 33,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
+    },
+    {
+      "account_id": "ACCT_000515",
+      "strategy_name": "Diffusion_Model",
+      "starting_balance": 100000.0,
+      "balance": 92587.31,
+      "pnl": -7412.69,
+      "win_rate": 0.5936,
+      "total_trades": 20,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
+    },
+    {
+      "account_id": "ACCT_000642",
+      "strategy_name": "RL_Q_Learn",
+      "starting_balance": 100000.0,
+      "balance": 92538.93,
+      "pnl": -7461.07,
+      "win_rate": 0.4596,
+      "total_trades": 12,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
+    },
+    {
+      "account_id": "ACCT_000877",
+      "strategy_name": "Bayesian_Update",
+      "starting_balance": 100000.0,
+      "balance": 92538.39,
+      "pnl": -7461.61,
+      "win_rate": 0.7393,
+      "total_trades": 35,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
+    },
+    {
+      "account_id": "ACCT_000164",
+      "strategy_name": "MACD_Cross",
+      "starting_balance": 100000.0,
+      "balance": 92532.24,
+      "pnl": -7467.76,
+      "win_rate": 0.7439,
+      "total_trades": 6,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
+    },
+    {
+      "account_id": "ACCT_000901",
+      "strategy_name": "ML_LSTM_Predict",
+      "starting_balance": 100000.0,
+      "balance": 92522.55,
+      "pnl": -7477.45,
+      "win_rate": 0.5905,
+      "total_trades": 50,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
+    },
+    {
+      "account_id": "ACCT_000436",
+      "strategy_name": "GAN_Forecast",
+      "starting_balance": 100000.0,
+      "balance": 92493.2,
+      "pnl": -7506.8,
+      "win_rate": 0.3721,
+      "total_trades": 49,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
+    },
+    {
+      "account_id": "ACCT_000215",
+      "strategy_name": "Range_Trade",
+      "starting_balance": 100000.0,
+      "balance": 92489.18,
+      "pnl": -7510.82,
+      "win_rate": 0.3571,
+      "total_trades": 50,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
+    },
+    {
+      "account_id": "ACCT_000620",
+      "strategy_name": "Graph_Net",
+      "starting_balance": 100000.0,
+      "balance": 92458.16,
+      "pnl": -7541.84,
+      "win_rate": 0.6389,
+      "total_trades": 24,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
+    },
+    {
+      "account_id": "ACCT_000439",
+      "strategy_name": "Attention_Sequence",
+      "starting_balance": 100000.0,
+      "balance": 92416.18,
+      "pnl": -7583.82,
+      "win_rate": 0.5429,
+      "total_trades": 24,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
+    },
+    {
+      "account_id": "ACCT_000116",
+      "strategy_name": "VWAP_Bounce",
+      "starting_balance": 100000.0,
+      "balance": 92372.4,
+      "pnl": -7627.6,
+      "win_rate": 0.7087,
+      "total_trades": 32,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
+    },
+    {
+      "account_id": "ACCT_000504",
+      "strategy_name": "Bollinger_Squeeze",
+      "starting_balance": 100000.0,
+      "balance": 92370.72,
+      "pnl": -7629.28,
+      "win_rate": 0.688,
+      "total_trades": 22,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
+    },
+    {
+      "account_id": "ACCT_000315",
+      "strategy_name": "Breakout_Hunter",
+      "starting_balance": 100000.0,
+      "balance": 92358.63,
+      "pnl": -7641.37,
+      "win_rate": 0.3664,
+      "total_trades": 18,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
+    },
+    {
+      "account_id": "ACCT_000106",
+      "strategy_name": "Mean_Revert",
+      "starting_balance": 100000.0,
+      "balance": 92326.3,
+      "pnl": -7673.7,
+      "win_rate": 0.7086,
+      "total_trades": 9,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
+    },
+    {
+      "account_id": "ACCT_000866",
+      "strategy_name": "MACD_Cross",
+      "starting_balance": 100000.0,
+      "balance": 92289.05,
+      "pnl": -7710.95,
+      "win_rate": 0.4862,
+      "total_trades": 22,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
+    },
+    {
+      "account_id": "ACCT_000371",
+      "strategy_name": "Range_Trade",
+      "starting_balance": 100000.0,
+      "balance": 92253.45,
+      "pnl": -7746.55,
+      "win_rate": 0.4711,
+      "total_trades": 41,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
+    },
+    {
+      "account_id": "ACCT_000751",
+      "strategy_name": "Attention_Sequence",
+      "starting_balance": 100000.0,
+      "balance": 92240.09,
+      "pnl": -7759.91,
+      "win_rate": 0.6052,
+      "total_trades": 29,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
+    },
+    {
+      "account_id": "ACCT_000682",
+      "strategy_name": "Momentum_Ride",
+      "starting_balance": 100000.0,
+      "balance": 92225.89,
+      "pnl": -7774.11,
+      "win_rate": 0.5165,
+      "total_trades": 9,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
+    },
+    {
+      "account_id": "ACCT_000973",
+      "strategy_name": "EMA_Ribbon",
+      "starting_balance": 100000.0,
+      "balance": 92220.86,
+      "pnl": -7779.14,
+      "win_rate": 0.5219,
+      "total_trades": 7,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
+    },
+    {
+      "account_id": "ACCT_000673",
+      "strategy_name": "Attention_Sequence",
+      "starting_balance": 100000.0,
+      "balance": 92212.95,
+      "pnl": -7787.05,
+      "win_rate": 0.397,
+      "total_trades": 18,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
+    },
+    {
+      "account_id": "ACCT_000375",
+      "strategy_name": "EMA_Ribbon",
+      "starting_balance": 100000.0,
+      "balance": 92209.76,
+      "pnl": -7790.24,
+      "win_rate": 0.4133,
+      "total_trades": 32,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
+    },
+    {
+      "account_id": "ACCT_000041",
+      "strategy_name": "Volume_Profile",
+      "starting_balance": 100000.0,
+      "balance": 92195.01,
+      "pnl": -7804.99,
+      "win_rate": 0.4927,
+      "total_trades": 18,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
+    },
+    {
+      "account_id": "ACCT_000076",
+      "strategy_name": "Autoencoder_Anomaly",
+      "starting_balance": 100000.0,
+      "balance": 92182.69,
+      "pnl": -7817.31,
+      "win_rate": 0.6912,
+      "total_trades": 18,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
+    },
+    {
+      "account_id": "ACCT_000177",
+      "strategy_name": "Diffusion_Model",
+      "starting_balance": 100000.0,
+      "balance": 92115.33,
+      "pnl": -7884.67,
+      "win_rate": 0.5587,
+      "total_trades": 16,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
+    },
+    {
+      "account_id": "ACCT_000355",
+      "strategy_name": "ML_LSTM_Predict",
+      "starting_balance": 100000.0,
+      "balance": 92000.82,
+      "pnl": -7999.18,
+      "win_rate": 0.5915,
+      "total_trades": 7,
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
     }
   ],
   "top_strategies": [
     {
-      "genome_id": "aed307d8b85f",
-      "fitness": 35.7215,
-      "generation": 1,
+      "genome_id": "084eb6cec2f6",
+      "fitness": 20.8562,
+      "generation": 4,
       "params": {
-        "lookback": 17.072959662568536,
-        "threshold": 0.09161290382988364,
-        "position_size": 0.2545556360459895,
-        "stop_loss": 0.06329139410586343,
-        "take_profit": 0.11061553239666584,
-        "max_positions": 5
-      }
+        "lookback": 7.49,
+        "threshold": 0.021031,
+        "stop_loss": 0.0211,
+        "take_profit": 0.0099
+      },
+      "strategy": "Trend_Follow",
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
     },
     {
-      "genome_id": "9ec576dd56fc",
-      "fitness": 32.1703,
-      "generation": 1,
+      "genome_id": "2fb44af5f19c",
+      "fitness": 22.8445,
+      "generation": 3,
       "params": {
-        "lookback": 34.38978881498522,
-        "threshold": 0.07364820057503686,
-        "position_size": 0.2791503621334139,
-        "stop_loss": 0.01575413648572734,
-        "take_profit": 0.10884818300945333,
-        "max_positions": 1
-      }
+        "lookback": 5.88,
+        "threshold": 0.035513,
+        "stop_loss": 0.0102,
+        "take_profit": 0.0301
+      },
+      "strategy": "Mean_Revert",
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
     },
     {
-      "genome_id": "e73df1726352",
-      "fitness": 29.5285,
-      "generation": 1,
+      "genome_id": "f1e728476584",
+      "fitness": 14.7398,
+      "generation": 3,
       "params": {
-        "lookback": 23.552377155170614,
-        "threshold": 0.04427530239566366,
-        "position_size": 0.29538587076195505,
-        "stop_loss": 0.03654232216458061,
-        "take_profit": 0.14450851266619896,
-        "max_positions": 7
-      }
+        "lookback": 6.07,
+        "threshold": 0.021947,
+        "stop_loss": 0.0146,
+        "take_profit": 0.0245
+      },
+      "strategy": "Breakout_Hunter",
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
     },
     {
-      "genome_id": "50c00026685f",
-      "fitness": 29.3531,
-      "generation": 1,
+      "genome_id": "f7a8d5860f96",
+      "fitness": 36.9508,
+      "generation": 2,
       "params": {
-        "lookback": 24.612551649399094,
-        "threshold": 0.050941157335239434,
-        "position_size": 0.29811267423749754,
-        "stop_loss": 0.02494402551016476,
-        "take_profit": 0.12723071906194355,
-        "max_positions": 8
-      }
+        "lookback": 32.79,
+        "threshold": 0.022565,
+        "stop_loss": 0.0118,
+        "take_profit": 0.0076
+      },
+      "strategy": "Volatility_Scalp",
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
     },
     {
-      "genome_id": "39bcb9f78ea7",
-      "fitness": 28.9726,
-      "generation": 1,
+      "genome_id": "e5fce1851ef5",
+      "fitness": 8.0209,
+      "generation": 4,
       "params": {
-        "lookback": 28.47566404162864,
-        "threshold": 0.026356644531583026,
-        "position_size": 0.29351330188657493,
-        "stop_loss": 0.029194234555017046,
-        "take_profit": 0.07380616184804073,
-        "max_positions": 4
-      }
+        "lookback": 47.37,
+        "threshold": 0.030054,
+        "stop_loss": 0.0288,
+        "take_profit": 0.0381
+      },
+      "strategy": "Pairs_Trade",
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
     },
     {
-      "genome_id": "cff0b636c998",
-      "fitness": 27.9061,
-      "generation": 1,
+      "genome_id": "576eeb873666",
+      "fitness": 39.0614,
+      "generation": 4,
       "params": {
-        "lookback": 45.28646982129855,
-        "threshold": 0.044564055376229504,
-        "position_size": 0.256983223386252,
-        "stop_loss": 0.06323130957354137,
-        "take_profit": 0.12607144259568043,
-        "max_positions": 1
-      }
+        "lookback": 35.95,
+        "threshold": 0.045535,
+        "stop_loss": 0.0172,
+        "take_profit": 0.0148
+      },
+      "strategy": "Momentum_Ride",
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
     },
     {
-      "genome_id": "ef8d0e9c8d40",
-      "fitness": 27.6711,
-      "generation": 1,
+      "genome_id": "a730c2261811",
+      "fitness": 30.3352,
+      "generation": 4,
       "params": {
-        "lookback": 20.53822394371855,
-        "threshold": 0.024250129783836748,
-        "position_size": 0.28892160182962756,
-        "stop_loss": 0.010602907922369184,
-        "take_profit": 0.07237686088864044,
-        "max_positions": 2
-      }
+        "lookback": 7.67,
+        "threshold": 0.00375,
+        "stop_loss": 0.0136,
+        "take_profit": 0.0238
+      },
+      "strategy": "Range_Trade",
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
     },
     {
-      "genome_id": "c9dc8b229cec",
-      "fitness": 27.3826,
-      "generation": 1,
+      "genome_id": "b66a468aa441",
+      "fitness": 21.9062,
+      "generation": 3,
       "params": {
-        "lookback": 29.436953920500592,
-        "threshold": 0.05422456857947943,
-        "position_size": 0.24833299685090043,
-        "stop_loss": 0.05697891246493185,
-        "take_profit": 0.14657936260097243,
-        "max_positions": 1
-      }
+        "lookback": 10.0,
+        "threshold": 0.00758,
+        "stop_loss": 0.0237,
+        "take_profit": 0.0164
+      },
+      "strategy": "MACD_Cross",
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
     },
     {
-      "genome_id": "0aa0687d1071",
-      "fitness": 26.6811,
-      "generation": 1,
+      "genome_id": "7b34fbe49ba4",
+      "fitness": 38.7621,
+      "generation": 4,
       "params": {
-        "lookback": 13.81591868525997,
-        "threshold": 0.0972637860254232,
-        "position_size": 0.257805140798369,
-        "stop_loss": 0.01260328582774,
-        "take_profit": 0.09620129285776872,
-        "max_positions": 6
-      }
+        "lookback": 42.09,
+        "threshold": 0.043824,
+        "stop_loss": 0.0197,
+        "take_profit": 0.0251
+      },
+      "strategy": "RSI_Divergence",
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
     },
     {
-      "genome_id": "83412040ddc1",
-      "fitness": 25.9283,
-      "generation": 1,
+      "genome_id": "b65229d81d45",
+      "fitness": 28.0918,
+      "generation": 4,
       "params": {
-        "lookback": 36.69977376641629,
-        "threshold": 0.03624540970006518,
-        "position_size": 0.27764678654972685,
-        "stop_loss": 0.027667052924610275,
-        "take_profit": 0.12475652187939623,
-        "max_positions": 7
-      }
+        "lookback": 16.04,
+        "threshold": 0.029064,
+        "stop_loss": 0.0241,
+        "take_profit": 0.0141
+      },
+      "strategy": "Bollinger_Squeeze",
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
+    },
+    {
+      "genome_id": "c876433fa29a",
+      "fitness": 26.5514,
+      "generation": 3,
+      "params": {
+        "lookback": 36.03,
+        "threshold": 0.007883,
+        "stop_loss": 0.0242,
+        "take_profit": 0.0355
+      },
+      "strategy": "EMA_Ribbon",
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
+    },
+    {
+      "genome_id": "a96590487c17",
+      "fitness": 34.9626,
+      "generation": 3,
+      "params": {
+        "lookback": 48.07,
+        "threshold": 0.0187,
+        "stop_loss": 0.0243,
+        "take_profit": 0.0312
+      },
+      "strategy": "VWAP_Bounce",
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
+    },
+    {
+      "genome_id": "1402f9fbec83",
+      "fitness": 10.7406,
+      "generation": 3,
+      "params": {
+        "lookback": 26.07,
+        "threshold": 0.023579,
+        "stop_loss": 0.0133,
+        "take_profit": 0.0287
+      },
+      "strategy": "ATR_Trail",
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
+    },
+    {
+      "genome_id": "df6b98b4a04e",
+      "fitness": 35.203,
+      "generation": 3,
+      "params": {
+        "lookback": 32.16,
+        "threshold": 0.046701,
+        "stop_loss": 0.0085,
+        "take_profit": 0.0275
+      },
+      "strategy": "Correlation_Hedge",
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
+    },
+    {
+      "genome_id": "33757ee7c222",
+      "fitness": 21.3665,
+      "generation": 4,
+      "params": {
+        "lookback": 40.91,
+        "threshold": 0.041752,
+        "stop_loss": 0.0065,
+        "take_profit": 0.0396
+      },
+      "strategy": "Volume_Profile",
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
+    },
+    {
+      "genome_id": "ba50929cf899",
+      "fitness": 18.6737,
+      "generation": 5,
+      "params": {
+        "lookback": 24.67,
+        "threshold": 0.002572,
+        "stop_loss": 0.0176,
+        "take_profit": 0.0329
+      },
+      "strategy": "Sentiment_Pivot",
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
+    },
+    {
+      "genome_id": "a84ae6e9366e",
+      "fitness": 39.5069,
+      "generation": 4,
+      "params": {
+        "lookback": 17.72,
+        "threshold": 0.017354,
+        "stop_loss": 0.0067,
+        "take_profit": 0.0076
+      },
+      "strategy": "ML_LSTM_Predict",
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
+    },
+    {
+      "genome_id": "5cad0a870460",
+      "fitness": 4.6072,
+      "generation": 5,
+      "params": {
+        "lookback": 40.13,
+        "threshold": 0.027056,
+        "stop_loss": 0.025,
+        "take_profit": 0.0346
+      },
+      "strategy": "RL_Q_Learn",
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
+    },
+    {
+      "genome_id": "6101d3868a8d",
+      "fitness": 4.3865,
+      "generation": 4,
+      "params": {
+        "lookback": 32.45,
+        "threshold": 0.049655,
+        "stop_loss": 0.0238,
+        "take_profit": 0.0318
+      },
+      "strategy": "Bayesian_Update",
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
+    },
+    {
+      "genome_id": "215e4f4f432c",
+      "fitness": 21.5473,
+      "generation": 3,
+      "params": {
+        "lookback": 25.96,
+        "threshold": 0.044578,
+        "stop_loss": 0.0299,
+        "take_profit": 0.0103
+      },
+      "strategy": "GAN_Forecast",
+      "timestamp": "2026-08-18T22:02:56.042575+00:00",
+      "recorded_at": "2026-08-18 22:02:56 UTC"
     }
-  ]
+  ],
+  "total_top_accounts": 1000
 }
