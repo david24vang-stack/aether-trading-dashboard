@@ -16,7 +16,9 @@
     "QQQ",
     "TLT",
     "GLD",
-    "USO"
+    "USO",
+    "IWM",
+    "DIA"
   ],
   "model_categories": {
     "Technical": 15,
@@ -42,162 +44,162 @@
     {
       "name": "Tech_SMA_Cross",
       "category": "Technical",
-      "predictions_made": 15,
+      "predictions_made": 21,
       "correct_predictions": 0,
       "accuracy": 0.0,
-      "avg_confidence": 0.5154
+      "avg_confidence": 0.6089
     },
     {
       "name": "Tech_EMA_Cross",
       "category": "Technical",
-      "predictions_made": 15,
+      "predictions_made": 21,
       "correct_predictions": 0,
       "accuracy": 0.0,
-      "avg_confidence": 0.5578
+      "avg_confidence": 0.5422
     },
     {
       "name": "Tech_MACD",
       "category": "Technical",
-      "predictions_made": 15,
+      "predictions_made": 21,
       "correct_predictions": 0,
       "accuracy": 0.0,
-      "avg_confidence": 0.5528
+      "avg_confidence": 0.4702
     },
     {
       "name": "Tech_RSI",
       "category": "Technical",
-      "predictions_made": 15,
+      "predictions_made": 21,
       "correct_predictions": 0,
       "accuracy": 0.0,
-      "avg_confidence": 0.635
+      "avg_confidence": 0.4149
     },
     {
       "name": "Tech_Bollinger",
       "category": "Technical",
-      "predictions_made": 15,
+      "predictions_made": 21,
       "correct_predictions": 0,
       "accuracy": 0.0,
-      "avg_confidence": 0.4873
+      "avg_confidence": 0.5276
     },
     {
       "name": "Tech_Stochastic",
       "category": "Technical",
-      "predictions_made": 15,
+      "predictions_made": 21,
       "correct_predictions": 0,
       "accuracy": 0.0,
-      "avg_confidence": 0.5303
+      "avg_confidence": 0.513
     },
     {
       "name": "Tech_ADX",
       "category": "Technical",
-      "predictions_made": 15,
+      "predictions_made": 21,
       "correct_predictions": 0,
       "accuracy": 0.0,
-      "avg_confidence": 0.413
+      "avg_confidence": 0.5609
     },
     {
       "name": "Tech_ATR",
       "category": "Technical",
-      "predictions_made": 15,
+      "predictions_made": 21,
       "correct_predictions": 0,
       "accuracy": 0.0,
-      "avg_confidence": 0.532
+      "avg_confidence": 0.5089
     },
     {
       "name": "Tech_CCI",
       "category": "Technical",
-      "predictions_made": 15,
+      "predictions_made": 21,
       "correct_predictions": 0,
       "accuracy": 0.0,
-      "avg_confidence": 0.3647
+      "avg_confidence": 0.5945
     },
     {
       "name": "Tech_Williams_R",
       "category": "Technical",
-      "predictions_made": 15,
+      "predictions_made": 21,
       "correct_predictions": 0,
       "accuracy": 0.0,
-      "avg_confidence": 0.6215
+      "avg_confidence": 0.5231
     },
     {
       "name": "Tech_OBV",
       "category": "Technical",
-      "predictions_made": 15,
+      "predictions_made": 21,
       "correct_predictions": 0,
       "accuracy": 0.0,
-      "avg_confidence": 0.5365
+      "avg_confidence": 0.5119
     },
     {
       "name": "Tech_MFI",
       "category": "Technical",
-      "predictions_made": 15,
+      "predictions_made": 21,
       "correct_predictions": 0,
       "accuracy": 0.0,
-      "avg_confidence": 0.5311
+      "avg_confidence": 0.5601
     },
     {
       "name": "Tech_Parabolic_SAR",
       "category": "Technical",
-      "predictions_made": 15,
+      "predictions_made": 21,
       "correct_predictions": 0,
       "accuracy": 0.0,
-      "avg_confidence": 0.5219
+      "avg_confidence": 0.4474
     },
     {
       "name": "Tech_Ichimoku",
       "category": "Technical",
-      "predictions_made": 15,
+      "predictions_made": 21,
       "correct_predictions": 0,
       "accuracy": 0.0,
-      "avg_confidence": 0.4196
+      "avg_confidence": 0.4968
     },
     {
       "name": "Tech_VWAP",
       "category": "Technical",
-      "predictions_made": 15,
+      "predictions_made": 21,
       "correct_predictions": 0,
       "accuracy": 0.0,
-      "avg_confidence": 0.4707
+      "avg_confidence": 0.4993
     },
     {
       "name": "Mom_ROC",
       "category": "Momentum",
-      "predictions_made": 15,
+      "predictions_made": 21,
       "correct_predictions": 0,
       "accuracy": 0.0,
-      "avg_confidence": 0.403
+      "avg_confidence": 0.5137
     },
     {
       "name": "Mom_TSI",
       "category": "Momentum",
-      "predictions_made": 15,
+      "predictions_made": 21,
       "correct_predictions": 0,
       "accuracy": 0.0,
-      "avg_confidence": 0.4461
+      "avg_confidence": 0.4318
     },
     {
       "name": "Mom_KST",
       "category": "Momentum",
-      "predictions_made": 15,
+      "predictions_made": 21,
       "correct_predictions": 0,
       "accuracy": 0.0,
-      "avg_confidence": 0.5639
+      "avg_confidence": 0.5696
     },
     {
       "name": "Mom_Coppock",
       "category": "Momentum",
-      "predictions_made": 15,
+      "predictions_made": 21,
       "correct_predictions": 0,
       "accuracy": 0.0,
-      "avg_confidence": 0.5316
+      "avg_confidence": 0.4668
     },
     {
       "name": "Mom_Awesome_Osc",
       "category": "Momentum",
-      "predictions_made": 15,
+      "predictions_made": 21,
       "correct_predictions": 0,
       "accuracy": 0.0,
-      "avg_confidence": 0.4437
+      "avg_confidence": 0.5191
     }
   ],
   "all_model_names": [
@@ -271,16 +273,16 @@
     "Quant_Entropy",
     "Quant_LZ_Complexity",
     "Quant_BDS_Stat",
-    "Vol_OBV_Signal",
-    "Vol_VWAP_Dev",
-    "Vol_AccumDist",
-    "Vol_CMF",
-    "Vol_ForceIndex",
-    "Vol_EaseOfMove",
-    "Vol_NVI",
-    "Vol_PVI",
-    "Vol_Volume_Osc",
-    "Vol_Volume_Profile",
+    "Volume_OBV_Signal",
+    "Volume_VWAP_Dev",
+    "Volume_AccumDist",
+    "Volume_CMF",
+    "Volume_ForceIndex",
+    "Volume_EaseOfMove",
+    "Volume_NVI",
+    "Volume_PVI",
+    "Volume_Volume_Osc",
+    "Volume_Volume_Profile",
     "Pat_Doji",
     "Pat_Hammer",
     "Pat_Engulfing",
@@ -305,105 +307,29 @@
   "recent_orders": [
     {
       "order_id": "ORD_000001",
-      "symbol": "QQQ",
+      "symbol": "SPY",
       "side": "buy",
-      "order_type": "limit",
-      "quantity": 13,
-      "contract_size": 717.51,
-      "entry_price": 717.51,
-      "stop_loss": 703.16,
-      "take_profit": 739.04,
-      "trailing_stop": 7.18,
+      "order_type": "stop",
+      "quantity": 12,
+      "contract_size": 767.36,
+      "entry_price": 767.36,
+      "stop_loss": 752.01,
+      "take_profit": 790.38,
+      "trailing_stop": 7.67,
       "status": "filled",
       "exit_price": null,
       "pnl": 0.0,
-      "opened_at": "2026-08-18T21:18:25.318163+00:00",
+      "opened_at": "2026-08-18T21:34:49.057531+00:00",
       "closed_at": null,
       "models_consulted": 100,
-      "consensus_score": 0.18
+      "consensus_score": 0.17
     },
     {
       "order_id": "ORD_000002",
-      "symbol": "SPY",
-      "side": "buy",
-      "order_type": "limit",
-      "quantity": 9,
-      "contract_size": 767.36,
-      "entry_price": 767.36,
-      "stop_loss": 752.01,
-      "take_profit": 790.38,
-      "trailing_stop": 7.67,
-      "status": "filled",
-      "exit_price": null,
-      "pnl": 0.0,
-      "opened_at": "2026-08-18T21:18:25.319037+00:00",
-      "closed_at": null,
-      "models_consulted": 100,
-      "consensus_score": 0.13
-    },
-    {
-      "order_id": "ORD_000003",
-      "symbol": "USO",
-      "side": "buy",
-      "order_type": "market",
-      "quantity": 9,
-      "contract_size": 130.66,
-      "entry_price": 130.66,
-      "stop_loss": 128.05,
-      "take_profit": 134.58,
-      "trailing_stop": 1.31,
-      "status": "filled",
-      "exit_price": null,
-      "pnl": 0.0,
-      "opened_at": "2026-08-18T21:18:25.319799+00:00",
-      "closed_at": null,
-      "models_consulted": 100,
-      "consensus_score": 0.12
-    },
-    {
-      "order_id": "ORD_000004",
-      "symbol": "SPY",
-      "side": "buy",
-      "order_type": "limit",
-      "quantity": 10,
-      "contract_size": 767.36,
-      "entry_price": 767.36,
-      "stop_loss": 752.01,
-      "take_profit": 790.38,
-      "trailing_stop": 7.67,
-      "status": "filled",
-      "exit_price": null,
-      "pnl": 0.0,
-      "opened_at": "2026-08-18T21:18:25.320032+00:00",
-      "closed_at": null,
-      "models_consulted": 100,
-      "consensus_score": 0.14
-    },
-    {
-      "order_id": "ORD_000005",
-      "symbol": "QQQ",
-      "side": "buy",
-      "order_type": "market",
-      "quantity": 16,
-      "contract_size": 717.51,
-      "entry_price": 717.51,
-      "stop_loss": 703.16,
-      "take_profit": 739.04,
-      "trailing_stop": 7.18,
-      "status": "filled",
-      "exit_price": null,
-      "pnl": 0.0,
-      "opened_at": "2026-08-18T21:18:25.320222+00:00",
-      "closed_at": null,
-      "models_consulted": 100,
-      "consensus_score": 0.23
-    },
-    {
-      "order_id": "ORD_000006",
       "symbol": "TLT",
       "side": "buy",
-      "order_type": "stop",
-      "quantity": 13,
+      "order_type": "limit",
+      "quantity": 21,
       "contract_size": 81.66,
       "entry_price": 81.66,
       "stop_loss": 80.03,
@@ -412,36 +338,17 @@
       "status": "filled",
       "exit_price": null,
       "pnl": 0.0,
-      "opened_at": "2026-08-18T21:18:25.320408+00:00",
+      "opened_at": "2026-08-18T21:34:49.057962+00:00",
       "closed_at": null,
       "models_consulted": 100,
-      "consensus_score": 0.17
+      "consensus_score": 0.26
     },
     {
-      "order_id": "ORD_000007",
-      "symbol": "GLD",
-      "side": "buy",
-      "order_type": "stop",
-      "quantity": 13,
-      "contract_size": 398.51,
-      "entry_price": 398.51,
-      "stop_loss": 390.54,
-      "take_profit": 410.47,
-      "trailing_stop": 3.99,
-      "status": "filled",
-      "exit_price": null,
-      "pnl": 0.0,
-      "opened_at": "2026-08-18T21:18:25.320594+00:00",
-      "closed_at": null,
-      "models_consulted": 100,
-      "consensus_score": 0.16
-    },
-    {
-      "order_id": "ORD_000008",
+      "order_id": "ORD_000003",
       "symbol": "USO",
       "side": "buy",
-      "order_type": "limit",
-      "quantity": 13,
+      "order_type": "market",
+      "quantity": 10,
       "contract_size": 130.66,
       "entry_price": 130.66,
       "stop_loss": 128.05,
@@ -450,57 +357,157 @@
       "status": "filled",
       "exit_price": null,
       "pnl": 0.0,
-      "opened_at": "2026-08-18T21:18:25.320781+00:00",
+      "opened_at": "2026-08-18T21:34:49.059683+00:00",
       "closed_at": null,
       "models_consulted": 100,
-      "consensus_score": 0.17
+      "consensus_score": 0.13
+    },
+    {
+      "order_id": "ORD_000004",
+      "symbol": "IWM",
+      "side": "buy",
+      "order_type": "market",
+      "quantity": 13,
+      "contract_size": 300.19,
+      "entry_price": 300.19,
+      "stop_loss": 294.19,
+      "take_profit": 309.2,
+      "trailing_stop": 3.0,
+      "status": "filled",
+      "exit_price": null,
+      "pnl": 0.0,
+      "opened_at": "2026-08-18T21:34:49.059874+00:00",
+      "closed_at": null,
+      "models_consulted": 100,
+      "consensus_score": 0.16
+    },
+    {
+      "order_id": "ORD_000005",
+      "symbol": "SPY",
+      "side": "buy",
+      "order_type": "market",
+      "quantity": 14,
+      "contract_size": 767.36,
+      "entry_price": 767.36,
+      "stop_loss": 752.01,
+      "take_profit": 790.38,
+      "trailing_stop": 7.67,
+      "status": "filled",
+      "exit_price": null,
+      "pnl": 0.0,
+      "opened_at": "2026-08-18T21:34:49.060290+00:00",
+      "closed_at": null,
+      "models_consulted": 100,
+      "consensus_score": 0.19
+    },
+    {
+      "order_id": "ORD_000006",
+      "symbol": "QQQ",
+      "side": "buy",
+      "order_type": "limit",
+      "quantity": 8,
+      "contract_size": 717.51,
+      "entry_price": 717.51,
+      "stop_loss": 703.16,
+      "take_profit": 739.04,
+      "trailing_stop": 7.18,
+      "status": "filled",
+      "exit_price": null,
+      "pnl": 0.0,
+      "opened_at": "2026-08-18T21:34:49.060477+00:00",
+      "closed_at": null,
+      "models_consulted": 100,
+      "consensus_score": 0.12
+    },
+    {
+      "order_id": "ORD_000007",
+      "symbol": "GLD",
+      "side": "buy",
+      "order_type": "limit",
+      "quantity": 11,
+      "contract_size": 398.51,
+      "entry_price": 398.51,
+      "stop_loss": 390.54,
+      "take_profit": 410.47,
+      "trailing_stop": 3.99,
+      "status": "filled",
+      "exit_price": null,
+      "pnl": 0.0,
+      "opened_at": "2026-08-18T21:34:49.060837+00:00",
+      "closed_at": null,
+      "models_consulted": 100,
+      "consensus_score": 0.14
+    },
+    {
+      "order_id": "ORD_000008",
+      "symbol": "DIA",
+      "side": "buy",
+      "order_type": "limit",
+      "quantity": 9,
+      "contract_size": 532.91,
+      "entry_price": 532.91,
+      "stop_loss": 522.25,
+      "take_profit": 548.9,
+      "trailing_stop": 5.33,
+      "status": "filled",
+      "exit_price": null,
+      "pnl": 0.0,
+      "opened_at": "2026-08-18T21:34:49.061369+00:00",
+      "closed_at": null,
+      "models_consulted": 100,
+      "consensus_score": 0.12
     }
   ],
   "category_breakdown": {
     "Technical": {
       "count": 15,
-      "predictions": 225,
-      "avg_confidence": 0.5126
+      "predictions": 315,
+      "avg_confidence": 0.5186
     },
     "Momentum": {
       "count": 10,
-      "predictions": 150,
-      "avg_confidence": 0.5006
+      "predictions": 210,
+      "avg_confidence": 0.5093
     },
     "Volatility": {
-      "count": 20,
-      "predictions": 300,
-      "avg_confidence": 0.533
+      "count": 10,
+      "predictions": 210,
+      "avg_confidence": 0.5166
     },
     "Statistical": {
       "count": 15,
-      "predictions": 225,
-      "avg_confidence": 0.5314
+      "predictions": 315,
+      "avg_confidence": 0.537
     },
     "MachineLearning": {
       "count": 10,
-      "predictions": 150,
-      "avg_confidence": 0.506
+      "predictions": 210,
+      "avg_confidence": 0.5146
     },
     "Quantitative": {
       "count": 10,
-      "predictions": 150,
-      "avg_confidence": 0.5275
+      "predictions": 210,
+      "avg_confidence": 0.5036
+    },
+    "Volume": {
+      "count": 10,
+      "predictions": 210,
+      "avg_confidence": 0.5225
     },
     "Pattern": {
       "count": 10,
-      "predictions": 150,
-      "avg_confidence": 0.4957
+      "predictions": 210,
+      "avg_confidence": 0.503
     },
     "Sentiment": {
       "count": 5,
-      "predictions": 75,
-      "avg_confidence": 0.4402
+      "predictions": 105,
+      "avg_confidence": 0.4663
     },
     "Risk": {
       "count": 5,
-      "predictions": 75,
-      "avg_confidence": 0.4967
+      "predictions": 105,
+      "avg_confidence": 0.5143
     }
   }
 }

@@ -1,210 +1,44 @@
 {
-  "cycle_count": 5,
+  "cycle_count": 10,
   "models": 100,
   "swarm_agents": 50000000,
   "swarm_sample": 10000,
-  "total_trades": 3,
+  "total_trades": 0,
   "total_signals": 0,
-  "created_at": "2026-08-18T20:39:49.923132+00:00",
+  "created_at": "2026-08-18T21:34:46.432248+00:00",
   "last_cycle": {
-    "cycle_number": 5,
-    "timestamp": "2026-08-18T20:39:49.973440+00:00",
-    "duration_ms": 9.04,
+    "cycle_number": 10,
+    "timestamp": "2026-08-18T21:34:46.520285+00:00",
+    "duration_ms": 7.95,
     "models_run": 100,
     "swarm_agents": 50000000,
     "swarm_sample_computed": 10000,
-    "signals_generated": 8,
-    "trades_executed": 3,
-    "trades": [
-      {
-        "symbol": "SPY",
-        "side": "buy",
-        "qty": 1,
-        "type": "market",
-        "signal_source": "continuous_engine_0.57",
-        "model_consensus": "47/100 buy",
-        "swarm_consensus": "buy",
-        "timestamp": "2026-08-18T20:39:49.973429+00:00",
-        "paper_trade": true,
-        "simulated": true
-      },
-      {
-        "symbol": "QQQ",
-        "side": "buy",
-        "qty": 1,
-        "type": "market",
-        "signal_source": "continuous_engine_0.57",
-        "model_consensus": "47/100 buy",
-        "swarm_consensus": "buy",
-        "timestamp": "2026-08-18T20:39:49.973434+00:00",
-        "paper_trade": true,
-        "simulated": true
-      },
-      {
-        "symbol": "TLT",
-        "side": "buy",
-        "qty": 1,
-        "type": "market",
-        "signal_source": "continuous_engine_0.57",
-        "model_consensus": "47/100 buy",
-        "swarm_consensus": "buy",
-        "timestamp": "2026-08-18T20:39:49.973438+00:00",
-        "paper_trade": true,
-        "simulated": true
-      }
-    ],
-    "signals": [
-      {
-        "symbol": "SPY",
-        "signal": "buy",
-        "confidence": 0.57,
-        "model_votes": {
-          "buy": 47,
-          "sell": 28,
-          "hold": 25,
-          "total": 100
-        },
-        "swarm_consensus": "buy",
-        "swarm_agreement": 0.3567,
-        "timestamp": "2026-08-18T20:39:49.973191+00:00",
-        "simulated": true,
-        "model_prediction": true
-      },
-      {
-        "symbol": "ESUSD",
-        "signal": "buy",
-        "confidence": 0.57,
-        "model_votes": {
-          "buy": 47,
-          "sell": 28,
-          "hold": 25,
-          "total": 100
-        },
-        "swarm_consensus": "buy",
-        "swarm_agreement": 0.3567,
-        "timestamp": "2026-08-18T20:39:49.973230+00:00",
-        "simulated": true,
-        "model_prediction": true
-      },
-      {
-        "symbol": "GCUSD",
-        "signal": "buy",
-        "confidence": 0.57,
-        "model_votes": {
-          "buy": 47,
-          "sell": 28,
-          "hold": 25,
-          "total": 100
-        },
-        "swarm_consensus": "buy",
-        "swarm_agreement": 0.3567,
-        "timestamp": "2026-08-18T20:39:49.973262+00:00",
-        "simulated": true,
-        "model_prediction": true
-      },
-      {
-        "symbol": "QQQ",
-        "signal": "buy",
-        "confidence": 0.57,
-        "model_votes": {
-          "buy": 47,
-          "sell": 28,
-          "hold": 25,
-          "total": 100
-        },
-        "swarm_consensus": "buy",
-        "swarm_agreement": 0.3567,
-        "timestamp": "2026-08-18T20:39:49.973294+00:00",
-        "simulated": true,
-        "model_prediction": true
-      },
-      {
-        "symbol": "CLUSD",
-        "signal": "buy",
-        "confidence": 0.57,
-        "model_votes": {
-          "buy": 47,
-          "sell": 28,
-          "hold": 25,
-          "total": 100
-        },
-        "swarm_consensus": "buy",
-        "swarm_agreement": 0.3567,
-        "timestamp": "2026-08-18T20:39:49.973326+00:00",
-        "simulated": true,
-        "model_prediction": true
-      },
-      {
-        "symbol": "TLT",
-        "signal": "buy",
-        "confidence": 0.57,
-        "model_votes": {
-          "buy": 47,
-          "sell": 28,
-          "hold": 25,
-          "total": 100
-        },
-        "swarm_consensus": "buy",
-        "swarm_agreement": 0.3567,
-        "timestamp": "2026-08-18T20:39:49.973358+00:00",
-        "simulated": true,
-        "model_prediction": true
-      },
-      {
-        "symbol": "^VIX",
-        "signal": "buy",
-        "confidence": 0.57,
-        "model_votes": {
-          "buy": 47,
-          "sell": 28,
-          "hold": 25,
-          "total": 100
-        },
-        "swarm_consensus": "buy",
-        "swarm_agreement": 0.3567,
-        "timestamp": "2026-08-18T20:39:49.973388+00:00",
-        "simulated": true,
-        "model_prediction": true
-      },
-      {
-        "symbol": "NQUSD",
-        "signal": "buy",
-        "confidence": 0.57,
-        "model_votes": {
-          "buy": 47,
-          "sell": 28,
-          "hold": 25,
-          "total": 100
-        },
-        "swarm_consensus": "buy",
-        "swarm_agreement": 0.3567,
-        "timestamp": "2026-08-18T20:39:49.973420+00:00",
-        "simulated": true,
-        "model_prediction": true
-      }
-    ],
+    "signals_generated": 0,
+    "trades_executed": 0,
+    "trades": [],
+    "signals": [],
     "swarm_result": {
       "total_agents": 50000000,
       "sample_computed": 10000,
       "extrapolation_factor": 5000,
       "votes": {
-        "buy": 17835000,
-        "sell": 17570000,
-        "hold": 14595000
+        "buy": 17380000,
+        "sell": 17415000,
+        "hold": 15205000
       },
-      "consensus": "buy",
-      "agreement": 0.3567,
-      "diversity": 0.6433,
+      "consensus": "sell",
+      "agreement": 0.3483,
+      "diversity": 0.6517,
       "simulated": true,
       "model_prediction": true,
       "honesty_note": "50M agents are SIMULATED via sampling. 10K agents actually computed, results extrapolated. Swarm measures diversity, not accuracy."
     },
     "model_summary": {
       "total_models": 100,
-      "signals_buy": 376,
-      "signals_sell": 224,
-      "signals_hold": 200,
-      "avg_confidence": 0.632
+      "signals_buy": 0,
+      "signals_sell": 0,
+      "signals_hold": 0,
+      "avg_confidence": 0.0
     },
     "simulated": true,
     "model_prediction": true,

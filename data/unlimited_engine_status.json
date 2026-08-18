@@ -2,15 +2,15 @@
   "cycle_count": 5,
   "accounts": {
     "total_accounts": 1000,
-    "total_pnl": -87062494.18,
-    "avg_pnl": -87062.49,
+    "total_pnl": -7975078.92,
+    "avg_pnl": -7975.08,
     "profitable_accounts": 0,
     "profitable_pct": 0.0,
-    "best_pnl": -12448.12,
-    "worst_pnl": -99302.57,
-    "avg_win_rate": 0.0,
-    "total_trades": 1000,
-    "avg_drawdown": 0.2705
+    "best_pnl": -4981.26,
+    "worst_pnl": -8166.0,
+    "avg_win_rate": 0,
+    "total_trades": 0,
+    "avg_drawdown": 0.0
   },
   "learning": {
     "observations": 25,
@@ -36,42 +36,42 @@
     ]
   },
   "evolution": {
-    "population_size": 50,
-    "generation": 3,
-    "best_fitness": 30.7456,
-    "avg_fitness": 16.4953,
-    "elite_count": 10,
+    "population_size": 100,
+    "generation": 2,
+    "best_fitness": 35.7215,
+    "avg_fitness": 16.4198,
+    "elite_count": 20,
     "mutation_rate": 0.15,
     "history": [
       {
         "generation": 1,
-        "best_fitness": 30.6747,
-        "avg_fitness": 16.4159,
-        "population": 50
+        "best_fitness": 30.7392,
+        "avg_fitness": 15.7534,
+        "population": 100
       },
       {
         "generation": 1,
-        "best_fitness": 33.236,
-        "avg_fitness": 16.2466,
-        "population": 50
+        "best_fitness": 30.4414,
+        "avg_fitness": 15.7086,
+        "population": 100
       },
       {
         "generation": 1,
-        "best_fitness": 30.2246,
-        "avg_fitness": 15.7662,
-        "population": 50
+        "best_fitness": 31.229,
+        "avg_fitness": 15.853,
+        "population": 100
       },
       {
         "generation": 1,
-        "best_fitness": 30.1777,
-        "avg_fitness": 15.0244,
-        "population": 50
+        "best_fitness": 31.3996,
+        "avg_fitness": 15.9693,
+        "population": 100
       },
       {
         "generation": 1,
-        "best_fitness": 30.7456,
-        "avg_fitness": 16.4953,
-        "population": 50
+        "best_fitness": 35.7215,
+        "avg_fitness": 16.4198,
+        "population": 100
       }
     ],
     "simulated": true,
@@ -91,44 +91,44 @@
     "threshold": 0.7,
     "top_correlations": [
       {
-        "pair": "GLD/USO",
-        "correlation": -0.7438
-      },
-      {
-        "pair": "SPY/GLD",
-        "correlation": -0.6965
+        "pair": "SPY/QQQ",
+        "correlation": 0.0
       },
       {
         "pair": "SPY/TLT",
-        "correlation": 0.695
+        "correlation": 0.0
+      },
+      {
+        "pair": "SPY/GLD",
+        "correlation": 0.0
       },
       {
         "pair": "SPY/USO",
-        "correlation": 0.6616
-      },
-      {
-        "pair": "QQQ/USO",
-        "correlation": 0.6338
+        "correlation": 0.0
       },
       {
         "pair": "QQQ/TLT",
-        "correlation": -0.6255
+        "correlation": 0.0
       },
       {
         "pair": "QQQ/GLD",
-        "correlation": -0.4445
+        "correlation": 0.0
+      },
+      {
+        "pair": "QQQ/USO",
+        "correlation": 0.0
       },
       {
         "pair": "TLT/GLD",
-        "correlation": -0.4187
-      },
-      {
-        "pair": "SPY/QQQ",
-        "correlation": -0.1219
+        "correlation": 0.0
       },
       {
         "pair": "TLT/USO",
-        "correlation": -0.031
+        "correlation": 0.0
+      },
+      {
+        "pair": "GLD/USO",
+        "correlation": 0.0
       }
     ],
     "divergence_list": [],
@@ -152,867 +152,857 @@
   ],
   "top_accounts": [
     {
-      "account_id": "ACCT_000436",
+      "account_id": "ACCT_000458",
       "strategy_name": "Trend_Follow",
       "starting_balance": 100000.0,
-      "balance": 87551.88,
-      "pnl": -12448.12,
-      "pnl_pct": -12.45,
+      "balance": 95018.74,
+      "pnl": -4981.26,
+      "pnl_pct": -4.98,
       "positions": {
-        "GLD": 28
+        "TLT": 61
       },
-      "total_trades": 1,
+      "total_trades": 0,
       "win_rate": 0.0,
-      "max_drawdown": 0.0107,
+      "max_drawdown": 0.0,
       "generation": 1,
       "fitness": 0.0,
       "params": {
-        "lookback": 16.306091313989082,
-        "threshold": 0.04204028276163946,
-        "position_size": 0.08205567038774879,
-        "stop_loss": 0.0586237972130265,
-        "take_profit": 0.07612520755151639,
-        "max_positions": 1
+        "lookback": 46.95662459066674,
+        "threshold": 0.04993780480395936,
+        "position_size": 0.050433164268674266,
+        "stop_loss": 0.05003346399371969,
+        "take_profit": 0.020902166110510118,
+        "max_positions": 9
       }
     },
     {
-      "account_id": "ACCT_000709",
-      "strategy_name": "Pairs_Trade",
-      "starting_balance": 100000.0,
-      "balance": 87551.88,
-      "pnl": -12448.12,
-      "pnl_pct": -12.45,
-      "positions": {
-        "GLD": 28
-      },
-      "total_trades": 1,
-      "win_rate": 0.0,
-      "max_drawdown": 0.0107,
-      "generation": 1,
-      "fitness": 0.0,
-      "params": {
-        "lookback": 40.55669914733002,
-        "threshold": 0.028332791941506827,
-        "position_size": 0.08239627415052646,
-        "stop_loss": 0.06648993820566655,
-        "take_profit": 0.14424729282276266,
-        "max_positions": 1
-      }
-    },
-    {
-      "account_id": "ACCT_000256",
-      "strategy_name": "Stat_Arbitrage",
-      "starting_balance": 100000.0,
-      "balance": 87145.6,
-      "pnl": -12854.4,
-      "pnl_pct": -12.85,
-      "positions": {
-        "GLD": 29
-      },
-      "total_trades": 1,
-      "win_rate": 0.0,
-      "max_drawdown": 0.0107,
-      "generation": 1,
-      "fitness": 0.0,
-      "params": {
-        "lookback": 30.67390384941349,
-        "threshold": 0.0803114003189579,
-        "position_size": 0.08518893643582061,
-        "stop_loss": 0.013683417670780783,
-        "take_profit": 0.12580028469357452,
-        "max_positions": 1
-      }
-    },
-    {
-      "account_id": "ACCT_000593",
-      "strategy_name": "MACD_Cross",
-      "starting_balance": 100000.0,
-      "balance": 87145.6,
-      "pnl": -12854.4,
-      "pnl_pct": -12.85,
-      "positions": {
-        "GLD": 29
-      },
-      "total_trades": 1,
-      "win_rate": 0.0,
-      "max_drawdown": 0.0107,
-      "generation": 1,
-      "fitness": 0.0,
-      "params": {
-        "lookback": 10.301505170959064,
-        "threshold": 0.051773090185249816,
-        "position_size": 0.08403405389591843,
-        "stop_loss": 0.07911063287390194,
-        "take_profit": 0.11177777662156904,
-        "max_positions": 1
-      }
-    },
-    {
-      "account_id": "ACCT_000227",
+      "account_id": "ACCT_000854",
       "strategy_name": "Grid_Trade",
       "starting_balance": 100000.0,
-      "balance": 86418.82,
-      "pnl": -13581.18,
-      "pnl_pct": -13.58,
+      "balance": 95018.74,
+      "pnl": -4981.26,
+      "pnl_pct": -4.98,
       "positions": {
-        "GLD": 31
+        "TLT": 61
       },
-      "total_trades": 1,
+      "total_trades": 0,
       "win_rate": 0.0,
-      "max_drawdown": 0.0099,
+      "max_drawdown": 0.0,
       "generation": 1,
       "fitness": 0.0,
       "params": {
-        "lookback": 32.30260002152586,
-        "threshold": 0.09427373769878561,
-        "position_size": 0.0755209399280002,
-        "stop_loss": 0.05224551911998785,
-        "take_profit": 0.1282923926182528,
-        "max_positions": 1
+        "lookback": 49.892879866082666,
+        "threshold": 0.07060780702102881,
+        "position_size": 0.050222950028201555,
+        "stop_loss": 0.030995647914379802,
+        "take_profit": 0.11237534517532731,
+        "max_positions": 2
       }
     },
     {
-      "account_id": "ACCT_000234",
-      "strategy_name": "Pairs_Trade",
-      "starting_balance": 100000.0,
-      "balance": 86408.1,
-      "pnl": -13591.9,
-      "pnl_pct": -13.59,
-      "positions": {
-        "GLD": 31
-      },
-      "total_trades": 1,
-      "win_rate": 0.0,
-      "max_drawdown": 0.01,
-      "generation": 1,
-      "fitness": 0.0,
-      "params": {
-        "lookback": 39.382625013812,
-        "threshold": 0.05358152249468687,
-        "position_size": 0.07651834509534587,
-        "stop_loss": 0.01353013767521418,
-        "take_profit": 0.03751943517586681,
-        "max_positions": 1
-      }
-    },
-    {
-      "account_id": "ACCT_000072",
-      "strategy_name": "Stat_Arbitrage",
-      "starting_balance": 100000.0,
-      "balance": 86333.04,
-      "pnl": -13666.96,
-      "pnl_pct": -13.67,
-      "positions": {
-        "GLD": 31
-      },
-      "total_trades": 1,
-      "win_rate": 0.0,
-      "max_drawdown": 0.0107,
-      "generation": 1,
-      "fitness": 0.0,
-      "params": {
-        "lookback": 37.96513897437666,
-        "threshold": 0.0813073438710633,
-        "position_size": 0.09199284979305193,
-        "stop_loss": 0.06609282038814329,
-        "take_profit": 0.08047884139665518,
-        "max_positions": 1
-      }
-    },
-    {
-      "account_id": "ACCT_000273",
-      "strategy_name": "Breakout",
-      "starting_balance": 100000.0,
-      "balance": 86333.04,
-      "pnl": -13666.96,
-      "pnl_pct": -13.67,
-      "positions": {
-        "GLD": 31
-      },
-      "total_trades": 1,
-      "win_rate": 0.0,
-      "max_drawdown": 0.0107,
-      "generation": 1,
-      "fitness": 0.0,
-      "params": {
-        "lookback": 45.45401299116976,
-        "threshold": 0.06997129175414733,
-        "position_size": 0.09178186775424084,
-        "stop_loss": 0.04237501145033524,
-        "take_profit": 0.03538241520832999,
-        "max_positions": 1
-      }
-    },
-    {
-      "account_id": "ACCT_000781",
-      "strategy_name": "Mean_Revert",
-      "starting_balance": 100000.0,
-      "balance": 86333.04,
-      "pnl": -13666.96,
-      "pnl_pct": -13.67,
-      "positions": {
-        "GLD": 31
-      },
-      "total_trades": 1,
-      "win_rate": 0.0,
-      "max_drawdown": 0.0107,
-      "generation": 1,
-      "fitness": 0.0,
-      "params": {
-        "lookback": 35.884971863300684,
-        "threshold": 0.06530525572548922,
-        "position_size": 0.09025797650290228,
-        "stop_loss": 0.033065252789469896,
-        "take_profit": 0.05935962578374762,
-        "max_positions": 1
-      }
-    },
-    {
-      "account_id": "ACCT_000701",
+      "account_id": "ACCT_000090",
       "strategy_name": "Volatility_Scalp",
       "starting_balance": 100000.0,
-      "balance": 86033.99,
-      "pnl": -13966.01,
-      "pnl_pct": -13.97,
+      "balance": 94937.08,
+      "pnl": -5062.92,
+      "pnl_pct": -5.06,
       "positions": {
-        "GLD": 32
+        "TLT": 62
       },
-      "total_trades": 1,
+      "total_trades": 0,
       "win_rate": 0.0,
-      "max_drawdown": 0.0097,
+      "max_drawdown": 0.0,
       "generation": 1,
       "fitness": 0.0,
       "params": {
-        "lookback": 48.20044199694059,
-        "threshold": 0.05120488133364572,
-        "position_size": 0.07433194019169971,
-        "stop_loss": 0.027045708604231347,
-        "take_profit": 0.0798162046458524,
+        "lookback": 25.284513009671173,
+        "threshold": 0.018302904797190885,
+        "position_size": 0.05132576240695229,
+        "stop_loss": 0.03135632721403059,
+        "take_profit": 0.11891612820067457,
+        "max_positions": 4
+      }
+    },
+    {
+      "account_id": "ACCT_000616",
+      "strategy_name": "Breakout",
+      "starting_balance": 100000.0,
+      "balance": 94937.08,
+      "pnl": -5062.92,
+      "pnl_pct": -5.06,
+      "positions": {
+        "TLT": 62
+      },
+      "total_trades": 0,
+      "win_rate": 0.0,
+      "max_drawdown": 0.0,
+      "generation": 1,
+      "fitness": 0.0,
+      "params": {
+        "lookback": 28.08049165995531,
+        "threshold": 0.029144193322855963,
+        "position_size": 0.05100968386752018,
+        "stop_loss": 0.049734948274771124,
+        "take_profit": 0.06422936398347756,
+        "max_positions": 5
+      }
+    },
+    {
+      "account_id": "ACCT_000331",
+      "strategy_name": "Trend_Follow",
+      "starting_balance": 100000.0,
+      "balance": 94855.42,
+      "pnl": -5144.58,
+      "pnl_pct": -5.14,
+      "positions": {
+        "TLT": 63
+      },
+      "total_trades": 0,
+      "win_rate": 0.0,
+      "max_drawdown": 0.0,
+      "generation": 1,
+      "fitness": 0.0,
+      "params": {
+        "lookback": 41.188576332244715,
+        "threshold": 0.029843130478274138,
+        "position_size": 0.051717641278597695,
+        "stop_loss": 0.04613762579959745,
+        "take_profit": 0.02847621609959943,
+        "max_positions": 7
+      }
+    },
+    {
+      "account_id": "ACCT_000734",
+      "strategy_name": "Volatility_Scalp",
+      "starting_balance": 100000.0,
+      "balance": 94855.42,
+      "pnl": -5144.58,
+      "pnl_pct": -5.14,
+      "positions": {
+        "TLT": 63
+      },
+      "total_trades": 0,
+      "win_rate": 0.0,
+      "max_drawdown": 0.0,
+      "generation": 1,
+      "fitness": 0.0,
+      "params": {
+        "lookback": 38.627632419915976,
+        "threshold": 0.09845743181999249,
+        "position_size": 0.052104759614063426,
+        "stop_loss": 0.07710198942241794,
+        "take_profit": 0.09371662562211723,
+        "max_positions": 10
+      }
+    },
+    {
+      "account_id": "ACCT_000203",
+      "strategy_name": "Swing_Trade",
+      "starting_balance": 100000.0,
+      "balance": 94773.76,
+      "pnl": -5226.24,
+      "pnl_pct": -5.23,
+      "positions": {
+        "TLT": 64
+      },
+      "total_trades": 0,
+      "win_rate": 0.0,
+      "max_drawdown": 0.0,
+      "generation": 1,
+      "fitness": 0.0,
+      "params": {
+        "lookback": 12.941091825262468,
+        "threshold": 0.010183647311419047,
+        "position_size": 0.05255968586521108,
+        "stop_loss": 0.017606190757418042,
+        "take_profit": 0.026506460553928038,
+        "max_positions": 3
+      }
+    },
+    {
+      "account_id": "ACCT_000575",
+      "strategy_name": "Trend_Follow",
+      "starting_balance": 100000.0,
+      "balance": 94773.76,
+      "pnl": -5226.24,
+      "pnl_pct": -5.23,
+      "positions": {
+        "TLT": 64
+      },
+      "total_trades": 0,
+      "win_rate": 0.0,
+      "max_drawdown": 0.0,
+      "generation": 1,
+      "fitness": 0.0,
+      "params": {
+        "lookback": 15.420941848778622,
+        "threshold": 0.07870414472385792,
+        "position_size": 0.052952411869357244,
+        "stop_loss": 0.0351794070909277,
+        "take_profit": 0.08096050457889772,
         "max_positions": 1
       }
     },
     {
-      "account_id": "ACCT_000146",
-      "strategy_name": "Pairs_Trade",
+      "account_id": "ACCT_000929",
+      "strategy_name": "MACD_Cross",
       "starting_balance": 100000.0,
-      "balance": 85926.76,
-      "pnl": -14073.24,
-      "pnl_pct": -14.07,
+      "balance": 94692.1,
+      "pnl": -5307.9,
+      "pnl_pct": -5.31,
       "positions": {
-        "GLD": 32
+        "TLT": 65
       },
-      "total_trades": 1,
+      "total_trades": 0,
       "win_rate": 0.0,
-      "max_drawdown": 0.0107,
+      "max_drawdown": 0.0,
       "generation": 1,
       "fitness": 0.0,
       "params": {
-        "lookback": 21.545972394373525,
-        "threshold": 0.09033430595551994,
-        "position_size": 0.09374799020404058,
-        "stop_loss": 0.04294875616550566,
-        "take_profit": 0.13476317992234912,
+        "lookback": 41.99703840337348,
+        "threshold": 0.05100165614601116,
+        "position_size": 0.053124056483371304,
+        "stop_loss": 0.018895510212673768,
+        "take_profit": 0.12335932860195781,
+        "max_positions": 9
+      }
+    },
+    {
+      "account_id": "ACCT_000051",
+      "strategy_name": "Breakout",
+      "starting_balance": 100000.0,
+      "balance": 94610.44,
+      "pnl": -5389.56,
+      "pnl_pct": -5.39,
+      "positions": {
+        "TLT": 66
+      },
+      "total_trades": 0,
+      "win_rate": 0.0,
+      "max_drawdown": 0.0,
+      "generation": 1,
+      "fitness": 0.0,
+      "params": {
+        "lookback": 22.989008895740444,
+        "threshold": 0.09954844255858393,
+        "position_size": 0.05433854048846655,
+        "stop_loss": 0.017667591096396068,
+        "take_profit": 0.02806224320878149,
+        "max_positions": 4
+      }
+    },
+    {
+      "account_id": "ACCT_000486",
+      "strategy_name": "Pairs_Trade",
+      "starting_balance": 100000.0,
+      "balance": 94610.44,
+      "pnl": -5389.56,
+      "pnl_pct": -5.39,
+      "positions": {
+        "TLT": 66
+      },
+      "total_trades": 0,
+      "win_rate": 0.0,
+      "max_drawdown": 0.0,
+      "generation": 1,
+      "fitness": 0.0,
+      "params": {
+        "lookback": 17.450830690492474,
+        "threshold": 0.07934337456207699,
+        "position_size": 0.054547042620830974,
+        "stop_loss": 0.011582082956110396,
+        "take_profit": 0.023995225394191657,
+        "max_positions": 10
+      }
+    },
+    {
+      "account_id": "ACCT_000816",
+      "strategy_name": "Swing_Trade",
+      "starting_balance": 100000.0,
+      "balance": 94610.44,
+      "pnl": -5389.56,
+      "pnl_pct": -5.39,
+      "positions": {
+        "TLT": 66
+      },
+      "total_trades": 0,
+      "win_rate": 0.0,
+      "max_drawdown": 0.0,
+      "generation": 1,
+      "fitness": 0.0,
+      "params": {
+        "lookback": 36.34074349842999,
+        "threshold": 0.04166178629596143,
+        "position_size": 0.054586747236237895,
+        "stop_loss": 0.029581205701702952,
+        "take_profit": 0.0774536382450879,
         "max_positions": 1
+      }
+    },
+    {
+      "account_id": "ACCT_000860",
+      "strategy_name": "Mean_Revert",
+      "starting_balance": 100000.0,
+      "balance": 94610.44,
+      "pnl": -5389.56,
+      "pnl_pct": -5.39,
+      "positions": {
+        "TLT": 66
+      },
+      "total_trades": 0,
+      "win_rate": 0.0,
+      "max_drawdown": 0.0,
+      "generation": 1,
+      "fitness": 0.0,
+      "params": {
+        "lookback": 33.47447403609009,
+        "threshold": 0.03238558076456854,
+        "position_size": 0.05437188158086349,
+        "stop_loss": 0.057555735174113616,
+        "take_profit": 0.10023533651884176,
+        "max_positions": 5
+      }
+    },
+    {
+      "account_id": "ACCT_000866",
+      "strategy_name": "Grid_Trade",
+      "starting_balance": 100000.0,
+      "balance": 94610.44,
+      "pnl": -5389.56,
+      "pnl_pct": -5.39,
+      "positions": {
+        "TLT": 66
+      },
+      "total_trades": 0,
+      "win_rate": 0.0,
+      "max_drawdown": 0.0,
+      "generation": 1,
+      "fitness": 0.0,
+      "params": {
+        "lookback": 18.28746300617364,
+        "threshold": 0.06568067528666467,
+        "position_size": 0.05409777011453511,
+        "stop_loss": 0.04316394901439673,
+        "take_profit": 0.09457066444711526,
+        "max_positions": 10
+      }
+    },
+    {
+      "account_id": "ACCT_000883",
+      "strategy_name": "MACD_Cross",
+      "starting_balance": 100000.0,
+      "balance": 94610.44,
+      "pnl": -5389.56,
+      "pnl_pct": -5.39,
+      "positions": {
+        "TLT": 66
+      },
+      "total_trades": 0,
+      "win_rate": 0.0,
+      "max_drawdown": 0.0,
+      "generation": 1,
+      "fitness": 0.0,
+      "params": {
+        "lookback": 11.92142909802321,
+        "threshold": 0.02070764256616519,
+        "position_size": 0.05445996542306682,
+        "stop_loss": 0.01999883473881583,
+        "take_profit": 0.11335202149322554,
+        "max_positions": 8
+      }
+    },
+    {
+      "account_id": "ACCT_000190",
+      "strategy_name": "Volatility_Scalp",
+      "starting_balance": 100000.0,
+      "balance": 94528.78,
+      "pnl": -5471.22,
+      "pnl_pct": -5.47,
+      "positions": {
+        "TLT": 67
+      },
+      "total_trades": 0,
+      "win_rate": 0.0,
+      "max_drawdown": 0.0,
+      "generation": 1,
+      "fitness": 0.0,
+      "params": {
+        "lookback": 9.528656388829427,
+        "threshold": 0.028134413938003908,
+        "position_size": 0.054885978389175624,
+        "stop_loss": 0.07230342107041862,
+        "take_profit": 0.06591930072113839,
+        "max_positions": 10
       }
     },
     {
       "account_id": "ACCT_000327",
-      "strategy_name": "Grid_Trade",
+      "strategy_name": "Pairs_Trade",
       "starting_balance": 100000.0,
-      "balance": 85926.76,
-      "pnl": -14073.24,
-      "pnl_pct": -14.07,
+      "balance": 94528.78,
+      "pnl": -5471.22,
+      "pnl_pct": -5.47,
       "positions": {
-        "GLD": 32
+        "TLT": 67
       },
-      "total_trades": 1,
+      "total_trades": 0,
       "win_rate": 0.0,
-      "max_drawdown": 0.0107,
+      "max_drawdown": 0.0,
       "generation": 1,
       "fitness": 0.0,
       "params": {
-        "lookback": 26.776549438002334,
-        "threshold": 0.058444796990998166,
-        "position_size": 0.09347537346546271,
-        "stop_loss": 0.07395387717062452,
-        "take_profit": 0.05559836518494356,
-        "max_positions": 1
+        "lookback": 43.32775739547336,
+        "threshold": 0.018951678285958985,
+        "position_size": 0.055273438187626964,
+        "stop_loss": 0.03738746060040722,
+        "take_profit": 0.04495730928954382,
+        "max_positions": 4
       }
     },
     {
-      "account_id": "ACCT_000171",
-      "strategy_name": "Breakout",
-      "starting_balance": 100000.0,
-      "balance": 85521.66,
-      "pnl": -14478.34,
-      "pnl_pct": -14.48,
-      "positions": {
-        "GLD": 34
-      },
-      "total_trades": 1,
-      "win_rate": 0.0,
-      "max_drawdown": 0.0066,
-      "generation": 1,
-      "fitness": 0.0,
-      "params": {
-        "lookback": 42.34882525736563,
-        "threshold": 0.020167179613059798,
-        "position_size": 0.05118723948810823,
-        "stop_loss": 0.07452845442944087,
-        "take_profit": 0.050320059345032975,
-        "max_positions": 1
-      }
-    },
-    {
-      "account_id": "ACCT_000291",
-      "strategy_name": "Stat_Arbitrage",
-      "starting_balance": 100000.0,
-      "balance": 85520.48,
-      "pnl": -14479.52,
-      "pnl_pct": -14.48,
-      "positions": {
-        "GLD": 33
-      },
-      "total_trades": 1,
-      "win_rate": 0.0,
-      "max_drawdown": 0.0107,
-      "generation": 1,
-      "fitness": 0.0,
-      "params": {
-        "lookback": 31.41718437472011,
-        "threshold": 0.03891493028598824,
-        "position_size": 0.09743346510713412,
-        "stop_loss": 0.014101467555471169,
-        "take_profit": 0.04496986245344753,
-        "max_positions": 1
-      }
-    },
-    {
-      "account_id": "ACCT_000681",
-      "strategy_name": "Grid_Trade",
-      "starting_balance": 100000.0,
-      "balance": 85360.82,
-      "pnl": -14639.18,
-      "pnl_pct": -14.64,
-      "positions": {
-        "GLD": 34
-      },
-      "total_trades": 1,
-      "win_rate": 0.0,
-      "max_drawdown": 0.0083,
-      "generation": 1,
-      "fitness": 0.0,
-      "params": {
-        "lookback": 45.4649610875998,
-        "threshold": 0.09550760741027076,
-        "position_size": 0.06354173173268553,
-        "stop_loss": 0.07522280944483868,
-        "take_profit": 0.08553283149997298,
-        "max_positions": 1
-      }
-    },
-    {
-      "account_id": "ACCT_000017",
+      "account_id": "ACCT_000346",
       "strategy_name": "Trend_Follow",
       "starting_balance": 100000.0,
-      "balance": 85350.1,
-      "pnl": -14649.9,
-      "pnl_pct": -14.65,
+      "balance": 94528.78,
+      "pnl": -5471.22,
+      "pnl_pct": -5.47,
       "positions": {
-        "GLD": 34
+        "TLT": 67
       },
-      "total_trades": 1,
+      "total_trades": 0,
       "win_rate": 0.0,
-      "max_drawdown": 0.0084,
+      "max_drawdown": 0.0,
       "generation": 1,
       "fitness": 0.0,
       "params": {
-        "lookback": 8.861559561233769,
-        "threshold": 0.09894559824652392,
-        "position_size": 0.06441357142251998,
-        "stop_loss": 0.035219180593297136,
-        "take_profit": 0.1262109922994661,
-        "max_positions": 1
+        "lookback": 41.214797809241354,
+        "threshold": 0.05761320588822119,
+        "position_size": 0.055479853919831665,
+        "stop_loss": 0.07685404292665383,
+        "take_profit": 0.12103279638425814,
+        "max_positions": 5
       }
     },
     {
-      "account_id": "ACCT_000154",
-      "strategy_name": "Breakout",
+      "account_id": "ACCT_000463",
+      "strategy_name": "Momentum",
       "starting_balance": 100000.0,
-      "balance": 85339.38,
-      "pnl": -14660.62,
-      "pnl_pct": -14.66,
+      "balance": 94528.78,
+      "pnl": -5471.22,
+      "pnl_pct": -5.47,
       "positions": {
-        "GLD": 34
+        "TLT": 67
       },
-      "total_trades": 1,
+      "total_trades": 0,
       "win_rate": 0.0,
-      "max_drawdown": 0.0085,
+      "max_drawdown": 0.0,
       "generation": 1,
       "fitness": 0.0,
       "params": {
-        "lookback": 40.033883832797386,
-        "threshold": 0.08515509410306478,
-        "position_size": 0.06479298920888503,
-        "stop_loss": 0.052116398455530004,
-        "take_profit": 0.07311598758631357,
-        "max_positions": 1
+        "lookback": 31.66372384310377,
+        "threshold": 0.07785313023162765,
+        "position_size": 0.05544697062108826,
+        "stop_loss": 0.0525375579711928,
+        "take_profit": 0.0319163007218738,
+        "max_positions": 8
       }
     },
     {
-      "account_id": "ACCT_000039",
-      "strategy_name": "MACD_Cross",
+      "account_id": "ACCT_000856",
+      "strategy_name": "Volatility_Scalp",
       "starting_balance": 100000.0,
-      "balance": 85114.2,
-      "pnl": -14885.8,
-      "pnl_pct": -14.89,
+      "balance": 94528.78,
+      "pnl": -5471.22,
+      "pnl_pct": -5.47,
       "positions": {
-        "GLD": 34
+        "TLT": 67
       },
-      "total_trades": 1,
+      "total_trades": 0,
       "win_rate": 0.0,
-      "max_drawdown": 0.0107,
+      "max_drawdown": 0.0,
       "generation": 1,
       "fitness": 0.0,
       "params": {
-        "lookback": 24.001300181256617,
-        "threshold": 0.048543879606857146,
-        "position_size": 0.09837281197521101,
-        "stop_loss": 0.06190988102195185,
-        "take_profit": 0.06776749296810546,
-        "max_positions": 1
-      }
-    },
-    {
-      "account_id": "ACCT_000721",
-      "strategy_name": "Swing_Trade",
-      "starting_balance": 100000.0,
-      "balance": 84975.99,
-      "pnl": -15024.01,
-      "pnl_pct": -15.02,
-      "positions": {
-        "GLD": 35
-      },
-      "total_trades": 1,
-      "win_rate": 0.0,
-      "max_drawdown": 0.008,
-      "generation": 1,
-      "fitness": 0.0,
-      "params": {
-        "lookback": 33.45557110713246,
-        "threshold": 0.0959957943846585,
-        "position_size": 0.062195088403004514,
-        "stop_loss": 0.04859804852012364,
-        "take_profit": 0.05164152505998601,
-        "max_positions": 1
-      }
-    },
-    {
-      "account_id": "ACCT_000025",
-      "strategy_name": "Grid_Trade",
-      "starting_balance": 100000.0,
-      "balance": 84707.92,
-      "pnl": -15292.08,
-      "pnl_pct": -15.29,
-      "positions": {
-        "GLD": 35
-      },
-      "total_trades": 1,
-      "win_rate": 0.0,
-      "max_drawdown": 0.0107,
-      "generation": 1,
-      "fitness": 0.0,
-      "params": {
-        "lookback": 15.169440580641288,
-        "threshold": 0.07751173807245527,
-        "position_size": 0.10257274341028662,
-        "stop_loss": 0.02013978434455082,
-        "take_profit": 0.04567266136632301,
-        "max_positions": 1
+        "lookback": 20.484570985965682,
+        "threshold": 0.07366398192373276,
+        "position_size": 0.05499799584427924,
+        "stop_loss": 0.039864941739667814,
+        "take_profit": 0.10102520934590514,
+        "max_positions": 7
       }
     }
   ],
   "worst_accounts": [
     {
-      "account_id": "ACCT_000002",
-      "strategy_name": "Swing_Trade",
+      "account_id": "ACCT_000001",
+      "strategy_name": "Volatility_Scalp",
       "starting_balance": 100000.0,
-      "balance": 697.43,
-      "pnl": -99302.57,
-      "pnl_pct": -99.3,
+      "balance": 91834.0,
+      "pnl": -8166.0,
+      "pnl_pct": -8.17,
       "positions": {
-        "GLD": 70,
-        "SPY": 89
+        "TLT": 100
       },
-      "total_trades": 1,
+      "total_trades": 0,
       "win_rate": 0.0,
-      "max_drawdown": 0.2922,
+      "max_drawdown": 0.0,
       "generation": 1,
       "fitness": 0.0,
       "params": {
-        "lookback": 43.30183321613341,
-        "threshold": 0.043073429415760416,
-        "position_size": 0.1249947209722541,
-        "stop_loss": 0.07492042104421634,
-        "take_profit": 0.041345931084695385,
-        "max_positions": 6
-      }
-    },
-    {
-      "account_id": "ACCT_000003",
-      "strategy_name": "Stat_Arbitrage",
-      "starting_balance": 100000.0,
-      "balance": 697.43,
-      "pnl": -99302.57,
-      "pnl_pct": -99.3,
-      "positions": {
-        "GLD": 70,
-        "SPY": 89
-      },
-      "total_trades": 1,
-      "win_rate": 0.0,
-      "max_drawdown": 0.2922,
-      "generation": 1,
-      "fitness": 0.0,
-      "params": {
-        "lookback": 17.97450248117758,
-        "threshold": 0.08688964219932335,
-        "position_size": 0.11818539190547021,
-        "stop_loss": 0.046553708085721644,
-        "take_profit": 0.045988347418319045,
-        "max_positions": 6
-      }
-    },
-    {
-      "account_id": "ACCT_000005",
-      "strategy_name": "Stat_Arbitrage",
-      "starting_balance": 100000.0,
-      "balance": 697.43,
-      "pnl": -99302.57,
-      "pnl_pct": -99.3,
-      "positions": {
-        "GLD": 70,
-        "SPY": 89
-      },
-      "total_trades": 1,
-      "win_rate": 0.0,
-      "max_drawdown": 0.2922,
-      "generation": 1,
-      "fitness": 0.0,
-      "params": {
-        "lookback": 10.682322215025405,
-        "threshold": 0.05315542131014185,
-        "position_size": 0.1493862330350727,
-        "stop_loss": 0.06289020484645888,
-        "take_profit": 0.08007497501368485,
-        "max_positions": 2
-      }
-    },
-    {
-      "account_id": "ACCT_000006",
-      "strategy_name": "Breakout",
-      "starting_balance": 100000.0,
-      "balance": 697.43,
-      "pnl": -99302.57,
-      "pnl_pct": -99.3,
-      "positions": {
-        "GLD": 70,
-        "SPY": 89
-      },
-      "total_trades": 1,
-      "win_rate": 0.0,
-      "max_drawdown": 0.2922,
-      "generation": 1,
-      "fitness": 0.0,
-      "params": {
-        "lookback": 29.197295378297326,
-        "threshold": 0.06365783223609321,
-        "position_size": 0.10593989172308661,
-        "stop_loss": 0.07467691269342704,
-        "take_profit": 0.12016911141959764,
-        "max_positions": 8
-      }
-    },
-    {
-      "account_id": "ACCT_000007",
-      "strategy_name": "Mean_Revert",
-      "starting_balance": 100000.0,
-      "balance": 697.43,
-      "pnl": -99302.57,
-      "pnl_pct": -99.3,
-      "positions": {
-        "GLD": 70,
-        "SPY": 89
-      },
-      "total_trades": 1,
-      "win_rate": 0.0,
-      "max_drawdown": 0.2922,
-      "generation": 1,
-      "fitness": 0.0,
-      "params": {
-        "lookback": 49.96169472396651,
-        "threshold": 0.07262096316672419,
-        "position_size": 0.2842583630339338,
-        "stop_loss": 0.05264547190553702,
-        "take_profit": 0.08999156069378834,
-        "max_positions": 9
-      }
-    },
-    {
-      "account_id": "ACCT_000009",
-      "strategy_name": "Swing_Trade",
-      "starting_balance": 100000.0,
-      "balance": 697.43,
-      "pnl": -99302.57,
-      "pnl_pct": -99.3,
-      "positions": {
-        "GLD": 70,
-        "SPY": 89
-      },
-      "total_trades": 1,
-      "win_rate": 0.0,
-      "max_drawdown": 0.2922,
-      "generation": 1,
-      "fitness": 0.0,
-      "params": {
-        "lookback": 15.549816295237198,
-        "threshold": 0.07042019449539062,
-        "position_size": 0.1759065776432996,
-        "stop_loss": 0.02848536529556281,
-        "take_profit": 0.11354318322299298,
+        "lookback": 9.810238110933687,
+        "threshold": 0.04821323531150883,
+        "position_size": 0.08219891330081448,
+        "stop_loss": 0.05766929050853828,
+        "take_profit": 0.038597410293904115,
         "max_positions": 7
       }
     },
     {
-      "account_id": "ACCT_000010",
+      "account_id": "ACCT_000002",
       "strategy_name": "Pairs_Trade",
       "starting_balance": 100000.0,
-      "balance": 697.43,
-      "pnl": -99302.57,
-      "pnl_pct": -99.3,
+      "balance": 91834.0,
+      "pnl": -8166.0,
+      "pnl_pct": -8.17,
       "positions": {
-        "GLD": 70,
-        "SPY": 89
+        "TLT": 100
       },
-      "total_trades": 1,
+      "total_trades": 0,
       "win_rate": 0.0,
-      "max_drawdown": 0.2922,
+      "max_drawdown": 0.0,
       "generation": 1,
       "fitness": 0.0,
       "params": {
-        "lookback": 24.596371275622406,
-        "threshold": 0.037947090382834066,
-        "position_size": 0.22635027779383404,
-        "stop_loss": 0.025634239714275635,
-        "take_profit": 0.06292870043151975,
-        "max_positions": 4
+        "lookback": 40.86834786837595,
+        "threshold": 0.09346938288901388,
+        "position_size": 0.1031837714630197,
+        "stop_loss": 0.05039660417614336,
+        "take_profit": 0.11884569551161331,
+        "max_positions": 7
       }
     },
     {
-      "account_id": "ACCT_000011",
-      "strategy_name": "MACD_Cross",
+      "account_id": "ACCT_000003",
+      "strategy_name": "Grid_Trade",
       "starting_balance": 100000.0,
-      "balance": 697.43,
-      "pnl": -99302.57,
-      "pnl_pct": -99.3,
+      "balance": 91834.0,
+      "pnl": -8166.0,
+      "pnl_pct": -8.17,
       "positions": {
-        "GLD": 70,
-        "SPY": 89
+        "TLT": 100
       },
-      "total_trades": 1,
+      "total_trades": 0,
       "win_rate": 0.0,
-      "max_drawdown": 0.2922,
+      "max_drawdown": 0.0,
       "generation": 1,
       "fitness": 0.0,
       "params": {
-        "lookback": 16.31159661642228,
-        "threshold": 0.08073030959133172,
-        "position_size": 0.20434762412683988,
-        "stop_loss": 0.02016455199645102,
-        "take_profit": 0.021812780168084446,
-        "max_positions": 9
+        "lookback": 27.187077655664098,
+        "threshold": 0.04612054122431479,
+        "position_size": 0.21918102327537042,
+        "stop_loss": 0.041946766245615504,
+        "take_profit": 0.03243879148305939,
+        "max_positions": 5
       }
     },
     {
-      "account_id": "ACCT_000012",
-      "strategy_name": "Stat_Arbitrage",
+      "account_id": "ACCT_000004",
+      "strategy_name": "Breakout",
       "starting_balance": 100000.0,
-      "balance": 697.43,
-      "pnl": -99302.57,
-      "pnl_pct": -99.3,
+      "balance": 91834.0,
+      "pnl": -8166.0,
+      "pnl_pct": -8.17,
       "positions": {
-        "GLD": 70,
-        "SPY": 89
+        "TLT": 100
       },
-      "total_trades": 1,
+      "total_trades": 0,
       "win_rate": 0.0,
-      "max_drawdown": 0.2922,
+      "max_drawdown": 0.0,
       "generation": 1,
       "fitness": 0.0,
       "params": {
-        "lookback": 25.10463273312808,
-        "threshold": 0.031227763434714173,
-        "position_size": 0.2725668059041757,
-        "stop_loss": 0.04399718090350471,
-        "take_profit": 0.04309539886335305,
+        "lookback": 18.67058529002253,
+        "threshold": 0.09220009148197206,
+        "position_size": 0.23154943230351033,
+        "stop_loss": 0.07766730117182988,
+        "take_profit": 0.14164429030668796,
+        "max_positions": 6
+      }
+    },
+    {
+      "account_id": "ACCT_000006",
+      "strategy_name": "Swing_Trade",
+      "starting_balance": 100000.0,
+      "balance": 91834.0,
+      "pnl": -8166.0,
+      "pnl_pct": -8.17,
+      "positions": {
+        "TLT": 100
+      },
+      "total_trades": 0,
+      "win_rate": 0.0,
+      "max_drawdown": 0.0,
+      "generation": 1,
+      "fitness": 0.0,
+      "params": {
+        "lookback": 36.60543848416,
+        "threshold": 0.047478593125973835,
+        "position_size": 0.12054588066795392,
+        "stop_loss": 0.04067006825310584,
+        "take_profit": 0.06200522592967085,
         "max_positions": 10
       }
     },
     {
-      "account_id": "ACCT_000013",
-      "strategy_name": "MACD_Cross",
+      "account_id": "ACCT_000007",
+      "strategy_name": "Pairs_Trade",
       "starting_balance": 100000.0,
-      "balance": 697.43,
-      "pnl": -99302.57,
-      "pnl_pct": -99.3,
+      "balance": 91834.0,
+      "pnl": -8166.0,
+      "pnl_pct": -8.17,
       "positions": {
-        "GLD": 70,
-        "SPY": 89
+        "TLT": 100
       },
-      "total_trades": 1,
+      "total_trades": 0,
       "win_rate": 0.0,
-      "max_drawdown": 0.2922,
+      "max_drawdown": 0.0,
       "generation": 1,
       "fitness": 0.0,
       "params": {
-        "lookback": 6.260050818209292,
-        "threshold": 0.08565761575260762,
-        "position_size": 0.2462015334553445,
-        "stop_loss": 0.011339648571917913,
-        "take_profit": 0.14356260867547863,
-        "max_positions": 4
+        "lookback": 29.588649491296295,
+        "threshold": 0.08385470752044134,
+        "position_size": 0.11371667277920468,
+        "stop_loss": 0.0636507680865343,
+        "take_profit": 0.05188077414201882,
+        "max_positions": 10
+      }
+    },
+    {
+      "account_id": "ACCT_000008",
+      "strategy_name": "Swing_Trade",
+      "starting_balance": 100000.0,
+      "balance": 91834.0,
+      "pnl": -8166.0,
+      "pnl_pct": -8.17,
+      "positions": {
+        "TLT": 100
+      },
+      "total_trades": 0,
+      "win_rate": 0.0,
+      "max_drawdown": 0.0,
+      "generation": 1,
+      "fitness": 0.0,
+      "params": {
+        "lookback": 11.132803992969784,
+        "threshold": 0.01851961743174117,
+        "position_size": 0.11808858640382654,
+        "stop_loss": 0.04956795252122874,
+        "take_profit": 0.1313859879407145,
+        "max_positions": 10
+      }
+    },
+    {
+      "account_id": "ACCT_000009",
+      "strategy_name": "Momentum",
+      "starting_balance": 100000.0,
+      "balance": 91834.0,
+      "pnl": -8166.0,
+      "pnl_pct": -8.17,
+      "positions": {
+        "TLT": 100
+      },
+      "total_trades": 0,
+      "win_rate": 0.0,
+      "max_drawdown": 0.0,
+      "generation": 1,
+      "fitness": 0.0,
+      "params": {
+        "lookback": 44.304164445024796,
+        "threshold": 0.07848973205391048,
+        "position_size": 0.21208839132657176,
+        "stop_loss": 0.065024522810235,
+        "take_profit": 0.04426410933706175,
+        "max_positions": 6
+      }
+    },
+    {
+      "account_id": "ACCT_000011",
+      "strategy_name": "Pairs_Trade",
+      "starting_balance": 100000.0,
+      "balance": 91834.0,
+      "pnl": -8166.0,
+      "pnl_pct": -8.17,
+      "positions": {
+        "TLT": 100
+      },
+      "total_trades": 0,
+      "win_rate": 0.0,
+      "max_drawdown": 0.0,
+      "generation": 1,
+      "fitness": 0.0,
+      "params": {
+        "lookback": 49.94719360336158,
+        "threshold": 0.05477788386994676,
+        "position_size": 0.17908350090741737,
+        "stop_loss": 0.023261395870351663,
+        "take_profit": 0.12652901135611744,
+        "max_positions": 6
+      }
+    },
+    {
+      "account_id": "ACCT_000012",
+      "strategy_name": "Swing_Trade",
+      "starting_balance": 100000.0,
+      "balance": 91834.0,
+      "pnl": -8166.0,
+      "pnl_pct": -8.17,
+      "positions": {
+        "TLT": 100
+      },
+      "total_trades": 0,
+      "win_rate": 0.0,
+      "max_drawdown": 0.0,
+      "generation": 1,
+      "fitness": 0.0,
+      "params": {
+        "lookback": 38.31376727372897,
+        "threshold": 0.07535766310027575,
+        "position_size": 0.10725708249368664,
+        "stop_loss": 0.041841916334548625,
+        "take_profit": 0.08447081250854276,
+        "max_positions": 5
       }
     }
   ],
   "top_strategies": [
     {
-      "genome_id": "d57bcc96575f",
-      "fitness": 30.7456,
+      "genome_id": "aed307d8b85f",
+      "fitness": 35.7215,
       "generation": 1,
       "params": {
-        "lookback": 19.287358420218492,
-        "threshold": 0.08048983206472529,
-        "position_size": 0.25528114183676753,
-        "stop_loss": 0.025754923034411133,
-        "take_profit": 0.06277896288538463,
+        "lookback": 17.072959662568536,
+        "threshold": 0.09161290382988364,
+        "position_size": 0.2545556360459895,
+        "stop_loss": 0.06329139410586343,
+        "take_profit": 0.11061553239666584,
+        "max_positions": 5
+      }
+    },
+    {
+      "genome_id": "9ec576dd56fc",
+      "fitness": 32.1703,
+      "generation": 1,
+      "params": {
+        "lookback": 34.38978881498522,
+        "threshold": 0.07364820057503686,
+        "position_size": 0.2791503621334139,
+        "stop_loss": 0.01575413648572734,
+        "take_profit": 0.10884818300945333,
+        "max_positions": 1
+      }
+    },
+    {
+      "genome_id": "e73df1726352",
+      "fitness": 29.5285,
+      "generation": 1,
+      "params": {
+        "lookback": 23.552377155170614,
+        "threshold": 0.04427530239566366,
+        "position_size": 0.29538587076195505,
+        "stop_loss": 0.03654232216458061,
+        "take_profit": 0.14450851266619896,
         "max_positions": 7
       }
     },
     {
-      "genome_id": "1113c4b3a962",
-      "fitness": 30.4289,
+      "genome_id": "50c00026685f",
+      "fitness": 29.3531,
       "generation": 1,
       "params": {
-        "lookback": 18.06068711195116,
-        "threshold": 0.09283296882282771,
-        "position_size": 0.29212917358475876,
-        "stop_loss": 0.03693587890984684,
-        "take_profit": 0.10239480975268075,
-        "max_positions": 7
-      }
-    },
-    {
-      "genome_id": "ab6387860a1b",
-      "fitness": 30.1667,
-      "generation": 1,
-      "params": {
-        "lookback": 25.231610370557956,
-        "threshold": 0.05662434977502408,
-        "position_size": 0.2706421275579145,
-        "stop_loss": 0.07053912295228248,
-        "take_profit": 0.1391556237271521,
-        "max_positions": 7
-      }
-    },
-    {
-      "genome_id": "eca50b0922bf",
-      "fitness": 29.6276,
-      "generation": 1,
-      "params": {
-        "lookback": 17.911643678774997,
-        "threshold": 0.09229894763296327,
-        "position_size": 0.2411128502384498,
-        "stop_loss": 0.06237012696618779,
-        "take_profit": 0.07488848510196115,
-        "max_positions": 3
-      }
-    },
-    {
-      "genome_id": "a72b19597772",
-      "fitness": 29.5526,
-      "generation": 1,
-      "params": {
-        "lookback": 13.405600936170522,
-        "threshold": 0.010423340060396996,
-        "position_size": 0.29441256181244424,
-        "stop_loss": 0.06244563716608338,
-        "take_profit": 0.12036471941071837,
+        "lookback": 24.612551649399094,
+        "threshold": 0.050941157335239434,
+        "position_size": 0.29811267423749754,
+        "stop_loss": 0.02494402551016476,
+        "take_profit": 0.12723071906194355,
         "max_positions": 8
       }
     },
     {
-      "genome_id": "4c5d19e0ef4f",
-      "fitness": 29.237,
+      "genome_id": "39bcb9f78ea7",
+      "fitness": 28.9726,
       "generation": 1,
       "params": {
-        "lookback": 13.515270713151239,
-        "threshold": 0.03386267490098438,
-        "position_size": 0.2826560358122538,
-        "stop_loss": 0.017809291197431878,
-        "take_profit": 0.11707706294396561,
-        "max_positions": 3
-      }
-    },
-    {
-      "genome_id": "c42be509f1fc",
-      "fitness": 28.02,
-      "generation": 1,
-      "params": {
-        "lookback": 12.363732764513582,
-        "threshold": 0.044679155985419716,
-        "position_size": 0.25394792211123046,
-        "stop_loss": 0.011163428378992878,
-        "take_profit": 0.082612435531408,
-        "max_positions": 10
-      }
-    },
-    {
-      "genome_id": "d77d269777a3",
-      "fitness": 26.9287,
-      "generation": 1,
-      "params": {
-        "lookback": 34.06880615888639,
-        "threshold": 0.029306174013377567,
-        "position_size": 0.2751621103211456,
-        "stop_loss": 0.013518345492657853,
-        "take_profit": 0.05392483701655135,
-        "max_positions": 7
-      }
-    },
-    {
-      "genome_id": "fccbd4027bdb",
-      "fitness": 26.4244,
-      "generation": 1,
-      "params": {
-        "lookback": 5.157495018459207,
-        "threshold": 0.010006184934811075,
-        "position_size": 0.26554343701731314,
-        "stop_loss": 0.05598962055001573,
-        "take_profit": 0.057730015205747984,
-        "max_positions": 7
-      }
-    },
-    {
-      "genome_id": "f36de63546b4",
-      "fitness": 25.761,
-      "generation": 1,
-      "params": {
-        "lookback": 37.85437748407288,
-        "threshold": 0.05052814555986816,
-        "position_size": 0.2612016645800957,
-        "stop_loss": 0.0688210215114943,
-        "take_profit": 0.11835677145160362,
+        "lookback": 28.47566404162864,
+        "threshold": 0.026356644531583026,
+        "position_size": 0.29351330188657493,
+        "stop_loss": 0.029194234555017046,
+        "take_profit": 0.07380616184804073,
         "max_positions": 4
+      }
+    },
+    {
+      "genome_id": "cff0b636c998",
+      "fitness": 27.9061,
+      "generation": 1,
+      "params": {
+        "lookback": 45.28646982129855,
+        "threshold": 0.044564055376229504,
+        "position_size": 0.256983223386252,
+        "stop_loss": 0.06323130957354137,
+        "take_profit": 0.12607144259568043,
+        "max_positions": 1
+      }
+    },
+    {
+      "genome_id": "ef8d0e9c8d40",
+      "fitness": 27.6711,
+      "generation": 1,
+      "params": {
+        "lookback": 20.53822394371855,
+        "threshold": 0.024250129783836748,
+        "position_size": 0.28892160182962756,
+        "stop_loss": 0.010602907922369184,
+        "take_profit": 0.07237686088864044,
+        "max_positions": 2
+      }
+    },
+    {
+      "genome_id": "c9dc8b229cec",
+      "fitness": 27.3826,
+      "generation": 1,
+      "params": {
+        "lookback": 29.436953920500592,
+        "threshold": 0.05422456857947943,
+        "position_size": 0.24833299685090043,
+        "stop_loss": 0.05697891246493185,
+        "take_profit": 0.14657936260097243,
+        "max_positions": 1
+      }
+    },
+    {
+      "genome_id": "0aa0687d1071",
+      "fitness": 26.6811,
+      "generation": 1,
+      "params": {
+        "lookback": 13.81591868525997,
+        "threshold": 0.0972637860254232,
+        "position_size": 0.257805140798369,
+        "stop_loss": 0.01260328582774,
+        "take_profit": 0.09620129285776872,
+        "max_positions": 6
+      }
+    },
+    {
+      "genome_id": "83412040ddc1",
+      "fitness": 25.9283,
+      "generation": 1,
+      "params": {
+        "lookback": 36.69977376641629,
+        "threshold": 0.03624540970006518,
+        "position_size": 0.27764678654972685,
+        "stop_loss": 0.027667052924610275,
+        "take_profit": 0.12475652187939623,
+        "max_positions": 7
       }
     }
   ]

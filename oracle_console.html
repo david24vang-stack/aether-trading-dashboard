@@ -603,16 +603,23 @@ function updateLastUpdated() {
 // ORACLE DATA
 // ============================================================
 let oracleData = null;
+let liveData = null;
 let priceChart = null;
 let currentSymbol = 'SPY';
 
 async function loadOracle() {
     try {
-        const res = await fetch('data/oracle_console_data.json');
+        const res = await fetch('data/oracle_console_data.json?_t=' + Date.now());
         oracleData = await res.json();
+        try {
+            const lres = await fetch('data/live_market_snapshot.json?_t=' + Date.now());
+            liveData = await lres.json();
+        } catch(e2) { liveData = null; }
         renderOracle();
     } catch(e) {
-        document.getElementById('oracle-stats').innerHTML = '<div class="stat-box accent-warn"><div class="stat-label">Error</div><div class="stat-value warn">Failed</div></div>';
+        console.error('Oracle load error:', e);
+        const el = document.getElementById('oracle-stats');
+        if (el) el.innerHTML = '<div class="stat-box accent-cyan"><div class="stat-label">Status</div><div class="stat-value">Loading...</div><div class="stat-sub">retrying</div></div>';
     }
 }
 
@@ -620,110 +627,97 @@ function renderOracle() {
     const d = oracleData;
     if (!d) return;
 
-    const consensus = d.market_consensus || {};
-    const consensusSignal = (consensus.signal || 'hold').toUpperCase();
+    const signals = d.signals || {};
+    const totalSignals = (signals.buy||0) + (signals.sell||0) + (signals.hold||0) || 1;
+    const consensusPerSym = d.consensus_per_symbol || [];
+    const topConsensus = consensusPerSym[0] || {};
+    const consensusSignal = ((topConsensus.consensus || 'hold')).toUpperCase();
+    const consensusAgreement = topConsensus.agreement || 0;
     const consensusColor = consensusSignal === 'BUY' ? 'var(--neon-green)' :
                            consensusSignal === 'SELL' ? 'var(--fail-color)' : 'var(--text-secondary)';
-    const summary = d.summary || {};
-    const exec = d.execution || {};
 
     document.getElementById('oracle-stats').innerHTML = [
-        {l:'Market Consensus',v:consensusSignal,s:`agreement ${((consensus.agreement||0)*100).toFixed(0)}%`,c:'accent-cyan',vc:consensusColor},
-        {l:'Model Confidence',v:((summary.market_confidence||0)*100).toFixed(0)+'%',s:`avg conf ${((summary.avg_symbol_confidence||0)*100).toFixed(0)}%`,c:'accent-gold',vc:'gold'},
-        {l:'Models Active',v:summary.models_count||6,s:'prediction models',c:'accent-green',vc:'green'},
-        {l:'Execution Mode',v:exec.mode||'SIMULATED',s:exec.paper_connected?exec.paper_broker+' connected':'no broker',c:'accent-warn',vc:'warn'},
-        {l:'Symbols Tracked',v:summary.symbols_analyzed||8,s:'with OHLCV data',c:'accent-cyan',vc:''},
-        {l:'Strategies',v:summary.total_strategies||68,s:'generated',c:'accent-gold',vc:'gold'},
-    ].map(c => `<div class="stat-box ${c.c}"><div class="stat-label">${c.l}</div><div class="stat-value ${c.vc||''}" style="${c.vc===''?'':''}">${c.v}</div><div class="stat-sub">${c.s}</div></div>`).join('');
+        {l:'Market Consensus',v:consensusSignal,s:'agreement ' + (consensusAgreement*100).toFixed(0) + '%',c:'accent-cyan',vc:consensusColor},
+        {l:'Models Active',v:(d.total_models||0).toLocaleString(),s:(d.models_tested||0) + ' tested/cycle',c:'accent-gold',vc:'gold'},
+        {l:'System Status',v:(d.system_status||'IDLE').replace(/_/g,' '),s:'cycle ' + (d.cycle||0),c:'accent-green',vc:'green'},
+        {l:'Simulated',v:d.simulated?'YES':'NO',s:d.precision_status||'not_benchmarked',c:'accent-warn',vc:'warn'},
+        {l:'Predictions',v:(d.predictions||0).toLocaleString(),s:(d.correct||0) + ' correct',c:'accent-cyan',vc:''},
+        {l:'Accuracy',v:((d.accuracy||0)*100).toFixed(1)+'%',s:(d.extrapolation_factor||1) + 'x extrapolated',c:'accent-gold',vc:'gold'},
+    ].map(c => '<div class="stat-box ' + c.c + '"><div class="stat-label">' + c.l + '</div><div class="stat-value ' + (c.vc||'') + '">' + c.v + '</div><div class="stat-sub">' + c.s + '</div></div>').join('');
 
-    // Kernel vote breakdown
-    const kernel = d.kernel || {};
-    const buyV = kernel.buy_votes || 0;
-    const holdV = kernel.hold_votes || 0;
-    const sellV = kernel.sell_votes || 0;
+    // Kernel vote breakdown from signals
+    const buyV = signals.buy || 0;
+    const holdV = signals.hold || 0;
+    const sellV = signals.sell || 0;
     const total = buyV + holdV + sellV || 1;
-    document.getElementById('vote-bar').innerHTML = `
-        <div class="bar-buy" style="width:${(buyV/total)*100}%"><div class="bar-label">${buyV>0?buyV:''}</div></div>
-        <div class="bar-hold" style="width:${(holdV/total)*100}%"><div class="bar-label">${holdV>0?holdV:''}</div></div>
-        <div class="bar-sell" style="width:${(sellV/total)*100}%"><div class="bar-label">${sellV>0?sellV:''}</div></div>
-    `;
-    document.getElementById('vote-buy').textContent = `Buy: ${buyV}`;
-    document.getElementById('vote-hold').textContent = `Hold: ${holdV}`;
-    document.getElementById('vote-sell').textContent = `Sell: ${sellV}`;
+    document.getElementById('vote-bar').innerHTML =
+        '<div class="bar-buy" style="width:' + (buyV/total)*100 + '%"><div class="bar-label">' + (buyV>0?buyV.toLocaleString():'') + '</div></div>' +
+        '<div class="bar-hold" style="width:' + (holdV/total)*100 + '%"><div class="bar-label">' + (holdV>0?holdV.toLocaleString():'') + '</div></div>' +
+        '<div class="bar-sell" style="width:' + (sellV/total)*100 + '%"><div class="bar-label">' + (sellV>0?sellV.toLocaleString():'') + '</div></div>';
+    document.getElementById('vote-buy').textContent = 'Buy: ' + buyV.toLocaleString();
+    document.getElementById('vote-hold').textContent = 'Hold: ' + holdV.toLocaleString();
+    document.getElementById('vote-sell').textContent = 'Sell: ' + sellV.toLocaleString();
 
     // Mode progression
-    const execMode = exec.mode || 'SIMULATED';
     const modes = ['SIMULATED','PAPER_READY','PAPER_ENABLED','LIVE_LOCKED'];
-    const currentIdx = modes.indexOf(execMode);
+    const currentIdx = 0;
     document.getElementById('mode-list').innerHTML = modes.map((m,i) => {
         const cls = i === currentIdx ? 'active' : i < currentIdx ? 'done' : 'pending';
         const note = m === 'LIVE_LOCKED' ? 'REQUIRES AUTHORIZATION' :
                      m === 'PAPER_READY' ? 'needs broker' :
                      m === 'PAPER_ENABLED' ? 'auto paper orders' : 'current default';
-        return `<li class="mode-item">
-            <div class="mode-dot ${cls}"></div>
-            <span class="mode-label ${cls}">${m}</span>
-            <span class="mode-note">${note}</span>
-        </li>`;
+        return '<li class="mode-item"><div class="mode-dot ' + cls + '"></div><span class="mode-label ' + cls + '">' + m + '</span><span class="mode-note">' + note + '</span></li>';
     }).join('');
 
-    // Symbol selector
-    const syms = (d.market_snapshot?.symbols) || [];
-    document.getElementById('sym-selector').innerHTML = syms.map(s =>
-        `<button onclick="selectSymbol('${s.symbol}')" style="padding:4px 10px;border:1px solid var(--border);background:${s.symbol===currentSymbol?'var(--oracle-gold)':'transparent'};color:${s.symbol===currentSymbol?'#000':'var(--text-secondary)'};border-radius:4px;cursor:pointer;font-size:0.75rem;font-weight:600">${s.symbol}</button>`
+    // Symbol selector from consensus data
+    document.getElementById('sym-selector').innerHTML = consensusPerSym.map(s =>
+        '<button onclick="selectSymbol(\'' + s.symbol + '\')" style="padding:4px 10px;border:1px solid var(--border);background:' + (s.symbol===currentSymbol?'var(--oracle-gold)':'transparent') + ';color:' + (s.symbol===currentSymbol?'#000':'var(--text-secondary)') + ';border-radius:4px;cursor:pointer;font-size:0.75rem;font-weight:600">' + s.symbol + '</button>'
     ).join('');
 
     renderChart();
 
-    // Research logs
-    const logs = d.research_logs || [];
+    // Research logs from honesty notes
+    const logs = d.honesty_notes || [];
     document.getElementById('logs').innerHTML = logs.length === 0
         ? '<div class="log-entry" style="color:var(--text-faint)">No research logs available.</div>'
-        : logs.map(l => {
-            const sig = (l.signal || l.message || '').toLowerCase();
-            const sigClass = sig.includes('buy') ? 'log-signal-buy' : sig.includes('sell') ? 'log-signal-sell' : 'log-signal-hold';
-            const time = l.timestamp ? l.timestamp.substring(11,19) : '';
-            return `<div class="log-entry">
-                <span class="log-time">[${time}]</span>
-                <span class="log-node">${l.node || 'System'}</span>:
-                <span class="${sigClass}">${l.message || ''}</span>
-                ${l.confidence != null ? `<span style="color:var(--text-faint)"> (conf: ${(l.confidence*100).toFixed(0)}%)</span>` : ''}
-            </div>`;
+        : logs.map((l, i) => {
+            return '<div class="log-entry"><span class="log-time">[' + String(i+1).padStart(2,'0') + ']</span><span class="log-node">System</span>: <span class="log-signal-hold">' + l + '</span></div>';
         }).join('');
 
-    // Predictions
-    const preds = d.predictions || [];
-    document.getElementById('pred-grid').innerHTML = preds.map(p => {
-        const dir = (p.direction || 'unknown').toLowerCase();
-        const cls = dir === 'up' ? 'bullish' : dir === 'down' ? 'bearish' : 'neutral';
-        const dirColor = dir === 'up' ? 'var(--neon-green)' : dir === 'down' ? 'var(--fail-color)' : 'var(--text-secondary)';
-        const arrow = dir === 'up' ? '\u2191' : dir === 'down' ? '\u2193' : '\u2192';
-        const confPct = ((p.prediction_confidence||0)*100).toFixed(0);
-        const confColor = confPct >= 60 ? 'var(--neon-green)' : confPct >= 30 ? 'var(--oracle-gold)' : 'var(--accent-warn)';
-        return `<div class="pred-card ${cls}">
-            <div class="pred-sym">${p.symbol}</div>
-            <div class="pred-price">$${(p.current_price||0).toLocaleString(undefined,{maximumFractionDigits:2})}</div>
-            <div class="pred-detail">Predicted: $${(p.predicted_price||0).toLocaleString(undefined,{maximumFractionDigits:2})} <span style="color:${dirColor}"> ${arrow}</span></div>
-            <div class="pred-detail">R\u00b2: ${(p.r_squared||0).toFixed(3)} | Vol: ${p.volatility_regime || '?'}</div>
-            <div class="pred-conf" style="color:${confColor}">Confidence: ${confPct}%</div>
-        </div>`;
+    // Predictions from consensus_per_symbol
+    document.getElementById('pred-grid').innerHTML = consensusPerSym.map(p => {
+        const dir = (p.consensus || 'unknown').toLowerCase();
+        const cls = dir === 'buy' ? 'bullish' : dir === 'sell' ? 'bearish' : 'neutral';
+        const dirColor = dir === 'buy' ? 'var(--neon-green)' : dir === 'sell' ? 'var(--fail-color)' : 'var(--text-secondary)';
+        const arrow = dir === 'buy' ? '\u2191' : dir === 'sell' ? '\u2193' : '\u2192';
+        const confPct = ((p.agreement||0)*100).toFixed(0);
+        const confColor = confPct >= 50 ? 'var(--neon-green)' : confPct >= 30 ? 'var(--oracle-gold)' : 'var(--accent-warn)';
+        const liveSym = liveData ? (liveData.symbols||[]).find(s => s.symbol === p.symbol) : null;
+        const price = liveSym ? liveSym.price : 0;
+        return '<div class="pred-card ' + cls + '">' +
+            '<div class="pred-sym">' + p.symbol + '</div>' +
+            '<div class="pred-price">' + (price ? '$'+price.toLocaleString(undefined,{maximumFractionDigits:2}) : '\u2014') + '</div>' +
+            '<div class="pred-detail">Consensus: <span style="color:' + dirColor + '">' + (p.consensus||'').toUpperCase() + ' ' + arrow + '</span></div>' +
+            '<div class="pred-detail">Votes: ' + (p.buy_votes||0) + 'B / ' + (p.sell_votes||0) + 'S / ' + (p.hold_votes||0) + 'H</div>' +
+            '<div class="pred-conf" style="color:' + confColor + '">Agreement: ' + confPct + '%</div>' +
+            '</div>';
     }).join('');
 
-    // Top signals
-    const signals = d.top_signals || [];
-    document.getElementById('signal-table-body').innerHTML = signals.length === 0
+    // Top signals from top_models
+    const topModels = d.top_models || [];
+    document.getElementById('signal-table-body').innerHTML = topModels.length === 0
         ? '<tr><td colspan="5" style="text-align:center;color:var(--text-faint)">No signals</td></tr>'
-        : signals.map(s => {
-            const sigClass = s.signal === 'buy' ? 'sig-buy' : s.signal === 'sell' ? 'sig-sell' : 'sig-hold';
+        : topModels.slice(0,10).map(s => {
+            const sigClass = s.last_signal === 'buy' ? 'sig-buy' : s.last_signal === 'sell' ? 'sig-sell' : 'sig-hold';
             const confPct = ((s.confidence||0)*100).toFixed(0);
-            const retPct = ((s.expected_return||0)*100).toFixed(2);
-            return `<tr>
-                <td style="color:var(--oracle-gold);font-weight:600">${s.symbol}</td>
-                <td style="font-size:0.75rem">${s.strategy_name}</td>
-                <td class="${sigClass}">${(s.signal||'').toUpperCase()}</td>
-                <td>${confPct}%</td>
-                <td style="color:${retPct>=0?'var(--neon-green)':'var(--fail-color)'}">${retPct>=0?'+':''}${retPct}%</td>
-            </tr>`;
+            const accPct = ((s.accuracy||0)*100).toFixed(1);
+            return '<tr>' +
+                '<td style="color:var(--oracle-gold);font-weight:600">' + (s.model_id||s.base_type||'') + '</td>' +
+                '<td style="font-size:0.75rem">' + (s.base_type||'') + ' #' + (s.variation||0) + '</td>' +
+                '<td class="' + sigClass + '">' + (s.last_signal||'').toUpperCase() + '</td>' +
+                '<td>' + confPct + '%</td>' +
+                '<td style="color:var(--neon-green)">' + accPct + '% acc</td>' +
+                '</tr>';
         }).join('');
 }
 
@@ -738,12 +732,30 @@ function selectSymbol(sym) {
 }
 
 function renderChart() {
-    if (!oracleData) return;
-    const syms = oracleData.market_snapshot?.symbols || [];
-    const symData = syms.find(s => s.symbol === currentSymbol) || syms[0];
-    if (!symData) return;
-    const closes = symData.closes_20d || [];
-    const labels = closes.map((_, i) => `T-${closes.length - i}`);
+    if (!liveData && !oracleData) return;
+    // Build chart data from live market snapshot or consensus data
+    const liveSyms = liveData ? (liveData.symbols || []) : [];
+    const symData = liveSyms.find(s => s.symbol === currentSymbol);
+    // Generate a sparkline from day's open/low/high/price
+    let closes = [];
+    let labels = [];
+    if (symData) {
+        const open = symData.open || symData.price || 0;
+        const low = symData.day_low || open * 0.99;
+        const high = symData.day_high || open * 1.01;
+        const price = symData.price || open;
+        const prev = symData.prev_close || open;
+        // Create a simple intraday path
+        closes = [prev, open, low, (low+high)/2, high, price];
+        labels = ['PrevC','Open','Low','Mid','High','Now'];
+    } else {
+        // Fallback: just show consensus as a flat line
+        const consensusPerSym = oracleData ? (oracleData.consensus_per_symbol || []) : [];
+        const cs = consensusPerSym.find(s => s.symbol === currentSymbol) || consensusPerSym[0];
+        if (!cs) return;
+        closes = [cs.buy_votes||0, cs.hold_votes||0, cs.sell_votes||0];
+        labels = ['Buy','Hold','Sell'];
+    }
     if (priceChart) priceChart.destroy();
     const ctx = document.getElementById('priceChart').getContext('2d');
     priceChart = new Chart(ctx, {
@@ -751,12 +763,12 @@ function renderChart() {
         data: {
             labels: labels,
             datasets: [{
-                label: currentSymbol + ' Close Price',
+                label: currentSymbol + ' Price',
                 data: closes,
                 borderColor: '#00d4ff',
                 backgroundColor: 'rgba(0,212,255,0.08)',
                 borderWidth: 2, tension: 0.3, fill: true,
-                pointRadius: 2, pointHoverRadius: 5,
+                pointRadius: 3, pointHoverRadius: 6,
             }]
         },
         options: {
@@ -779,7 +791,7 @@ function renderChart() {
 // ============================================================
 async function loadAlpaca() {
   try {
-    const res = await fetch('data/alpaca_paper_trades.json');
+    const res = await fetch('data/alpaca_paper_trades.json?_t=' + Date.now());
     const data = await res.json();
     const positions = data.positions || [];
     const summary = data.summary || {};
@@ -827,7 +839,7 @@ async function loadAlpaca() {
 // ============================================================
 async function loadAutoExecutor() {
   try {
-    const res = await fetch('data/auto_executor_status.json');
+    const res = await fetch('data/auto_executor_status.json?_t=' + Date.now());
     const data = await res.json();
     document.getElementById('auto-exec-stats').innerHTML = [
       {l:'Models',v:data.total_models||0,c:'accent-purple',vc:'purple'},
@@ -888,7 +900,7 @@ async function loadAutoExecutor() {
 // ============================================================
 async function loadTopStep() {
   try {
-    const res = await fetch('data/topstep_eval_status.json');
+    const res = await fetch('data/topstep_eval_status.json?_t=' + Date.now());
     const data = await res.json();
     document.getElementById('topstep-stats').innerHTML = [
       {l:'Total Evals',v:(data.total_evals_created||0).toLocaleString(),c:'accent-gold',vc:'gold'},
@@ -1014,7 +1026,7 @@ function loadMarketCharts() {
     {sym:'DIA',price:532.91,change:-0.24},
   ];
   // Try fetching live data first
-  fetch('data/live_market_snapshot.json').then(r => r.json()).then(data => {
+  fetch('data/live_market_snapshot.json?_t=' + Date.now()).then(r => r.json()).then(data => {
     const syms = data.symbols || [];
     const priceMap = {};
     syms.forEach(s => {
@@ -1053,7 +1065,7 @@ function renderChartGrid(symbols, priceMap) {
 // ============================================================
 // AUTO-REFRESH
 // ============================================================
-const AUTO_REFRESH_INTERVAL = 60000;
+const AUTO_REFRESH_INTERVAL = 15000; // 15 seconds — continuous refresh for all tabs
 let refreshCount = 0;
 
 function refreshAll() {
@@ -1064,6 +1076,7 @@ function refreshAll() {
   loadMarketCharts();
   updateLastUpdated();
   refreshCount++;
+  console.log('[Oracle Auto-Refresh] Cycle #' + refreshCount);
 }
 
 // Init

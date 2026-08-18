@@ -2,89 +2,21 @@
   "total_models": 10000,
   "base_types": 20,
   "variations_per_type": 500,
-  "cycle_count": 3,
+  "cycle_count": 5,
   "last_cycle": {
-    "cycle_number": 3,
-    "timestamp": "2026-08-18T20:55:20.317389+00:00",
+    "cycle_number": 5,
+    "timestamp": "2026-08-18T21:34:47.042027+00:00",
     "models_tested": 500,
     "symbols_tested": 8,
     "total_predictions": 80000,
     "total_correct": 0,
     "accuracy": 0.0,
     "signals": {
-      "buy": 28300,
-      "sell": 27000,
-      "hold": 24700
+      "buy": 27840,
+      "sell": 27660,
+      "hold": 24500
     },
     "top_models": [
-      {
-        "model_id": "Sentiment_Volume_0221",
-        "base_type": "Sentiment_Volume",
-        "variation": 221,
-        "params": {
-          "w_volume": 7.2,
-          "w_pattern": 0.023
-        },
-        "predictions": 24,
-        "correct": 21,
-        "accuracy": 0.875,
-        "confidence": 0.6337,
-        "last_signal": "sell",
-        "last_hash": "e564e4d2ed6fe839",
-        "simulated": true,
-        "model_prediction": true
-      },
-      {
-        "model_id": "Trend_SMA_0021",
-        "base_type": "Trend_SMA",
-        "variation": 21,
-        "params": {
-          "lookback": 5.2,
-          "threshold": 0.003
-        },
-        "predictions": 24,
-        "correct": 19,
-        "accuracy": 0.7917,
-        "confidence": 0.4255,
-        "last_signal": "buy",
-        "last_hash": "c0980f26e60438c3",
-        "simulated": true,
-        "model_prediction": true
-      },
-      {
-        "model_id": "Mean_Reversion_0181",
-        "base_type": "Mean_Reversion",
-        "variation": 181,
-        "params": {
-          "sigma_mult": 6.8,
-          "window": 0.019
-        },
-        "predictions": 24,
-        "correct": 19,
-        "accuracy": 0.7917,
-        "confidence": 0.6395,
-        "last_signal": "buy",
-        "last_hash": "75edbd1f1e73fc48",
-        "simulated": true,
-        "model_prediction": true
-      },
-      {
-        "model_id": "Volatility_EWMA_0041",
-        "base_type": "Volatility_EWMA",
-        "variation": 41,
-        "params": {
-          "lambda": 5.4,
-          "threshold": 0.005
-        },
-        "predictions": 24,
-        "correct": 19,
-        "accuracy": 0.7917,
-        "confidence": 0.7215,
-        "last_signal": "sell",
-        "last_hash": "e7a8b43f6995e8ce",
-        "simulated": true,
-        "model_prediction": true
-      },
       {
         "model_id": "Momentum_RSI_0181",
         "base_type": "Momentum_RSI",
@@ -93,148 +25,29 @@
           "period": 6.8,
           "overbought": 0.019
         },
-        "predictions": 24,
-        "correct": 19,
-        "accuracy": 0.7917,
-        "confidence": 0.4626,
-        "last_signal": "sell",
-        "last_hash": "eb8033899a7883d0",
-        "simulated": true,
-        "model_prediction": true
-      },
-      {
-        "model_id": "Fractal_Calculus_0441",
-        "base_type": "Fractal_Calculus",
-        "variation": 441,
-        "params": {
-          "window": 9.4,
-          "min_dimension": 0.045
-        },
-        "predictions": 24,
-        "correct": 19,
-        "accuracy": 0.7917,
-        "confidence": 0.4939,
-        "last_signal": "sell",
-        "last_hash": "31b8881a89f4b3c2",
-        "simulated": true,
-        "model_prediction": true
-      },
-      {
-        "model_id": "Fractal_Calculus_0481",
-        "base_type": "Fractal_Calculus",
-        "variation": 481,
-        "params": {
-          "window": 9.8,
-          "min_dimension": 0.049
-        },
-        "predictions": 24,
-        "correct": 19,
-        "accuracy": 0.7917,
-        "confidence": 0.4305,
-        "last_signal": "hold",
-        "last_hash": "94d534138fcef882",
-        "simulated": true,
-        "model_prediction": true
-      },
-      {
-        "model_id": "Attention_LSTM_0421",
-        "base_type": "Attention_LSTM",
-        "variation": 421,
-        "params": {
-          "attn_heads": 9.2,
-          "lstm_units": 0.043
-        },
-        "predictions": 24,
-        "correct": 19,
-        "accuracy": 0.7917,
-        "confidence": 0.4654,
-        "last_signal": "sell",
-        "last_hash": "4b9adc6273ed5d05",
-        "simulated": true,
-        "model_prediction": true
-      },
-      {
-        "model_id": "Trend_SMA_0121",
-        "base_type": "Trend_SMA",
-        "variation": 121,
-        "params": {
-          "lookback": 6.2,
-          "threshold": 0.013
-        },
-        "predictions": 24,
-        "correct": 18,
-        "accuracy": 0.75,
-        "confidence": 0.6739,
+        "predictions": 40,
+        "correct": 31,
+        "accuracy": 0.775,
+        "confidence": 0.501,
         "last_signal": "buy",
-        "last_hash": "dcac00cb48e5898e",
+        "last_hash": "ca7c6dfae2cf0291",
         "simulated": true,
         "model_prediction": true
       },
       {
-        "model_id": "Volatility_EWMA_0101",
-        "base_type": "Volatility_EWMA",
-        "variation": 101,
+        "model_id": "Sentiment_Volume_0221",
+        "base_type": "Sentiment_Volume",
+        "variation": 221,
         "params": {
-          "lambda": 6.0,
-          "threshold": 0.011
+          "w_volume": 7.2,
+          "w_pattern": 0.023
         },
-        "predictions": 24,
-        "correct": 18,
-        "accuracy": 0.75,
-        "confidence": 0.6808,
-        "last_signal": "hold",
-        "last_hash": "90a716f7146e618b",
-        "simulated": true,
-        "model_prediction": true
-      },
-      {
-        "model_id": "Kernel_Consensus_0461",
-        "base_type": "Kernel_Consensus",
-        "variation": 461,
-        "params": {
-          "num_kernels": 9.6,
-          "vote_threshold": 0.047
-        },
-        "predictions": 24,
-        "correct": 18,
-        "accuracy": 0.75,
-        "confidence": 0.552,
-        "last_signal": "sell",
-        "last_hash": "15d4d1d93fe9d044",
-        "simulated": true,
-        "model_prediction": true
-      },
-      {
-        "model_id": "Transformer_Attn_0381",
-        "base_type": "Transformer_Attn",
-        "variation": 381,
-        "params": {
-          "num_heads": 8.8,
-          "embed_dim": 0.039
-        },
-        "predictions": 24,
-        "correct": 18,
-        "accuracy": 0.75,
-        "confidence": 0.692,
-        "last_signal": "sell",
-        "last_hash": "a4431aa6642a65bd",
-        "simulated": true,
-        "model_prediction": true
-      },
-      {
-        "model_id": "Reinforcement_Q_0001",
-        "base_type": "Reinforcement_Q",
-        "variation": 1,
-        "params": {
-          "learning_rate": 5.0,
-          "discount": 0.001
-        },
-        "predictions": 24,
-        "correct": 18,
-        "accuracy": 0.75,
-        "confidence": 0.8485,
-        "last_signal": "sell",
-        "last_hash": "7d9c5e3246161ccb",
+        "predictions": 40,
+        "correct": 31,
+        "accuracy": 0.775,
+        "confidence": 0.8473,
+        "last_signal": "buy",
+        "last_hash": "9da1b26ce9670edf",
         "simulated": true,
         "model_prediction": true
       },
@@ -246,12 +59,199 @@
           "noise_steps": 5.4,
           "beta_start": 0.005
         },
-        "predictions": 24,
-        "correct": 18,
+        "predictions": 40,
+        "correct": 30,
         "accuracy": 0.75,
-        "confidence": 0.8306,
+        "confidence": 0.8072,
+        "last_signal": "sell",
+        "last_hash": "78e81e492ed008fd",
+        "simulated": true,
+        "model_prediction": true
+      },
+      {
+        "model_id": "Attention_LSTM_0061",
+        "base_type": "Attention_LSTM",
+        "variation": 61,
+        "params": {
+          "attn_heads": 5.6,
+          "lstm_units": 0.007
+        },
+        "predictions": 40,
+        "correct": 30,
+        "accuracy": 0.75,
+        "confidence": 0.6671,
         "last_signal": "hold",
-        "last_hash": "a970e2beb31005d4",
+        "last_hash": "ecbea44374f5baa9",
+        "simulated": true,
+        "model_prediction": true
+      },
+      {
+        "model_id": "Trend_SMA_0021",
+        "base_type": "Trend_SMA",
+        "variation": 21,
+        "params": {
+          "lookback": 5.2,
+          "threshold": 0.003
+        },
+        "predictions": 40,
+        "correct": 29,
+        "accuracy": 0.725,
+        "confidence": 0.6469,
+        "last_signal": "hold",
+        "last_hash": "8a63e9216ef8b2d7",
+        "simulated": true,
+        "model_prediction": true
+      },
+      {
+        "model_id": "Mean_Reversion_0161",
+        "base_type": "Mean_Reversion",
+        "variation": 161,
+        "params": {
+          "sigma_mult": 6.6,
+          "window": 0.017
+        },
+        "predictions": 40,
+        "correct": 29,
+        "accuracy": 0.725,
+        "confidence": 0.4411,
+        "last_signal": "buy",
+        "last_hash": "5ab6aa03d2643877",
+        "simulated": true,
+        "model_prediction": true
+      },
+      {
+        "model_id": "Mean_Reversion_0181",
+        "base_type": "Mean_Reversion",
+        "variation": 181,
+        "params": {
+          "sigma_mult": 6.8,
+          "window": 0.019
+        },
+        "predictions": 40,
+        "correct": 29,
+        "accuracy": 0.725,
+        "confidence": 0.8096,
+        "last_signal": "sell",
+        "last_hash": "f7c097143b235d39",
+        "simulated": true,
+        "model_prediction": true
+      },
+      {
+        "model_id": "Volatility_EWMA_0041",
+        "base_type": "Volatility_EWMA",
+        "variation": 41,
+        "params": {
+          "lambda": 5.4,
+          "threshold": 0.005
+        },
+        "predictions": 40,
+        "correct": 29,
+        "accuracy": 0.725,
+        "confidence": 0.7724,
+        "last_signal": "hold",
+        "last_hash": "a8467b2bd3316176",
+        "simulated": true,
+        "model_prediction": true
+      },
+      {
+        "model_id": "Fractal_Calculus_0481",
+        "base_type": "Fractal_Calculus",
+        "variation": 481,
+        "params": {
+          "window": 9.8,
+          "min_dimension": 0.049
+        },
+        "predictions": 40,
+        "correct": 29,
+        "accuracy": 0.725,
+        "confidence": 0.4404,
+        "last_signal": "buy",
+        "last_hash": "2c46f4df1524ae26",
+        "simulated": true,
+        "model_prediction": true
+      },
+      {
+        "model_id": "Neural_LSTM_0401",
+        "base_type": "Neural_LSTM",
+        "variation": 401,
+        "params": {
+          "lstm_units": 9.0,
+          "sequence_len": 0.041
+        },
+        "predictions": 40,
+        "correct": 29,
+        "accuracy": 0.725,
+        "confidence": 0.7075,
+        "last_signal": "hold",
+        "last_hash": "b4459b605b2e193e",
+        "simulated": true,
+        "model_prediction": true
+      },
+      {
+        "model_id": "Volatility_EWMA_0101",
+        "base_type": "Volatility_EWMA",
+        "variation": 101,
+        "params": {
+          "lambda": 6.0,
+          "threshold": 0.011
+        },
+        "predictions": 40,
+        "correct": 28,
+        "accuracy": 0.7,
+        "confidence": 0.5522,
+        "last_signal": "sell",
+        "last_hash": "945553fd578b5b28",
+        "simulated": true,
+        "model_prediction": true
+      },
+      {
+        "model_id": "Volatility_EWMA_0161",
+        "base_type": "Volatility_EWMA",
+        "variation": 161,
+        "params": {
+          "lambda": 6.6,
+          "threshold": 0.017
+        },
+        "predictions": 40,
+        "correct": 28,
+        "accuracy": 0.7,
+        "confidence": 0.8457,
+        "last_signal": "hold",
+        "last_hash": "84c62c9c6c4316d4",
+        "simulated": true,
+        "model_prediction": true
+      },
+      {
+        "model_id": "Sentiment_Volume_0461",
+        "base_type": "Sentiment_Volume",
+        "variation": 461,
+        "params": {
+          "w_volume": 9.6,
+          "w_pattern": 0.047
+        },
+        "predictions": 40,
+        "correct": 28,
+        "accuracy": 0.7,
+        "confidence": 0.7149,
+        "last_signal": "sell",
+        "last_hash": "3af29b62a7849800",
+        "simulated": true,
+        "model_prediction": true
+      },
+      {
+        "model_id": "Correlation_Eigen_0201",
+        "base_type": "Correlation_Eigen",
+        "variation": 201,
+        "params": {
+          "components": 7.0,
+          "min_eigenvalue": 0.021
+        },
+        "predictions": 40,
+        "correct": 28,
+        "accuracy": 0.7,
+        "confidence": 0.6569,
+        "last_signal": "hold",
+        "last_hash": "2c0d61bf18a1b4fb",
         "simulated": true,
         "model_prediction": true
       },
@@ -263,188 +263,188 @@
           "noise_steps": 5.6,
           "beta_start": 0.007
         },
-        "predictions": 24,
-        "correct": 18,
-        "accuracy": 0.75,
-        "confidence": 0.6655,
-        "last_signal": "buy",
-        "last_hash": "9768b292862eaf12",
-        "simulated": true,
-        "model_prediction": true
-      },
-      {
-        "model_id": "Graph_Neural_0461",
-        "base_type": "Graph_Neural",
-        "variation": 461,
-        "params": {
-          "hidden_dim": 9.6,
-          "num_layers": 0.047
-        },
-        "predictions": 24,
-        "correct": 18,
-        "accuracy": 0.75,
-        "confidence": 0.8189,
-        "last_signal": "hold",
-        "last_hash": "731d87d7ba666ab6",
-        "simulated": true,
-        "model_prediction": true
-      },
-      {
-        "model_id": "Wavelet Decomp_0081",
-        "base_type": "Wavelet Decomp",
-        "variation": 81,
-        "params": {
-          "wavelet_type": 5.8,
-          "decomp_level": 0.009
-        },
-        "predictions": 24,
-        "correct": 18,
-        "accuracy": 0.75,
-        "confidence": 0.5614,
-        "last_signal": "hold",
-        "last_hash": "b549eb892bb0c099",
-        "simulated": true,
-        "model_prediction": true
-      },
-      {
-        "model_id": "Wavelet Decomp_0301",
-        "base_type": "Wavelet Decomp",
-        "variation": 301,
-        "params": {
-          "wavelet_type": 8.0,
-          "decomp_level": 0.031
-        },
-        "predictions": 24,
-        "correct": 18,
-        "accuracy": 0.75,
-        "confidence": 0.6584,
+        "predictions": 40,
+        "correct": 28,
+        "accuracy": 0.7,
+        "confidence": 0.713,
         "last_signal": "sell",
-        "last_hash": "c05a516459dd2a98",
+        "last_hash": "eb5183a461a8d948",
         "simulated": true,
         "model_prediction": true
       },
       {
-        "model_id": "Fuzzy_Logic_0281",
+        "model_id": "Autoencoder_Sig_0121",
+        "base_type": "Autoencoder_Sig",
+        "variation": 121,
+        "params": {
+          "encoding_dim": 6.2,
+          "bottleneck": 0.013
+        },
+        "predictions": 40,
+        "correct": 28,
+        "accuracy": 0.7,
+        "confidence": 0.711,
+        "last_signal": "sell",
+        "last_hash": "3760ab2d9666ee28",
+        "simulated": true,
+        "model_prediction": true
+      },
+      {
+        "model_id": "Fuzzy_Logic_0321",
         "base_type": "Fuzzy_Logic",
-        "variation": 281,
+        "variation": 321,
         "params": {
-          "num_rules": 7.8,
-          "defuzz_method": 0.029
+          "num_rules": 8.2,
+          "defuzz_method": 0.033
         },
-        "predictions": 24,
-        "correct": 18,
-        "accuracy": 0.75,
-        "confidence": 0.6789,
+        "predictions": 40,
+        "correct": 28,
+        "accuracy": 0.7,
+        "confidence": 0.7394,
         "last_signal": "hold",
-        "last_hash": "916e1aabe0506381",
+        "last_hash": "a70a047568474b0b",
         "simulated": true,
         "model_prediction": true
       },
       {
-        "model_id": "Trend_SMA_0041",
-        "base_type": "Trend_SMA",
-        "variation": 41,
+        "model_id": "Volatility_EWMA_0221",
+        "base_type": "Volatility_EWMA",
+        "variation": 221,
         "params": {
-          "lookback": 5.4,
-          "threshold": 0.005
+          "lambda": 7.2,
+          "threshold": 0.023
         },
-        "predictions": 24,
-        "correct": 17,
-        "accuracy": 0.7083,
-        "confidence": 0.7878,
+        "predictions": 40,
+        "correct": 27,
+        "accuracy": 0.675,
+        "confidence": 0.6456,
+        "last_signal": "sell",
+        "last_hash": "b675f9980b06fb65",
+        "simulated": true,
+        "model_prediction": true
+      },
+      {
+        "model_id": "Momentum_RSI_0261",
+        "base_type": "Momentum_RSI",
+        "variation": 261,
+        "params": {
+          "period": 7.6,
+          "overbought": 0.027
+        },
+        "predictions": 40,
+        "correct": 27,
+        "accuracy": 0.675,
+        "confidence": 0.5422,
+        "last_signal": "buy",
+        "last_hash": "533337f40c7cf1bb",
+        "simulated": true,
+        "model_prediction": true
+      },
+      {
+        "model_id": "Fractal_Calculus_0061",
+        "base_type": "Fractal_Calculus",
+        "variation": 61,
+        "params": {
+          "window": 5.6,
+          "min_dimension": 0.007
+        },
+        "predictions": 40,
+        "correct": 27,
+        "accuracy": 0.675,
+        "confidence": 0.6863,
         "last_signal": "hold",
-        "last_hash": "72a90432aba204c2",
+        "last_hash": "4937669458dd5b91",
         "simulated": true,
         "model_prediction": true
       }
     ],
     "consensus_per_symbol": [
       {
-        "symbol": "ESUSD",
-        "consensus": "buy",
-        "buy_votes": 3580,
-        "sell_votes": 3140,
-        "hold_votes": 3280,
-        "total_votes": 10000,
-        "agreement": 0.358
-      },
-      {
-        "symbol": "NQUSD",
-        "consensus": "hold",
-        "buy_votes": 3200,
-        "sell_votes": 3340,
-        "hold_votes": 3460,
-        "total_votes": 10000,
-        "agreement": 0.346
-      },
-      {
-        "symbol": "CLUSD",
-        "consensus": "buy",
-        "buy_votes": 3820,
-        "sell_votes": 3240,
-        "hold_votes": 2940,
-        "total_votes": 10000,
-        "agreement": 0.382
-      },
-      {
-        "symbol": "GCUSD",
-        "consensus": "buy",
-        "buy_votes": 3660,
-        "sell_votes": 3520,
-        "hold_votes": 2820,
-        "total_votes": 10000,
-        "agreement": 0.366
-      },
-      {
         "symbol": "SPY",
         "consensus": "buy",
-        "buy_votes": 3480,
-        "sell_votes": 3460,
-        "hold_votes": 3060,
+        "buy_votes": 3520,
+        "sell_votes": 3340,
+        "hold_votes": 3140,
         "total_votes": 10000,
-        "agreement": 0.348
+        "agreement": 0.352
       },
       {
         "symbol": "QQQ",
         "consensus": "buy",
-        "buy_votes": 3740,
-        "sell_votes": 3360,
-        "hold_votes": 2900,
+        "buy_votes": 3640,
+        "sell_votes": 3420,
+        "hold_votes": 2940,
         "total_votes": 10000,
-        "agreement": 0.374
+        "agreement": 0.364
       },
       {
         "symbol": "TLT",
-        "consensus": "sell",
-        "buy_votes": 3180,
-        "sell_votes": 3640,
-        "hold_votes": 3180,
+        "consensus": "buy",
+        "buy_votes": 3540,
+        "sell_votes": 3260,
+        "hold_votes": 3200,
         "total_votes": 10000,
-        "agreement": 0.364
+        "agreement": 0.354
+      },
+      {
+        "symbol": "ESUSD",
+        "consensus": "buy",
+        "buy_votes": 3500,
+        "sell_votes": 3420,
+        "hold_votes": 3080,
+        "total_votes": 10000,
+        "agreement": 0.35
+      },
+      {
+        "symbol": "NQUSD",
+        "consensus": "sell",
+        "buy_votes": 3480,
+        "sell_votes": 3500,
+        "hold_votes": 3020,
+        "total_votes": 10000,
+        "agreement": 0.35
+      },
+      {
+        "symbol": "CLUSD",
+        "consensus": "buy",
+        "buy_votes": 3680,
+        "sell_votes": 3280,
+        "hold_votes": 3040,
+        "total_votes": 10000,
+        "agreement": 0.368
+      },
+      {
+        "symbol": "GCUSD",
+        "consensus": "sell",
+        "buy_votes": 3120,
+        "sell_votes": 3900,
+        "hold_votes": 2980,
+        "total_votes": 10000,
+        "agreement": 0.39
       },
       {
         "symbol": "^VIX",
-        "consensus": "buy",
-        "buy_votes": 3640,
-        "sell_votes": 3300,
-        "hold_votes": 3060,
+        "consensus": "sell",
+        "buy_votes": 3360,
+        "sell_votes": 3540,
+        "hold_votes": 3100,
         "total_votes": 10000,
-        "agreement": 0.364
+        "agreement": 0.354
       }
     ],
-    "duration_ms": 48.83,
+    "duration_ms": 39.97,
     "simulated": true,
     "model_prediction": true
   },
   "recent_cycles": [
     {
       "cycle_number": 1,
-      "timestamp": "2026-08-18T20:55:20.231236+00:00",
+      "timestamp": "2026-08-18T21:34:46.871260+00:00",
       "models_tested": 500,
       "symbols_tested": 8,
       "total_predictions": 80000,
-      "total_correct": 12560,
-      "accuracy": 0.157,
+      "total_correct": 12700,
+      "accuracy": 0.1588,
       "signals": {
         "buy": 28880,
         "sell": 27980,
@@ -794,6 +794,33 @@
       ],
       "consensus_per_symbol": [
         {
+          "symbol": "SPY",
+          "consensus": "buy",
+          "buy_votes": 3740,
+          "sell_votes": 3580,
+          "hold_votes": 2680,
+          "total_votes": 10000,
+          "agreement": 0.374
+        },
+        {
+          "symbol": "QQQ",
+          "consensus": "buy",
+          "buy_votes": 3540,
+          "sell_votes": 3500,
+          "hold_votes": 2960,
+          "total_votes": 10000,
+          "agreement": 0.354
+        },
+        {
+          "symbol": "TLT",
+          "consensus": "sell",
+          "buy_votes": 3680,
+          "sell_votes": 3940,
+          "hold_votes": 2380,
+          "total_votes": 10000,
+          "agreement": 0.394
+        },
+        {
           "symbol": "ESUSD",
           "consensus": "buy",
           "buy_votes": 3440,
@@ -830,33 +857,6 @@
           "agreement": 0.408
         },
         {
-          "symbol": "SPY",
-          "consensus": "buy",
-          "buy_votes": 3740,
-          "sell_votes": 3580,
-          "hold_votes": 2680,
-          "total_votes": 10000,
-          "agreement": 0.374
-        },
-        {
-          "symbol": "QQQ",
-          "consensus": "buy",
-          "buy_votes": 3540,
-          "sell_votes": 3500,
-          "hold_votes": 2960,
-          "total_votes": 10000,
-          "agreement": 0.354
-        },
-        {
-          "symbol": "TLT",
-          "consensus": "sell",
-          "buy_votes": 3680,
-          "sell_votes": 3940,
-          "hold_votes": 2380,
-          "total_votes": 10000,
-          "agreement": 0.394
-        },
-        {
           "symbol": "^VIX",
           "consensus": "buy",
           "buy_votes": 3940,
@@ -866,18 +866,18 @@
           "agreement": 0.394
         }
       ],
-      "duration_ms": 40.69,
+      "duration_ms": 40.09,
       "simulated": true,
       "model_prediction": true
     },
     {
       "cycle_number": 2,
-      "timestamp": "2026-08-18T20:55:20.274324+00:00",
+      "timestamp": "2026-08-18T21:34:46.913581+00:00",
       "models_tested": 500,
       "symbols_tested": 8,
       "total_predictions": 80000,
-      "total_correct": 80,
-      "accuracy": 0.001,
+      "total_correct": 220,
+      "accuracy": 0.0027,
       "signals": {
         "buy": 28600,
         "sell": 27540,
@@ -1227,6 +1227,33 @@
       ],
       "consensus_per_symbol": [
         {
+          "symbol": "SPY",
+          "consensus": "buy",
+          "buy_votes": 3720,
+          "sell_votes": 3260,
+          "hold_votes": 3020,
+          "total_votes": 10000,
+          "agreement": 0.372
+        },
+        {
+          "symbol": "QQQ",
+          "consensus": "sell",
+          "buy_votes": 3420,
+          "sell_votes": 3500,
+          "hold_votes": 3080,
+          "total_votes": 10000,
+          "agreement": 0.35
+        },
+        {
+          "symbol": "TLT",
+          "consensus": "buy",
+          "buy_votes": 3600,
+          "sell_votes": 3360,
+          "hold_votes": 3040,
+          "total_votes": 10000,
+          "agreement": 0.36
+        },
+        {
           "symbol": "ESUSD",
           "consensus": "sell",
           "buy_votes": 3400,
@@ -1263,33 +1290,6 @@
           "agreement": 0.372
         },
         {
-          "symbol": "SPY",
-          "consensus": "buy",
-          "buy_votes": 3720,
-          "sell_votes": 3260,
-          "hold_votes": 3020,
-          "total_votes": 10000,
-          "agreement": 0.372
-        },
-        {
-          "symbol": "QQQ",
-          "consensus": "sell",
-          "buy_votes": 3420,
-          "sell_votes": 3500,
-          "hold_votes": 3080,
-          "total_votes": 10000,
-          "agreement": 0.35
-        },
-        {
-          "symbol": "TLT",
-          "consensus": "buy",
-          "buy_votes": 3600,
-          "sell_votes": 3360,
-          "hold_votes": 3040,
-          "total_votes": 10000,
-          "agreement": 0.36
-        },
-        {
           "symbol": "^VIX",
           "consensus": "buy",
           "buy_votes": 3860,
@@ -1299,13 +1299,13 @@
           "agreement": 0.386
         }
       ],
-      "duration_ms": 40.38,
+      "duration_ms": 39.95,
       "simulated": true,
       "model_prediction": true
     },
     {
       "cycle_number": 3,
-      "timestamp": "2026-08-18T20:55:20.317389+00:00",
+      "timestamp": "2026-08-18T21:34:46.955952+00:00",
       "models_tested": 500,
       "symbols_tested": 8,
       "total_predictions": 80000,
@@ -1660,6 +1660,33 @@
       ],
       "consensus_per_symbol": [
         {
+          "symbol": "SPY",
+          "consensus": "buy",
+          "buy_votes": 3480,
+          "sell_votes": 3460,
+          "hold_votes": 3060,
+          "total_votes": 10000,
+          "agreement": 0.348
+        },
+        {
+          "symbol": "QQQ",
+          "consensus": "buy",
+          "buy_votes": 3740,
+          "sell_votes": 3360,
+          "hold_votes": 2900,
+          "total_votes": 10000,
+          "agreement": 0.374
+        },
+        {
+          "symbol": "TLT",
+          "consensus": "sell",
+          "buy_votes": 3180,
+          "sell_votes": 3640,
+          "hold_votes": 3180,
+          "total_votes": 10000,
+          "agreement": 0.364
+        },
+        {
           "symbol": "ESUSD",
           "consensus": "buy",
           "buy_votes": 3580,
@@ -1696,33 +1723,6 @@
           "agreement": 0.366
         },
         {
-          "symbol": "SPY",
-          "consensus": "buy",
-          "buy_votes": 3480,
-          "sell_votes": 3460,
-          "hold_votes": 3060,
-          "total_votes": 10000,
-          "agreement": 0.348
-        },
-        {
-          "symbol": "QQQ",
-          "consensus": "buy",
-          "buy_votes": 3740,
-          "sell_votes": 3360,
-          "hold_votes": 2900,
-          "total_votes": 10000,
-          "agreement": 0.374
-        },
-        {
-          "symbol": "TLT",
-          "consensus": "sell",
-          "buy_votes": 3180,
-          "sell_votes": 3640,
-          "hold_votes": 3180,
-          "total_votes": 10000,
-          "agreement": 0.364
-        },
-        {
           "symbol": "^VIX",
           "consensus": "buy",
           "buy_votes": 3640,
@@ -1732,12 +1732,878 @@
           "agreement": 0.364
         }
       ],
-      "duration_ms": 48.83,
+      "duration_ms": 40.27,
+      "simulated": true,
+      "model_prediction": true
+    },
+    {
+      "cycle_number": 4,
+      "timestamp": "2026-08-18T21:34:46.998969+00:00",
+      "models_tested": 500,
+      "symbols_tested": 8,
+      "total_predictions": 80000,
+      "total_correct": 0,
+      "accuracy": 0.0,
+      "signals": {
+        "buy": 26720,
+        "sell": 29760,
+        "hold": 23520
+      },
+      "top_models": [
+        {
+          "model_id": "Volatility_EWMA_0041",
+          "base_type": "Volatility_EWMA",
+          "variation": 41,
+          "params": {
+            "lambda": 5.4,
+            "threshold": 0.005
+          },
+          "predictions": 32,
+          "correct": 26,
+          "accuracy": 0.8125,
+          "confidence": 0.453,
+          "last_signal": "hold",
+          "last_hash": "7c7d12d9698fa9fd",
+          "simulated": true,
+          "model_prediction": true
+        },
+        {
+          "model_id": "Sentiment_Volume_0221",
+          "base_type": "Sentiment_Volume",
+          "variation": 221,
+          "params": {
+            "w_volume": 7.2,
+            "w_pattern": 0.023
+          },
+          "predictions": 32,
+          "correct": 26,
+          "accuracy": 0.8125,
+          "confidence": 0.81,
+          "last_signal": "sell",
+          "last_hash": "a10dc70d15df4bc4",
+          "simulated": true,
+          "model_prediction": true
+        },
+        {
+          "model_id": "Trend_SMA_0021",
+          "base_type": "Trend_SMA",
+          "variation": 21,
+          "params": {
+            "lookback": 5.2,
+            "threshold": 0.003
+          },
+          "predictions": 32,
+          "correct": 25,
+          "accuracy": 0.7812,
+          "confidence": 0.6584,
+          "last_signal": "hold",
+          "last_hash": "a4262ce54c508549",
+          "simulated": true,
+          "model_prediction": true
+        },
+        {
+          "model_id": "Mean_Reversion_0161",
+          "base_type": "Mean_Reversion",
+          "variation": 161,
+          "params": {
+            "sigma_mult": 6.6,
+            "window": 0.017
+          },
+          "predictions": 32,
+          "correct": 24,
+          "accuracy": 0.75,
+          "confidence": 0.5293,
+          "last_signal": "hold",
+          "last_hash": "1d135077e026e879",
+          "simulated": true,
+          "model_prediction": true
+        },
+        {
+          "model_id": "Momentum_RSI_0181",
+          "base_type": "Momentum_RSI",
+          "variation": 181,
+          "params": {
+            "period": 6.8,
+            "overbought": 0.019
+          },
+          "predictions": 32,
+          "correct": 24,
+          "accuracy": 0.75,
+          "confidence": 0.437,
+          "last_signal": "buy",
+          "last_hash": "68ae7eb811af95a5",
+          "simulated": true,
+          "model_prediction": true
+        },
+        {
+          "model_id": "Diffusion_Proc_0041",
+          "base_type": "Diffusion_Proc",
+          "variation": 41,
+          "params": {
+            "noise_steps": 5.4,
+            "beta_start": 0.005
+          },
+          "predictions": 32,
+          "correct": 24,
+          "accuracy": 0.75,
+          "confidence": 0.6262,
+          "last_signal": "buy",
+          "last_hash": "ca1f8f81090246a3",
+          "simulated": true,
+          "model_prediction": true
+        },
+        {
+          "model_id": "Attention_LSTM_0061",
+          "base_type": "Attention_LSTM",
+          "variation": 61,
+          "params": {
+            "attn_heads": 5.6,
+            "lstm_units": 0.007
+          },
+          "predictions": 32,
+          "correct": 24,
+          "accuracy": 0.75,
+          "confidence": 0.6283,
+          "last_signal": "buy",
+          "last_hash": "b66c9d20d586c0cb",
+          "simulated": true,
+          "model_prediction": true
+        },
+        {
+          "model_id": "Mean_Reversion_0181",
+          "base_type": "Mean_Reversion",
+          "variation": 181,
+          "params": {
+            "sigma_mult": 6.8,
+            "window": 0.019
+          },
+          "predictions": 32,
+          "correct": 23,
+          "accuracy": 0.7188,
+          "confidence": 0.7791,
+          "last_signal": "buy",
+          "last_hash": "51c09c66a7341fcf",
+          "simulated": true,
+          "model_prediction": true
+        },
+        {
+          "model_id": "Volatility_EWMA_0101",
+          "base_type": "Volatility_EWMA",
+          "variation": 101,
+          "params": {
+            "lambda": 6.0,
+            "threshold": 0.011
+          },
+          "predictions": 32,
+          "correct": 23,
+          "accuracy": 0.7188,
+          "confidence": 0.5937,
+          "last_signal": "buy",
+          "last_hash": "e201ec08f8c368d4",
+          "simulated": true,
+          "model_prediction": true
+        },
+        {
+          "model_id": "Sentiment_Volume_0121",
+          "base_type": "Sentiment_Volume",
+          "variation": 121,
+          "params": {
+            "w_volume": 6.2,
+            "w_pattern": 0.013
+          },
+          "predictions": 32,
+          "correct": 23,
+          "accuracy": 0.7188,
+          "confidence": 0.5384,
+          "last_signal": "hold",
+          "last_hash": "eb714b10e87c5d2b",
+          "simulated": true,
+          "model_prediction": true
+        },
+        {
+          "model_id": "Fractal_Calculus_0381",
+          "base_type": "Fractal_Calculus",
+          "variation": 381,
+          "params": {
+            "window": 8.8,
+            "min_dimension": 0.039
+          },
+          "predictions": 32,
+          "correct": 23,
+          "accuracy": 0.7188,
+          "confidence": 0.7752,
+          "last_signal": "hold",
+          "last_hash": "f0446e6f1a5f1690",
+          "simulated": true,
+          "model_prediction": true
+        },
+        {
+          "model_id": "Fractal_Calculus_0441",
+          "base_type": "Fractal_Calculus",
+          "variation": 441,
+          "params": {
+            "window": 9.4,
+            "min_dimension": 0.045
+          },
+          "predictions": 32,
+          "correct": 23,
+          "accuracy": 0.7188,
+          "confidence": 0.6248,
+          "last_signal": "buy",
+          "last_hash": "65328afe58a4b1d5",
+          "simulated": true,
+          "model_prediction": true
+        },
+        {
+          "model_id": "Fractal_Calculus_0481",
+          "base_type": "Fractal_Calculus",
+          "variation": 481,
+          "params": {
+            "window": 9.8,
+            "min_dimension": 0.049
+          },
+          "predictions": 32,
+          "correct": 23,
+          "accuracy": 0.7188,
+          "confidence": 0.4005,
+          "last_signal": "hold",
+          "last_hash": "79c04e37e74f5145",
+          "simulated": true,
+          "model_prediction": true
+        },
+        {
+          "model_id": "Kernel_Consensus_0461",
+          "base_type": "Kernel_Consensus",
+          "variation": 461,
+          "params": {
+            "num_kernels": 9.6,
+            "vote_threshold": 0.047
+          },
+          "predictions": 32,
+          "correct": 23,
+          "accuracy": 0.7188,
+          "confidence": 0.8365,
+          "last_signal": "sell",
+          "last_hash": "dc808709dc81966b",
+          "simulated": true,
+          "model_prediction": true
+        },
+        {
+          "model_id": "Neural_LSTM_0401",
+          "base_type": "Neural_LSTM",
+          "variation": 401,
+          "params": {
+            "lstm_units": 9.0,
+            "sequence_len": 0.041
+          },
+          "predictions": 32,
+          "correct": 23,
+          "accuracy": 0.7188,
+          "confidence": 0.621,
+          "last_signal": "sell",
+          "last_hash": "9015e1cd0d32dc7c",
+          "simulated": true,
+          "model_prediction": true
+        },
+        {
+          "model_id": "Reinforcement_Q_0001",
+          "base_type": "Reinforcement_Q",
+          "variation": 1,
+          "params": {
+            "learning_rate": 5.0,
+            "discount": 0.001
+          },
+          "predictions": 32,
+          "correct": 23,
+          "accuracy": 0.7188,
+          "confidence": 0.5595,
+          "last_signal": "hold",
+          "last_hash": "8eb1c1315996841f",
+          "simulated": true,
+          "model_prediction": true
+        },
+        {
+          "model_id": "Diffusion_Proc_0061",
+          "base_type": "Diffusion_Proc",
+          "variation": 61,
+          "params": {
+            "noise_steps": 5.6,
+            "beta_start": 0.007
+          },
+          "predictions": 32,
+          "correct": 23,
+          "accuracy": 0.7188,
+          "confidence": 0.4744,
+          "last_signal": "hold",
+          "last_hash": "549e38b32be6a536",
+          "simulated": true,
+          "model_prediction": true
+        },
+        {
+          "model_id": "Attention_LSTM_0421",
+          "base_type": "Attention_LSTM",
+          "variation": 421,
+          "params": {
+            "attn_heads": 9.2,
+            "lstm_units": 0.043
+          },
+          "predictions": 32,
+          "correct": 23,
+          "accuracy": 0.7188,
+          "confidence": 0.4635,
+          "last_signal": "sell",
+          "last_hash": "2eb5384052d0b3b4",
+          "simulated": true,
+          "model_prediction": true
+        },
+        {
+          "model_id": "Autoencoder_Sig_0121",
+          "base_type": "Autoencoder_Sig",
+          "variation": 121,
+          "params": {
+            "encoding_dim": 6.2,
+            "bottleneck": 0.013
+          },
+          "predictions": 32,
+          "correct": 23,
+          "accuracy": 0.7188,
+          "confidence": 0.6455,
+          "last_signal": "hold",
+          "last_hash": "ec6a8284b414ab03",
+          "simulated": true,
+          "model_prediction": true
+        },
+        {
+          "model_id": "Fuzzy_Logic_0281",
+          "base_type": "Fuzzy_Logic",
+          "variation": 281,
+          "params": {
+            "num_rules": 7.8,
+            "defuzz_method": 0.029
+          },
+          "predictions": 32,
+          "correct": 23,
+          "accuracy": 0.7188,
+          "confidence": 0.7186,
+          "last_signal": "buy",
+          "last_hash": "bf5b238b92bc5a0a",
+          "simulated": true,
+          "model_prediction": true
+        }
+      ],
+      "consensus_per_symbol": [
+        {
+          "symbol": "SPY",
+          "consensus": "sell",
+          "buy_votes": 3320,
+          "sell_votes": 3580,
+          "hold_votes": 3100,
+          "total_votes": 10000,
+          "agreement": 0.358
+        },
+        {
+          "symbol": "QQQ",
+          "consensus": "sell",
+          "buy_votes": 3240,
+          "sell_votes": 3880,
+          "hold_votes": 2880,
+          "total_votes": 10000,
+          "agreement": 0.388
+        },
+        {
+          "symbol": "TLT",
+          "consensus": "sell",
+          "buy_votes": 3360,
+          "sell_votes": 3580,
+          "hold_votes": 3060,
+          "total_votes": 10000,
+          "agreement": 0.358
+        },
+        {
+          "symbol": "ESUSD",
+          "consensus": "sell",
+          "buy_votes": 3500,
+          "sell_votes": 3720,
+          "hold_votes": 2780,
+          "total_votes": 10000,
+          "agreement": 0.372
+        },
+        {
+          "symbol": "NQUSD",
+          "consensus": "sell",
+          "buy_votes": 3320,
+          "sell_votes": 3800,
+          "hold_votes": 2880,
+          "total_votes": 10000,
+          "agreement": 0.38
+        },
+        {
+          "symbol": "CLUSD",
+          "consensus": "sell",
+          "buy_votes": 3240,
+          "sell_votes": 3600,
+          "hold_votes": 3160,
+          "total_votes": 10000,
+          "agreement": 0.36
+        },
+        {
+          "symbol": "GCUSD",
+          "consensus": "sell",
+          "buy_votes": 3600,
+          "sell_votes": 3780,
+          "hold_votes": 2620,
+          "total_votes": 10000,
+          "agreement": 0.378
+        },
+        {
+          "symbol": "^VIX",
+          "consensus": "sell",
+          "buy_votes": 3140,
+          "sell_votes": 3820,
+          "hold_votes": 3040,
+          "total_votes": 10000,
+          "agreement": 0.382
+        }
+      ],
+      "duration_ms": 39.96,
+      "simulated": true,
+      "model_prediction": true
+    },
+    {
+      "cycle_number": 5,
+      "timestamp": "2026-08-18T21:34:47.042027+00:00",
+      "models_tested": 500,
+      "symbols_tested": 8,
+      "total_predictions": 80000,
+      "total_correct": 0,
+      "accuracy": 0.0,
+      "signals": {
+        "buy": 27840,
+        "sell": 27660,
+        "hold": 24500
+      },
+      "top_models": [
+        {
+          "model_id": "Momentum_RSI_0181",
+          "base_type": "Momentum_RSI",
+          "variation": 181,
+          "params": {
+            "period": 6.8,
+            "overbought": 0.019
+          },
+          "predictions": 40,
+          "correct": 31,
+          "accuracy": 0.775,
+          "confidence": 0.501,
+          "last_signal": "buy",
+          "last_hash": "ca7c6dfae2cf0291",
+          "simulated": true,
+          "model_prediction": true
+        },
+        {
+          "model_id": "Sentiment_Volume_0221",
+          "base_type": "Sentiment_Volume",
+          "variation": 221,
+          "params": {
+            "w_volume": 7.2,
+            "w_pattern": 0.023
+          },
+          "predictions": 40,
+          "correct": 31,
+          "accuracy": 0.775,
+          "confidence": 0.8473,
+          "last_signal": "buy",
+          "last_hash": "9da1b26ce9670edf",
+          "simulated": true,
+          "model_prediction": true
+        },
+        {
+          "model_id": "Diffusion_Proc_0041",
+          "base_type": "Diffusion_Proc",
+          "variation": 41,
+          "params": {
+            "noise_steps": 5.4,
+            "beta_start": 0.005
+          },
+          "predictions": 40,
+          "correct": 30,
+          "accuracy": 0.75,
+          "confidence": 0.8072,
+          "last_signal": "sell",
+          "last_hash": "78e81e492ed008fd",
+          "simulated": true,
+          "model_prediction": true
+        },
+        {
+          "model_id": "Attention_LSTM_0061",
+          "base_type": "Attention_LSTM",
+          "variation": 61,
+          "params": {
+            "attn_heads": 5.6,
+            "lstm_units": 0.007
+          },
+          "predictions": 40,
+          "correct": 30,
+          "accuracy": 0.75,
+          "confidence": 0.6671,
+          "last_signal": "hold",
+          "last_hash": "ecbea44374f5baa9",
+          "simulated": true,
+          "model_prediction": true
+        },
+        {
+          "model_id": "Trend_SMA_0021",
+          "base_type": "Trend_SMA",
+          "variation": 21,
+          "params": {
+            "lookback": 5.2,
+            "threshold": 0.003
+          },
+          "predictions": 40,
+          "correct": 29,
+          "accuracy": 0.725,
+          "confidence": 0.6469,
+          "last_signal": "hold",
+          "last_hash": "8a63e9216ef8b2d7",
+          "simulated": true,
+          "model_prediction": true
+        },
+        {
+          "model_id": "Mean_Reversion_0161",
+          "base_type": "Mean_Reversion",
+          "variation": 161,
+          "params": {
+            "sigma_mult": 6.6,
+            "window": 0.017
+          },
+          "predictions": 40,
+          "correct": 29,
+          "accuracy": 0.725,
+          "confidence": 0.4411,
+          "last_signal": "buy",
+          "last_hash": "5ab6aa03d2643877",
+          "simulated": true,
+          "model_prediction": true
+        },
+        {
+          "model_id": "Mean_Reversion_0181",
+          "base_type": "Mean_Reversion",
+          "variation": 181,
+          "params": {
+            "sigma_mult": 6.8,
+            "window": 0.019
+          },
+          "predictions": 40,
+          "correct": 29,
+          "accuracy": 0.725,
+          "confidence": 0.8096,
+          "last_signal": "sell",
+          "last_hash": "f7c097143b235d39",
+          "simulated": true,
+          "model_prediction": true
+        },
+        {
+          "model_id": "Volatility_EWMA_0041",
+          "base_type": "Volatility_EWMA",
+          "variation": 41,
+          "params": {
+            "lambda": 5.4,
+            "threshold": 0.005
+          },
+          "predictions": 40,
+          "correct": 29,
+          "accuracy": 0.725,
+          "confidence": 0.7724,
+          "last_signal": "hold",
+          "last_hash": "a8467b2bd3316176",
+          "simulated": true,
+          "model_prediction": true
+        },
+        {
+          "model_id": "Fractal_Calculus_0481",
+          "base_type": "Fractal_Calculus",
+          "variation": 481,
+          "params": {
+            "window": 9.8,
+            "min_dimension": 0.049
+          },
+          "predictions": 40,
+          "correct": 29,
+          "accuracy": 0.725,
+          "confidence": 0.4404,
+          "last_signal": "buy",
+          "last_hash": "2c46f4df1524ae26",
+          "simulated": true,
+          "model_prediction": true
+        },
+        {
+          "model_id": "Neural_LSTM_0401",
+          "base_type": "Neural_LSTM",
+          "variation": 401,
+          "params": {
+            "lstm_units": 9.0,
+            "sequence_len": 0.041
+          },
+          "predictions": 40,
+          "correct": 29,
+          "accuracy": 0.725,
+          "confidence": 0.7075,
+          "last_signal": "hold",
+          "last_hash": "b4459b605b2e193e",
+          "simulated": true,
+          "model_prediction": true
+        },
+        {
+          "model_id": "Volatility_EWMA_0101",
+          "base_type": "Volatility_EWMA",
+          "variation": 101,
+          "params": {
+            "lambda": 6.0,
+            "threshold": 0.011
+          },
+          "predictions": 40,
+          "correct": 28,
+          "accuracy": 0.7,
+          "confidence": 0.5522,
+          "last_signal": "sell",
+          "last_hash": "945553fd578b5b28",
+          "simulated": true,
+          "model_prediction": true
+        },
+        {
+          "model_id": "Volatility_EWMA_0161",
+          "base_type": "Volatility_EWMA",
+          "variation": 161,
+          "params": {
+            "lambda": 6.6,
+            "threshold": 0.017
+          },
+          "predictions": 40,
+          "correct": 28,
+          "accuracy": 0.7,
+          "confidence": 0.8457,
+          "last_signal": "hold",
+          "last_hash": "84c62c9c6c4316d4",
+          "simulated": true,
+          "model_prediction": true
+        },
+        {
+          "model_id": "Sentiment_Volume_0461",
+          "base_type": "Sentiment_Volume",
+          "variation": 461,
+          "params": {
+            "w_volume": 9.6,
+            "w_pattern": 0.047
+          },
+          "predictions": 40,
+          "correct": 28,
+          "accuracy": 0.7,
+          "confidence": 0.7149,
+          "last_signal": "sell",
+          "last_hash": "3af29b62a7849800",
+          "simulated": true,
+          "model_prediction": true
+        },
+        {
+          "model_id": "Correlation_Eigen_0201",
+          "base_type": "Correlation_Eigen",
+          "variation": 201,
+          "params": {
+            "components": 7.0,
+            "min_eigenvalue": 0.021
+          },
+          "predictions": 40,
+          "correct": 28,
+          "accuracy": 0.7,
+          "confidence": 0.6569,
+          "last_signal": "hold",
+          "last_hash": "2c0d61bf18a1b4fb",
+          "simulated": true,
+          "model_prediction": true
+        },
+        {
+          "model_id": "Diffusion_Proc_0061",
+          "base_type": "Diffusion_Proc",
+          "variation": 61,
+          "params": {
+            "noise_steps": 5.6,
+            "beta_start": 0.007
+          },
+          "predictions": 40,
+          "correct": 28,
+          "accuracy": 0.7,
+          "confidence": 0.713,
+          "last_signal": "sell",
+          "last_hash": "eb5183a461a8d948",
+          "simulated": true,
+          "model_prediction": true
+        },
+        {
+          "model_id": "Autoencoder_Sig_0121",
+          "base_type": "Autoencoder_Sig",
+          "variation": 121,
+          "params": {
+            "encoding_dim": 6.2,
+            "bottleneck": 0.013
+          },
+          "predictions": 40,
+          "correct": 28,
+          "accuracy": 0.7,
+          "confidence": 0.711,
+          "last_signal": "sell",
+          "last_hash": "3760ab2d9666ee28",
+          "simulated": true,
+          "model_prediction": true
+        },
+        {
+          "model_id": "Fuzzy_Logic_0321",
+          "base_type": "Fuzzy_Logic",
+          "variation": 321,
+          "params": {
+            "num_rules": 8.2,
+            "defuzz_method": 0.033
+          },
+          "predictions": 40,
+          "correct": 28,
+          "accuracy": 0.7,
+          "confidence": 0.7394,
+          "last_signal": "hold",
+          "last_hash": "a70a047568474b0b",
+          "simulated": true,
+          "model_prediction": true
+        },
+        {
+          "model_id": "Volatility_EWMA_0221",
+          "base_type": "Volatility_EWMA",
+          "variation": 221,
+          "params": {
+            "lambda": 7.2,
+            "threshold": 0.023
+          },
+          "predictions": 40,
+          "correct": 27,
+          "accuracy": 0.675,
+          "confidence": 0.6456,
+          "last_signal": "sell",
+          "last_hash": "b675f9980b06fb65",
+          "simulated": true,
+          "model_prediction": true
+        },
+        {
+          "model_id": "Momentum_RSI_0261",
+          "base_type": "Momentum_RSI",
+          "variation": 261,
+          "params": {
+            "period": 7.6,
+            "overbought": 0.027
+          },
+          "predictions": 40,
+          "correct": 27,
+          "accuracy": 0.675,
+          "confidence": 0.5422,
+          "last_signal": "buy",
+          "last_hash": "533337f40c7cf1bb",
+          "simulated": true,
+          "model_prediction": true
+        },
+        {
+          "model_id": "Fractal_Calculus_0061",
+          "base_type": "Fractal_Calculus",
+          "variation": 61,
+          "params": {
+            "window": 5.6,
+            "min_dimension": 0.007
+          },
+          "predictions": 40,
+          "correct": 27,
+          "accuracy": 0.675,
+          "confidence": 0.6863,
+          "last_signal": "hold",
+          "last_hash": "4937669458dd5b91",
+          "simulated": true,
+          "model_prediction": true
+        }
+      ],
+      "consensus_per_symbol": [
+        {
+          "symbol": "SPY",
+          "consensus": "buy",
+          "buy_votes": 3520,
+          "sell_votes": 3340,
+          "hold_votes": 3140,
+          "total_votes": 10000,
+          "agreement": 0.352
+        },
+        {
+          "symbol": "QQQ",
+          "consensus": "buy",
+          "buy_votes": 3640,
+          "sell_votes": 3420,
+          "hold_votes": 2940,
+          "total_votes": 10000,
+          "agreement": 0.364
+        },
+        {
+          "symbol": "TLT",
+          "consensus": "buy",
+          "buy_votes": 3540,
+          "sell_votes": 3260,
+          "hold_votes": 3200,
+          "total_votes": 10000,
+          "agreement": 0.354
+        },
+        {
+          "symbol": "ESUSD",
+          "consensus": "buy",
+          "buy_votes": 3500,
+          "sell_votes": 3420,
+          "hold_votes": 3080,
+          "total_votes": 10000,
+          "agreement": 0.35
+        },
+        {
+          "symbol": "NQUSD",
+          "consensus": "sell",
+          "buy_votes": 3480,
+          "sell_votes": 3500,
+          "hold_votes": 3020,
+          "total_votes": 10000,
+          "agreement": 0.35
+        },
+        {
+          "symbol": "CLUSD",
+          "consensus": "buy",
+          "buy_votes": 3680,
+          "sell_votes": 3280,
+          "hold_votes": 3040,
+          "total_votes": 10000,
+          "agreement": 0.368
+        },
+        {
+          "symbol": "GCUSD",
+          "consensus": "sell",
+          "buy_votes": 3120,
+          "sell_votes": 3900,
+          "hold_votes": 2980,
+          "total_votes": 10000,
+          "agreement": 0.39
+        },
+        {
+          "symbol": "^VIX",
+          "consensus": "sell",
+          "buy_votes": 3360,
+          "sell_votes": 3540,
+          "hold_votes": 3100,
+          "total_votes": 10000,
+          "agreement": 0.354
+        }
+      ],
+      "duration_ms": 39.97,
       "simulated": true,
       "model_prediction": true
     }
   ],
-  "created_at": "2026-08-18T20:55:20.215324+00:00",
+  "created_at": "2026-08-18T21:34:46.856434+00:00",
   "precision_status": "not_benchmarked",
   "simulated": true,
   "model_prediction": true,

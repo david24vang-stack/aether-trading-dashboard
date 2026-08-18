@@ -1361,7 +1361,7 @@ function renderAll() {
 // ============================================================
 // AUTO-REFRESH SYSTEM
 // ============================================================
-const AUTO_REFRESH_INTERVAL = 60000; // 60 seconds
+const AUTO_REFRESH_INTERVAL = 15000; // 15 seconds — continuous refresh for all tabs
 let autoRefreshEnabled = true;
 let refreshIntervalId = null;
 let refreshCount = 0;
@@ -1386,20 +1386,47 @@ function flashRefreshBadge() {
 function autoRefresh() {
   if (!autoRefreshEnabled) return;
   refreshCount++;
-  console.log('[Auto-Refresh] Cycle #' + refreshCount + ' — re-fetching all data...');
+  console.log('[Auto-Refresh] Cycle #' + refreshCount + ' — re-fetching ALL tab data...');
+  const t = '?_t=' + Date.now();
+  const base = 'data/';
 
-  // Re-fetch live market data with cache-busting
-  fetch('data/live_market_snapshot.json?_t=' + Date.now())
+  // Re-fetch ALL data files with cache-busting for continuous updates
+  fetch(base + 'live_market_snapshot.json' + t)
     .then(r => r.ok ? r.json() : Promise.reject('skip'))
-    .then(d => { liveMarketData = d; renderMarket(); })
+    .then(d => { liveMarketData = d; liveSnapshot = d; renderMarket(); loadMarketCharts(); })
     .catch(() => {});
 
-  fetch('data/training_results.json?_t=' + Date.now())
+  fetch(base + 'training_results.json' + t)
     .then(r => r.ok ? r.json() : Promise.reject('skip'))
     .then(d => { trainingData = d; renderOverview(); })
     .catch(() => {});
 
-  // Re-render most frequently updated tabs
+  fetch(base + 'v6_integration_results.json' + t)
+    .then(r => r.ok ? r.json() : Promise.reject('skip'))
+    .then(d => { V6 = d; renderFunded(); })
+    .catch(() => {});
+
+  fetch(base + 'strategy_lab.json' + t)
+    .then(r => r.ok ? r.json() : Promise.reject('skip'))
+    .then(d => { strategyData = d; renderStrategy(); })
+    .catch(() => {});
+
+  fetch(base + 'backtest_results.json' + t)
+    .then(r => r.ok ? r.json() : Promise.reject('skip'))
+    .then(d => { backtestData = d; renderCorrelation(); })
+    .catch(() => {});
+
+  fetch(base + 'quantum_results.json' + t)
+    .then(r => r.ok ? r.json() : Promise.reject('skip'))
+    .then(d => { quantumData = d; renderQuantumModels(); })
+    .catch(() => {});
+
+  // Refresh ALL tab loaders with cache-busting
+  loadUnconstrained();
+  loadTradeHistory();
+  loadPaperAudit();
+  loadZenith();
+  loadExecution();
   loadContinuousEngine();
   loadAlpacaPositions();
   loadAdvisers();
@@ -1411,7 +1438,7 @@ function autoRefresh() {
   loadUnlimited();
   loadTopStep();
   loadAutoExecutor();
-  loadMarketCharts();
+  renderTests();
 
   updateLastUpdated();
   flashRefreshBadge();
@@ -1960,7 +1987,7 @@ let uncData = null;
 
 async function loadUnconstrained() {
   try {
-    const res = await fetch('data/unconstrained_pnl_results.json');
+    const res = await fetch('unconstrained_pnl_results.json?_t=' + Date.now();
     uncData = await res.json();
     renderUnconstrained();
   } catch(e) {
@@ -2047,7 +2074,7 @@ let tradeHistData = null;
 
 async function loadTradeHistory() {
   try {
-    const res = await fetch('data/trade_execution_history.json');
+    const res = await fetch('trade_execution_history.json?_t=' + Date.now();
     tradeHistData = await res.json();
     renderTradeHistory();
   } catch(e) {
@@ -2152,7 +2179,7 @@ function renderTradeHistory() {
 
 async function loadPaperAudit() {
   try {
-    const res = await fetch('data/paper_trading_audit.json');
+    const res = await fetch('paper_trading_audit.json?_t=' + Date.now();
     const audit = await res.json();
     const el = document.getElementById('paper-audit-section');
     if (!audit || audit.length === 0) {
@@ -2180,8 +2207,8 @@ let zenithKernel = null;
 async function loadZenith() {
   try {
     const [predRes, kernelRes] = await Promise.all([
-      fetch('data/zenith_prediction_results.json').then(r => r.json()),
-      fetch('data/aether_zenith_integrated.json').then(r => r.json()).catch(() => null)
+      fetch('zenith_prediction_results.json?_t=' + Date.now().then(r => r.json()),
+      fetch('aether_zenith_integrated.json?_t=' + Date.now().then(r => r.json()).catch(() => null)
     ]);
     zenithData = predRes;
     zenithKernel = kernelRes;
@@ -2309,7 +2336,7 @@ function renderZenith() {
 // ============================================================
 async function loadExecution() {
   try {
-    const res = await fetch('data/execution_engine_status.json');
+    const res = await fetch('execution_engine_status.json?_t=' + Date.now();
     const data = await res.json();
 
     // Status cards
@@ -2426,7 +2453,7 @@ async function loadExecution() {
 // ============================================================
 async function loadAdvisers() {
   try {
-    const res = await fetch('data/ai_adviser_results.json');
+    const res = await fetch('ai_adviser_results.json?_t=' + Date.now();
     const data = await res.json();
 
     // Summary cards
@@ -2504,7 +2531,7 @@ async function loadAdvisers() {
 // ============================================================
 async function loadAlpacaPositions() {
   try {
-    const res = await fetch('data/alpaca_paper_trades.json');
+    const res = await fetch('alpaca_paper_trades.json?_t=' + Date.now();
     const data = await res.json();
     const account = data.account || {};
     const summary = data.summary || {};
@@ -2574,7 +2601,7 @@ async function loadAlpacaPositions() {
 // ============================================================
 async function loadSovereign() {
   try {
-    const res = await fetch('data/sovereign_status.json');
+    const res = await fetch('sovereign_status.json?_t=' + Date.now();
     const data = await res.json();
 
     // Stats cards
@@ -2629,7 +2656,7 @@ async function loadSovereign() {
 // ============================================================
 async function loadOmniNexus() {
   try {
-    const res = await fetch('data/omni_nexus_status.json');
+    const res = await fetch('omni_nexus_status.json?_t=' + Date.now();
     const data = await res.json();
     const plugins = data.plugins || {};
     const models = data.models || {};
@@ -2708,7 +2735,7 @@ async function loadOmniNexus() {
 // ============================================================
 async function loadContinuousEngine() {
   try {
-    const res = await fetch('data/continuous_engine_status.json');
+    const res = await fetch('continuous_engine_status.json?_t=' + Date.now();
     const data = await res.json();
     const last = data.last_cycle || {};
     const swarm = last.swarm_result || {};
@@ -2753,7 +2780,7 @@ async function loadContinuousEngine() {
     ].map(c => `<div class="stat-card"><div class="stat-label">${c.l}</div><div class="stat-value" style="color:${c.c};white-space:nowrap;font-size:16px">${c.v}</div></div>`).join('');
 
     // Recent trades
-    fetch('data/continuous_trade_history.json').then(r => r.json()).then(td => {
+    fetch('continuous_trade_history.json?_t=' + Date.now().then(r => r.json()).then(td => {
       const trades = td.trades || [];
       document.getElementById('continuous-trades-table').innerHTML = trades.length === 0
         ? '<tr><td colspan="6" style="text-align:center;padding:12px;color:var(--text-faint)">No paper trades yet</td></tr>'
@@ -2792,7 +2819,7 @@ async function loadContinuousEngine() {
 // ============================================================
 async function loadOracleAuto() {
   try {
-    const res = await fetch('data/oracle_auto_status.json');
+    const res = await fetch('oracle_auto_status.json?_t=' + Date.now();
     const data = await res.json();
     const last = data.last_cycle || {};
 
@@ -2807,7 +2834,7 @@ async function loadOracleAuto() {
     ].map(c => `<div class="stat-card"><div class="stat-label">${c.l}</div><div class="stat-value" style="color:${c.c};white-space:nowrap;font-size:16px">${c.v}</div></div>`).join('');
 
     // 20 model type cards
-    const allocation = await fetch('data/model_allocation_10k.json').then(r=>r.json()).catch(()=>({allocation:[]}));
+    const allocation = await fetch('model_allocation_10k.json?_t=' + Date.now().then(r=>r.json()).catch(()=>({allocation:[]}));
     const types = allocation.allocation || [];
     document.getElementById('oracle-model-types').innerHTML = types.map(t => {
       const isNew = ['Transformer_Attn','Reinforcement_Q','GAN_Predictor','Bayesian_Inf','Diffusion_Proc','Graph_Neural','Attention_LSTM','Autoencoder_Sig','Wavelet Decomp','Fuzzy_Logic'].includes(t.base_type);
@@ -2875,7 +2902,7 @@ async function loadOracleAuto() {
 // ============================================================
 async function loadAIModels() {
   try {
-    const res = await fetch('data/ai_model_registry.json');
+    const res = await fetch('ai_model_registry.json?_t=' + Date.now();
     const data = await res.json();
 
     document.getElementById('ai-models-stats').innerHTML = [
@@ -2973,7 +3000,7 @@ async function loadV22900() {
 // ============================================================
 async function loadUnlimited() {
   try {
-    const res = await fetch('data/unlimited_engine_status.json');
+    const res = await fetch('unlimited_engine_status.json?_t=' + Date.now();
     const data = await res.json();
     const acct = data.accounts || {};
 
@@ -3076,7 +3103,7 @@ async function loadUnlimited() {
 // ============================================================
 async function loadTopStep() {
   try {
-    const res = await fetch('data/topstep_eval_status.json');
+    const res = await fetch('topstep_eval_status.json?_t=' + Date.now();
     const data = await res.json();
     document.getElementById('topstep-stats').innerHTML = [
       {l:'Total Evals',v:(data.total_evals_created||0).toLocaleString(),c:'#f39c12'},
@@ -3148,7 +3175,7 @@ async function loadTopStep() {
 // ============================================================
 async function loadAutoExecutor() {
   try {
-    const res = await fetch('data/auto_executor_status.json');
+    const res = await fetch('auto_executor_status.json?_t=' + Date.now();
     const data = await res.json();
     document.getElementById('auto-exec-stats').innerHTML = [
       {l:'Models',v:(data.total_models||0),c:'#9b59b6'},
@@ -3262,7 +3289,7 @@ function drawMiniChart(canvasId, priceLabelId, basePrice, changePct) {
 }
 
 function loadMarketCharts() {
-  fetch('data/live_market_snapshot.json').then(r => r.json()).then(data => {
+  fetch('live_market_snapshot.json?_t=' + Date.now().then(r => r.json()).then(data => {
     const symbols = data.symbols || [];
     const defaults = {
       spy: {price: 767.36, change: -0.69},
