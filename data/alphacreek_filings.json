@@ -1,0 +1,158 @@
+{
+  "provider": "AlphaCreek",
+  "fetched_at": "2026-08-18T21:43:45.313702+00:00",
+  "total_filings": 20,
+  "filing_date": "2026-08-18",
+  "filings": [
+    {
+      "ticker": "OTLK",
+      "type": "10-Q",
+      "date": "2026-06-30",
+      "filing_date": "2026-08-18",
+      "url": "https://www.sec.gov/Archives/edgar/data/1649989/000110465926098415/otlk-20260630x10q.htm"
+    },
+    {
+      "ticker": "TRSG",
+      "type": "6-K",
+      "date": "2026-08-01",
+      "filing_date": "2026-08-18",
+      "url": "https://www.sec.gov/Archives/edgar/data/1943444/000109690626001246/trsg_6k.htm"
+    },
+    {
+      "ticker": "SVRE",
+      "type": "6-K",
+      "date": "2026-08-18",
+      "filing_date": "2026-08-18",
+      "url": "https://www.sec.gov/Archives/edgar/data/1894693/000121390026091306/ea030243101ex99-1.htm"
+    },
+    {
+      "ticker": "LPBB",
+      "type": "8-K",
+      "date": "2026-08-18",
+      "filing_date": "2026-08-18",
+      "sections": [
+        "Item 2.03 Direct Financial Obligation",
+        "Item 8.01 Other Events \u2014 Credit Agreement",
+        "Item 9.01 Financial Statements"
+      ]
+    },
+    {
+      "ticker": "ANSC",
+      "type": "8-K",
+      "date": "2026-08-12",
+      "filing_date": "2026-08-18",
+      "sections": [
+        "Item 3.01 Notice of Delisting"
+      ]
+    },
+    {
+      "ticker": "TGL",
+      "type": "8-K",
+      "date": "2026-08-17",
+      "filing_date": "2026-08-18",
+      "sections": [
+        "Item 1.01 Material Definitive Agreement",
+        "Item 1.02 Termination of Agreement",
+        "Item 9.01 Exhibits"
+      ]
+    },
+    {
+      "ticker": "DFNS",
+      "type": "10-Q",
+      "date": "2026-06-30",
+      "filing_date": "2026-08-18"
+    },
+    {
+      "ticker": "CSAN",
+      "type": "6-K",
+      "date": "2026-08-18",
+      "filing_date": "2026-08-18"
+    },
+    {
+      "ticker": "CCCT",
+      "type": "10-Q",
+      "date": "2026-06-30",
+      "filing_date": "2026-08-18"
+    },
+    {
+      "ticker": "MRCY",
+      "type": "10-K",
+      "date": "2026-07-03",
+      "filing_date": "2026-08-18"
+    },
+    {
+      "ticker": "KSS",
+      "type": "8-K",
+      "date": "2026-08-18",
+      "filing_date": "2026-08-18",
+      "sections": [
+        "Item 8.01 Dividend Declaration $0.125",
+        "Item 9.01 Exhibits"
+      ]
+    },
+    {
+      "ticker": "CLGN",
+      "type": "6-K",
+      "date": "2026-08-18",
+      "filing_date": "2026-08-18"
+    },
+    {
+      "ticker": "BSBR",
+      "type": "6-K",
+      "date": "2026-09-30",
+      "filing_date": "2026-08-18"
+    },
+    {
+      "ticker": "OWL",
+      "type": "8-K",
+      "date": "2026-08-18",
+      "filing_date": "2026-08-18",
+      "sections": [
+        "Item 1.01 Material Definitive Agreement",
+        "Item 2.03 Direct Financial Obligation",
+        "Item 8.01 Underwriting Agreement"
+      ]
+    },
+    {
+      "ticker": "POLA",
+      "type": "10-Q",
+      "date": "2026-06-30",
+      "filing_date": "2026-08-18"
+    },
+    {
+      "ticker": "BAOS",
+      "type": "6-K",
+      "date": "2026-08-18",
+      "filing_date": "2026-08-18"
+    },
+    {
+      "ticker": "AAUC",
+      "type": "6-K",
+      "date": "2026-08-18",
+      "filing_date": "2026-08-18"
+    },
+    {
+      "ticker": "AUNA",
+      "type": "6-K",
+      "date": "2026-08-18",
+      "filing_date": "2026-08-18"
+    },
+    {
+      "ticker": "HSCS",
+      "type": "8-K",
+      "date": "2026-08-12",
+      "filing_date": "2026-08-18",
+      "sections": [
+        "Item 1.01 Material Definitive Agreement",
+        "Item 3.02 Unregistered Sales of Equity"
+      ]
+    },
+    {
+      "ticker": "DFSC",
+      "type": "6-K",
+      "date": "2026-08-16",
+      "filing_date": "2026-08-18"
+    }
+  ],
+  "note": "SEC filings via AlphaCreek. Real filing data from EDGAR."
+}

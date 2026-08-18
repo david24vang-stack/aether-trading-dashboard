@@ -165,14 +165,16 @@
     {
       "name": "AlphaCreek",
       "source_id": "alphacreek",
-      "status": "PENDING_AUTH",
-      "type": "AI Trading \u2014 Algorithmic",
+      "status": "CONNECTED",
+      "type": "SEC Filings & Filing Intelligence",
       "capabilities": [
-        "Algorithmic trading signals",
-        "Market analysis",
-        "Strategy execution"
+        "Latest SEC filings",
+        "Filing table of contents",
+        "8-K/6-K event search",
+        "FCA NSM reports",
+        "Full filing content reading"
       ],
-      "symbols_supported": "Multi-asset",
+      "symbols_supported": "All SEC-registered companies",
       "paper_trading": true,
       "live_trading": true,
       "data_feed": true,
@@ -270,11 +272,11 @@
   ],
   "summary": {
     "total_providers": 14,
-    "connected": 8,
-    "pending_auth": 6,
+    "connected": 9,
+    "pending_auth": 5,
     "brokers": 4,
     "data_feeds": 9,
-    "research": 3,
+    "research": 4,
     "infrastructure": 2,
     "paper_trading_capable": 4,
     "live_trading_capable": 4
