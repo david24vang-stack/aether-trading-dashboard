@@ -1,0 +1,34 @@
+{
+  "name": "Aether V6 — Quantum Trading Intelligence",
+  "short_name": "Aether V6",
+  "description": "AI trading assistant with live market data, 23 dashboard tabs, auto-gen trade engine, TopStep evaluations, and quantum prediction models. All trades PAPER/SIMULATED.",
+  "start_url": "./v6_dashboard.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#0a0e17",
+  "theme_color": "#38bdf8",
+  "categories": ["finance", "productivity", "business"],
+  "icons": [
+    {
+      "src": "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTkyIiBoZWlnaHQ9IjE5MiIgdmlld0JveD0iMCAwIDE5MiAxOTIiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGNpcmNsZSBjeD0iOTYiIGN5PSI5NiIgcj0iODgiIHN0cm9rZT0iIzM4YmRmOCIgc3Ryb2tlLXdpZHRoPSI4IiBmaWxsPSJyZ2JhKDU2LDE4OSwyNDgsMC4xKSIvPjxwYXRoIGQ9Ik05NiA0OEwxMjggMTQwTDk2IDExNkw2NCAxNDBaIiBmaWxsPSIjMzhiZGY4Ii8+PC9zdmc+",
+      "sizes": "192x192",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNTEyIiBoZWlnaHQ9IjUxMiIgdmlld0JveD0iMCAwIDUxMiA1MTIiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGNpcmNsZSBjeD0iMjU2IiBjeT0iMjU2IiByPSIyMzQiIHN0cm9rZT0iIzM4YmRmOCIgc3Ryb2tlLXdpZHRoPSIxNiIgZmlsbD0icmdiYSg1NiwxODksMjQ4LDAuMSkiLz48cGF0aCBkPSJNMjU2IDEyOEwzMzYgMzc2TDI1NiAzMDhMMTc2IDM3NloiIGZpbGw9IiMzOGJkZjgiLz48L3N2Zz4=",
+      "sizes": "512x512",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTI4MCIgaGVpZ2h0PSI4MDAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHJlY3Qgd2lkdGg9IjEyODAiIGhlaWdodD0iODAwIiBmaWxsPSIjMGEwZTE3Ii8+PHRleHQgeD0iNjQwIiB5PSI0MDAiIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiBmb250LXNpemU9IjQ4IiBmaWxsPSIjMzhiZGY4IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj5BZXRoZXIgVjYgLSBRdWFudHVtIFRyYWRpbmcgSW50ZWxsaWdlbmNlPC90ZXh0Pjwvc3ZnPg==",
+      "sizes": "1280x800",
+      "type": "image/svg+xml",
+      "form_factor": "wide"
+    }
+  ]
+}
